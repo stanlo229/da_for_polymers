@@ -8,13 +8,12 @@ from matplotlib.offsetbox import AnchoredText
 import itertools
 from sklearn.metrics import mean_squared_error
 
-# OPV data after pre-processing
-OPV_CLEAN = pkg_resources.resource_filename(
-    "ml_for_opvs", "data/process/OPV_Min/master_ml_for_opvs_from_min.csv"
+PV_DATA = pkg_resources.resource_filename(
+    "opv_ml", "data/preprocess/PV_Wang/pv_exptresults.csv"
 )
 
 CORRELATION_PLOT = pkg_resources.resource_filename(
-    "ml_for_opvs", "data/exploration/OPV_Min/opv_correlation_plot.png"
+    "opv_ml", "data/exploration/PV_Wang/pv_correlation_plot.png"
 )
 
 
@@ -26,13 +25,13 @@ class Correlation:
     def __init__(self, data_path):
         self.data = pd.read_csv(data_path)
 
-    def parity_plot(self):
+    def parity_plot(self, columns_list_idx):
         """
         Function that plots the parity plots between each variable.
         NOTE: you must know the variable names beforehand
 
         Args:
-            None
+            columns_list_idx: select which columns you want to plot in the parity plot
 
         Returns:
             Parity plots of each relationship.
@@ -51,16 +50,23 @@ class Correlation:
 
         print(columns_dict)
         # select which columns you want to plot
-        column_idx_first = 9
-        column_idx_last = 27 + 1
+        x_columns = len(columns_list_idx)
+        y_rows = len(columns_list_idx)
 
-        x_columns = column_idx_last - column_idx_first
-        y_rows = column_idx_last - column_idx_first
+        # create column index dictionary (for subplot referencing)
+        column_idx_dict = {}
+        index = 0
+        for i in columns_list_idx:
+            column_idx_dict[i] = index
+            index += 1
 
-        column_range = range(column_idx_first, column_idx_last)
-        permutations = list(itertools.permutations(column_range, 2))
+        permutations = list(itertools.permutations(columns_list_idx, 2))
 
-        fig, axs = plt.subplots(y_rows, x_columns, figsize=(100, 100))
+        fig, axs = plt.subplots(
+            y_rows,
+            x_columns,
+            figsize=(len(columns_list_idx) * 8, len(columns_list_idx) * 8),
+        )
 
         for pair in permutations:
             column_idx_0 = pair[0]
@@ -83,19 +89,19 @@ class Correlation:
                 index += 1
 
             # subplot
-            x_axis_idx = column_idx_0 - column_idx_first
-            y_axis_idx = column_idx_1 - column_idx_first
+            x_axis_idx = column_idx_dict[column_idx_0]
+            y_axis_idx = column_idx_dict[column_idx_1]
             axs[x_axis_idx, y_axis_idx].scatter(
-                filtered_column_1, filtered_column_0, s=1
+                filtered_column_1, filtered_column_0, s=(20 / len(columns_list_idx))
             )
 
             # set xlabel and ylabel
             axs[x_axis_idx, y_axis_idx].set_xlabel(column_name_1)
             axs[x_axis_idx, y_axis_idx].set_ylabel(column_name_0)
 
-            # handle different data types (str, float)
-            if isinstance(filtered_column_0[0], float) and isinstance(
-                filtered_column_1[0], float
+            # handle different data types (str, float, int)
+            if not isinstance(filtered_column_0[0], str) and not isinstance(
+                filtered_column_1[0], str
             ):
                 # find slope and y-int of linear line of best fit
                 m, b = np.polyfit(filtered_column_1, filtered_column_0, 1,)
@@ -123,6 +129,6 @@ class Correlation:
         plt.savefig(CORRELATION_PLOT)
 
 
-corr_plot = Correlation(OPV_CLEAN)
-corr_plot.parity_plot()
+corr_plot = Correlation(PV_DATA)
+corr_plot.parity_plot([2, 3, 5, 6, 7, 8, 9, 10])
 

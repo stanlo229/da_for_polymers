@@ -4,13 +4,12 @@ import matplotlib.pyplot as plt
 import numpy as np
 from matplotlib.offsetbox import AnchoredText
 
-# OPV data after pre-processing
-OPV_CLEAN = pkg_resources.resource_filename(
-    "ml_for_opvs", "data/process/OPV_Min/master_ml_for_opvs_from_min.csv"
+CO2_DATA = pkg_resources.resource_filename(
+    "opv_ml", "data/preprocess/CO2_Soleimani/pv_exptresults.csv"
 )
 
-DISTRIBUTION_PLOT = pkg_resources.resource_filename(
-    "ml_for_opvs", "data/exploration/OPV_Min/opv_distribution_plot.png"
+CORRELATION_PLOT = pkg_resources.resource_filename(
+    "opv_ml", "data/exploration/CO2_Soleimani/co2_distribution_plot.png"
 )
 
 
@@ -24,13 +23,13 @@ class Distribution:
     def __init__(self, data):
         self.data = pd.read_csv(data)
 
-    def histogram(self):
+    def histogram(self, columns_list_idx):
         """
         Function that plots the histogram of all variables in the dataset
         NOTE: you must know the variable names beforehand
 
         Args:
-            None
+            columns_list_idx: select which columns you want to plot in the histogram
 
         Returns:
             Histogram plots of all the variables.
@@ -43,51 +42,79 @@ class Distribution:
             index += 1
 
         print(columns_dict)
-        # select which columns you want to plot in the histogram
-        column_idx_first = 9
-        column_idx_last = 27 + 1
 
         # prepares the correct number of (x,y) subplots
-        num_columns = column_idx_last - column_idx_first
+        num_columns = len(columns_list_idx)
         x_columns = round(np.sqrt(num_columns))
-        if x_columns == np.floor(np.sqrt(num_columns)):
+        if x_columns == np.sqrt(num_columns):
+            y_rows = x_columns
+        elif x_columns == np.floor(np.sqrt(num_columns)):
             y_rows = x_columns + 1
         elif x_columns == np.ceil(np.sqrt(num_columns)):
             y_rows = x_columns
         print(x_columns, y_rows)
 
-        fig, axs = plt.subplots(y_rows, x_columns, figsize=(y_rows * 3, x_columns * 4))
-        column_range = range(column_idx_first, column_idx_last)
-
-        x_idx = 0
-        y_idx = 0
-        for i in column_range:
-            current_column = columns[i]
+        if x_columns == 1:
+            fig, ax = plt.subplots(x_columns, figsize=(y_rows * 4, x_columns * 3))
+            fig.tight_layout()
+            current_column = columns[columns_list_idx[0]]
             current_val_list = self.data[current_column].tolist()
             current_val_list = [
                 item for item in current_val_list if not (pd.isnull(item)) == True
             ]
-            axs[y_idx, x_idx].set_title(current_column)
+            ax.set_title(current_column)
             if isinstance(current_val_list[0], str):
-                n, bins, patches = axs[y_idx, x_idx].hist(current_val_list, bins="auto")
+                n, bins, patches = ax.hist(current_val_list, bins="auto")
             elif isinstance(current_val_list[0], float):
-                n, bins, patches = axs[y_idx, x_idx].hist(current_val_list, bins=30)
+                n, bins, patches = ax.hist(current_val_list, bins=30)
             start = 0
             end = n.max()
             stepsize = end / 5
             y_ticks = list(np.arange(start, end, stepsize))
             y_ticks.append(end)
-            axs[y_idx, x_idx].yaxis.set_ticks(y_ticks)
+            ax.yaxis.set_ticks(y_ticks)
             total = "Total: " + str(len(current_val_list))
-            anchored_text = AnchoredText(total, loc="lower right")
-            axs[y_idx, x_idx].add_artist(anchored_text)
-            if isinstance(current_val_list[0], str):
-                axs[y_idx, x_idx].tick_params(axis="x", labelrotation=90)
-                axs[y_idx, x_idx].tick_params(axis="x", labelsize=6)
-            y_idx += 1
-            if y_idx == y_rows:
-                y_idx = 0
-                x_idx += 1
+            anchored_text = AnchoredText(total, loc="upper right")
+            ax.add_artist(anchored_text)
+            ax.set_xlabel(current_column)
+        else:
+            fig, axs = plt.subplots(
+                y_rows, x_columns, figsize=(y_rows * 3, x_columns * 4)
+            )
+
+            x_idx = 0
+            y_idx = 0
+            for i in columns_list_idx:
+                current_column = columns[i]
+                current_val_list = self.data[current_column].tolist()
+                current_val_list = [
+                    item for item in current_val_list if not (pd.isnull(item)) == True
+                ]
+                axs[y_idx, x_idx].set_title(current_column)
+                if isinstance(current_val_list[0], str):
+                    n, bins, patches = axs[y_idx, x_idx].hist(
+                        current_val_list, bins="auto"
+                    )
+                elif isinstance(current_val_list[0], float):
+                    n, bins, patches = axs[y_idx, x_idx].hist(current_val_list, bins=30)
+                else:
+                    n, bins, patches = axs[y_idx, x_idx].hist(current_val_list, bins=30)
+                start = 0
+                end = n.max()
+                stepsize = end / 5
+                y_ticks = list(np.arange(start, end, stepsize))
+                y_ticks.append(end)
+                axs[y_idx, x_idx].yaxis.set_ticks(y_ticks)
+                total = "Total: " + str(len(current_val_list))
+                anchored_text = AnchoredText(total, loc="upper right")
+                axs[y_idx, x_idx].add_artist(anchored_text)
+                if isinstance(current_val_list[0], str):
+                    axs[y_idx, x_idx].tick_params(axis="x", labelrotation=90)
+                    axs[y_idx, x_idx].tick_params(axis="x", labelsize=6)
+                y_idx += 1
+                if y_idx == y_rows:
+                    y_idx = 0
+                    x_idx += 1
 
         left = 0.125  # the left side of the subplots of the figure
         right = 0.9  # the right side of the subplots of the figure
@@ -99,6 +126,7 @@ class Distribution:
         plt.savefig(DISTRIBUTION_PLOT)
 
 
-dist = Distribution(OPV_CLEAN)
+dist = Distribution(PV_DATA)
 
-dist.histogram()
+# J, alpha are dependent variable
+dist.histogram([2, 3, 5, 6, 7, 8, 9, 10])
