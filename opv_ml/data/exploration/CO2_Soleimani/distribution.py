@@ -5,10 +5,10 @@ import numpy as np
 from matplotlib.offsetbox import AnchoredText
 
 CO2_DATA = pkg_resources.resource_filename(
-    "opv_ml", "data/preprocess/CO2_Soleimani/pv_exptresults.csv"
+    "opv_ml", "data/process/CO2_Soleimani/co2_expt_data.csv"
 )
 
-CORRELATION_PLOT = pkg_resources.resource_filename(
+DISTRIBUTION_PLOT = pkg_resources.resource_filename(
     "opv_ml", "data/exploration/CO2_Soleimani/co2_distribution_plot.png"
 )
 
@@ -126,7 +126,7 @@ class Distribution:
         plt.savefig(DISTRIBUTION_PLOT)
 
 
-dist = Distribution(PV_DATA)
+dist = Distribution(CO2_DATA)
 
 # J, alpha are dependent variable
-dist.histogram([2, 3, 5, 6, 7, 8, 9, 10])
+dist.histogram([1, 2, 3, 4])

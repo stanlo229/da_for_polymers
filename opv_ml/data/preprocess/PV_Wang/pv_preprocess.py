@@ -89,12 +89,12 @@ class Pervaporation:
 
     def smi2selfies(self, pv_expt_path):
         """
-        Function that will match Species Label to appropriate SMILES to the Experimental CSV
+        Function that will convert SMILES to SELFIES
         Args:
-            ps_expt_path: path to data with experimental results from Polymer Swelling paper
+            pv_expt_path: path to data with experimental results from Polymer Swelling paper
 
         Returns:
-            ps_exptresults.csv will have SELFIES
+            pv_exptresults.csv will have SELFIES
         """
         # initialize polymer swelling dataframe
         self.data["Polymer_SELFIES"] = ""

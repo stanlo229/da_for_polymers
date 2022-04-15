@@ -9,7 +9,7 @@ import itertools
 from sklearn.metrics import mean_squared_error
 
 CO2_DATA = pkg_resources.resource_filename(
-    "opv_ml", "data/preprocess/CO2_Soleimani/pv_exptresults.csv"
+    "opv_ml", "data/process/CO2_Soleimani/co2_expt_data.csv"
 )
 
 CORRELATION_PLOT = pkg_resources.resource_filename(
@@ -129,6 +129,6 @@ class Correlation:
         plt.savefig(CORRELATION_PLOT)
 
 
-corr_plot = Correlation(PV_DATA)
-corr_plot.parity_plot([2, 3, 5, 6, 7, 8, 9, 10])
+corr_plot = Correlation(CO2_DATA)
+corr_plot.parity_plot([1, 2, 3, 4])
 
