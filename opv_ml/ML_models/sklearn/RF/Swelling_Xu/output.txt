@@ -1,0 +1,56 @@
+OUTER SEED: 101, INNER SEED: 1
+RADIUS: 3 NBITS: 512
+KFOLD_IDX:  1
+>corr_coef=0.157, rmse=0.224, est=-0.034, cfg=OrderedDict([('max_depth', 15), ('min_samples_leaf', 1), ('min_samples_split', 4), ('n_estimators', 1500)])
+KFOLD_IDX:  2
+>corr_coef=0.499, rmse=0.203, est=-0.033, cfg=OrderedDict([('max_depth', 14), ('min_samples_leaf', 6), ('min_samples_split', 3), ('n_estimators', 50)])
+KFOLD_IDX:  3
+>corr_coef=0.935, rmse=0.097, est=-0.043, cfg=OrderedDict([('max_depth', 5), ('min_samples_leaf', 6), ('min_samples_split', 2), ('n_estimators', 50)])
+KFOLD_IDX:  4
+>corr_coef=0.335, rmse=0.175, est=-0.045, cfg=OrderedDict([('max_depth', 8), ('min_samples_leaf', 3), ('min_samples_split', 2), ('n_estimators', 900)])
+KFOLD_IDX:  5
+>corr_coef=0.552, rmse=0.180, est=-0.036, cfg=OrderedDict([('max_depth', 15), ('min_samples_leaf', 1), ('min_samples_split', 4), ('n_estimators', 50)])
+KFOLD_IDX:  6
+>corr_coef=0.334, rmse=0.257, est=-0.027, cfg=OrderedDict([('max_depth', 15), ('min_samples_leaf', 2), ('min_samples_split', 2), ('n_estimators', 800)])
+KFOLD_IDX:  7
+>corr_coef=0.854, rmse=0.095, est=-0.034, cfg=OrderedDict([('max_depth', 9), ('min_samples_leaf', 1), ('min_samples_split', 2), ('n_estimators', 50)])
+R: 0.524 (0.263)   
+RMSE: 0.176 (0.056)
+
+OUTER SEED: 1, INNER SEED: 101
+RADIUS: 3 NBITS: 512
+KFOLD_IDX:  1
+>corr_coef=0.633, rmse=0.100, est=-0.045, cfg=OrderedDict([('max_depth', 15), ('min_samples_leaf', 1), ('min_samples_split', 2), ('n_estimators', 50)])
+KFOLD_IDX:  2
+>corr_coef=0.474, rmse=0.217, est=-0.028, cfg=OrderedDict([('max_depth', 15), ('min_samples_leaf', 3), ('min_samples_split', 4), ('n_estimators', 50)])
+KFOLD_IDX:  3
+>corr_coef=0.247, rmse=0.200, est=-0.026, cfg=OrderedDict([('max_depth', 15), ('min_samples_leaf', 1), ('min_samples_split', 4), ('n_estimators', 800)])
+KFOLD_IDX:  4
+>corr_coef=0.120, rmse=0.208, est=-0.029, cfg=OrderedDict([('max_depth', 8), ('min_samples_leaf', 1), ('min_samples_split', 2), ('n_estimators', 100)])
+KFOLD_IDX:  5
+>corr_coef=0.867, rmse=0.103, est=-0.032, cfg=OrderedDict([('max_depth', 15), ('min_samples_leaf', 2), ('min_samples_split', 2), ('n_estimators', 50)])
+KFOLD_IDX:  6
+>corr_coef=0.939, rmse=0.078, est=-0.031, cfg=OrderedDict([('max_depth', 5), ('min_samples_leaf', 4), ('min_samples_split', 2), ('n_estimators', 50)])
+KFOLD_IDX:  7
+>corr_coef=0.614, rmse=0.239, est=-0.026, cfg=OrderedDict([('max_depth', 15), ('min_samples_leaf', 1), ('min_samples_split', 2), ('n_estimators', 100)])
+R: 0.556 (0.279)
+RMSE: 0.163 (0.062)
+
+OUTER SEED: 0, INNER SEED: 1
+RADIUS: 3 NBITS: 512
+KFOLD_IDX:  1
+>corr_coef=0.852, rmse=0.131, est=-0.038, cfg=OrderedDict([('max_depth', 6), ('min_samples_leaf', 1), ('min_samples_split', 4), ('n_estimators', 900)])
+KFOLD_IDX:  2
+>corr_coef=0.325, rmse=0.218, est=-0.034, cfg=OrderedDict([('max_depth', 13), ('min_samples_leaf', 1), ('min_samples_split', 2), ('n_estimators', 1500)])
+KFOLD_IDX:  3
+>corr_coef=0.938, rmse=0.078, est=-0.046, cfg=OrderedDict([('max_depth', 5), ('min_samples_leaf', 6), ('min_samples_split', 2), ('n_estimators', 50)])
+KFOLD_IDX:  4
+>corr_coef=0.531, rmse=0.152, est=-0.036, cfg=OrderedDict([('max_depth', 13), ('min_samples_leaf', 1), ('min_samples_split', 2), ('n_estimators', 1200)])
+KFOLD_IDX:  5
+>corr_coef=0.565, rmse=0.132, est=-0.035, cfg=OrderedDict([('max_depth', 5), ('min_samples_leaf', 5), ('min_samples_split', 2), ('n_estimators', 50)])
+KFOLD_IDX:  6
+>corr_coef=0.286, rmse=0.261, est=-0.028, cfg=OrderedDict([('max_depth', 15), ('min_samples_leaf', 1), ('min_samples_split', 2), ('n_estimators', 50)])
+KFOLD_IDX:  7
+>corr_coef=0.491, rmse=0.192, est=-0.040, cfg=OrderedDict([('max_depth', 15), ('min_samples_leaf', 1), ('min_samples_split', 4), ('n_estimators', 900)])
+R: 0.570 (0.228)
+RMSE: 0.166 (0.057)

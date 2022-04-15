@@ -1,0 +1,97 @@
+wandb_version: 1
+
+_wandb:
+  desc: null
+  value:
+    cli_version: 0.12.10
+    framework: huggingface
+    huggingface_version: 4.16.2
+    is_jupyter_run: false
+    is_kaggle_kernel: false
+    m:
+    - 1: trainer/global_step
+      6:
+      - 3
+    python_version: 3.8.10
+    start_time: 1646104400
+    t:
+      1:
+      - 1
+      - 5
+      - 9
+      - 11
+      2:
+      - 1
+      - 5
+      - 9
+      - 11
+      3:
+      - 4
+      - 7
+      - 16
+      - 24
+      4: 3.8.10
+      5: 0.12.10
+      6: 4.16.2
+      8:
+      - 5
+accelerator:
+  desc: null
+  value: dp
+callbacks:
+  desc: null
+  value: false
+dataloader_num_workers:
+  desc: null
+  value: 3
+dataset_size:
+  desc: null
+  value: 77
+direction_bool:
+  desc: null
+  value: false
+drop_prob:
+  desc: null
+  value: 0.3
+enable_progress_bar:
+  desc: null
+  value: false
+gpus:
+  desc: null
+  value: -1
+learning_rate:
+  desc: null
+  value: 0.01
+log_every_n_steps:
+  desc: null
+  value: 50
+logger:
+  desc: null
+  value: <pytorch_lightning.loggers.wandb.WandbLogger object at 0x1551ccdea8e0>
+max_epochs:
+  desc: null
+  value: 500
+n_embedding:
+  desc: null
+  value: 256
+n_hidden:
+  desc: null
+  value: 256
+n_layers:
+  desc: null
+  value: 1
+n_output:
+  desc: null
+  value: 1
+output_size:
+  desc: null
+  value: 1
+test_batch_size:
+  desc: null
+  value: 64
+train_batch_size:
+  desc: null
+  value: 256
+val_batch_size:
+  desc: null
+  value: 32
