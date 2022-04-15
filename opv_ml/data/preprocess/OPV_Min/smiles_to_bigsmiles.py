@@ -3,15 +3,15 @@ from rdkit import Chem
 import pandas as pd
 
 CLEAN_DONOR_CSV = pkg_resources.resource_filename(
-    "opv_ml", "data/preprocess/OPV_Min/clean_min_donors.csv"
+    "ml_for_opvs", "data/preprocess/OPV_Min/clean_min_donors.csv"
 )
 
 CLEAN_ACCEPTOR_CSV = pkg_resources.resource_filename(
-    "opv_ml", "data/preprocess/OPV_Min/clean_min_acceptors.csv"
+    "ml_for_opvs", "data/preprocess/OPV_Min/clean_min_acceptors.csv"
 )
 
 CATALYSIS_MASTER = pkg_resources.resource_filename(
-    "opv_ml", "data/process/Catalysis_Hein/catalysis_master.csv"
+    "ml_for_opvs", "data/process/Catalysis_Hein/catalysis_master.csv"
 )
 
 
@@ -113,5 +113,5 @@ def cata_smile_to_bigsmile(catalysis_data):
     cata_df.to_csv(catalysis_data, index=False)
 
 
-# smile_to_bigsmile(CLEAN_DONOR_CSV, CLEAN_ACCEPTOR_CSV)
-cata_smile_to_bigsmile(CATALYSIS_MASTER)
+smile_to_bigsmile(CLEAN_DONOR_CSV, CLEAN_ACCEPTOR_CSV)
+# cata_smile_to_bigsmile(CATALYSIS_MASTER)

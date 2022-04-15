@@ -3,15 +3,15 @@ import pkg_resources
 import pandas as pd
 
 CLEAN_DONOR_CSV = pkg_resources.resource_filename(
-    "opv_ml", "data/preprocess/OPV_Min/clean_min_donors.csv"
+    "ml_for_opvs", "data/preprocess/OPV_Min/clean_min_donors.csv"
 )
 
 CLEAN_ACCEPTOR_CSV = pkg_resources.resource_filename(
-    "opv_ml", "data/preprocess/OPV_Min/clean_min_acceptors.csv"
+    "ml_for_opvs", "data/preprocess/OPV_Min/clean_min_acceptors.csv"
 )
 
 CATALYSIS_MASTER = pkg_resources.resource_filename(
-    "opv_ml", "data/process/Catalysis_Hein/catalysis_master.csv"
+    "ml_for_opvs", "data/process/Catalysis_Hein/catalysis_master.csv"
 )
 
 
@@ -61,7 +61,7 @@ def catalysis_smiles_to_selfies(catalysis_data):
     catalysis_df.to_csv(catalysis_data, index=False)
 
 
-# opv_smiles_to_selfies(CLEAN_DONOR_CSV, CLEAN_ACCEPTOR_CSV)
+opv_smiles_to_selfies(CLEAN_DONOR_CSV, CLEAN_ACCEPTOR_CSV)
 
 # smi = "[R7]OC(=O)c1cc(-c2cc(C(=O)O[R7])c(-c3ccc(C)s3)s2)sc1-c1ccc(C)s1"
 # selfie = sf.encoder(smi)
