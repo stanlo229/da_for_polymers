@@ -225,7 +225,7 @@ class manual_frag:
 
         manual_df = pd.read_csv(pv_expt_path)
         manual_df["Polymer_BigSMILES"] = ""
-        manual_df["Mixture_BigSMILES"] = ""
+        manual_df["Solvent_BigSMILES"] = ""
         manual_df["PM_manual_tokenized"] = ""
         manual_df["MP_manual_tokenized"] = ""
         manual_df["PM_manual_tokenized_aug"] = ""
@@ -236,7 +236,7 @@ class manual_frag:
         max_seq_length = 0
         for i in range(len(manual_df)):
             polymer_label = manual_df.at[i, "Polymer"]
-            mixture_label = manual_df.at[i, "Mixture"]
+            mixture_label = manual_df.at[i, "Solvent"]
             polymer_frags = list(
                 ast.literal_eval(
                     self.pv_inventory.at[inventory_dict[polymer_label], "Fragments"]
@@ -258,7 +258,7 @@ class manual_frag:
 
         for i in range(len(manual_df)):
             polymer_label = manual_df.at[i, "Polymer"]
-            mixture_label = manual_df.at[i, "Mixture"]
+            mixture_label = manual_df.at[i, "Solvent"]
             polymer_frags = list(
                 ast.literal_eval(
                     self.pv_inventory.at[inventory_dict[polymer_label], "Fragments"]
@@ -322,7 +322,7 @@ class manual_frag:
             manual_df.at[i, "Polymer_BigSMILES"] = self.pv_inventory.at[
                 inventory_dict[polymer_label], "Polymer_BigSMILES"
             ]
-            manual_df.at[i, "Mixture_BigSMILES"] = self.pv_inventory.at[
+            manual_df.at[i, "Solvent_BigSMILES"] = self.pv_inventory.at[
                 inventory_dict[mixture_label], "Polymer_BigSMILES"
             ]
             manual_df.at[i, "PM_manual_tokenized"] = pm_pair_tokenized

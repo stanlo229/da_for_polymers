@@ -108,27 +108,42 @@ class BRIC_FRAGS:
             columns=[
                 "Polymer",
                 "Polymer_SMILES",
-                "Mixture",
-                "Mixture_SMILES",
-                "J",
+                "Solvent",
+                "Solvent_SMILES",
+                "Contact_angle",
+                "Thickness",
+                "Solvent_solubility_parameter",
+                "xw_(wt%)",
+                "Temperature",
+                "Permeate_pressure",
+                "J_total_flux",
+                "a_separation_factor",
                 "Polymer_BRICS",
-                "Mixture_BRICS",
-                "PM_pair_BRICS",
-                "PM_tokenized_BRICS",
-                "MP_tokenized_BRICS",
+                "Solvent_BRICS",
+                "PS_pair_BRICS",
+                "PS_tokenized_BRICS",
             ]
         )
         brics_df["Polymer"] = self.data["Polymer"]
         brics_df["Polymer_SMILES"] = self.data["Polymer_SMILES"]
-        brics_df["Mixture"] = self.data["Mixture"]
-        brics_df["Mixture_SMILES"] = self.data["Mixture_SMILES"]
-        brics_df["SD"] = self.data["SD"]
+        brics_df["Solvent"] = self.data["Solvent"]
+        brics_df["Solvent_SMILES"] = self.data["Solvent_SMILES"]
+        brics_df["Contact_angle"] = self.data["Contact_angle"]
+        brics_df["Thickness"] = self.data["Thickness_(um)"]
+        brics_df["Solvent_solubility_parameter"] = self.data[
+            "Solvent_solubility_parameter_(MPa1/2)"
+        ]
+        brics_df["xw_(wt%)"] = self.data["xw_(wt%)"]
+        brics_df["Temperature"] = self.data["Temperature_(C)"]
+        brics_df["Permeate_pressure"] = self.data["Permeate_pressure_(mbar)"]
+        brics_df["J_total_flux"] = self.data["J_Total_flux_(kg/m-2h-1)"]
+        brics_df["a_separation_factor"] = self.data["a_Separation_factor_(w/o)"]
 
         # Iterate through row and fragment using BRICS
         # to get polymer_BRICS, solvent_BRICS, and DA_pair_BRICS
         for index, row in brics_df.iterrows():
             polymer_smi = brics_df.at[index, "Polymer_SMILES"]
-            solvent_smi = brics_df.at[index, "Mixture_SMILES"]
+            solvent_smi = brics_df.at[index, "Solvent_SMILES"]
             polymer_mol = Chem.MolFromSmiles(polymer_smi)
             solvent_mol = Chem.MolFromSmiles(solvent_smi)
             polymer_brics = list(BRICS.BRICSDecompose(polymer_mol, returnMols=True))
@@ -144,7 +159,7 @@ class BRIC_FRAGS:
 
             brics_df.at[index, "Polymer_BRICS"] = polymer_brics_smi
             print(polymer_smi, polymer_brics_smi)
-            brics_df.at[index, "Mixture_BRICS"] = solvent_brics_smi
+            brics_df.at[index, "Solvent_BRICS"] = solvent_brics_smi
             # ps_pair fragments
             ps_pair = polymer_brics_smi
             ps_pair.append(".")

@@ -32,7 +32,7 @@ class Pervaporation:
 
     def smi_match(self, pv_expt_path):
         """
-        Function that will match Polymer and Mixture Label to appropriate SMILES to the Experimental CSV
+        Function that will match Polymer and Solvent Label to appropriate SMILES to the Experimental CSV
         Args:
             pv_expt_path: path to data with experimental results from Polymer Swelling paper
 
@@ -49,12 +49,12 @@ class Pervaporation:
 
         # iterate through experimental data and input SMILES for polymer and mixture(solvent)
         self.data["Polymer_SMILES"] = ""
-        self.data["Mixture_SMILES"] = ""
+        self.data["Solvent_SMILES"] = ""
         for index, row in self.data.iterrows():
             polymer = self.data.at[index, "Polymer"]
-            mixture = self.data.at[index, "Mixture"]
+            mixture = self.data.at[index, "Solvent"]
             self.data.at[index, "Polymer_SMILES"] = pv_dict[polymer]
-            self.data.at[index, "Mixture_SMILES"] = pv_dict[mixture]
+            self.data.at[index, "Solvent_SMILES"] = pv_dict[mixture]
 
         self.data.to_csv(pv_expt_path, index=False)
 
@@ -79,7 +79,7 @@ class Pervaporation:
         self.data["Sum_of_frags"] = ""
         for index, row in self.data.iterrows():
             polymer = self.data.at[index, "Polymer"]
-            mixture = self.data.at[index, "Mixture_(w/o)"]
+            mixture = self.data.at[index, "Solvent_(w/o)"]
             polymer_frags = pv_dict[polymer]
             mixture_frags = pv_dict[mixture]
             sum_of_frags = [x + y for x, y in zip(polymer_frags, mixture_frags)]
@@ -98,12 +98,12 @@ class Pervaporation:
         """
         # initialize polymer swelling dataframe
         self.data["Polymer_SELFIES"] = ""
-        self.data["Mixture_SELFIES"] = ""
+        self.data["Solvent_SELFIES"] = ""
         for index, row in self.data.iterrows():
             polymer_selfies = sf.encoder(row["Polymer_SMILES"])
-            mixture_selfies = sf.encoder(row["Mixture_SMILES"])
+            mixture_selfies = sf.encoder(row["Solvent_SMILES"])
             self.data.at[index, "Polymer_SELFIES"] = polymer_selfies
-            self.data.at[index, "Mixture_SELFIES"] = mixture_selfies
+            self.data.at[index, "Solvent_SELFIES"] = mixture_selfies
 
         self.data.to_csv(pv_expt_path, index=False)
 

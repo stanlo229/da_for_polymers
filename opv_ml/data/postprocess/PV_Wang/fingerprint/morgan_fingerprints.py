@@ -64,7 +64,7 @@ class fp_data:
             pm_pair = (
                 fp_df.at[index, "Polymer_SMILES"]
                 + "."
-                + fp_df.at[index, "Mixture_SMILES"]
+                + fp_df.at[index, "Solvent_SMILES"]
             )
             pm_pair_mol = Chem.MolFromSmiles(pm_pair)
             bitvector_pm = AllChem.GetMorganFingerprintAsBitVect(
@@ -80,7 +80,7 @@ class fp_data:
         fp_df[new_column_mp_pair] = " "
         for index, row in fp_df.iterrows():
             mp_pair = (
-                fp_df.at[index, "Mixture_SMILES"]
+                fp_df.at[index, "Solvent_SMILES"]
                 + "."
                 + fp_df.at[index, "Polymer_SMILES"]
             )
