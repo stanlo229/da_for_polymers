@@ -8,20 +8,20 @@ import copy
 from collections import deque
 from IPython.display import display
 
-PV_INVENTORY = pkg_resources.resource_filename(
-    "opv_ml", "data/preprocess/PV_Wang/pv_inventory.csv"
+CO2_INVENTORY = pkg_resources.resource_filename(
+    "opv_ml", "data/preprocess/CO2_Soleimani/co2_solubility_inventory.csv"
 )
 
-PV_EXPT_RESULT = pkg_resources.resource_filename(
-    "opv_ml", "data/preprocess/PV_Wang/pv_exptresults.csv"
+CO2_EXPT_RESULT = pkg_resources.resource_filename(
+    "opv_ml", "data/preprocess/CO2_Soleimani/co2_solubility_data.csv"
 )
 
 MASTER_MANUAL_DATA = pkg_resources.resource_filename(
-    "opv_ml", "data/postprocess/PV_Wang/manual_frag/master_manual_frag.csv"
+    "opv_ml", "data/postprocess/CO2_Soleimani/manual_frag/master_manual_frag.csv"
 )
 
 IMG_PATH = pkg_resources.resource_filename(
-    "opv_ml", "data/postprocess/PV_Wang/manual_frag/"
+    "opv_ml", "data/postprocess/CO2_Soleimani/manual_frag/"
 )
 
 

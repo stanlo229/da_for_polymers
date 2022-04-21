@@ -5,12 +5,12 @@ import pkg_resources
 import pandas as pd
 import numpy as np
 
-PV_MASTER = pkg_resources.resource_filename(
-    "opv_ml", "data/postprocess/PV_Wang/manual_frag/master_manual_frag.csv"
+CO2_MASTER = pkg_resources.resource_filename(
+    "opv_ml", "data/postprocess/CO2_Soleimani/manual_frag/master_manual_frag.csv"
 )
 
-FP_PV = pkg_resources.resource_filename(
-    "opv_ml", "data/postprocess/PV_Wang/fingerprint/pv_fingerprint.csv"
+FP_CO2 = pkg_resources.resource_filename(
+    "opv_ml", "data/postprocess/CO2_Soleimani/fingerprint/co2_fingerprint.csv"
 )
 
 np.set_printoptions(threshold=np.inf)

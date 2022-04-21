@@ -12,11 +12,11 @@ import copy
 import ast
 
 MASTER_MANUAL_DATA = pkg_resources.resource_filename(
-    "opv_ml", "data/postprocess/PV_Wang/manual_frag/master_manual_frag.csv"
+    "opv_ml", "data/postprocess/CO2_Soleimani/manual_frag/master_manual_frag.csv"
 )
 
 BRICS_FRAG_DATA = pkg_resources.resource_filename(
-    "opv_ml", "data/postprocess/PV_Wang/BRICS/master_brics_frag.csv"
+    "opv_ml", "data/postprocess/CO2_Soleimani/BRICS/master_brics_frag.csv"
 )
 
 
