@@ -7,16 +7,15 @@ from rdkit import Chem
 
 from opv_ml.ML_models.sklearn.data.Swelling_Xu.tokenizer import Tokenizer
 
-PV_MASTER = pkg_resources.resource_filename(
-    "opv_ml", "data/postprocess/PV_Wang/manual_frag/master_manual_frag.csv"
+CO2_MASTER = pkg_resources.resource_filename(
+    "opv_ml", "data/postprocess/CO2_Soleimani/manual_frag/master_manual_frag.csv"
 )
 
 AUGMENT_SMILES_DATA = pkg_resources.resource_filename(
-    "opv_ml", "data/postprocess/PV_Wang/augmentation/train_aug_master.csv"
+    "opv_ml", "data/postprocess/CO2_Soleimani/augmentation/train_aug_master.csv"
 )
 
 SEED_VAL = 4
-
 random.seed(SEED_VAL)
 
 
