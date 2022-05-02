@@ -5,12 +5,12 @@ import numpy as np
 from matplotlib.offsetbox import AnchoredText
 
 # OPV data after pre-processing
-OPV_CLEAN = pkg_resources.resource_filename(
-    "ml_for_opvs", "data/process/OPV_Min/master_ml_for_opvs_from_min.csv"
+MASTER_ML_DATA_PLOT = pkg_resources.resource_filename(
+    "ml_for_opvs", "data/process/OPV_Min/master_ml_for_opvs_from_min_for_plotting.csv"
 )
 
 DISTRIBUTION_PLOT = pkg_resources.resource_filename(
-    "ml_for_opvs", "data/exploration/OPV_Min/opv_distribution_plot.png"
+    "ml_for_opvs", "data/exploration/OPV_Min/distribution_plot.png"
 )
 
 
@@ -45,7 +45,7 @@ class Distribution:
         print(columns_dict)
         # select which columns you want to plot in the histogram
         column_idx_first = 9
-        column_idx_last = 27 + 1
+        column_idx_last = 28 + 1
 
         # prepares the correct number of (x,y) subplots
         num_columns = column_idx_last - column_idx_first
@@ -99,6 +99,6 @@ class Distribution:
         plt.savefig(DISTRIBUTION_PLOT)
 
 
-dist = Distribution(OPV_CLEAN)
+dist = Distribution(MASTER_ML_DATA_PLOT)
 
 dist.histogram()
