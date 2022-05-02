@@ -1,14 +1,14 @@
-﻿Polymer,Name,SMILES
-PS,polystyrene,CCC(C)c1ccccc1
-PBS,poly(butylene succinate),COCCCCOC(=O)CCC(C)=O
-PBSA,poly(butylene succinate-co-adipate),COCCCCOC(=O)CCCCC(=O)OCCCCOC(=O)CCC(C)=O
-CPE55,carboxylated polyester-55,C1=CC(=CC(=C1)C(=O)O)C(=O)O.C1=CC(=CC=C1C(=O)O)C(=O)O.C(CCC(=O)O)CC(=O)O.C(CO)O.CC(C)(CO)CO.CCC(CO)(CO)CO
-CPE60,carboxylated polyester-60,C1=CC(=CC(=C1)C(=O)O)C(=O)O.C1=CC(=CC=C1C(=O)O)C(=O)O.C(CCC(=O)O)CC(=O)O.CC(C)(CO)CO.CCC(CO)(CO)CO
-CPE67,carboxylated polyester-67,C1=CC(=CC(=C1)C(=O)O)C(=O)O.C1=CC(=CC=C1C(=O)O)C(=O)O.C(CCC(=O)O)CC(=O)O.C(CO)O.CC(C)(CO)CO.CCC(CO)(CO)CO
-PVAc,poly(vinyl acetate),CCC(C)OC(C)=O
-PP,polypropylene,CCC(C)C
-PPO(H),"high-molecular-weight poly(2,6-dimethyl1,4-phenylene ether)",COc1c(C)cc(C)cc1C
-PPO(L),"low-molecular-weight poly(2,6-dimethyl1,4-phenylene ether)",COc1c(C)cc(C)cc1C
-HDPE,high-density polyethylene,CCCC
-PLLA,poly(L-lactide),COC(=O)[C@H](C)C
-PLGA,"poly(D,L-lactide-co-glycolide)",COC(=O)COC(=O)C(C)C
+Polymer,Name,SMILES,Fragments,Polymer_BigSMILES
+PS,polystyrene,CCC(C)c1ccccc1,['CCC(C)c1ccccc1'],CCC(C)c1ccccc1
+PBS,poly(butylene succinate),COCCCCOC(=O)CCC(C)=O,"['CO', 'C', 'C', 'C', 'C', 'O', 'C=O', 'C', 'C', 'C=O', 'C']",{[][<]CO[>][<]}{[>][<]C[>][<]}{[>][<]C[>][<]}{[>][<]C[>][<]}{[>][<]C[>][<]}{[>][<]O[>][<]}{[>][<]C=O[>][<]}{[>][<]C[>][<]}{[>][<]C[>][<]}{[>][<]C=O[>][<]}{[>][<]C[>][]}
+PBSA,poly(butylene succinate-co-adipate),COCCCCOC(=O)CCCCC(=O)OCCCCOC(=O)CCC(C)=O,"['CO', 'C', 'C', 'C', 'C', 'O', 'C=O', 'C', 'C', 'C', 'C', 'C=O', 'O', 'C', 'C', 'C', 'C', 'O', 'C=O', 'C', 'C', 'C=O', 'C']",{[][<]CO[>][<]}{[>][<]C[>][<]}{[>][<]C[>][<]}{[>][<]C[>][<]}{[>][<]C[>][<]}{[>][<]O[>][<]}{[>][<]C=O[>][<]}{[>][<]C[>][<]}{[>][<]C[>][<]}{[>][<]C[>][<]}{[>][<]C[>][<]}{[>][<]C=O[>][<]}{[>][<]O[>][<]}{[>][<]C[>][<]}{[>][<]C[>][<]}{[>][<]C[>][<]}{[>][<]C[>][<]}{[>][<]O[>][<]}{[>][<]C=O[>][<]}{[>][<]C[>][<]}{[>][<]C[>][<]}{[>][<]C=O[>][<]}{[>][<]C[>][]}
+CPE55,carboxylated polyester-55,C1=CC(=CC(=C1)C(=O)O)C(=O)O.C1=CC(=CC=C1C(=O)O)C(=O)O.C(CCC(=O)O)CC(=O)O.C(CO)O.CC(C)(CO)CO.CCC(CO)(CO)CO,"['CC(C)(CO)CO', 'CCC(CO)(CO)CO', 'O=C(O)CCCCC(=O)O', 'O=C(O)c1ccc(C(=O)O)cc1', 'O=C(O)c1cccc(C(=O)O)c1', 'OCCO']",{[][<]CC(C)(CO)CO[>][<]}{[>][<]CCC(CO)(CO)CO[>][<]}{[>][<]O=C(O)CCCCC(=O)O[>][<]}{[>][<]O=C(O)c1ccc(C(=O)O)cc1[>][<]}{[>][<]O=C(O)c1cccc(C(=O)O)c1[>][<]}{[>][<]OCCO[>][]}
+CPE60,carboxylated polyester-60,C1=CC(=CC(=C1)C(=O)O)C(=O)O.C1=CC(=CC=C1C(=O)O)C(=O)O.C(CCC(=O)O)CC(=O)O.CC(C)(CO)CO.CCC(CO)(CO)CO,"['CC(C)(CO)CO', 'CCC(CO)(CO)CO', 'O=C(O)CCCCC(=O)O', 'O=C(O)c1ccc(C(=O)O)cc1', 'O=C(O)c1cccc(C(=O)O)c1']",{[][<]CC(C)(CO)CO[>][<]}{[>][<]CCC(CO)(CO)CO[>][<]}{[>][<]O=C(O)CCCCC(=O)O[>][<]}{[>][<]O=C(O)c1ccc(C(=O)O)cc1[>][<]}{[>][<]O=C(O)c1cccc(C(=O)O)c1[>][]}
+CPE67,carboxylated polyester-67,C1=CC(=CC(=C1)C(=O)O)C(=O)O.C1=CC(=CC=C1C(=O)O)C(=O)O.C(CCC(=O)O)CC(=O)O.C(CO)O.CC(C)(CO)CO.CCC(CO)(CO)CO,"['CC(C)(CO)CO', 'CCC(CO)(CO)CO', 'O=C(O)CCCCC(=O)O', 'O=C(O)c1ccc(C(=O)O)cc1', 'O=C(O)c1cccc(C(=O)O)c1', 'OCCO']",{[][<]CC(C)(CO)CO[>][<]}{[>][<]CCC(CO)(CO)CO[>][<]}{[>][<]O=C(O)CCCCC(=O)O[>][<]}{[>][<]O=C(O)c1ccc(C(=O)O)cc1[>][<]}{[>][<]O=C(O)c1cccc(C(=O)O)c1[>][<]}{[>][<]OCCO[>][]}
+PVAc,poly(vinyl acetate),CCC(C)OC(C)=O,"['CC', 'CCOC(C)=O']",{[][<]CC[>][<]}{[>][<]CCOC(C)=O[>][]}
+PP,polypropylene,CCC(C)C,"['CC', 'CCC']",{[][<]CC[>][<]}{[>][<]CCC[>][]}
+PPO(H),"high-molecular-weight poly(2,6-dimethyl1,4-phenylene ether)",COc1c(C)cc(C)cc1C,"['CO', 'Cc1cc(C)cc(C)c1']",{[][<]CO[>][<]}{[>][<]Cc1cc(C)cc(C)c1[>][]}
+PPO(L),"low-molecular-weight poly(2,6-dimethyl1,4-phenylene ether)",COc1c(C)cc(C)cc1C,"['CO', 'Cc1cc(C)cc(C)c1']",{[][<]CO[>][<]}{[>][<]Cc1cc(C)cc(C)c1[>][]}
+HDPE,high-density polyethylene,CCCC,"['CC', 'CC']",{[][<]CC[>][<]}{[>][<]CC[>][]}
+PLLA,poly(L-lactide),COC(=O)[C@H](C)C,"['CCC', 'C=O', 'CO']",{[][<]CCC[>][<]}{[>][<]C=O[>][<]}{[>][<]CO[>][]}
+PLGA,"poly(D,L-lactide-co-glycolide)",COC(=O)COC(=O)C(C)C,"['CO', 'C=O', 'C', 'O', 'C=O', 'CCC']",{[][<]CO[>][<]}{[>][<]C=O[>][<]}{[>][<]C[>][<]}{[>][<]O[>][<]}{[>][<]C=O[>][<]}{[>][<]CCC[>][]}

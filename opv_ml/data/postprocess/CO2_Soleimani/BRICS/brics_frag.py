@@ -11,8 +11,8 @@ import numpy as np
 import copy
 import ast
 
-MASTER_MANUAL_DATA = pkg_resources.resource_filename(
-    "opv_ml", "data/postprocess/CO2_Soleimani/manual_frag/master_manual_frag.csv"
+MASTER_CO2_DATA = pkg_resources.resource_filename(
+    "opv_ml", "data/process/CO2_Soleimani/co2_expt_data.csv"
 )
 
 BRICS_FRAG_DATA = pkg_resources.resource_filename(
@@ -108,68 +108,42 @@ class BRIC_FRAGS:
             columns=[
                 "Polymer",
                 "Polymer_SMILES",
-                "Solvent",
-                "Solvent_SMILES",
-                "Contact_angle",
-                "Thickness",
-                "Solvent_solubility_parameter",
-                "xw_(wt%)",
-                "Temperature",
-                "Permeate_pressure",
-                "J_total_flux",
-                "a_separation_factor",
+                "T (K)",
+                "P (Mpa)",
+                "exp_CO2_sol (g/g)",
+                "pred_CO2_sol (g/g)",
+                "train/test",
                 "Polymer_BRICS",
-                "Solvent_BRICS",
-                "PS_pair_BRICS",
-                "PS_tokenized_BRICS",
+                "Polymer_Tokenized_BRICS",
             ]
         )
         brics_df["Polymer"] = self.data["Polymer"]
         brics_df["Polymer_SMILES"] = self.data["Polymer_SMILES"]
-        brics_df["Solvent"] = self.data["Solvent"]
-        brics_df["Solvent_SMILES"] = self.data["Solvent_SMILES"]
-        brics_df["Contact_angle"] = self.data["Contact_angle"]
-        brics_df["Thickness"] = self.data["Thickness_(um)"]
-        brics_df["Solvent_solubility_parameter"] = self.data[
-            "Solvent_solubility_parameter_(MPa1/2)"
-        ]
-        brics_df["xw_(wt%)"] = self.data["xw_(wt%)"]
-        brics_df["Temperature"] = self.data["Temperature_(C)"]
-        brics_df["Permeate_pressure"] = self.data["Permeate_pressure_(mbar)"]
-        brics_df["J_total_flux"] = self.data["J_Total_flux_(kg/m-2h-1)"]
-        brics_df["a_separation_factor"] = self.data["a_Separation_factor_(w/o)"]
+        brics_df["T (K)"] = self.data["T (K)"]
+        brics_df["P (Mpa)"] = self.data["P (Mpa)"]
+        brics_df["exp_CO2_sol (g/g)"] = self.data["exp_CO2_sol (g/g)"]
+        brics_df["pred_CO2_sol (g/g)"] = self.data["pred_CO2_sol (g/g)"]
+        brics_df["train/test"] = self.data["train/test"]
+        brics_df["Polymer_BRICS"] = ""
+        brics_df["Polymer_Tokenized_BRICS"] = ""
 
         # Iterate through row and fragment using BRICS
         # to get polymer_BRICS, solvent_BRICS, and DA_pair_BRICS
         for index, row in brics_df.iterrows():
             polymer_smi = brics_df.at[index, "Polymer_SMILES"]
-            solvent_smi = brics_df.at[index, "Solvent_SMILES"]
             polymer_mol = Chem.MolFromSmiles(polymer_smi)
-            solvent_mol = Chem.MolFromSmiles(solvent_smi)
             polymer_brics = list(BRICS.BRICSDecompose(polymer_mol, returnMols=True))
             polymer_brics_smi = []
             for frag in polymer_brics:
                 frag_smi = self.remove_dummy(frag)  # remove dummy atoms
                 polymer_brics_smi.append(frag_smi)
-            solvent_brics_smi = []
-            solvent_brics = list(BRICS.BRICSDecompose(solvent_mol, returnMols=True))
-            for frag in solvent_brics:
-                frag_smi = self.remove_dummy(frag)  # remove dummy atoms
-                solvent_brics_smi.append(frag_smi)
 
             brics_df.at[index, "Polymer_BRICS"] = polymer_brics_smi
-            print(polymer_smi, polymer_brics_smi)
-            brics_df.at[index, "Solvent_BRICS"] = solvent_brics_smi
-            # ps_pair fragments
-            ps_pair = polymer_brics_smi
-            ps_pair.append(".")
-            ps_pair.extend(solvent_brics_smi)
-            brics_df.at[index, "PS_pair_BRICS"] = ps_pair
 
-        tokenized_pair_array, frag_dict = self.tokenize_frag(brics_df["PS_pair_BRICS"])
+        tokenized_array, frag_dict = self.tokenize_frag(brics_df["Polymer_BRICS"])
         index = 0
-        for da_pair in tokenized_pair_array:
-            brics_df.at[index, "PS_tokenized_BRICS"] = da_pair
+        for polymer in tokenized_array:
+            brics_df.at[index, "Polymer_Tokenized_BRICS"] = polymer
             index += 1
 
         brics_df.to_csv(BRICS_FRAG_DATA, index=False)
@@ -204,7 +178,7 @@ class BRIC_FRAGS:
         display(img)
 
 
-b_frag = BRIC_FRAGS(MASTER_MANUAL_DATA)
+b_frag = BRIC_FRAGS(MASTER_CO2_DATA)
 frag_dict = b_frag.bric_frag()
 # print(frag_dict)
 # b_frag.frag_visualization(frag_dict)

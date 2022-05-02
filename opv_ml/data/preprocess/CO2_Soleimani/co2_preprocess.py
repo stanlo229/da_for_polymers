@@ -65,10 +65,12 @@ class CO2_Solubility:
         data["Polymer_SELFIES"] = ""
         for index, row in data.iterrows():
             polymer_selfies = sf.encoder(row["Polymer_SMILES"])
-            self.data.at[index, "Polymer_SELFIES"] = polymer_selfies
+            data.at[index, "Polymer_SELFIES"] = polymer_selfies
 
-        self.data.to_csv(co2_data_path, index=False)
+        data.to_csv(co2_data_path, index=False)
 
+
+# NOTE: BigSMILES is derived from manual fragments
 
 preprocess = CO2_Solubility(CO2_DATA, CO2_INVENTORY)
 preprocess.smi_match(CO2_PREPROCESSED)

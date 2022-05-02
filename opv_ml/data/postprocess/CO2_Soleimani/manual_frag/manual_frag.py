@@ -28,19 +28,17 @@ IMG_PATH = pkg_resources.resource_filename(
 class manual_frag:
     "Class that contains functions necessary to fragment molecules any way you want"
 
-    def __init__(self, pv_inventory_path):
+    def __init__(self, co2_inventory_path):
         """
         Instantiate class with appropriate data.
 
         Args:
-            opv_data: path to ML data downloaded from Google Drive shared w/ UCSB
-            donor_data: path to preprocessed donor data
-            acceptor_data: path to preprocessed acceptor data
+            co2_inventory_path: path to CO2 ML data
 
         Returns:
             None
         """
-        self.pv_inventory = pd.read_csv(pv_inventory_path)
+        self.co2_inventory = pd.read_csv(co2_inventory_path)
 
     # pipeline
     # 1 iterate with index (main)
@@ -63,14 +61,15 @@ class manual_frag:
             smi: SMILES of looked up molecule
         """
         try:
-            smi = self.pv_inventory.at[index, "SMILES"]
+            smi = self.co2_inventory.at[index, "SMILES"]
+            name = self.co2_inventory.at[index, "Name"]
         except:
             print(
                 "Max index exceeded, please try again. Max index is: ",
-                len(self.pv_inventory["SMILES"]) - 1,
+                len(self.co2_inventory["SMILES"]) - 1,
             )
 
-        return smi
+        return smi, name
 
     def fragmenter(self, smi: str):
         """
@@ -177,8 +176,8 @@ class manual_frag:
         frag_dict["_PAD"] = 0
         frag_dict["."] = 1
         id = len(frag_dict)
-        for i in range(len(self.pv_inventory)):
-            frag_str = self.pv_inventory.at[i, "Fragments"]
+        for i in range(len(self.co2_inventory)):
+            frag_str = self.co2_inventory.at[i, "Fragments"]
             frag_list = ast.literal_eval(frag_str)
             for frag in frag_list:
                 if frag not in list(frag_dict.keys()):
@@ -208,48 +207,37 @@ class manual_frag:
 
         return tokenized_list
 
-    def create_manual_csv(self, frag_dict, pv_expt_path, master_manual_path):
+    def create_manual_csv(self, frag_dict, co2_expt_path, master_manual_path):
         """
         Creates master data file for manual frags
 
         Args:
             frag_dict: dictionary of unique fragments from donor and acceptor molecules
-            pv_expt_path: path to experimental .csv for polymer swelling data
+            co2_expt_path: path to experimental .csv for co2 solubility data
             master_manual_path: path to master .csv file for training on manual fragments
         """
         inventory_dict = {}
-        for index, row in self.pv_inventory.iterrows():
-            species = self.pv_inventory.at[index, "Name"]
+        for index, row in self.co2_inventory.iterrows():
+            species = self.co2_inventory.at[index, "Polymer"]
             if species not in inventory_dict:
                 inventory_dict[species] = index
 
-        manual_df = pd.read_csv(pv_expt_path)
+        manual_df = pd.read_csv(co2_expt_path)
         manual_df["Polymer_BigSMILES"] = ""
-        manual_df["Solvent_BigSMILES"] = ""
-        manual_df["PM_manual_tokenized"] = ""
-        manual_df["MP_manual_tokenized"] = ""
-        manual_df["PM_manual_tokenized_aug"] = ""
-        manual_df["MP_manual_tokenized_aug"] = ""
+        manual_df["Polymer_manual_tokenized"] = ""
+        manual_df["Polymer_manual_tokenized_aug"] = ""
 
         aug_count = 0
         # find max_seq_length
         max_seq_length = 0
         for i in range(len(manual_df)):
             polymer_label = manual_df.at[i, "Polymer"]
-            mixture_label = manual_df.at[i, "Solvent"]
             polymer_frags = list(
                 ast.literal_eval(
-                    self.pv_inventory.at[inventory_dict[polymer_label], "Fragments"]
-                )
-            )
-            mixture_frags = list(
-                ast.literal_eval(
-                    self.pv_inventory.at[inventory_dict[mixture_label], "Fragments"]
+                    self.co2_inventory.at[inventory_dict[polymer_label], "Fragments"]
                 )
             )
             max_frag_list = polymer_frags
-            max_frag_list.append(".")
-            max_frag_list.extend(mixture_frags)
             max_frag_length = len(max_frag_list)
             if max_frag_length > max_seq_length:
                 max_seq_length = max_frag_length
@@ -258,32 +246,15 @@ class manual_frag:
 
         for i in range(len(manual_df)):
             polymer_label = manual_df.at[i, "Polymer"]
-            mixture_label = manual_df.at[i, "Solvent"]
             polymer_frags = list(
                 ast.literal_eval(
-                    self.pv_inventory.at[inventory_dict[polymer_label], "Fragments"]
-                )
-            )
-            mixture_frags = list(
-                ast.literal_eval(
-                    self.pv_inventory.at[inventory_dict[mixture_label], "Fragments"]
+                    self.co2_inventory.at[inventory_dict[polymer_label], "Fragments"]
                 )
             )
 
-            # PM Pairs
-            pm_pair_frags = copy.copy(polymer_frags)
-            pm_pair_frags.append(".")
-            pm_pair_frags.extend(mixture_frags)
-            pm_pair_tokenized = self.tokenize_frag(
-                pm_pair_frags, frag_dict, max_seq_length
-            )
-
-            # MP Pairs
-            mp_pair_frags = copy.copy(mixture_frags)
-            mp_pair_frags.append(".")
-            mp_pair_frags.extend(polymer_frags)
-            mp_pair_tokenized = self.tokenize_frag(
-                mp_pair_frags, frag_dict, max_seq_length
+            # Polymer
+            polymer_tokenized = self.tokenize_frag(
+                polymer_frags, frag_dict, max_seq_length
             )
 
             # AUGMENT Polymer (pre-ordered)
@@ -297,67 +268,49 @@ class manual_frag:
                 aug_count += 1
 
             # PS Pairs augmented
-            pm_pair_tokenized_aug = []
+            polymer_tokenized_aug = []
             for aug_polymer in augmented_polymer_list:
-                pm_aug_pair = copy.copy(aug_polymer)
-                pm_aug_pair.append(".")
-                pm_aug_pair.extend(mixture_frags)
-                pm_aug_tokenized = self.tokenize_frag(
-                    pm_aug_pair, frag_dict, max_seq_length
+                aug_polymer_copy = copy.copy(aug_polymer)
+                aug_polymer_tokenized = self.tokenize_frag(
+                    aug_polymer_copy, frag_dict, max_seq_length
                 )
-                pm_pair_tokenized_aug.append(pm_aug_tokenized)
-
-            # SP Pairs augmented
-            mp_pair_tokenized_aug = []
-            for aug_polymer in augmented_polymer_list:
-                sp_aug_pair = copy.copy(mixture_frags)
-                sp_aug_pair.append(".")
-                sp_aug_pair.extend(aug_polymer)
-                sp_aug_tokenized = self.tokenize_frag(
-                    sp_aug_pair, frag_dict, max_seq_length
-                )
-                mp_pair_tokenized_aug.append(sp_aug_tokenized)
+                polymer_tokenized_aug.append(aug_polymer_tokenized)
 
             # ADD TO MANUAL DF from inventory (does not separate polymer and mixture)
-            manual_df.at[i, "Polymer_BigSMILES"] = self.pv_inventory.at[
+            manual_df.at[i, "Polymer_BigSMILES"] = self.co2_inventory.at[
                 inventory_dict[polymer_label], "Polymer_BigSMILES"
             ]
-            manual_df.at[i, "Solvent_BigSMILES"] = self.pv_inventory.at[
-                inventory_dict[mixture_label], "Polymer_BigSMILES"
-            ]
-            manual_df.at[i, "PM_manual_tokenized"] = pm_pair_tokenized
-            manual_df.at[i, "MP_manual_tokenized"] = mp_pair_tokenized
-            manual_df.at[i, "PM_manual_tokenized_aug"] = pm_pair_tokenized_aug
-            manual_df.at[i, "MP_manual_tokenized_aug"] = mp_pair_tokenized_aug
+            manual_df.at[i, "Polymer_manual_tokenized"] = polymer_tokenized
+            manual_df.at[i, "Polymer_manual_tokenized_aug"] = polymer_tokenized_aug
 
         # number of augmented polymers
         print("AUG POLYMERS: ", aug_count)
 
         manual_df.to_csv(master_manual_path, index=False)
 
-    def bigsmiles_from_frag(self, pv_inventory_path):
+    def bigsmiles_from_frag(self, co2_inventory_path):
         """
         Function that takes ordered fragments (manually by hand) and converts it into BigSMILES representation, specifically block copolymers
         Args:
-            pv_inventory_path: path to data with manually fragmented polymers
+            co2_inventory_path: path to data with manually fragmented polymers
 
         Returns:
             concatenates manual fragments into BigSMILES representation and returns to donor/acceptor data
         """
         # polymer/mixture BigSMILES
-        self.pv_inventory["Polymer_BigSMILES"] = ""
+        self.co2_inventory["Polymer_BigSMILES"] = ""
 
-        for index, row in self.pv_inventory.iterrows():
+        for index, row in self.co2_inventory.iterrows():
             big_smi = "{[][<]"
             position = 0
-            if len(ast.literal_eval(self.pv_inventory["Fragments"][index])) == 1:
-                big_smi = ast.literal_eval(self.pv_inventory["Fragments"][index])[0]
+            if len(ast.literal_eval(self.co2_inventory["Fragments"][index])) == 1:
+                big_smi = ast.literal_eval(self.co2_inventory["Fragments"][index])[0]
             else:
-                for frag in ast.literal_eval(self.pv_inventory["Fragments"][index]):
+                for frag in ast.literal_eval(self.co2_inventory["Fragments"][index]):
                     big_smi += str(frag)
                     if (
                         position
-                        == len(ast.literal_eval(self.pv_inventory["Fragments"][index]))
+                        == len(ast.literal_eval(self.co2_inventory["Fragments"][index]))
                         - 1
                     ):
                         big_smi += "[>][]}"
@@ -365,9 +318,9 @@ class manual_frag:
                         big_smi += "[>][<]}{[>][<]"
                     position += 1
 
-            self.pv_inventory["Polymer_BigSMILES"][index] = big_smi
+            self.co2_inventory["Polymer_BigSMILES"][index] = big_smi
 
-        self.pv_inventory.to_csv(pv_inventory_path, index=False)
+        self.co2_inventory.to_csv(co2_inventory_path, index=False)
 
     def frag_visualization(self, frag_dict):
         """
@@ -400,24 +353,24 @@ class manual_frag:
 
 
 def cli_main():
-    manual = manual_frag(PV_INVENTORY)
+    # manual = manual_frag(CO2_INVENTORY)
 
     # # iterate through donor and acceptor files
-    # manual_df = pd.read_csv(PV_INVENTORY)
-    # for i in range(16, len(manual_df["Name"])):  # len(donor_df["SMILES"])
-    #     smi = manual.lookup(i)
-    #     print(smi)
+    # manual_df = pd.read_csv(CO2_INVENTORY)
+    # for i in range(1, 3):  # len(donor_df["SMILES"])
+    #     smi, name = manual.lookup(i)
+    #     print(smi, name)
     #     frag_list = manual.fragmenter(smi)
     #     manual_df.at[i, "Fragments"] = frag_list
-    #     manual_df.to_csv(PV_INVENTORY, index=False)
+    #     manual_df.to_csv(CO2_INVENTORY, index=False)
 
     # prepare manual frag data
-    manual = manual_frag(PV_INVENTORY)
+    manual = manual_frag(CO2_INVENTORY)
     frag_dict = manual.return_frag_dict()
-    print(len(frag_dict))
+    # print(len(frag_dict))
     # manual.frag_visualization(frag_dict)
-    manual.bigsmiles_from_frag(PV_INVENTORY)
-    manual.create_manual_csv(frag_dict, PV_EXPT_RESULT, MASTER_MANUAL_DATA)
+    manual.bigsmiles_from_frag(CO2_INVENTORY)
+    manual.create_manual_csv(frag_dict, CO2_EXPT_RESULT, MASTER_MANUAL_DATA)
 
 
 if __name__ == "__main__":

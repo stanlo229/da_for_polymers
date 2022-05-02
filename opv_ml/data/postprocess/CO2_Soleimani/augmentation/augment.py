@@ -7,8 +7,8 @@ from rdkit import Chem
 
 from opv_ml.ML_models.sklearn.data.Swelling_Xu.tokenizer import Tokenizer
 
-CO2_MASTER = pkg_resources.resource_filename(
-    "opv_ml", "data/postprocess/CO2_Soleimani/manual_frag/master_manual_frag.csv"
+MASTER_CO2_DATA = pkg_resources.resource_filename(
+    "opv_ml", "data/process/CO2_Soleimani/co2_expt_data.csv"
 )
 
 AUGMENT_SMILES_DATA = pkg_resources.resource_filename(
@@ -68,48 +68,33 @@ class Augment:
         column_names = [
             "Polymer",
             "Polymer_SMILES",
-            "Solvent",
-            "Solvent_SMILES",
-            "Contact_angle",
-            "Thickness",
-            "Solvent_solubility_parameter",
-            "xw_(wt%)",
-            "Temperature",
-            "Permeate_pressure",
-            "J_total_flux",
-            "a_separation_factor",
-            "PS_pair_aug",
+            "T (K)",
+            "P (Mpa)",
+            "exp_CO2_sol (g/g)",
+            "pred_CO2_sol (g/g)",
+            "train/test",
+            "Polymer_Augmented_SMILES",
+            "Polymer_Tokenized_Augmented_SMILES",
         ]
         train_aug_df = pd.DataFrame(columns=column_names)
         train_aug_df["Polymer"] = self.data["Polymer"]
         train_aug_df["Polymer_SMILES"] = self.data["Polymer_SMILES"]
-        train_aug_df["Solvent"] = self.data["Solvent"]
-        train_aug_df["Solvent_SMILES"] = self.data["Solvent_SMILES"]
-        train_aug_df["Contact_angle"] = self.data["Contact_angle"]
-        train_aug_df["Thickness"] = self.data["Thickness_(um)"]
-        train_aug_df["Solvent_solubility_parameter"] = self.data[
-            "Solvent_solubility_parameter_(MPa1/2)"
-        ]
-        train_aug_df["xw_(wt%)"] = self.data["xw_(wt%)"]
-        train_aug_df["Temperature"] = self.data["Temperature_(C)"]
-        train_aug_df["Permeate_pressure"] = self.data["Permeate_pressure_(mbar)"]
-        train_aug_df["J_total_flux"] = self.data["J_Total_flux_(kg/m-2h-1)"]
-        train_aug_df["a_separation_factor"] = self.data["a_Separation_factor_(w/o)"]
+        train_aug_df["T (K)"] = self.data["T (K)"]
+        train_aug_df["P (Mpa)"] = self.data["P (Mpa)"]
+        train_aug_df["exp_CO2_sol (g/g)"] = self.data["exp_CO2_sol (g/g)"]
+        train_aug_df["pred_CO2_sol (g/g)"] = self.data["pred_CO2_sol (g/g)"]
+        train_aug_df["train/test"] = self.data["train/test"]
+        train_aug_df["Polymer_Augmented_SMILES"] = ""
+        train_aug_df["Polymer_Tokenized_Augmented_SMILES"] = ""
 
         for i in range(len(train_aug_df["Polymer"])):
-            augmented_ps_list = []
+            augmented_p_list = []
             polymer_smi = train_aug_df.at[i, "Polymer_SMILES"]
-            solvent_smi = train_aug_df.at[i, "Solvent_SMILES"]
 
             # keep track of unique polymers and Solvents
             unique_polymer = [polymer_smi]
-            unique_solvent = [solvent_smi]
-
-            # add original polymer-Solvent / Solvent-polymer pair
-            augmented_ps_list.append(polymer_smi + "." + solvent_smi)
 
             polymer_mol = Chem.MolFromSmiles(polymer_smi)
-            solvent_mol = Chem.MolFromSmiles(solvent_smi)
 
             # ERROR: could not augment CC=O.CCCCCOC.CNCCCCCCCCCCCC(C)=O.COC.COC(C)=O
             if "." in polymer_smi:
@@ -127,49 +112,29 @@ class Augment:
                             polymer_aug_smi = polymer_aug_smi + monomer_aug_smi
                         else:
                             polymer_aug_smi = polymer_aug_smi + monomer_aug_smi + "."
-                    solvent_aug_smi = Chem.MolToSmiles(solvent_mol, doRandom=True)
                     if inf_loop == 10:
                         break
-                    elif (
-                        polymer_aug_smi not in unique_polymer
-                        and solvent_aug_smi not in unique_solvent
-                    ):
+                    elif polymer_aug_smi not in unique_polymer:
                         unique_polymer.append(polymer_aug_smi)
-                        unique_solvent.append(solvent_aug_smi)
-                        augmented_ps_list.append(
-                            polymer_aug_smi + "." + solvent_aug_smi
-                        )
+                        augmented_p_list.append(polymer_aug_smi)
                         augmented += 1
-                    elif (
-                        polymer_aug_smi == unique_polymer[0]
-                        or solvent_aug_smi == unique_solvent[0]
-                    ):
+                    elif polymer_aug_smi in unique_polymer:
                         inf_loop += 1
             else:
                 augmented = 0
                 inf_loop = 0
                 while augmented < num_of_augment:
                     polymer_aug_smi = Chem.MolToSmiles(polymer_mol, doRandom=True)
-                    solvent_aug_smi = Chem.MolToSmiles(solvent_mol, doRandom=True)
                     if inf_loop == 10:
                         break
-                    elif (
-                        polymer_aug_smi not in unique_polymer
-                        and solvent_aug_smi not in unique_solvent
-                    ):
+                    elif polymer_aug_smi not in unique_polymer:
                         unique_polymer.append(polymer_aug_smi)
-                        unique_solvent.append(solvent_aug_smi)
-                        augmented_ps_list.append(
-                            polymer_aug_smi + "." + solvent_aug_smi
-                        )
+                        augmented_p_list.append(polymer_aug_smi)
                         augmented += 1
-                    elif (
-                        polymer_aug_smi == unique_polymer[0]
-                        or solvent_aug_smi == unique_solvent[0]
-                    ):
+                    elif polymer_aug_smi == unique_polymer[0]:
                         inf_loop += 1
 
-            train_aug_df.at[i, "PS_pair_aug"] = augmented_ps_list
+            train_aug_df.at[i, "Polymer_Augmented_SMILES"] = augmented_p_list
 
         train_aug_df.to_csv(augment_smiles_data)
 
@@ -185,10 +150,12 @@ class Augment:
         """
         aug_smi_data = pd.read_csv(train_aug_data)
         # initialize new columns
-        aug_smi_data["PS_pair_tokenized_aug"] = " "
+        aug_smi_data["Polymer_Tokenized_Augmented_SMILES"] = " "
         ps_aug_list = []
-        for i in range(len(aug_smi_data["PS_pair_aug"])):
-            ps_aug_list.append(ast.literal_eval(aug_smi_data["PS_pair_aug"][i]))
+        for i in range(len(aug_smi_data["Polymer_Augmented_SMILES"])):
+            ps_aug_list.append(
+                ast.literal_eval(aug_smi_data["Polymer_Augmented_SMILES"][i])
+            )
 
         # build token2idx dictionary
         # flatten lists
@@ -221,13 +188,13 @@ class Augment:
                 ]
                 tokenized_smi = self.pad_input(tokenized_smi, max_length)
                 tokenized_list.append(tokenized_smi)
-            aug_smi_data.at[i, "PS_pair_tokenized_aug"] = tokenized_list
+            aug_smi_data.at[i, "Polymer_Tokenized_Augmented_SMILES"] = tokenized_list
 
         aug_smi_data.to_csv(train_aug_data, index=False)
 
 
-augmenter = Augment(PV_MASTER)
-augmenter.aug_smi_doRandom(AUGMENT_SMILES_DATA, 4)
+augmenter = Augment(MASTER_CO2_DATA)
+augmenter.aug_smi_doRandom(AUGMENT_SMILES_DATA, 5)
 augmenter.aug_smi_tokenize(AUGMENT_SMILES_DATA)
 
 # from rdkit.Chem import Descriptors
