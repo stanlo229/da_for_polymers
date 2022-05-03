@@ -29,4 +29,4 @@ XLOGP3-D: computed estimate of Log(Po/w), mostly uses SwissADME but also XLOGP3
 MW-D: Molecular Weight - Donor
 
 Fingerprints
-FP bits = 2048
+FP bits = 2048, radius = 2
