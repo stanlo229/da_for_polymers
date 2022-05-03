@@ -27,3 +27,6 @@ Rot. Bonds-D: number of rotatable bonds (any single bound, not in ring, bound to
 H-bond acc.-D: number of H-bond acceptors
 XLOGP3-D: computed estimate of Log(Po/w), mostly uses SwissADME but also XLOGP3
 MW-D: Molecular Weight - Donor
+
+Fingerprints
+FP bits = 2048
