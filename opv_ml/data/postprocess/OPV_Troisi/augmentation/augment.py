@@ -8,12 +8,14 @@ from rdkit import Chem
 from opv_ml.ML_models.sklearn.data.OPV_Troisi.tokenizer import Tokenizer
 
 MASTER_DATA = pkg_resources.resource_filename(
-    "opv_ml", "data/process/OPV_Troisi/master_opv_ml_from_min.csv"
+    "opv_ml", "data/process/OPV_Troisi/opv_troisi_expt_data.csv"
 )
 
 AUGMENT_SMILES_DATA = pkg_resources.resource_filename(
     "opv_ml", "data/postprocess/OPV_Troisi/augmentation/train_aug_master5.csv"
 )
+
+SEED_VAL = 4
 
 
 class Augment:
@@ -62,24 +64,13 @@ class Augment:
             New .csv with DA_pair_aug, AD_pair_aug, DA_pair_tokenized_list, AD_pair_tokenized_list, and PCE
         """
         # keeps randomness the same
-        random.seed(1)
-        column_names = [
-            "Donor",
-            "Donor_SMILES",
-            "Acceptor",
-            "Acceptor_SMILES",
-            "DA_pair_aug",
-            "AD_pair_aug",
-            "PCE(%)",
-        ]
-        train_aug_df = pd.DataFrame(columns=column_names)
-        train_aug_df["Donor"] = self.data["Donor"]
-        train_aug_df["Donor_SMILES"] = self.data["Donor_SMILES"]
-        train_aug_df["Acceptor"] = self.data["Acceptor"]
-        train_aug_df["Acceptor_SMILES"] = self.data["Acceptor_SMILES"]
-        train_aug_df["PCE(%)"] = self.data["PCE(%)"]
+        random.seed(SEED_VAL)
+        train_aug_df = self.data
+        train_aug_df.drop(columns=["SMILES-DFP", "SMILES-AFP"])
+        train_aug_df["DA_pair_aug"] = ""
+        train_aug_df["AD_pair_aug"] = ""
 
-        for i in range(len(train_aug_df["Donor"])):
+        for i in range(len(train_aug_df["index"])):
             augmented_da_list = []
             augmented_ad_list = []
             donor_smi = train_aug_df.at[i, "Donor_SMILES"]
@@ -95,19 +86,25 @@ class Augment:
 
             donor_mol = Chem.MolFromSmiles(donor_smi)
             acceptor_mol = Chem.MolFromSmiles(acceptor_smi)
+
             augmented = 0
             while augmented < num_of_augment:
-                donor_aug_smi = Chem.MolToSmiles(donor_mol, doRandom=True)
-                acceptor_aug_smi = Chem.MolToSmiles(acceptor_mol, doRandom=True)
-                if (
-                    donor_aug_smi not in unique_donor
-                    and acceptor_aug_smi not in unique_acceptor
-                ):
-                    unique_donor.append(donor_aug_smi)
-                    unique_acceptor.append(acceptor_aug_smi)
-                    augmented_da_list.append(donor_aug_smi + "." + acceptor_aug_smi)
-                    augmented_ad_list.append(acceptor_aug_smi + "." + donor_aug_smi)
+                try:
+                    donor_aug_smi = Chem.MolToSmiles(donor_mol, doRandom=True)
+                    acceptor_aug_smi = Chem.MolToSmiles(acceptor_mol, doRandom=True)
+                except:
                     augmented += 1
+                    print("SMILES ERROR")
+                else:
+                    if (
+                        donor_aug_smi not in unique_donor
+                        and acceptor_aug_smi not in unique_acceptor
+                    ):
+                        unique_donor.append(donor_aug_smi)
+                        unique_acceptor.append(acceptor_aug_smi)
+                        augmented_da_list.append(donor_aug_smi + "." + acceptor_aug_smi)
+                        augmented_ad_list.append(acceptor_aug_smi + "." + donor_aug_smi)
+                        augmented += 1
 
             train_aug_df.at[i, "DA_pair_aug"] = augmented_da_list
             train_aug_df.at[i, "AD_pair_aug"] = augmented_ad_list
@@ -183,9 +180,9 @@ class Augment:
         aug_smi_data.to_csv(train_aug_data, index=False)
 
 
-# augmenter = Augment(MASTER_DATA)
-# augmenter.aug_smi_doRandom(AUGMENT_SMILES_DATA, 4)
-# augmenter.aug_smi_tokenize(AUGMENT_SMILES_DATA)
+augmenter = Augment(MASTER_DATA)
+augmenter.aug_smi_doRandom(AUGMENT_SMILES_DATA, 5)
+augmenter.aug_smi_tokenize(AUGMENT_SMILES_DATA)
 
 # from rdkit.Chem import Descriptors
 
@@ -196,7 +193,3 @@ class Augment:
 #         )
 #     )
 # )
-
-thiophene = Chem.MolFromSmiles("c1cccs1")
-for i in range(5):
-    print(Chem.MolToSmiles(thiophene, doRandom=True))

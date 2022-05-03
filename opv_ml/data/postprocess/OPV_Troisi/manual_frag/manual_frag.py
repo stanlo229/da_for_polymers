@@ -8,22 +8,16 @@ import copy
 from collections import deque
 from IPython.display import display
 
-DONOR_DIR = pkg_resources.resource_filename(
-    "opv_ml", "data/preprocess/OPV_Troisi/clean_min_donors.csv"
+OPV_TROISI_DONORS = pkg_resources.resource_filename(
+    "opv_ml", "data/preprocess/OPV_Troisi/opv_donors.csv"
 )
 
-ACCEPTOR_DIR = pkg_resources.resource_filename(
-    "opv_ml", "data/preprocess/OPV_Troisi/clean_min_acceptors.csv"
+OPV_TROISI_ACCEPTORS = pkg_resources.resource_filename(
+    "opv_ml", "data/preprocess/OPV_Troisi/opv_acceptors.csv"
 )
 
-IMG_PATH = pkg_resources.resource_filename("opv_ml", "data/OPV_Troisi/manual_frag/")
-
-FRAG_DONOR_DIR = pkg_resources.resource_filename(
-    "opv_ml", "data/postprocess/OPV_Troisi/manual_frag/OPV_Troisi/donor_frags.csv"
-)
-
-FRAG_ACCEPTOR_DIR = pkg_resources.resource_filename(
-    "opv_ml", "data/postprocess/OPV_Troisi/manual_frag/acceptor_frags.csv"
+IMG_PATH = pkg_resources.resource_filename(
+    "opv_ml", "data/postprocess/OPV_Troisi/manual_frag/"
 )
 
 # For Manual Fragments!
@@ -39,9 +33,8 @@ MASTER_MANUAL_DATA = pkg_resources.resource_filename(
     "opv_ml", "data/postprocess/OPV_Troisi/manual_frag/master_manual_frag.csv"
 )
 
-OPV_DATA = pkg_resources.resource_filename(
-    "opv_ml",
-    "data/process/OPV_Troisi/Machine Learning OPV Parameters - data_from_min.csv",
+MASTER_ML_DATA = pkg_resources.resource_filename(
+    "opv_ml", "data/process/OPV_Troisi/opv_troisi_expt_data.csv"
 )
 
 
@@ -238,16 +231,16 @@ class manual_frag:
         """
         Creates empty .csv files for donor frags and acceptor frags
         """
-        donor_frag = pd.DataFrame(columns=["Label", "SMILES", "Fragments"])
-        acceptor_frag = pd.DataFrame(columns=["Label", "SMILES", "Fragments"])
+        donor_frag = pd.DataFrame(columns=["index", "SMILES", "Fragments"])
+        acceptor_frag = pd.DataFrame(columns=["index", "SMILES", "Fragments"])
 
-        donor_frag["Label"] = self.donor_data["Label"]
+        donor_frag["index"] = self.donor_data["index"]
         donor_frag["SMILES"] = self.donor_data["SMILES"]
-        donor_frag["Fragments"] = " "
+        donor_frag["Fragments"] = ""
 
-        acceptor_frag["Label"] = self.acceptor_data["Label"]
+        acceptor_frag["index"] = self.acceptor_data["index"]
         acceptor_frag["SMILES"] = self.acceptor_data["SMILES"]
-        acceptor_frag["Fragments"] = " "
+        acceptor_frag["Fragments"] = ""
 
         donor_frag.to_csv(donor_frag_dir, index=False)
         acceptor_frag.to_csv(acceptor_frag_dir, index=False)
@@ -527,36 +520,36 @@ class manual_frag:
 
 
 def cli_main():
-    # manual = manual_frag(OPV_DATA, DONOR_DIR, ACCEPTOR_DIR)
+    manual = manual_frag(MASTER_ML_DATA, OPV_TROISI_DONORS, OPV_TROISI_ACCEPTORS)
 
-    # NOTE: DO NOT USE IF FRAGMENTED
+    # # NOTE: DO NOT USE IF FRAGMENTED
     # manual.new_frag_files(
-    #     FRAG_DONOR_DIR, FRAG_ACCEPTOR_DIR
+    #     MANUAL_DONOR_CSV, MANUAL_ACCEPTOR_CSV
     # )  # do it only the first time
 
     # iterate through donor and acceptor files
-    # donor_df = pd.read_csv(FRAG_DONOR_DIR)
-    # for i in range(45, 46):  # len(donor_df["SMILES"])
+    # donor_df = pd.read_csv(MANUAL_DONOR_CSV)
+    # for i in range(0, len(donor_df["SMILES"])):  # len(donor_df["SMILES"])
     #     smi = manual.lookup("donor", i)
     #     frag_list = manual.fragmenter(smi, "donor")
     #     donor_df.at[i, "Fragments"] = frag_list
-    #     donor_df.to_csv(FRAG_DONOR_DIR, index=False)
+    #     donor_df.to_csv(MANUAL_DONOR_CSV, index=False)
 
-    # acceptor_df = pd.read_csv(FRAG_ACCEPTOR_DIR)
+    acceptor_df = pd.read_csv(MANUAL_ACCEPTOR_CSV)
 
-    # for i in range(268, len(acceptor_df["SMILES"])):
-    #     smi = manual.lookup("acceptor", i)
-    #     frag_list = manual.fragmenter(smi, "acceptor")
-    #     acceptor_df.at[i, "Fragments"] = frag_list
-    #     acceptor_df.to_csv(FRAG_ACCEPTOR_DIR, index=False)
+    for i in range(0, len(acceptor_df["SMILES"])):
+        smi = manual.lookup("acceptor", i)
+        frag_list = manual.fragmenter(smi, "acceptor")
+        acceptor_df.at[i, "Fragments"] = frag_list
+        acceptor_df.to_csv(MANUAL_ACCEPTOR_CSV, index=False)
 
     # prepare manual frag data
-    manual = manual_frag(OPV_DATA, MANUAL_DONOR_CSV, MANUAL_ACCEPTOR_CSV)
-    frag_dict = manual.return_frag_dict()
+    # manual = manual_frag(MASTER_ML_DATA, MANUAL_DONOR_CSV, MANUAL_ACCEPTOR_CSV)
+    # frag_dict = manual.return_frag_dict()
     # print(len(frag_dict))
     # manual.frag_visualization(frag_dict)
-    manual.bigsmiles_from_frag(MANUAL_DONOR_CSV, MANUAL_ACCEPTOR_CSV)
-    manual.create_manual_csv(frag_dict, MASTER_MANUAL_DATA)
+    # manual.bigsmiles_from_frag(MANUAL_DONOR_CSV, MANUAL_ACCEPTOR_CSV)
+    # manual.create_manual_csv(frag_dict, MASTER_MANUAL_DATA)
 
 
 if __name__ == "__main__":
