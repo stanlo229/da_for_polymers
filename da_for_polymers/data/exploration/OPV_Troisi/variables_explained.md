@@ -4,7 +4,7 @@ PCE: power conversion efficiency --> ratio of incident light power to output ele
 FF: fill factor --> max. power from a solar cell
 HOMO-D: highest occupied molecular orbital - donor
 LUMO-D: lowest unoccupied molecular orbital - donor
-HH-1-D: Ehomo - Ehomo-1
+HH-1-D: Ehomo - Ehomo-1 --> how likely to excite from homo or similar orbital / electron density at given energy level
 LL+1-D: Elumo+1 - Elumo
 IP-D: ionization potential
 Efund-D: fundamental gap
@@ -12,9 +12,10 @@ Ebind-D: hole-electron binding energy (difference between Efund and optical gap)
     optical gap: threshold for photons to be absorbed (lower than transport gap)
     transport gap: threshold for creating an electron-hole pair that is not bound together
 Reor-D: reorganization energy of holes (electrons for acceptor)
-Polarility-D: Polarizability?
-Volume-D: ?
-DM-D: ?
+    - change in energy when geometry is optimized after removal or addition of electron
+Polarility-D: Polarizability? Email
+Volume-D: ? Email
+DM-D: ? Email
 
 Absorption Properties
 E(s1)-D: Excited energy of the lowest-excited state
