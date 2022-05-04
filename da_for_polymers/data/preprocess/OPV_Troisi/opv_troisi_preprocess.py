@@ -84,3 +84,5 @@ class OPV_Troisi:
 troisi = OPV_Troisi(OPV_TROISI_DATA, OPV_TROISI_SMILES)
 # troisi.combine_data(OPV_TROISI_PREPROCESSED)
 # troisi.unique_mol(OPV_TROISI_PREPROCESSED, OPV_TROISI_DONORS, OPV_TROISI_ACCEPTORS)
+# for smi in troisi.opv_smiles["SMILES-D"]:
+#     print(smi)
