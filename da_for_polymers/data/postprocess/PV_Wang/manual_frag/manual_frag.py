@@ -226,10 +226,10 @@ class manual_frag:
         manual_df = pd.read_csv(pv_expt_path)
         manual_df["Polymer_BigSMILES"] = ""
         manual_df["Solvent_BigSMILES"] = ""
-        manual_df["PM_manual_tokenized"] = ""
-        manual_df["MP_manual_tokenized"] = ""
-        manual_df["PM_manual_tokenized_aug"] = ""
-        manual_df["MP_manual_tokenized_aug"] = ""
+        manual_df["PS_manual_tokenized"] = ""
+        manual_df["SP_manual_tokenized"] = ""
+        manual_df["PS_manual_tokenized_aug"] = ""
+        manual_df["SP_manual_tokenized_aug"] = ""
 
         aug_count = 0
         # find max_seq_length
@@ -325,10 +325,10 @@ class manual_frag:
             manual_df.at[i, "Solvent_BigSMILES"] = self.pv_inventory.at[
                 inventory_dict[mixture_label], "Polymer_BigSMILES"
             ]
-            manual_df.at[i, "PM_manual_tokenized"] = pm_pair_tokenized
-            manual_df.at[i, "MP_manual_tokenized"] = mp_pair_tokenized
-            manual_df.at[i, "PM_manual_tokenized_aug"] = pm_pair_tokenized_aug
-            manual_df.at[i, "MP_manual_tokenized_aug"] = mp_pair_tokenized_aug
+            manual_df.at[i, "PS_manual_tokenized"] = pm_pair_tokenized
+            manual_df.at[i, "SP_manual_tokenized"] = mp_pair_tokenized
+            manual_df.at[i, "PS_manual_tokenized_aug"] = pm_pair_tokenized_aug
+            manual_df.at[i, "SP_manual_tokenized_aug"] = mp_pair_tokenized_aug
 
         # number of augmented polymers
         print("AUG POLYMERS: ", aug_count)
@@ -414,11 +414,12 @@ def cli_main():
     # prepare manual frag data
     manual = manual_frag(PV_INVENTORY)
     frag_dict = manual.return_frag_dict()
-    print(len(frag_dict))
+    # print(len(frag_dict))
     # manual.frag_visualization(frag_dict)
     manual.bigsmiles_from_frag(PV_INVENTORY)
     manual.create_manual_csv(frag_dict, PV_EXPT_RESULT, MASTER_MANUAL_DATA)
 
 
 if __name__ == "__main__":
-    cli_main()
+    # cli_main()
+    pass

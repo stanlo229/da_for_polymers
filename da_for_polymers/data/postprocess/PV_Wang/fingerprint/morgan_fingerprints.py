@@ -50,15 +50,15 @@ class fp_data:
                 "Polymer_BigSMILES",
                 "Polymer_SELFIES",
                 "Solvent_SELFIES",
-                "PM_manual_tokenized",
-                "MP_manual_tokenized",
-                "PM_manual_tokenized_aug",
-                "MP_manual_tokenized_aug",
+                "PS_manual_tokenized",
+                "SP_manual_tokenized",
+                "PS_manual_tokenized_aug",
+                "SP_manual_tokenized_aug",
             ],
             axis=1,
         )
 
-        new_column_pm_pair = "PM_FP" + "_radius_" + str(radius) + "_nbits_" + str(nbits)
+        new_column_pm_pair = "PS_FP" + "_radius_" + str(radius) + "_nbits_" + str(nbits)
         fp_df[new_column_pm_pair] = " "
         for index, row in fp_df.iterrows():
             pm_pair = (
@@ -76,7 +76,7 @@ class fp_data:
 
             fp_df.at[index, new_column_pm_pair] = fp_pm
 
-        new_column_mp_pair = "MP_FP" + "_radius_" + str(radius) + "_nbits_" + str(nbits)
+        new_column_mp_pair = "SP_FP" + "_radius_" + str(radius) + "_nbits_" + str(nbits)
         fp_df[new_column_mp_pair] = " "
         for index, row in fp_df.iterrows():
             mp_pair = (
