@@ -53,7 +53,7 @@ class Dataset:
         """
         self.data = pd.read_csv(data_dir)
         self.input = input
-        self.data["PM_pair"] = " "
+        self.data["PS_pair"] = " "
         # concatenate Donor and Acceptor Inputs
         if self.input == "smi":
             representation = "SMILES"
@@ -64,7 +64,7 @@ class Dataset:
 
         if self.input == "smi" or self.input == "bigsmi" or self.input == "selfies":
             for index, row in self.data.iterrows():
-                self.data.at[index, "PM_pair"] = (
+                self.data.at[index, "PS_pair"] = (
                     row["Polymer_{}".format(representation)]
                     + "."
                     + row["Solvent_{}".format(representation)]
@@ -200,23 +200,23 @@ class Dataset:
                 max_seq_length,
                 vocab_length,
                 token_dict,
-            ) = Tokenizer().tokenize_data(self.data["PM_pair"])
+            ) = Tokenizer().tokenize_data(self.data["PS_pair"])
         elif self.input == "bigsmi":
             (
                 tokenized_input,
                 max_seq_length,
                 vocab_length,
                 token_dict,
-            ) = Tokenizer().tokenize_data(self.data["PM_pair"])
+            ) = Tokenizer().tokenize_data(self.data["PS_pair"])
         elif self.input == "selfies":
             # tokenize data using selfies
             tokenized_input = []
             token_dict, max_selfie_length = Tokenizer().tokenize_selfies(
-                self.data["PM_pair"]
+                self.data["PS_pair"]
             )
             for index, row in self.data.iterrows():
                 tokenized_selfie = sf.selfies_to_encoding(
-                    self.data.at[index, "PM_pair"],
+                    self.data.at[index, "PS_pair"],
                     token_dict,
                     pad_to_len=-1,
                     enc_type="label",
@@ -253,9 +253,10 @@ class Dataset:
             token_dict = {0: 0, 1: 1}
         elif self.input == "sum_of_frags":
             tokenized_input = []
-            for i in range(len(self.data["Sum_of_Frags"])):
+            token_dict = {}
+            for i in range(len(self.data["Sum_of_frags"])):
                 # convert string to list (because csv cannot store list type)
-                da_pair_list = json.loads(self.data["Sum_of_Frags"][i])
+                da_pair_list = json.loads(self.data["Sum_of_frags"][i])
                 tokenized_input.append(da_pair_list)
 
         # add parameters
@@ -273,6 +274,8 @@ class Dataset:
             filtered_tokenized_input, filtered_target_array = self.filter_nan(
                 tokenized_input, target_array
             )
+            print(token_dict)
+            print(filtered_tokenized_input[0])
             return (
                 np.asarray(filtered_tokenized_input),
                 np.asarray(filtered_target_array),
@@ -290,6 +293,7 @@ class Dataset:
                 tokenized_input, target_array
             )
             print(token_dict)
+            print(filtered_tokenized_input[0])
             return (
                 np.asarray(filtered_tokenized_input),
                 np.asarray(filtered_target_array),
@@ -323,7 +327,7 @@ class Dataset:
         target_array = target_array / self.max_target
 
         # convert Series to list
-        x = self.data["PM_pair"].to_list()
+        x = self.data["PS_pair"].to_list()
         # convert list to list of lists
         idx = 0
         for _x in x:
@@ -332,7 +336,7 @@ class Dataset:
         # FOR AUGMENTATION: device index (don't augment the device stuff)
         if parameter != "none":
             # add device parameters to the end of input
-            tokenized_input, token_dict = self.add_device_params(parameter, x, {})
+            tokenized_input, token_dict = self.add_gross_descriptors(parameter, x, {})
             # filter out "nan" values
             filtered_tokenized_input, filtered_target_array = self.filter_nan(
                 tokenized_input, target_array
@@ -349,7 +353,7 @@ class Dataset:
                 max_seq_length,
                 vocab_length,
                 token_dict,
-            ) = Tokenizer().tokenize_data(self.data["PM_pair"])
+            ) = Tokenizer().tokenize_data(self.data["PS_pair"])
             return np.asarray(x), np.asarray(target_array), token_dict
 
 

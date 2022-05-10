@@ -102,12 +102,15 @@ class Tokenizer:
         Function that tokenizes array of string representations with an existing dictionary
         * usually for test set
         """
+        print(type(input_series[0]))
         tokenized_array = copy.copy(input_series)
+        tokenized_array = list(tokenized_array)
         # Dictionaries to store the token to index mappings and vice versa
         token2idx = {j: i for i, j in enumerate(dictionary)}
         for i, reaction in enumerate(input_series):
             # The SMILES/BigSMILES/SELFIES will be stored as a list of tokens
             tokenized_array[i] = []
+            reaction = str(reaction)
             tokenized_reaction = self.tokenize(reaction).split(",")
             for token in tokenized_reaction:  # tokenizing SMILES/BigSMILES/SELFIES
                 tokenized_array[i].append(token)
@@ -121,7 +124,7 @@ class Tokenizer:
                 max_length = len(input_array)
         tokenized_array = self.pad_input(tokenized_array, max_length)
         print("Max sequence length: ", max_length)
-        return tokenized_array
+        return tokenized_array, max_length
 
     def build_token2idx(self, input_list):
         """Function that arranges list of SMILES/BigSMILES/SELFIES and builds dictionary.

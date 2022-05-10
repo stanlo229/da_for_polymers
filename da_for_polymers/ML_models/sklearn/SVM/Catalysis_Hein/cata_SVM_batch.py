@@ -44,8 +44,8 @@ CATALYSIS_FP = pkg_resources.resource_filename(
 
 
 def custom_scorer(y, yhat):
-    corr_coef = np.corrcoef(y, yhat)[0, 1]
-    return corr_coef
+    rmse = np.sqrt(mean_squared_error(y, yhat))
+    return rmse
 
 
 def augment_smi_in_loop(x, y, num_of_augment):
@@ -82,7 +82,7 @@ def augment_smi_in_loop(x, y, num_of_augment):
 
 
 # create scoring function
-r_score = make_scorer(custom_scorer, greater_is_better=True)
+r_score = make_scorer(custom_scorer, greater_is_better=False)
 
 unique_datatype = {
     "smiles": 0,

@@ -87,15 +87,19 @@ class Augment:
         train_aug_df["Solvent"] = self.data["Solvent"]
         train_aug_df["Solvent_SMILES"] = self.data["Solvent_SMILES"]
         train_aug_df["Contact_angle"] = self.data["Contact_angle"]
-        train_aug_df["Thickness"] = self.data["Thickness_(um)"]
-        train_aug_df["Solvent_solubility_parameter"] = self.data[
+        train_aug_df["Thickness_(um)"] = self.data["Thickness_(um)"]
+        train_aug_df["Solvent_solubility_parameter_(MPa1/2)"] = self.data[
             "Solvent_solubility_parameter_(MPa1/2)"
         ]
         train_aug_df["xw_(wt%)"] = self.data["xw_(wt%)"]
-        train_aug_df["Temperature"] = self.data["Temperature_(C)"]
-        train_aug_df["Permeate_pressure"] = self.data["Permeate_pressure_(mbar)"]
-        train_aug_df["J_total_flux"] = self.data["J_Total_flux_(kg/m-2h-1)"]
-        train_aug_df["a_separation_factor"] = self.data["a_Separation_factor_(w/o)"]
+        train_aug_df["Temperature_(C)"] = self.data["Temperature_(C)"]
+        train_aug_df["Permeate_pressure_(mbar)"] = self.data["Permeate_pressure_(mbar)"]
+        train_aug_df["J_Total_flux_(kg/m-2h-1)"] = self.data["J_Total_flux_(kg/m-2h-1)"]
+        train_aug_df["a_Separation_factor_(w/o)"] = self.data[
+            "a_Separation_factor_(w/o)"
+        ]
+
+        total_augmented = 0
 
         for i in range(len(train_aug_df["Polymer"])):
             augmented_ps_list = []
@@ -171,6 +175,9 @@ class Augment:
                         inf_loop += 1
 
             train_aug_df.at[i, "PS_pair_aug"] = augmented_ps_list
+            total_augmented += len(augmented_ps_list)
+
+        print(total_augmented)
 
         train_aug_df.to_csv(augment_smiles_data)
 

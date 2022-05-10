@@ -1,57 +1,55 @@
-from scipy.sparse.construct import random
-from sklearn.ensemble import RandomForestRegressor
-from sklearn.model_selection import KFold, StratifiedKFold
-from sklearn.model_selection import GridSearchCV
-from sklearn.metrics import make_scorer
+import copy
+import math
+from argparse import ArgumentParser
+from typing import Dict, List, Optional, Union
+from collections import deque
+from rdkit import Chem
+
+# for plotting
 import pkg_resources
 import numpy as np
 import pandas as pd
-import copy as copy
 from numpy import mean
 from numpy import std
 import matplotlib.pyplot as plt
-from da_for_polymers.ML_models.sklearn.data.PV_Wang.data import (
-    FP_PERVAPORATION,
-    Dataset,
-)
-from rdkit import Chem
-from collections import deque
+from da_for_polymers.ML_models.sklearn.data.Swelling_Xu.data import Dataset
+
+# sklearn
+from scipy.sparse.construct import random
+from sklearn.model_selection import KFold, StratifiedKFold
+from sklearn.model_selection import GridSearchCV
+from sklearn.metrics import make_scorer
+from sklearn.svm import SVR
 from sklearn.metrics import mean_squared_error
-from sklearn.inspection import permutation_importance
 from skopt import BayesSearchCV
 
-from da_for_polymers.ML_models.sklearn.data.PV_Wang.tokenizer import Tokenizer
+from da_for_polymers.ML_models.sklearn.data.Swelling_Xu.tokenizer import Tokenizer
 
 AUGMENT_SMILES_DATA = pkg_resources.resource_filename(
-    "da_for_polymers", "data/postprocess/PV_Wang/augmentation/train_aug_master.csv"
-)
-
-MASTER_TRAIN_DATA = pkg_resources.resource_filename(
-    "da_for_polymers", "data/preprocess/PV_Wang/pv_exptresults.csv"
+    "da_for_polymers", "data/postprocess/Swelling_Xu/augmentation/train_aug_master.csv"
 )
 
 MASTER_MANUAL_DATA = pkg_resources.resource_filename(
-    "da_for_polymers", "data/postprocess/PV_Wang/manual_frag/master_manual_frag.csv"
+    "da_for_polymers", "data/postprocess/Swelling_Xu/manual_frag/master_manual_frag.csv"
 )
 
-FP_PERVAPORATION = pkg_resources.resource_filename(
-    "da_for_polymers", "data/postprocess/PV_Wang/fingerprint/pv_fingerprint.csv",
+FP_SWELLING = pkg_resources.resource_filename(
+    "da_for_polymers",
+    "data/postprocess/Swelling_Xu/fingerprint/swelling_fingerprint.csv",
 )
 
 BRICS_FRAG_DATA = pkg_resources.resource_filename(
-    "da_for_polymers", "data/postprocess/PV_Wang/BRICS/master_brics_frag.csv"
+    "da_for_polymers", "data/postprocess/Swelling_Xu/BRICS/master_brics_frag.csv"
 )
 
 SUMMARY_DIR = pkg_resources.resource_filename(
-    "da_for_polymers", "ML_models/sklearn/RF/PV_Wang/"
+    "da_for_polymers", "ML_models/sklearn/SVM/Swelling_Xu/swell_svm_results.csv"
 )
-
-SEED_VAL = 4
 
 
 def custom_scorer(y, yhat):
-    corr_coef = np.corrcoef(y, yhat)[0, 1]
-    return corr_coef
+    rmse = np.sqrt(mean_squared_error(y, yhat))
+    return rmse
 
 
 def augment_smi_in_loop(x, y, num_of_augment, da_pair):
@@ -140,11 +138,11 @@ def augment_polymer_frags_in_loop(x, y: float):
 
 
 # create scoring function
-score_func = make_scorer(custom_scorer, greater_is_better=False)
+r_score = make_scorer(custom_scorer, greater_is_better=False)
 
 # log results
 summary_df = pd.DataFrame(
-    columns=["Datatype", "R_mean", "R_std", "RMSE_mean", "RMSE_std", "num_of_data"]
+    columns=["Datatype", "R_mean", "R_std", "RMSE_mean", "RMSE_std"]
 )
 
 # run batch of conditions
@@ -159,35 +157,6 @@ unique_datatype = {
     "fingerprint": 0,
     "sum_of_frags": 0,
 }
-
-parameter_type = {
-    "none": 1,
-    "gross": 0,
-    "gross_only": 0,
-}
-target_type = {
-    "J": 1,
-    "a": 0,
-}
-for target in target_type:
-    if target_type[target] == 1:
-        target_predict = target
-        if target_predict == "J":
-            SUMMARY_DIR = SUMMARY_DIR + "J_"
-        elif target_predict == "a":
-            SUMMARY_DIR = SUMMARY_DIR + "a_"
-
-for param in parameter_type:
-    if parameter_type[param] == 1:
-        descriptor_param = param
-        if descriptor_param == "none":
-            SUMMARY_DIR = SUMMARY_DIR + "none_pv_rf_results.csv"
-        elif descriptor_param == "gross":
-            SUMMARY_DIR = SUMMARY_DIR + "gross_pv_rf_results.csv"
-        elif descriptor_param == "gross_only":
-            SUMMARY_DIR = SUMMARY_DIR + "gross_only_pv_rf_results.csv"
-
-
 for i in range(len(unique_datatype)):
     # reset conditions
     unique_datatype = {
@@ -215,49 +184,53 @@ for i in range(len(unique_datatype)):
         nbits = 512
 
     shuffled = False
-    dataset = Dataset()
     if unique_datatype["smiles"] == 1:
-        dataset.prepare_data(MASTER_TRAIN_DATA, "smi")
-        x, y = dataset.setup(descriptor_param, target_predict)
+        dataset = Dataset(MASTER_MANUAL_DATA, 0, shuffled)
+        dataset.prepare_data()
+        x, y = dataset.setup()
         datatype = "SMILES"
     elif unique_datatype["bigsmiles"] == 1:
-        dataset.prepare_data(MASTER_TRAIN_DATA, "bigsmi")
-        x, y = dataset.setup(descriptor_param, target_predict)
+        dataset = Dataset(MASTER_MANUAL_DATA, 1, shuffled)
+        dataset.prepare_data()
+        x, y = dataset.setup()
         datatype = "BigSMILES"
     elif unique_datatype["selfies"] == 1:
-        dataset.prepare_data(MASTER_TRAIN_DATA, "selfies")
-        x, y = dataset.setup(descriptor_param, target_predict)
+        dataset = Dataset(MASTER_MANUAL_DATA, 2, shuffled)
+        dataset.prepare_data()
+        x, y = dataset.setup()
         datatype = "SELFIES"
     elif unique_datatype["aug_smiles"] == 1:
-        dataset.prepare_data(AUGMENT_SMILES_DATA, "smi")
-        x, y = dataset.setup_aug_smi(descriptor_param, target_predict)
+        dataset = Dataset(AUGMENT_SMILES_DATA, 0, shuffled)
+        dataset.prepare_data()
+        x, y = dataset.setup_aug_smi()
         datatype = "AUG_SMILES"
     elif unique_datatype["brics"] == 1:
-        dataset.prepare_data(BRICS_FRAG_DATA, "brics")
-        x, y = dataset.setup(descriptor_param, target_predict)
+        dataset = Dataset(BRICS_FRAG_DATA, 0, shuffled)
+        x, y = dataset.setup_frag_BRICS()
         datatype = "BRICS"
     elif unique_datatype["manual"] == 1:
-        dataset.prepare_data(BRICS_FRAG_DATA, "manual")
-        x, y = dataset.setup(descriptor_param, target_predict)
+        dataset = Dataset(MASTER_MANUAL_DATA, 0, shuffled)
+        x, y = dataset.setup_manual_frag()
         datatype = "MANUAL"
     elif unique_datatype["aug_manual"] == 1:
-        dataset.prepare_data(MASTER_MANUAL_DATA, "manual")
-        x, y = dataset.setup(descriptor_param, target_predict)
+        dataset = Dataset(MASTER_MANUAL_DATA, 0, shuffled)
+        x, y = dataset.setup_manual_frag()
         datatype = "AUG_MANUAL"
     elif unique_datatype["fingerprint"] == 1:
-        dataset.prepare_data(FP_PERVAPORATION, "fp")
-        x, y = dataset.setup(descriptor_param, target_predict)
+        dataset = Dataset(FP_SWELLING, 0, shuffled)
+        x, y = dataset.setup_fp(radius, nbits)
         datatype = "FINGERPRINT"
         print("RADIUS: " + str(radius) + " NBITS: " + str(nbits))
     elif unique_datatype["sum_of_frags"] == 1:
-        dataset.prepare_data(MASTER_MANUAL_DATA, "sum_of_frags")
-        x, y = dataset.setup(descriptor_param, target_predict)
+        dataset = Dataset(MASTER_MANUAL_DATA, 0, shuffled)
+        x, y = dataset.setup_sum_of_frags()
         datatype = "SUM_OF_FRAGS"
 
     if shuffled:
         datatype += "_SHUFFLED"
 
     # outer cv gives different training and testing sets for inner cv
+    # cv_outer = KFold(n_splits=5, shuffle=True, random_state=0)
     cv_outer = StratifiedKFold(n_splits=7, shuffle=True, random_state=0)
     outer_corr_coef = list()
     outer_rmse = list()
@@ -278,12 +251,11 @@ for i in range(len(unique_datatype)):
 
             x_train = np.array(aug_x_train)
             y_train = np.array(aug_y_train)
-        # augment smiles data
         elif unique_datatype["aug_smiles"] == 1:
             aug_x_train = list(copy.copy(x_train))
             aug_y_train = list(copy.copy(y_train))
             for x_, y_ in zip(x_train, y_train):
-                x_aug, y_aug = augment_smi_in_loop(x_, y_, 3, True)
+                x_aug, y_aug = augment_smi_in_loop(x_, y_, 5, True)
                 aug_x_train.extend(x_aug)
                 aug_y_train.extend(y_aug)
             # tokenize Augmented SMILES
@@ -291,83 +263,39 @@ for i in range(len(unique_datatype)):
                 tokenized_input,
                 max_seq_length,
                 vocab_length,
-                input_dict,  # returns dictionary of vocab
+                dictionary,
             ) = Tokenizer().tokenize_data(aug_x_train)
-            tokenized_test = Tokenizer().tokenize_from_dict(
-                x_test, max_seq_length, input_dict
-            )
-            x_test = np.array(tokenized_test)
             x_train = np.array(tokenized_input)
             y_train = np.array(aug_y_train)
-
+            # tokenize with existing dictionary
+            tokenized_input = Tokenizer().tokenize_from_dict(
+                x_test, max_seq_length, dictionary
+            )
+            x_test = np.array(tokenized_input)
         # configure the cross-validation procedure
         # inner cv allows for finding best model w/ best params
         cv_inner = KFold(n_splits=5, shuffle=True, random_state=1)
         # define the model
-        model = RandomForestRegressor(
-            criterion="squared_error",
-            max_features="auto",
-            random_state=0,
-            bootstrap=True,
-            n_jobs=-1,
-        )
+        model = SVR()
+
         # define search space
         space = dict()
-        space["n_estimators"] = [
-            50,
-            100,
-            200,
-            300,
-            400,
-            500,
-            600,
-            700,
-            800,
-            900,
-            1000,
-            1100,
-            1200,
-            1300,
-            1400,
-            1500,
-        ]
-        space["min_samples_leaf"] = [1, 2, 3, 4, 5, 6]
-        space["min_samples_split"] = [2, 3, 4]
-        space["max_depth"] = (5, 15)
-
+        space["kernel"] = ["linear", "poly", "rbf"]
+        space["degree"] = (1, 10)
         # define search
         search = BayesSearchCV(
             estimator=model,
-            scoring=score_func,
             search_spaces=space,
+            scoring="neg_mean_squared_error",
+            n_iter=25,
             cv=cv_inner,
-            refit=True,
             n_jobs=-1,
             verbose=0,
-            n_iter=25,
-            random_state=SEED_VAL,
-            return_train_score=True,
-            error_score=0,
         )
         # execute search
         result = search.fit(x_train, y_train)
         # get the best performing model fit on the whole training set
         best_model = result.best_estimator_
-        # get permutation importances of best performing model (overcomes bias toward high-cardinality (very unique) features)
-
-        # get feature importances of best performing model
-        # importances = best_model.feature_importances_
-        # std = np.std(
-        #     [tree.feature_importances_ for tree in best_model.estimators_], axis=0
-        # )
-        # forest_importances = pd.Series(importances)
-        # fig, ax = plt.subplots()
-        # forest_importances.plot.bar(yerr=std, ax=ax)
-        # ax.set_title("Feature importances using MDI")
-        # ax.set_ylabel("Mean decrease in impurity")
-        # fig.tight_layout()
-        # plt.show()
-
         # evaluate model on the hold out dataset
         yhat = best_model.predict(x_test)
         # evaluate the model
@@ -385,16 +313,28 @@ for i in range(len(unique_datatype)):
     # summarize the estimated performance of the model
     print("R: %.3f (%.3f)" % (mean(outer_corr_coef), std(outer_corr_coef)))
     print("RMSE: %.3f (%.3f)" % (mean(outer_rmse), std(outer_rmse)))
-    summary_series = pd.DataFrame(
-        {
-            "Datatype": datatype,
-            "R_mean": mean(outer_corr_coef),
-            "R_std": std(outer_corr_coef),
-            "RMSE_mean": mean(outer_rmse),
-            "RMSE_std": std(outer_rmse),
-            "num_of_data": len(x),
-        },
-        index=[0],
+    summary_series = pd.Series(
+        [
+            datatype,
+            mean(outer_corr_coef),
+            std(outer_corr_coef),
+            mean(outer_rmse),
+            std(outer_rmse),
+        ],
+        index=summary_df.columns,
     )
-    summary_df = pd.concat([summary_df, summary_series], ignore_index=True,)
+    summary_df = summary_df.append(summary_series, ignore_index=True)
 summary_df.to_csv(SUMMARY_DIR, index=False)
+
+# add R score from cross-validation results
+# ablation_df = pd.read_csv(ABLATION_STUDY)
+# results_list = [
+#     "OPV",
+#     "SVR",
+#     "sklearn",
+#     "Manual Fragments",
+#     mean(outer_results),
+#     std(outer_results),
+# ]
+# ablation_df.loc[len(ablation_df.index) + 1] = results_list
+# ablation_df.to_csv(ABLATION_STUDY, index=False)

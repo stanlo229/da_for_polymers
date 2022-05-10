@@ -109,7 +109,7 @@ def augment_smi_in_loop(x, y, num_of_augment, da_pair):
 
 
 # create scoring function
-r_score = make_scorer(custom_scorer, greater_is_better=True)
+r_score = make_scorer(custom_scorer, greater_is_better=False)
 
 # log results
 summary_df = pd.DataFrame(

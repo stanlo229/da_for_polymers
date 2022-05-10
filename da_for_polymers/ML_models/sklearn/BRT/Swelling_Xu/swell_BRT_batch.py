@@ -146,7 +146,7 @@ def augment_polymer_frags_in_loop(x, y: float):
 
 
 # create scoring function
-r_score = make_scorer(custom_scorer, greater_is_better=True)
+r_score = make_scorer(custom_scorer, greater_is_better=False)
 
 # log results
 summary_df = pd.DataFrame(
