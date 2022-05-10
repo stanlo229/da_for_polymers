@@ -129,15 +129,15 @@ class BRIC_FRAGS:
         brics_df["Solvent"] = self.data["Solvent"]
         brics_df["Solvent_SMILES"] = self.data["Solvent_SMILES"]
         brics_df["Contact_angle"] = self.data["Contact_angle"]
-        brics_df["Thickness"] = self.data["Thickness_(um)"]
-        brics_df["Solvent_solubility_parameter"] = self.data[
+        brics_df["Thickness_(um)"] = self.data["Thickness_(um)"]
+        brics_df["Solvent_solubility_parameter_(MPa1/2)"] = self.data[
             "Solvent_solubility_parameter_(MPa1/2)"
         ]
         brics_df["xw_(wt%)"] = self.data["xw_(wt%)"]
-        brics_df["Temperature"] = self.data["Temperature_(C)"]
-        brics_df["Permeate_pressure"] = self.data["Permeate_pressure_(mbar)"]
-        brics_df["J_total_flux"] = self.data["J_Total_flux_(kg/m-2h-1)"]
-        brics_df["a_separation_factor"] = self.data["a_Separation_factor_(w/o)"]
+        brics_df["Temperature_(C)"] = self.data["Temperature_(C)"]
+        brics_df["Permeate_pressure_(mbar)"] = self.data["Permeate_pressure_(mbar)"]
+        brics_df["J_Total_flux_(kg/m-2h-1)"] = self.data["J_Total_flux_(kg/m-2h-1)"]
+        brics_df["a_Separation_factor_(w/o)"] = self.data["a_Separation_factor_(w/o)"]
 
         # Iterate through row and fragment using BRICS
         # to get polymer_BRICS, solvent_BRICS, and DA_pair_BRICS
@@ -158,7 +158,6 @@ class BRIC_FRAGS:
                 solvent_brics_smi.append(frag_smi)
 
             brics_df.at[index, "Polymer_BRICS"] = polymer_brics_smi
-            print(polymer_smi, polymer_brics_smi)
             brics_df.at[index, "Solvent_BRICS"] = solvent_brics_smi
             # ps_pair fragments
             ps_pair = polymer_brics_smi
@@ -204,7 +203,8 @@ class BRIC_FRAGS:
         display(img)
 
 
-b_frag = BRIC_FRAGS(MASTER_MANUAL_DATA)
-frag_dict = b_frag.bric_frag()
+# b_frag = BRIC_FRAGS(MASTER_MANUAL_DATA)
+# frag_dict = b_frag.bric_frag()
+
 # print(frag_dict)
 # b_frag.frag_visualization(frag_dict)
