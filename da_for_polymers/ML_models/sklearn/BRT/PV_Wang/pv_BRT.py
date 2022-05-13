@@ -64,7 +64,7 @@ def custom_scorer(y, yhat):
     return rmse
 
 
-def augment_smi_in_loop(x, y, num_of_augment, swap: bool):
+def augment_smi_in_loop(x, y, max_target, num_of_augment, swap: bool):
     """
     Function that creates augmented DA and AD pairs with X number of augmented SMILES
     Uses doRandom=True for augmentation
@@ -252,7 +252,7 @@ def augment_smi_in_loop(x, y, num_of_augment, swap: bool):
     return aug_smi_list, aug_sd_array
 
 
-def augment_polymer_frags_in_loop(x, y: float):
+def augment_polymer_frags_in_loop(x, y, max_target: float):
     """
     Function that augments polymer frags by swapping D.A -> A.D, and D1D2D3 -> D2D3D1 -> D3D1D2
     Assumes that input (x) is DA_tokenized.
@@ -299,7 +299,7 @@ summary_df = pd.DataFrame(
 
 # run batch of conditions
 unique_datatype = {
-    "smiles": 1,
+    "smiles": 0,
     "bigsmiles": 0,
     "selfies": 0,
     "aug_smiles": 0,
@@ -307,7 +307,7 @@ unique_datatype = {
     "manual": 0,
     "aug_manual": 0,
     "fingerprint": 0,
-    "sum_of_frags": 0,
+    "sum_of_frags": 1,
 }
 
 parameter_type = {
@@ -316,8 +316,8 @@ parameter_type = {
     "gross_only": 1,
 }
 target_type = {
-    "J": 0,
-    "a": 1,
+    "J": 1,
+    "a": 0,
 }
 for target in target_type:
     if target_type[target] == 1:
@@ -345,41 +345,43 @@ shuffled = False
 dataset = Dataset()
 if unique_datatype["smiles"] == 1:
     dataset.prepare_data(MASTER_TRAIN_DATA, "smi")
-    x, y = dataset.setup(descriptor_param, target_predict)
+    x, y, max_target = dataset.setup(descriptor_param, target_predict)
     datatype = "SMILES"
 elif unique_datatype["bigsmiles"] == 1:
     dataset.prepare_data(MASTER_MANUAL_DATA, "bigsmi")
-    x, y = dataset.setup(descriptor_param, target_predict)
+    x, y, max_target = dataset.setup(descriptor_param, target_predict)
     datatype = "BigSMILES"
 elif unique_datatype["selfies"] == 1:
     dataset.prepare_data(MASTER_TRAIN_DATA, "selfies")
-    x, y = dataset.setup(descriptor_param, target_predict)
+    x, y, max_target = dataset.setup(descriptor_param, target_predict)
     datatype = "SELFIES"
 elif unique_datatype["aug_smiles"] == 1:
     dataset.prepare_data(AUGMENT_SMILES_DATA, "smi")
-    x, y, token_dict = dataset.setup_aug_smi(descriptor_param, target_predict)
+    x, y, max_target, token_dict = dataset.setup_aug_smi(
+        descriptor_param, target_predict
+    )
     num_of_augment = 4  # 1+4x amount of data
     datatype = "AUG_SMILES"
 elif unique_datatype["brics"] == 1:
     dataset.prepare_data(BRICS_FRAG_DATA, "brics")
-    x, y = dataset.setup(descriptor_param, target_predict)
+    x, y, max_target = dataset.setup(descriptor_param, target_predict)
     datatype = "BRICS"
 elif unique_datatype["manual"] == 1:
     dataset.prepare_data(MASTER_MANUAL_DATA, "manual")
-    x, y = dataset.setup(descriptor_param, target_predict)
+    x, y, max_target = dataset.setup(descriptor_param, target_predict)
     datatype = "MANUAL"
 elif unique_datatype["aug_manual"] == 1:
     dataset.prepare_data(MASTER_MANUAL_DATA, "manual")
-    x, y = dataset.setup(descriptor_param, target_predict)
+    x, y, max_target = dataset.setup(descriptor_param, target_predict)
     datatype = "AUG_MANUAL"
 elif unique_datatype["fingerprint"] == 1:
     dataset.prepare_data(FP_PERVAPORATION, "fp")
-    x, y = dataset.setup(descriptor_param, target_predict)
+    x, y, max_target = dataset.setup(descriptor_param, target_predict)
     datatype = "FINGERPRINT"
     print("RADIUS: " + str(radius) + " NBITS: " + str(nbits))
 elif unique_datatype["sum_of_frags"] == 1:
     dataset.prepare_data(MASTER_TRAIN_DATA, "sum_of_frags")
-    x, y = dataset.setup(descriptor_param, target_predict)
+    x, y, max_target = dataset.setup(descriptor_param, target_predict)
     datatype = "SUM_OF_FRAGS"
 
 if shuffled:
@@ -388,11 +390,11 @@ if shuffled:
 print(datatype)
 
 # outer cv gives different training and testing sets for inner cv
-cv_outer = StratifiedKFold(n_splits=7, shuffle=True, random_state=0)
+cv_outer = StratifiedKFold(n_splits=6, shuffle=True, random_state=0)
 outer_corr_coef = list()
 outer_rmse = list()
 
-for train_ix, test_ix in cv_outer.split(x, dataset.data["Polymer"]):
+for train_ix, test_ix in cv_outer.split(x, dataset.data["Solvent"]):
     # split data
     x_train, x_test = x[train_ix], x[test_ix]
     y_train, y_test = y[train_ix], y[test_ix]
@@ -501,21 +503,22 @@ for train_ix, test_ix in cv_outer.split(x, dataset.data["Polymer"]):
         x_test = np.array(tokenized_test)
         x_train = np.array(tokenized_input)
         y_train = np.array(aug_y_train)
-    print("X_TEST: ", x_test[0])
-    print("X_TRAIN: ", x_train[0])
-    print("Y_TRAIN: ", y_train[0])
+    print("X_TEST: ", x_test[50])
+    print("X_TRAIN: ", x_train[100])
+    print("Y_TRAIN: ", y_train[100])
     # configure the cross-validation procedure
     # inner cv allows for finding best model w/ best params
     cv_inner = KFold(n_splits=5, shuffle=True, random_state=1)
     # define the model
     model = xgboost.XGBRegressor(
         objective="reg:squarederror",
+        alpha=0.9,
         random_state=0,
         n_jobs=-1,
-        learning_rate=0.02,
-        n_estimators=500,
-        max_depth=12,
-        subsample=0.3,
+        learning_rate=0.2,
+        n_estimators=150,
+        max_depth=5,
+        subsample=1,
     )
 
     # define search space
@@ -541,6 +544,7 @@ for train_ix, test_ix in cv_outer.split(x, dataset.data["Polymer"]):
     space["max_depth"] = (8, 20)
     space["subsample"] = [0.1, 0.3, 0.5, 0.7, 1]
     space["min_child_weight"] = [1, 2, 3, 4]
+
     # define search
     search = BayesSearchCV(
         estimator=model,
@@ -559,6 +563,9 @@ for train_ix, test_ix in cv_outer.split(x, dataset.data["Polymer"]):
     best_model = result.best_estimator_
     # evaluate model on the hold out dataset
     yhat = best_model.predict(x_test)
+    # reverse min-max scaling
+    y_test = y_test * max_target
+    y_hat = y_test * max_target
     # evaluate the model
     corr_coef = np.corrcoef(y_test, yhat)[0, 1]
     rmse = np.sqrt(mean_squared_error(y_test, yhat))
@@ -570,6 +577,20 @@ for train_ix, test_ix in cv_outer.split(x, dataset.data["Polymer"]):
         ">corr_coef=%.3f, est=%.3f, cfg=%s"
         % (corr_coef, result.best_score_, result.best_params_)
     )
+
+    # learning curves
+    # evalset = [(x_train, y_train), (x_test, y_test)]
+    # model.fit(x_train, y_train, eval_metric="logloss", eval_set=evalset)
+    # yhat = model.predict(x_test)
+    # results = model.evals_result()
+    # # plot learning curves
+    # plt.plot(results["validation_0"]["logloss"], label="train")
+    # plt.plot(results["validation_1"]["logloss"], label="test")
+    # # show the legend
+    # plt.legend()
+    # # show the plot
+    # plt.show()
+
 
 # summarize the estimated performance of the model
 print("R: %.3f (%.3f)" % (mean(outer_corr_coef), std(outer_corr_coef)))
@@ -591,11 +612,11 @@ summary_df.to_csv(SUMMARY_DIR, index=False)
 
 # elif isinstance(search, int):
 #     # evaluate model
-#     scores = cross_val_score(model, x, y, scoring=r_score, cv=cv, n_jobs=-1)
+#     scores = cross_val_score(model, x, y, max_target, scoring=r_score, cv=cv, n_jobs=-1)
 #     # report performance
 #     print("R: %.3f (%.3f)" % (mean(scores), std(scores)))
 #     if plot == True:
-#         yhat = cross_val_predict(model, x, y, cv=cv, n_jobs=-1)
+#         yhat = cross_val_predict(model, x, y, max_target, cv=cv, n_jobs=-1)
 #         fig, ax = plt.subplots()
 #         ax.scatter(y, yhat, edgecolors=(0, 0, 0))
 #         ax.plot([y.min(), y.max()], [y.min(), y.max()], "k--", lw=4)

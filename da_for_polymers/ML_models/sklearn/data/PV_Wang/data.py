@@ -90,17 +90,15 @@ class Dataset:
         index = 0
         while index < len(tokenized_input):
             if parameter == "gross" or parameter == "gross_only":
-                contact_angle = self.data["Contact_angle"].to_numpy().astype("float32")
-                thickness = self.data["Thickness_(um)"].to_numpy().astype("float32")
-                solvent_solubility = (
+                contact_angle = self.feature_scale(self.data["Contact_angle"])
+                thickness = self.feature_scale(self.data["Thickness_(um)"])
+                solvent_solubility = self.feature_scale(
                     self.data["Solvent_solubility_parameter_(MPa1/2)"]
-                    .to_numpy()
-                    .astype("float32")
                 )
-                water_percent = self.data["xw_(wt%)"].to_numpy().astype("float32")
-                temp = self.data["Temperature_(C)"].to_numpy().astype("float32")
-                permeate_pressure = (
-                    self.data["Permeate_pressure_(mbar)"].to_numpy().astype("float32")
+                water_percent = self.feature_scale(self.data["xw_(wt%)"])
+                temp = self.feature_scale(self.data["Temperature_(C)"])
+                permeate_pressure = self.feature_scale(
+                    self.data["Permeate_pressure_(mbar)"]
                 )
                 tokenized_input[index].append(contact_angle[index])
                 tokenized_input[index].append(thickness[index])
@@ -112,6 +110,19 @@ class Dataset:
                 return np.asarray(tokenized_input)
             index += 1
         return tokenized_input, token_dict
+
+    def feature_scale(self, feature_series: pd.Series) -> np.array:
+        """
+        Min-max scaling of a feature.
+        Args:
+            feature_series: a pd.Series of a feature
+        Returns:
+            scaled_feature: a np.array (same index) of feature that is min-max scaled
+            max_value: maximum value from the entire feature array
+        """
+        feature_array = feature_series.to_numpy().astype("float32")
+        scaled_feature = np.log10(feature_array)
+        return scaled_feature
 
     def tokenize_data(self, tokenized_input: list, token_dict: dict) -> np.array:
         """
@@ -187,11 +198,8 @@ class Dataset:
             target_array = (
                 self.data["a_Separation_factor_(w/o)"].to_numpy().astype("float32")
             )
-
         # minimize range of target between 0-1
-        # find max of target_array
-        self.max_target = target_array.max()
-        target_array = target_array / self.max_target
+        target_array = np.log10(target_array)
 
         if self.input == "smi":
             # tokenize data
@@ -299,7 +307,10 @@ class Dataset:
                 np.asarray(filtered_target_array),
             )
         else:
-            return np.asarray(tokenized_input), np.asarray(target_array)
+            return (
+                np.asarray(tokenized_input),
+                np.asarray(target_array),
+            )
 
     def setup_aug_smi(self, parameter, target):
         """
@@ -321,10 +332,7 @@ class Dataset:
                 self.data["a_Separation_factor_(w/o)"].to_numpy().astype("float32")
             )
 
-        # minimize range of target between 0-1
-        # find max of target_array
-        self.max_target = target_array.max()
-        target_array = target_array / self.max_target
+        target_array = np.log10(target_array)
 
         # convert Series to list
         x = self.data["PS_pair"].to_list()
@@ -359,31 +367,31 @@ class Dataset:
 
 # dataset = Dataset()
 # dataset.prepare_data(MASTER_TRAIN_DATA, "smi")
-# x, y = dataset.setup("gross", "J")
+# x, y, max_target = dataset.setup("gross", "J")
 # print("1")
-# print(x, y)
+# print(x, y, max_target)
 # dataset.prepare_data(MASTER_MANUAL_DATA, "bigsmi")
-# x, y = dataset.setup("gross_only", "a")
+# x, y, max_target = dataset.setup("gross_only", "a")
 # print("2")
-# print(x, y)
+# print(x, y, max_target)
 # dataset.prepare_data(MASTER_TRAIN_DATA, "selfies")
-# x, y = dataset.setup("none", "J")
+# x, y, max_target = dataset.setup("none", "J")
 # print("3")
-# print(x, y)
+# print(x, y, max_target)
 # dataset.prepare_data(MASTER_MANUAL_DATA, "smi")
-# x, y, token_dict = dataset.setup_aug_smi("none", "a")
+# x, y, max_target, token_dict = dataset.setup_aug_smi("none", "a")
 # print("4")
-# print(x, y)
+# print(x, y, max_target)
 # dataset.prepare_data(BRICS_FRAG_DATA, "brics")
-# x, y = dataset.setup("gross_only", "a")
+# x, y, max_target = dataset.setup("gross_only", "a")
 # print("5")
-# print(x, y)
+# print(x, y, max_target)
 # dataset.prepare_data(MASTER_MANUAL_DATA, "manual")
-# x, y = dataset.setup("gross", "J")
+# x, y, max_target = dataset.setup("gross", "J")
 # print("6")
-# print(x, y)
+# print(x, y, max_target)
 # dataset.prepare_data(FP_PERVAPORATION, "fp")
-# x, y = dataset.setup("gross", "J")
+# x, y, max_target = dataset.setup("gross", "J")
 # print("7")
-# print(x, y)
+# print(x, y, max_target)
 

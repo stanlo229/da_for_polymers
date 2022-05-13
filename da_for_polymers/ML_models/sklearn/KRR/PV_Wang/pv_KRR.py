@@ -57,7 +57,7 @@ def custom_scorer(y, yhat):
     return rmse
 
 
-def augment_smi_in_loop(x, y, num_of_augment, swap: bool):
+def augment_smi_in_loop(x, y, max_target, num_of_augment, swap: bool):
     """
     Function that creates augmented DA and AD pairs with X number of augmented SMILES
     Uses doRandom=True for augmentation
@@ -245,7 +245,7 @@ def augment_smi_in_loop(x, y, num_of_augment, swap: bool):
     return aug_smi_list, aug_sd_array
 
 
-def augment_polymer_frags_in_loop(x, y: float):
+def augment_polymer_frags_in_loop(x, y, max_target: float):
     """
     Function that augments polymer frags by swapping D.A -> A.D, and D1D2D3 -> D2D3D1 -> D3D1D2
     Assumes that input (x) is DA_tokenized.
@@ -292,7 +292,7 @@ summary_df = pd.DataFrame(
 
 # run batch of conditions
 unique_datatype = {
-    "smiles": 1,
+    "smiles": 0,
     "bigsmiles": 0,
     "selfies": 0,
     "aug_smiles": 0,
@@ -300,17 +300,17 @@ unique_datatype = {
     "manual": 0,
     "aug_manual": 0,
     "fingerprint": 0,
-    "sum_of_frags": 0,
+    "sum_of_frags": 1,
 }
 
 parameter_type = {
     "none": 0,
-    "gross": 1,
-    "gross_only": 0,
+    "gross": 0,
+    "gross_only": 1,
 }
 target_type = {
-    "J": 1,
-    "a": 0,
+    "J": 0,
+    "a": 1,
 }
 for target in target_type:
     if target_type[target] == 1:
@@ -381,11 +381,11 @@ if shuffled:
 print(datatype)
 
 # outer cv gives different training and testing sets for inner cv
-cv_outer = StratifiedKFold(n_splits=7, shuffle=True, random_state=0)
+cv_outer = KFold(n_splits=5, shuffle=True, random_state=0)
 outer_corr_coef = list()
 outer_rmse = list()
 
-for train_ix, test_ix in cv_outer.split(x, dataset.data["Polymer"]):
+for train_ix, test_ix in cv_outer.split(x):
     # split data
     x_train, x_test = x[train_ix], x[test_ix]
     y_train, y_test = y[train_ix], y[test_ix]
@@ -500,16 +500,21 @@ for train_ix, test_ix in cv_outer.split(x, dataset.data["Polymer"]):
     cv_inner = KFold(n_splits=5, shuffle=True, random_state=1)
     # define the model
     # define kernel
-    kernel = PairwiseKernel(gamma=1, gamma_bounds="fixed", metric="laplacian")
-    # kernel = RBF(length_scale=1, length_scale_bounds="fixed") # gaussian kernel
+    # kernel = PairwiseKernel(gamma=1, gamma_bounds="fixed", metric="laplacian")
+    kernel = RBF(length_scale=0.1)  # gaussian kernel
+    # 0.2 for J
+    #
     # or from sklearn.gaussian_process.kernels import RBF
-    model = KernelRidge(alpha=0.05, kernel=kernel, gamma=1)
+    model = KernelRidge(alpha=0.013, kernel=kernel, gamma=0.621)
 
     # print(len(x_train), len(x_test))
     result = model.fit(x_train, y_train)
 
     # evaluate model on the hold out dataset
     yhat = result.predict(x_test)
+    # reverse log
+    y_test = np.power(10, y_test)
+    yhat = np.power(10, yhat)
     # evaluate the model
     corr_coef = np.corrcoef(y_test, yhat)[0, 1]
     rmse = np.sqrt(mean_squared_error(y_test, yhat))

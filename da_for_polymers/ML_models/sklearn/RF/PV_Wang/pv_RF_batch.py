@@ -50,7 +50,7 @@ def custom_scorer(y, yhat):
     return rmse
 
 
-def augment_smi_in_loop(x, y, num_of_augment, swap: bool):
+def augment_smi_in_loop(x, y, max_target, num_of_augment, swap: bool):
     """
     Function that creates augmented DA and AD pairs with X number of augmented SMILES
     Uses doRandom=True for augmentation
@@ -238,7 +238,7 @@ def augment_smi_in_loop(x, y, num_of_augment, swap: bool):
     return aug_smi_list, aug_sd_array
 
 
-def augment_polymer_frags_in_loop(x, y: float):
+def augment_polymer_frags_in_loop(x, y, max_target: float):
     """
     Function that augments polymer frags by swapping D.A -> A.D, and D1D2D3 -> D2D3D1 -> D3D1D2
     Assumes that input (x) is DA_tokenized.
@@ -354,41 +354,43 @@ for i in range(len(unique_datatype)):
     dataset = Dataset()
     if unique_datatype["smiles"] == 1:
         dataset.prepare_data(MASTER_TRAIN_DATA, "smi")
-        x, y = dataset.setup(descriptor_param, target_predict)
+        x, y, max_target = dataset.setup(descriptor_param, target_predict)
         datatype = "SMILES"
     elif unique_datatype["bigsmiles"] == 1:
         dataset.prepare_data(MASTER_MANUAL_DATA, "bigsmi")
-        x, y = dataset.setup(descriptor_param, target_predict)
+        x, y, max_target = dataset.setup(descriptor_param, target_predict)
         datatype = "BigSMILES"
     elif unique_datatype["selfies"] == 1:
         dataset.prepare_data(MASTER_TRAIN_DATA, "selfies")
-        x, y = dataset.setup(descriptor_param, target_predict)
+        x, y, max_target = dataset.setup(descriptor_param, target_predict)
         datatype = "SELFIES"
     elif unique_datatype["aug_smiles"] == 1:
         dataset.prepare_data(AUGMENT_SMILES_DATA, "smi")
-        x, y, token_dict = dataset.setup_aug_smi(descriptor_param, target_predict)
+        x, y, max_target, token_dict = dataset.setup_aug_smi(
+            descriptor_param, target_predict
+        )
         num_of_augment = 4  # 1+4x amount of data
         datatype = "AUG_SMILES"
     elif unique_datatype["brics"] == 1:
         dataset.prepare_data(BRICS_FRAG_DATA, "brics")
-        x, y = dataset.setup(descriptor_param, target_predict)
+        x, y, max_target = dataset.setup(descriptor_param, target_predict)
         datatype = "BRICS"
     elif unique_datatype["manual"] == 1:
         dataset.prepare_data(MASTER_MANUAL_DATA, "manual")
-        x, y = dataset.setup(descriptor_param, target_predict)
+        x, y, max_target = dataset.setup(descriptor_param, target_predict)
         datatype = "MANUAL"
     elif unique_datatype["aug_manual"] == 1:
         dataset.prepare_data(MASTER_MANUAL_DATA, "manual")
-        x, y = dataset.setup(descriptor_param, target_predict)
+        x, y, max_target = dataset.setup(descriptor_param, target_predict)
         datatype = "AUG_MANUAL"
     elif unique_datatype["fingerprint"] == 1:
         dataset.prepare_data(FP_PERVAPORATION, "fp")
-        x, y = dataset.setup(descriptor_param, target_predict)
+        x, y, max_target = dataset.setup(descriptor_param, target_predict)
         datatype = "FINGERPRINT"
         print("RADIUS: " + str(radius) + " NBITS: " + str(nbits))
     elif unique_datatype["sum_of_frags"] == 1:
         dataset.prepare_data(MASTER_TRAIN_DATA, "sum_of_frags")
-        x, y = dataset.setup(descriptor_param, target_predict)
+        x, y, max_target = dataset.setup(descriptor_param, target_predict)
         datatype = "SUM_OF_FRAGS"
 
     if shuffled:
@@ -585,6 +587,9 @@ for i in range(len(unique_datatype)):
 
         # evaluate model on the hold out dataset
         yhat = best_model.predict(x_test)
+        # reverse min-max scaling
+        y_test = y_test * max_target
+        y_hat = y_test * max_target
         # evaluate the model
         corr_coef = np.corrcoef(y_test, yhat)[0, 1]
         rmse = np.sqrt(mean_squared_error(y_test, yhat))
