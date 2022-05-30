@@ -545,9 +545,6 @@ for i in range(len(unique_datatype)):
 
         # evaluate model on the hold out dataset
         yhat = result.predict(x_test)
-        # reverse min-max scaling
-        y_test = y_test * max_target
-        y_hat = y_test * max_target
         # evaluate the model
         corr_coef = np.corrcoef(y_test, yhat)[0, 1]
         rmse = np.sqrt(mean_squared_error(y_test, yhat))

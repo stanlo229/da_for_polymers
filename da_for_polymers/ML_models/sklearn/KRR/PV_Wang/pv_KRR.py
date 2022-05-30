@@ -12,7 +12,7 @@ from numpy import std
 import matplotlib.pyplot as plt
 from rdkit import Chem
 from collections import deque
-from sklearn.metrics import mean_squared_error
+from sklearn.metrics import mean_squared_error, mean_absolute_error
 from sklearn.inspection import permutation_importance
 from skopt import BayesSearchCV
 import random
@@ -287,7 +287,16 @@ score_func = make_scorer(custom_scorer, greater_is_better=False)
 
 # log results
 summary_df = pd.DataFrame(
-    columns=["Datatype", "R_mean", "R_std", "RMSE_mean", "RMSE_std", "num_of_data"]
+    columns=[
+        "Datatype",
+        "R2_mean",
+        "R2_std",
+        "RMSE_mean",
+        "RMSE_std",
+        "MAE_mean",
+        "MAE_std",
+        "num_of_data",
+    ]
 )
 
 # run batch of conditions
@@ -309,8 +318,8 @@ parameter_type = {
     "gross_only": 1,
 }
 target_type = {
-    "J": 0,
-    "a": 1,
+    "J": 1,
+    "a": 0,
 }
 for target in target_type:
     if target_type[target] == 1:
@@ -384,6 +393,7 @@ print(datatype)
 cv_outer = KFold(n_splits=5, shuffle=True, random_state=0)
 outer_corr_coef = list()
 outer_rmse = list()
+outer_mae = list()
 
 for train_ix, test_ix in cv_outer.split(x):
     # split data
@@ -519,24 +529,29 @@ for train_ix, test_ix in cv_outer.split(x):
     # y_test = np.power(10, y_test)
     # yhat = np.power(10, yhat)
     # evaluate the model
-    corr_coef = np.corrcoef(y_test, yhat)[0, 1]
+    corr_coef = (np.corrcoef(y_test, yhat)[0, 1]) ** 2
     rmse = np.sqrt(mean_squared_error(y_test, yhat))
+    mae = mean_absolute_error(y_test, yhat)
     # store the result
     outer_corr_coef.append(corr_coef)
     outer_rmse.append(rmse)
+    outer_mae.append(mae)
     # report progress (best training score)
     print(">corr_coef=%.3f, rmse=%.3f" % (corr_coef, rmse))
 
 # summarize the estimated performance of the model
 print("R: %.3f (%.3f)" % (mean(outer_corr_coef), std(outer_corr_coef)))
 print("RMSE: %.3f (%.3f)" % (mean(outer_rmse), std(outer_rmse)))
+print("MAE: %.3f (%.3f)" % (mean(outer_mae), std(outer_mae)))
 summary_series = pd.DataFrame(
     {
         "Datatype": datatype,
-        "R_mean": mean(outer_corr_coef),
-        "R_std": std(outer_corr_coef),
+        "R2_mean": mean(outer_corr_coef),
+        "R2_std": std(outer_corr_coef),
         "RMSE_mean": mean(outer_rmse),
         "RMSE_std": std(outer_rmse),
+        "MAE_mean": mean(outer_mae),
+        "MAE_std": std(outer_mae),
         "num_of_data": len(x),
     },
     index=[0],

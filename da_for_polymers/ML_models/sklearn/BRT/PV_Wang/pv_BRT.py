@@ -18,7 +18,7 @@ import matplotlib.pyplot as plt
 from scipy.sparse.construct import random
 from sklearn.model_selection import KFold, StratifiedKFold
 from sklearn.model_selection import GridSearchCV
-from sklearn.metrics import make_scorer
+from sklearn.metrics import make_scorer, mean_absolute_error
 from sklearn.ensemble import GradientBoostingRegressor
 from sklearn.model_selection import cross_val_score
 from sklearn.model_selection import cross_val_predict
@@ -64,7 +64,7 @@ def custom_scorer(y, yhat):
     return rmse
 
 
-def augment_smi_in_loop(x, y, max_target, num_of_augment, swap: bool):
+def augment_smi_in_loop(x, y, num_of_augment, swap: bool):
     """
     Function that creates augmented DA and AD pairs with X number of augmented SMILES
     Uses doRandom=True for augmentation
@@ -252,7 +252,7 @@ def augment_smi_in_loop(x, y, max_target, num_of_augment, swap: bool):
     return aug_smi_list, aug_sd_array
 
 
-def augment_polymer_frags_in_loop(x, y, max_target: float):
+def augment_polymer_frags_in_loop(x, y: float):
     """
     Function that augments polymer frags by swapping D.A -> A.D, and D1D2D3 -> D2D3D1 -> D3D1D2
     Assumes that input (x) is DA_tokenized.
@@ -294,7 +294,16 @@ score_func = make_scorer(custom_scorer, greater_is_better=False)
 
 # log results
 summary_df = pd.DataFrame(
-    columns=["Datatype", "R_mean", "R_std", "RMSE_mean", "RMSE_std", "num_of_data"]
+    columns=[
+        "Datatype",
+        "R2_mean",
+        "R2_std",
+        "RMSE_mean",
+        "RMSE_std",
+        "MAE_mean",
+        "MAE_std",
+        "num_of_data",
+    ]
 )
 
 # run batch of conditions
@@ -316,8 +325,8 @@ parameter_type = {
     "gross_only": 1,
 }
 target_type = {
-    "J": 1,
-    "a": 0,
+    "J": 0,
+    "a": 1,
 }
 for target in target_type:
     if target_type[target] == 1:
@@ -345,43 +354,41 @@ shuffled = False
 dataset = Dataset()
 if unique_datatype["smiles"] == 1:
     dataset.prepare_data(MASTER_TRAIN_DATA, "smi")
-    x, y, max_target = dataset.setup(descriptor_param, target_predict)
+    x, y = dataset.setup(descriptor_param, target_predict)
     datatype = "SMILES"
 elif unique_datatype["bigsmiles"] == 1:
     dataset.prepare_data(MASTER_MANUAL_DATA, "bigsmi")
-    x, y, max_target = dataset.setup(descriptor_param, target_predict)
+    x, y = dataset.setup(descriptor_param, target_predict)
     datatype = "BigSMILES"
 elif unique_datatype["selfies"] == 1:
     dataset.prepare_data(MASTER_TRAIN_DATA, "selfies")
-    x, y, max_target = dataset.setup(descriptor_param, target_predict)
+    x, y = dataset.setup(descriptor_param, target_predict)
     datatype = "SELFIES"
 elif unique_datatype["aug_smiles"] == 1:
     dataset.prepare_data(AUGMENT_SMILES_DATA, "smi")
-    x, y, max_target, token_dict = dataset.setup_aug_smi(
-        descriptor_param, target_predict
-    )
+    x, y, token_dict = dataset.setup_aug_smi(descriptor_param, target_predict)
     num_of_augment = 4  # 1+4x amount of data
     datatype = "AUG_SMILES"
 elif unique_datatype["brics"] == 1:
     dataset.prepare_data(BRICS_FRAG_DATA, "brics")
-    x, y, max_target = dataset.setup(descriptor_param, target_predict)
+    x, y = dataset.setup(descriptor_param, target_predict)
     datatype = "BRICS"
 elif unique_datatype["manual"] == 1:
     dataset.prepare_data(MASTER_MANUAL_DATA, "manual")
-    x, y, max_target = dataset.setup(descriptor_param, target_predict)
+    x, y = dataset.setup(descriptor_param, target_predict)
     datatype = "MANUAL"
 elif unique_datatype["aug_manual"] == 1:
     dataset.prepare_data(MASTER_MANUAL_DATA, "manual")
-    x, y, max_target = dataset.setup(descriptor_param, target_predict)
+    x, y = dataset.setup(descriptor_param, target_predict)
     datatype = "AUG_MANUAL"
 elif unique_datatype["fingerprint"] == 1:
     dataset.prepare_data(FP_PERVAPORATION, "fp")
-    x, y, max_target = dataset.setup(descriptor_param, target_predict)
+    x, y = dataset.setup(descriptor_param, target_predict)
     datatype = "FINGERPRINT"
     print("RADIUS: " + str(radius) + " NBITS: " + str(nbits))
 elif unique_datatype["sum_of_frags"] == 1:
     dataset.prepare_data(MASTER_TRAIN_DATA, "sum_of_frags")
-    x, y, max_target = dataset.setup(descriptor_param, target_predict)
+    x, y = dataset.setup(descriptor_param, target_predict)
     datatype = "SUM_OF_FRAGS"
 
 if shuffled:
@@ -393,6 +400,7 @@ print(datatype)
 cv_outer = StratifiedKFold(n_splits=6, shuffle=True, random_state=0)
 outer_corr_coef = list()
 outer_rmse = list()
+outer_mae = list()
 
 for train_ix, test_ix in cv_outer.split(x, dataset.data["Solvent"]):
     # split data
@@ -509,74 +517,39 @@ for train_ix, test_ix in cv_outer.split(x, dataset.data["Solvent"]):
     # configure the cross-validation procedure
     # inner cv allows for finding best model w/ best params
     cv_inner = KFold(n_splits=5, shuffle=True, random_state=1)
+
+    if target_predict == "J":
+        n_estimators = 130
+        max_depth = 5
+    elif target_predict == "a":
+        n_estimators = 150
+        max_depth = 4
     # define the model
     model = xgboost.XGBRegressor(
-        objective="reg:squarederror",
+        objective="reg:pseudohubererror",
         alpha=0.9,
         random_state=0,
         n_jobs=-1,
         learning_rate=0.2,
-        n_estimators=150,
-        max_depth=5,
+        n_estimators=n_estimators,
+        max_depth=max_depth,
         subsample=1,
     )
 
-    # define search space
-    space = dict()
-    space["n_estimators"] = [
-        50,
-        100,
-        200,
-        300,
-        400,
-        500,
-        600,
-        700,
-        800,
-        900,
-        1000,
-        1100,
-        1200,
-        1300,
-        1400,
-        1500,
-    ]
-    space["max_depth"] = (8, 20)
-    space["subsample"] = [0.1, 0.3, 0.5, 0.7, 1]
-    space["min_child_weight"] = [1, 2, 3, 4]
-
-    # define search
-    search = BayesSearchCV(
-        estimator=model,
-        search_spaces=space,
-        scoring=score_func,
-        cv=cv_inner,
-        refit=True,
-        n_jobs=-1,
-        verbose=0,
-        n_iter=25,
-    )
-
     # execute search
-    result = search.fit(x_train, y_train)
-    # get the best performing model fit on the whole training set
-    best_model = result.best_estimator_
+    result = model.fit(x_train, y_train)
     # evaluate model on the hold out dataset
-    yhat = best_model.predict(x_test)
-    # reverse min-max scaling
-    y_test = y_test * max_target
-    y_hat = y_test * max_target
+    yhat = model.predict(x_test)
     # evaluate the model
-    corr_coef = np.corrcoef(y_test, yhat)[0, 1]
+    corr_coef = (np.corrcoef(y_test, yhat)[0, 1]) ** 2
     rmse = np.sqrt(mean_squared_error(y_test, yhat))
+    mae = mean_absolute_error(y_test, yhat)
     # store the result
     outer_corr_coef.append(corr_coef)
     outer_rmse.append(rmse)
+    outer_mae.append(mae)
     # report progress (best training score)
-    print(
-        ">corr_coef=%.3f, est=%.3f, cfg=%s"
-        % (corr_coef, result.best_score_, result.best_params_)
-    )
+    print(">corr_coef=%.3f, rmse=%.3f, mae=%.3f" % (corr_coef, rmse, mae))
 
     # learning curves
     # evalset = [(x_train, y_train), (x_test, y_test)]
@@ -595,13 +568,16 @@ for train_ix, test_ix in cv_outer.split(x, dataset.data["Solvent"]):
 # summarize the estimated performance of the model
 print("R: %.3f (%.3f)" % (mean(outer_corr_coef), std(outer_corr_coef)))
 print("RMSE: %.3f (%.3f)" % (mean(outer_rmse), std(outer_rmse)))
+print("MAE: %.3f (%.3f)" % (mean(outer_mae), std(outer_mae)))
 summary_series = pd.DataFrame(
     {
         "Datatype": datatype,
-        "R_mean": mean(outer_corr_coef),
-        "R_std": std(outer_corr_coef),
+        "R2_mean": mean(outer_corr_coef),
+        "R2_std": std(outer_corr_coef),
         "RMSE_mean": mean(outer_rmse),
         "RMSE_std": std(outer_rmse),
+        "MAE_mean": mean(outer_mae),
+        "MAE_std": std(outer_mae),
         "num_of_data": len(x),
     },
     index=[0],
@@ -612,11 +588,11 @@ summary_df.to_csv(SUMMARY_DIR, index=False)
 
 # elif isinstance(search, int):
 #     # evaluate model
-#     scores = cross_val_score(model, x, y, max_target, scoring=r_score, cv=cv, n_jobs=-1)
+#     scores = cross_val_score(model, x, y, scoring=r_score, cv=cv, n_jobs=-1)
 #     # report performance
 #     print("R: %.3f (%.3f)" % (mean(scores), std(scores)))
 #     if plot == True:
-#         yhat = cross_val_predict(model, x, y, max_target, cv=cv, n_jobs=-1)
+#         yhat = cross_val_predict(model, x, y, cv=cv, n_jobs=-1)
 #         fig, ax = plt.subplots()
 #         ax.scatter(y, yhat, edgecolors=(0, 0, 0))
 #         ax.plot([y.min(), y.max()], [y.min(), y.max()], "k--", lw=4)
