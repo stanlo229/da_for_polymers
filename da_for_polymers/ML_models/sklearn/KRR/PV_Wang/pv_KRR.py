@@ -501,11 +501,14 @@ for train_ix, test_ix in cv_outer.split(x):
     # define the model
     # define kernel
     # kernel = PairwiseKernel(gamma=1, gamma_bounds="fixed", metric="laplacian")
-    kernel = RBF(length_scale=0.1)  # gaussian kernel
-    # 0.2 for J
-    #
-    # or from sklearn.gaussian_process.kernels import RBF
-    model = KernelRidge(alpha=0.013, kernel=kernel, gamma=0.621)
+    if target_predict == "J":
+        alpha = 0.053
+        gamma = 0.452
+    elif target_predict == "a":
+        alpha = 0.013
+        gamma = 0.621
+    kernel = RBF(length_scale=gamma)  # gaussian kernel
+    model = KernelRidge(alpha=alpha, gamma=gamma, kernel=kernel)
 
     # print(len(x_train), len(x_test))
     result = model.fit(x_train, y_train)
@@ -513,8 +516,8 @@ for train_ix, test_ix in cv_outer.split(x):
     # evaluate model on the hold out dataset
     yhat = result.predict(x_test)
     # reverse log
-    y_test = np.power(10, y_test)
-    yhat = np.power(10, yhat)
+    # y_test = np.power(10, y_test)
+    # yhat = np.power(10, yhat)
     # evaluate the model
     corr_coef = np.corrcoef(y_test, yhat)[0, 1]
     rmse = np.sqrt(mean_squared_error(y_test, yhat))

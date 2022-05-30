@@ -200,6 +200,7 @@ class Dataset:
             )
         # minimize range of target between 0-1
         target_array = np.log10(target_array)
+        print(target_array)
 
         if self.input == "smi":
             # tokenize data
