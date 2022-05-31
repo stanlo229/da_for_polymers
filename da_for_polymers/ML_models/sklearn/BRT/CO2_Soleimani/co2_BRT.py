@@ -1,52 +1,61 @@
-from distutils.log import error
-from sklearn.model_selection import KFold, StratifiedKFold
-from sklearn.model_selection import GridSearchCV
-from sklearn.metrics import make_scorer
+import copy
+import math
+from argparse import ArgumentParser
+from typing import Dict, List, Optional, Union
+from numpy.core.numeric import outer
+import pandas as pd
+from collections import deque
+from rdkit import Chem
+
+# for plotting
 import pkg_resources
 import numpy as np
-import pandas as pd
-import copy as copy
-import sys
 from numpy import mean
 from numpy import std
 import matplotlib.pyplot as plt
-from rdkit import Chem
-from collections import deque
-from sklearn.metrics import mean_squared_error, mean_absolute_error
-from sklearn.inspection import permutation_importance
+
+# sklearn
+from scipy.sparse.construct import random
+from sklearn.model_selection import KFold, StratifiedKFold
+from sklearn.model_selection import GridSearchCV
+from sklearn.metrics import make_scorer, mean_absolute_error
+from sklearn.ensemble import GradientBoostingRegressor
+from sklearn.model_selection import cross_val_score
+from sklearn.model_selection import cross_val_predict
+from sklearn.model_selection import RepeatedKFold
+from sklearn.metrics import mean_squared_error
 from skopt import BayesSearchCV
-import random
 
-from sklearn.kernel_ridge import KernelRidge
-from sklearn.gaussian_process.kernels import RBF, PairwiseKernel
-from da_for_polymers.ML_models.sklearn.data.PV_Wang.data import Dataset
-from da_for_polymers.ML_models.sklearn.data.PV_Wang.tokenizer import Tokenizer
+# xgboost
+import xgboost
 
-np.set_printoptions(threshold=sys.maxsize)
-pd.set_option("display.width", 500)
+from da_for_polymers.ML_models.sklearn.data.CO2_Soleimani.data import Dataset
+from da_for_polymers.ML_models.sklearn.data.CO2_Soleimani.tokenizer import Tokenizer
 
 AUGMENT_SMILES_DATA = pkg_resources.resource_filename(
-    "da_for_polymers", "data/postprocess/PV_Wang/augmentation/train_aug_master.csv"
-)
-
-MASTER_TRAIN_DATA = pkg_resources.resource_filename(
-    "da_for_polymers", "data/preprocess/PV_Wang/pv_exptresults.csv"
-)
-
-MASTER_MANUAL_DATA = pkg_resources.resource_filename(
-    "da_for_polymers", "data/postprocess/PV_Wang/manual_frag/master_manual_frag.csv"
-)
-
-FP_PERVAPORATION = pkg_resources.resource_filename(
-    "da_for_polymers", "data/postprocess/PV_Wang/fingerprint/pv_fingerprint.csv",
+    "da_for_polymers",
+    "data/postprocess/CO2_Soleimani/augmentation/train_aug_master.csv",
 )
 
 BRICS_FRAG_DATA = pkg_resources.resource_filename(
-    "da_for_polymers", "data/postprocess/PV_Wang/BRICS/master_brics_frag.csv"
+    "da_for_polymers", "data/postprocess/CO2_Soleimani/BRICS/master_brics_frag.csv"
+)
+
+MASTER_TRAIN_DATA = pkg_resources.resource_filename(
+    "da_for_polymers", "data/process/CO2_Soleimani/co2_expt_data.csv"
+)
+
+MASTER_MANUAL_DATA = pkg_resources.resource_filename(
+    "da_for_polymers",
+    "data/postprocess/CO2_Soleimani/manual_frag/master_manual_frag.csv",
+)
+
+FP_CO2 = pkg_resources.resource_filename(
+    "da_for_polymers", "data/postprocess/CO2_Soleimani/fingerprint/co2_fingerprint.csv",
 )
 
 SUMMARY_DIR = pkg_resources.resource_filename(
-    "da_for_polymers", "ML_models/sklearn/KRR/PV_Wang/"
+    "da_for_polymers", "ML_models/sklearn/BRT/CO2_Soleimani/"
 )
 
 SEED_VAL = 4
@@ -57,7 +66,7 @@ def custom_scorer(y, yhat):
     return rmse
 
 
-def augment_smi_in_loop(x, y, max_target, num_of_augment, swap: bool):
+def augment_smi_in_loop(x, y, num_of_augment, swap: bool):
     """
     Function that creates augmented DA and AD pairs with X number of augmented SMILES
     Uses doRandom=True for augmentation
@@ -245,7 +254,7 @@ def augment_smi_in_loop(x, y, max_target, num_of_augment, swap: bool):
     return aug_smi_list, aug_sd_array
 
 
-def augment_polymer_frags_in_loop(x, y, max_target: float):
+def augment_polymer_frags_in_loop(x, y: float):
     """
     Function that augments polymer frags by swapping D.A -> A.D, and D1D2D3 -> D2D3D1 -> D3D1D2
     Assumes that input (x) is DA_tokenized.
@@ -301,7 +310,7 @@ summary_df = pd.DataFrame(
 
 # run batch of conditions
 unique_datatype = {
-    "smiles": 0,
+    "smiles": 1,
     "bigsmiles": 0,
     "selfies": 0,
     "aug_smiles": 0,
@@ -309,35 +318,23 @@ unique_datatype = {
     "manual": 0,
     "aug_manual": 0,
     "fingerprint": 0,
-    "sum_of_frags": 1,
 }
 
 parameter_type = {
     "none": 0,
-    "gross": 0,
-    "gross_only": 1,
+    "gross": 1,
+    "gross_only": 0,
 }
-target_type = {
-    "J": 0,
-    "a": 1,
-}
-for target in target_type:
-    if target_type[target] == 1:
-        target_predict = target
-        if target_predict == "J":
-            SUMMARY_DIR = SUMMARY_DIR + "J_"
-        elif target_predict == "a":
-            SUMMARY_DIR = SUMMARY_DIR + "a_"
 
 for param in parameter_type:
     if parameter_type[param] == 1:
         descriptor_param = param
         if descriptor_param == "none":
-            SUMMARY_DIR = SUMMARY_DIR + "none_pv_krr_results.csv"
+            SUMMARY_DIR = SUMMARY_DIR + "none_co2_brt_results.csv"
         elif descriptor_param == "gross":
-            SUMMARY_DIR = SUMMARY_DIR + "gross_pv_krr_results.csv"
+            SUMMARY_DIR = SUMMARY_DIR + "gross_co2_brt_results.csv"
         elif descriptor_param == "gross_only":
-            SUMMARY_DIR = SUMMARY_DIR + "gross_only_pv_krr_results.csv"
+            SUMMARY_DIR = SUMMARY_DIR + "gross_only_co2_brt_results.csv"
 
 if unique_datatype["fingerprint"] == 1:
     radius = 3
@@ -347,42 +344,38 @@ shuffled = False
 dataset = Dataset()
 if unique_datatype["smiles"] == 1:
     dataset.prepare_data(MASTER_TRAIN_DATA, "smi")
-    x, y = dataset.setup(descriptor_param, target_predict)
+    x, y, max_value, min_value = dataset.setup(descriptor_param)
     datatype = "SMILES"
 elif unique_datatype["bigsmiles"] == 1:
     dataset.prepare_data(MASTER_MANUAL_DATA, "bigsmi")
-    x, y = dataset.setup(descriptor_param, target_predict)
+    x, y, max_value, min_value = dataset.setup(descriptor_param)
     datatype = "BigSMILES"
 elif unique_datatype["selfies"] == 1:
     dataset.prepare_data(MASTER_TRAIN_DATA, "selfies")
-    x, y = dataset.setup(descriptor_param, target_predict)
+    x, y, max_value, min_value = dataset.setup(descriptor_param)
     datatype = "SELFIES"
 elif unique_datatype["aug_smiles"] == 1:
     dataset.prepare_data(AUGMENT_SMILES_DATA, "smi")
-    x, y, token_dict = dataset.setup_aug_smi(descriptor_param, target_predict)
+    x, y, token_dict = dataset.setup_aug_smi(descriptor_param)
     num_of_augment = 4  # 1+4x amount of data
     datatype = "AUG_SMILES"
 elif unique_datatype["brics"] == 1:
     dataset.prepare_data(BRICS_FRAG_DATA, "brics")
-    x, y = dataset.setup(descriptor_param, target_predict)
+    x, y, max_value, min_value = dataset.setup(descriptor_param)
     datatype = "BRICS"
 elif unique_datatype["manual"] == 1:
     dataset.prepare_data(MASTER_MANUAL_DATA, "manual")
-    x, y = dataset.setup(descriptor_param, target_predict)
+    x, y, max_value, min_value = dataset.setup(descriptor_param)
     datatype = "MANUAL"
 elif unique_datatype["aug_manual"] == 1:
     dataset.prepare_data(MASTER_MANUAL_DATA, "manual")
-    x, y = dataset.setup(descriptor_param, target_predict)
+    x, y, max_value, min_value = dataset.setup(descriptor_param)
     datatype = "AUG_MANUAL"
 elif unique_datatype["fingerprint"] == 1:
-    dataset.prepare_data(FP_PERVAPORATION, "fp")
-    x, y = dataset.setup(descriptor_param, target_predict)
+    dataset.prepare_data(FP_CO2, "fp")
+    x, y, max_value, min_value = dataset.setup(descriptor_param)
     datatype = "FINGERPRINT"
     print("RADIUS: " + str(radius) + " NBITS: " + str(nbits))
-elif unique_datatype["sum_of_frags"] == 1:
-    dataset.prepare_data(MASTER_TRAIN_DATA, "sum_of_frags")
-    x, y = dataset.setup(descriptor_param, target_predict)
-    datatype = "SUM_OF_FRAGS"
 
 if shuffled:
     datatype += "_SHUFFLED"
@@ -390,12 +383,12 @@ if shuffled:
 print(datatype)
 
 # outer cv gives different training and testing sets for inner cv
-cv_outer = KFold(n_splits=5, shuffle=True, random_state=0)
+cv_outer = StratifiedKFold(n_splits=13, shuffle=True, random_state=0)
 outer_corr_coef = list()
 outer_rmse = list()
 outer_mae = list()
 
-for train_ix, test_ix in cv_outer.split(x):
+for train_ix, test_ix in cv_outer.split(x, dataset.data["Polymer"]):
     # split data
     x_train, x_test = x[train_ix], x[test_ix]
     y_train, y_test = y[train_ix], y[test_ix]
@@ -504,30 +497,67 @@ for train_ix, test_ix in cv_outer.split(x):
         x_test = np.array(tokenized_test)
         x_train = np.array(tokenized_input)
         y_train = np.array(aug_y_train)
-
     # configure the cross-validation procedure
     # inner cv allows for finding best model w/ best params
     cv_inner = KFold(n_splits=5, shuffle=True, random_state=1)
+
     # define the model
-    # define kernel
-    # kernel = PairwiseKernel(gamma=1, gamma_bounds="fixed", metric="laplacian")
-    if target_predict == "J":
-        alpha = 0.053
-        gamma = 0.452
-    elif target_predict == "a":
-        alpha = 0.013
-        gamma = 0.621
-    kernel = RBF(length_scale=gamma)  # gaussian kernel
-    model = KernelRidge(alpha=alpha, gamma=gamma, kernel=kernel)
+    model = xgboost.XGBRegressor(
+        objective="reg:pseudohubererror",
+        alpha=0.9,
+        random_state=0,
+        n_jobs=-1,
+        learning_rate=0.2,
+        n_estimators=100,
+        max_depth=10,
+        subsample=1,
+    )
+    # define search space
+    space = dict()
+    space["n_estimators"] = [
+        50,
+        100,
+        200,
+        300,
+        400,
+        500,
+        600,
+        700,
+        800,
+        900,
+        1000,
+        1100,
+        1200,
+        1300,
+        1400,
+        1500,
+    ]
+    space["max_depth"] = (8, 20)
+    space["subsample"] = [0.1, 0.3, 0.5, 0.7, 1]
+    space["min_child_weight"] = [1, 2, 3, 4]
+    # define search
+    search = BayesSearchCV(
+        estimator=model,
+        search_spaces=space,
+        scoring=score_func,
+        cv=cv_inner,
+        refit=True,
+        n_jobs=-1,
+        verbose=0,
+        n_iter=25,
+    )
 
-    # print(len(x_train), len(x_test))
-    result = model.fit(x_train, y_train)
-
+    # execute search
+    result = search.fit(x_train, y_train)
+    # get the best performing model fit on the whole training set
+    best_model = result.best_estimator_
     # evaluate model on the hold out dataset
-    yhat = result.predict(x_test)
-    # reverse log
-    # y_test = np.power(10, y_test)
-    # yhat = np.power(10, yhat)
+    yhat = best_model.predict(x_test)
+
+    # reverse min-max scaling
+    yhat = (yhat * (max_value - min_value)) + min_value
+    y_test = (y_test * (max_value - min_value)) + min_value
+
     # evaluate the model
     corr_coef = (np.corrcoef(y_test, yhat)[0, 1]) ** 2
     rmse = np.sqrt(mean_squared_error(y_test, yhat))
@@ -537,7 +567,21 @@ for train_ix, test_ix in cv_outer.split(x):
     outer_rmse.append(rmse)
     outer_mae.append(mae)
     # report progress (best training score)
-    print(">corr_coef=%.3f, rmse=%.3f" % (corr_coef, rmse))
+    print(">r2=%.3f, rmse=%.3f, mae=%.3f" % (corr_coef, rmse, mae))
+
+    # learning curves
+    # evalset = [(x_train, y_train), (x_test, y_test)]
+    # model.fit(x_train, y_train, eval_metric="logloss", eval_set=evalset)
+    # yhat = model.predict(x_test)
+    # results = model.evals_result()
+    # # plot learning curves
+    # plt.plot(results["validation_0"]["logloss"], label="train")
+    # plt.plot(results["validation_1"]["logloss"], label="test")
+    # # show the legend
+    # plt.legend()
+    # # show the plot
+    # plt.show()
+
 
 # summarize the estimated performance of the model
 print("R2: %.3f (%.3f)" % (mean(outer_corr_coef), std(outer_corr_coef)))
@@ -558,3 +602,56 @@ summary_series = pd.DataFrame(
 )
 summary_df = pd.concat([summary_df, summary_series], ignore_index=True,)
 summary_df.to_csv(SUMMARY_DIR, index=False)
+
+
+# elif isinstance(search, int):
+#     # evaluate model
+#     scores = cross_val_score(model, x, y, scoring=r_score, cv=cv, n_jobs=-1)
+#     # report performance
+#     print("R: %.3f (%.3f)" % (mean(scores), std(scores)))
+#     if plot == True:
+#         yhat = cross_val_predict(model, x, y, cv=cv, n_jobs=-1)
+#         fig, ax = plt.subplots()
+#         ax.scatter(y, yhat, edgecolors=(0, 0, 0))
+#         ax.plot([y.min(), y.max()], [y.min(), y.max()], "k--", lw=4)
+#         ax.set_xlabel("Measured")
+#         ax.set_ylabel("Predicted")
+#         plt.show()
+
+#     # TODO: store bad predictions and corresponding labels
+#     poor_pred_df = pd.DataFrame(
+#         columns=[
+#             "Donor",
+#             "Acceptor",
+#             "DA_pair_fragments",
+#             "y_diff",
+#             "y_measured",
+#             "y_pred",
+#         ]
+#     )
+#     train_frag_df = pd.read_csv(TRAIN_MASTER_DATA)
+#     y_diff_all = abs(yhat - y)
+#     y_diff_avg = mean(y_diff_all)
+#     y_diff_std = std(y_diff_all)
+#     print("avg_diff: ", y_diff_avg, "std_diff: ", y_diff_std)
+
+#     for i in range(len(yhat)):
+#         y_diff = abs(yhat[i] - y[i])
+#         if y_diff > 2 * y_diff_std:  # use 1 standard deviation from mean
+#             poor_pred_df.at[i, "Donor"] = train_frag_df.at[i, "Donor"]
+#             poor_pred_df.at[i, "Acceptor"] = train_frag_df.at[i, "Acceptor"]
+#             poor_pred_df.at[i, "DA_pair_fragments"] = train_frag_df.at[
+#                 i, "DA_pair_fragments"
+#             ]
+#             poor_pred_df.at[i, "y_diff"] = y_diff
+#             poor_pred_df.at[i, "y_measured"] = y[i]
+#             poor_pred_df.at[i, "y_pred"] = yhat[i]
+
+#     poor_pred_df.to_csv(DATA_EVAL)
+#     print("Number of Poor Predictions: ", len(poor_pred_df.index))
+
+# TODO: compare xgboost with sklearn, and then with augmented versions, and then with LSTM version
+
+# NOTE: average of averages != average over all data
+# NOTE: https://math.stackexchange.com/questions/95909/why-is-an-average-of-an-average-usually-incorrect/95912#:~:text=The%20average%20of%20averages%20is,all%20values%20in%20two%20cases%3A&text=This%20answers%20the%20first%20OP,usually%20gives%20the%20wrong%20answer.&text=This%20is%20why%20the%20average,groups%20have%20the%20same%20size.
+

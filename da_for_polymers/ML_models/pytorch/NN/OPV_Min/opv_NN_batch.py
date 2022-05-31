@@ -16,7 +16,7 @@ import torch.nn.functional as F
 import torch.optim as optim
 from torch import nn
 from torch.optim import SGD, Adam
-from da_for_polymers.ML_models.pytorch.OPV_Min.data.data import OPVDataModule
+from da_for_polymers.ML_models.pytorch.data.OPV_Min.data import OPVDataModule
 from pytorch_lightning import callbacks
 from pytorch_lightning.callbacks import ModelCheckpoint
 from pytorch_lightning.core.saving import save_hparams_to_yaml

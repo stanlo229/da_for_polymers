@@ -90,14 +90,20 @@ class Dataset:
         index = 0
         while index < len(tokenized_input):
             if parameter == "gross" or parameter == "gross_only":
-                contact_angle = self.feature_scale(self.data["Contact_angle"])
-                thickness = self.feature_scale(self.data["Thickness_(um)"])
-                solvent_solubility = self.feature_scale(
+                contact_angle, max_contact_angle = self.feature_scale(
+                    self.data["Contact_angle"]
+                )
+                thickness, max_thickness = self.feature_scale(
+                    self.data["Thickness_(um)"]
+                )
+                solvent_solubility, max_solvent_solubility = self.feature_scale(
                     self.data["Solvent_solubility_parameter_(MPa1/2)"]
                 )
-                water_percent = self.feature_scale(self.data["xw_(wt%)"])
-                temp = self.feature_scale(self.data["Temperature_(C)"])
-                permeate_pressure = self.feature_scale(
+                water_percent, max_water_percent = self.feature_scale(
+                    self.data["xw_(wt%)"]
+                )
+                temp, max_temp = self.feature_scale(self.data["Temperature_(C)"])
+                permeate_pressure, max_permeate_pressure = self.feature_scale(
                     self.data["Permeate_pressure_(mbar)"]
                 )
                 tokenized_input[index].append(contact_angle[index])
@@ -121,8 +127,10 @@ class Dataset:
             max_value: maximum value from the entire feature array
         """
         feature_array = feature_series.to_numpy().astype("float32")
-        scaled_feature = np.log10(feature_array)
-        return scaled_feature
+        max_value = np.nanmax(feature_array)
+        min_value = np.nanmin(feature_array)
+        scaled_feature = (feature_array - min_value) / (max_value - min_value)
+        return scaled_feature, max_value
 
     def tokenize_data(self, tokenized_input: list, token_dict: dict) -> np.array:
         """
