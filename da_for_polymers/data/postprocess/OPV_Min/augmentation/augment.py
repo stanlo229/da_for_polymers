@@ -12,7 +12,7 @@ MASTER_DATA = pkg_resources.resource_filename(
 )
 
 AUGMENT_SMILES_DATA = pkg_resources.resource_filename(
-    "da_for_polymers", "data/postprocess/OPV_Min/augmentation/train_aug_master5.csv"
+    "da_for_polymers", "data/postprocess/OPV_Min/augmentation/train_aug_master4.csv"
 )
 
 
@@ -63,21 +63,9 @@ class Augment:
         """
         # keeps randomness the same
         random.seed(1)
-        column_names = [
-            "Donor",
-            "Donor_SMILES",
-            "Acceptor",
-            "Acceptor_SMILES",
-            "DA_pair_aug",
-            "AD_pair_aug",
-            "PCE(%)",
-        ]
-        train_aug_df = pd.DataFrame(columns=column_names)
-        train_aug_df["Donor"] = self.data["Donor"]
-        train_aug_df["Donor_SMILES"] = self.data["Donor_SMILES"]
-        train_aug_df["Acceptor"] = self.data["Acceptor"]
-        train_aug_df["Acceptor_SMILES"] = self.data["Acceptor_SMILES"]
-        train_aug_df["PCE(%)"] = self.data["PCE(%)"]
+        train_aug_df = self.data
+        train_aug_df["DA_pair_aug"] = ""
+        train_aug_df["AD_pair_aug"] = ""
 
         for i in range(len(train_aug_df["Donor"])):
             augmented_da_list = []
@@ -183,9 +171,9 @@ class Augment:
         aug_smi_data.to_csv(train_aug_data, index=False)
 
 
-# augmenter = Augment(MASTER_DATA)
-# augmenter.aug_smi_doRandom(AUGMENT_SMILES_DATA, 4)
-# augmenter.aug_smi_tokenize(AUGMENT_SMILES_DATA)
+augmenter = Augment(MASTER_DATA)
+augmenter.aug_smi_doRandom(AUGMENT_SMILES_DATA, 4)
+augmenter.aug_smi_tokenize(AUGMENT_SMILES_DATA)
 
 # from rdkit.Chem import Descriptors
 
@@ -197,6 +185,6 @@ class Augment:
 #     )
 # )
 
-thiophene = Chem.MolFromSmiles("c1cccs1")
-for i in range(5):
-    print(Chem.MolToSmiles(thiophene, doRandom=True))
+# thiophene = Chem.MolFromSmiles("c1cccs1")
+# for i in range(5):
+#     print(Chem.MolToSmiles(thiophene, doRandom=True))

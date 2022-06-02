@@ -104,25 +104,12 @@ class BRIC_FRAGS:
         Returns:
             Creates new master_brics_frag.csv with Labels, SMILES, DA_pairs, Fragments, PCE(%)
         """
-        brics_df = pd.DataFrame(
-            columns=[
-                "Donor",
-                "Donor_SMILES",
-                "Acceptor",
-                "Acceptor_SMILES",
-                "PCE(%)",
-                "Donor_BRICS",
-                "Acceptor_BRICS",
-                "DA_pair_BRICS",
-                "DA_tokenized_BRICS",
-                "AD_tokenized_BRICS",
-            ]
-        )
-        brics_df["Donor"] = self.data["Donor"]
-        brics_df["Donor_SMILES"] = self.data["Donor_SMILES"]
-        brics_df["Acceptor"] = self.data["Acceptor"]
-        brics_df["Acceptor_SMILES"] = self.data["Acceptor_SMILES"]
-        brics_df["PCE(%)"] = self.data["PCE(%)"]
+        brics_df = self.data
+        brics_df["Donor_BRICS"] = ""
+        brics_df["Acceptor_BRICS"] = ""
+        brics_df["DA_pair_BRICS"] = ""
+        brics_df["DA_tokenized_BRICS"] = ""
+        brics_df["AD_tokenized_BRICS"] = ""
 
         # Iterate through row and fragment using BRICS
         # to get Donor_BRICS, Acceptor_BRICS, and DA_pair_BRICS
@@ -143,7 +130,7 @@ class BRIC_FRAGS:
                 acceptor_brics_smi.append(frag_smi)
 
             brics_df.at[index, "Donor_BRICS"] = donor_brics_smi
-            print(donor_smi, donor_brics_smi)
+            # print(donor_smi, donor_brics_smi)
             brics_df.at[index, "Acceptor_BRICS"] = acceptor_brics_smi
             # da_pair fragments
             da_pair = donor_brics_smi

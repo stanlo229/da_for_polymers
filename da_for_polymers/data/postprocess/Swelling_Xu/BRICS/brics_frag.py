@@ -189,7 +189,7 @@ class BRIC_FRAGS:
         display(img)
 
 
-b_frag = BRIC_FRAGS(MASTER_MANUAL_DATA)
-frag_dict = b_frag.bric_frag()
+# b_frag = BRIC_FRAGS(MASTER_MANUAL_DATA)
+# frag_dict = b_frag.bric_frag()
 # print(frag_dict)
 # b_frag.frag_visualization(frag_dict)

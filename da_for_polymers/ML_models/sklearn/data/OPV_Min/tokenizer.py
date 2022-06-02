@@ -34,7 +34,7 @@ class Tokenizer:
         Parameter
         ----------
         input_series: a series of SMILES/BigSMILES/SELFIES from stepscore.csv
-
+        
         Return
         -------
         tokenized_array: array of arrays of tokenized SMILES/BigSMILES/SELFIES for each SMILES/BigSMILES/SELFIES input
@@ -47,6 +47,7 @@ class Tokenizer:
         for i, reaction in enumerate(input_series):
             # The SMILES/BigSMILES/SELFIES will be stored as a list of tokens
             tokenized_array[i] = []
+            reaction = str(reaction)
             tokenized_reaction = self.tokenize(reaction).split(",")
             for token in tokenized_reaction:  # tokenizing SMILES/BigSMILES/SELFIES
                 input_dict.update([token])
@@ -59,11 +60,11 @@ class Tokenizer:
         input_dict = sorted(input_dict, key=input_dict.get, reverse=True)
         # Adding padding and unknown to our vocabulary so that they will be assigned an index
         input_dict = ["_PAD", "_UNK", "\\", "/"] + input_dict
-        print(input_dict)
+        print("INPUT DICT: ", input_dict)
 
         # Dictionaries to store the token to index mappings and vice versa
         token2idx = {j: i for i, j in enumerate(input_dict)}
-        # print("token2idx: ", token2idx)
+        print("token2idx: ", token2idx)
 
         for i, reaction in enumerate(input_series):
             # Looking up the mapping dictionary and assigning the index to the respective reactions
@@ -78,7 +79,7 @@ class Tokenizer:
         tokenized_array = self.pad_input(tokenized_array, max_length)
         vocab_length = len(input_dict)
 
-        return tokenized_array, max_length, vocab_length, input_dict
+        return tokenized_array, max_length, vocab_length, token2idx
 
     def tokenize_selfies(self, da_pair):
         """
@@ -103,11 +104,13 @@ class Tokenizer:
         * usually for test set
         """
         tokenized_array = copy.copy(input_series)
+        tokenized_array = list(tokenized_array)
         # Dictionaries to store the token to index mappings and vice versa
         token2idx = {j: i for i, j in enumerate(dictionary)}
         for i, reaction in enumerate(input_series):
             # The SMILES/BigSMILES/SELFIES will be stored as a list of tokens
             tokenized_array[i] = []
+            reaction = str(reaction)
             tokenized_reaction = self.tokenize(reaction).split(",")
             for token in tokenized_reaction:  # tokenizing SMILES/BigSMILES/SELFIES
                 tokenized_array[i].append(token)
@@ -121,7 +124,7 @@ class Tokenizer:
                 max_length = len(input_array)
         tokenized_array = self.pad_input(tokenized_array, max_length)
         print("Max sequence length: ", max_length)
-        return tokenized_array
+        return tokenized_array, max_length
 
     def build_token2idx(self, input_list):
         """Function that arranges list of SMILES/BigSMILES/SELFIES and builds dictionary.

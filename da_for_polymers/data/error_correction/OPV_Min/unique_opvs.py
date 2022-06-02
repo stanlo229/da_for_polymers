@@ -1,49 +1,48 @@
-from dataclasses import MISSING
 from enum import unique
 from typing import List
 import pkg_resources
 import pandas as pd
 
-from ml_for_opvs.data.preprocess.OPV_Min.clean_donors_acceptors import (
+from da_for_polymers.data.preprocess.OPV_Min.clean_donors_acceptors import (
     DonorClean,
     AcceptorClean,
 )
 
 OPV_MIN = pkg_resources.resource_filename(
-    "ml_for_opvs",
+    "da_for_polymers",
     "data/process/OPV_Min/Machine Learning OPV Parameters - device_params.csv",
 )
 
 # OPV data after pre-processing
 OPV_CLEAN = pkg_resources.resource_filename(
-    "ml_for_opvs", "data/process/OPV_Min/master_ml_for_opvs_from_min.csv"
+    "da_for_polymers", "data/process/OPV_Min/master_da_for_polymers_from_min.csv"
 )
 
 CLEAN_DONOR = pkg_resources.resource_filename(
-    "ml_for_opvs", "data/preprocess/OPV_Min/clean_min_donors.csv"
+    "da_for_polymers", "data/preprocess/OPV_Min/clean_min_donors.csv"
 )
 
 CLEAN_ACCEPTOR = pkg_resources.resource_filename(
-    "ml_for_opvs", "data/preprocess/OPV_Min/clean_min_acceptors.csv"
+    "da_for_polymers", "data/preprocess/OPV_Min/clean_min_acceptors.csv"
 )
 
 MISSING_SMI_DONOR = pkg_resources.resource_filename(
-    "ml_for_opvs", "data/error_correction/OPV_Min/missing_smi_donors.csv"
+    "da_for_polymers", "data/error_correction/OPV_Min/missing_smi_donors.csv"
 )
 MISSING_SMI_ACCEPTOR = pkg_resources.resource_filename(
-    "ml_for_opvs", "data/error_correction/OPV_Min/missing_smi_acceptors.csv"
+    "da_for_polymers", "data/error_correction/OPV_Min/missing_smi_acceptors.csv"
 )
 
 CHEMDRAW_DONOR = pkg_resources.resource_filename(
-    "ml_for_opvs", "data/preprocess/OPV_Min/min_donors_smiles_master_EDITED.csv"
+    "da_for_polymers", "data/preprocess/OPV_Min/min_donors_smiles_master_EDITED.csv"
 )
 
 CHEMDRAW_ACCEPTOR = pkg_resources.resource_filename(
-    "ml_for_opvs", "data/preprocess/OPV_Min/min_acceptors_smiles_master_EDITED.csv"
+    "da_for_polymers", "data/preprocess/OPV_Min/min_acceptors_smiles_master_EDITED.csv"
 )
 
 COMPARE_PATH = pkg_resources.resource_filename(
-    "ml_for_opvs", "data/error_correction/OPV_Min/compare_sheets_chemdraw.csv"
+    "da_for_polymers", "data/error_correction/OPV_Min/compare_sheets_chemdraw.csv"
 )
 
 
@@ -138,10 +137,10 @@ class UniqueOPVs:
         """
         if mol_type == "D":  # clean donors
             clean_data = pd.read_csv(CLEAN_DONOR)
+            clean_list = list(clean_data["Donor"])
         elif mol_type == "A":  # clean acceptors
             clean_data = pd.read_csv(CLEAN_ACCEPTOR)
-
-        clean_list = list(clean_data["Label"])
+            clean_list = list(clean_data["Acceptor"])
 
         missing_smi_list = list(set(missing_list) - set(clean_list))
         return missing_smi_list
@@ -306,8 +305,10 @@ class UniqueOPVs:
         compare_df.to_csv(compare_path, index=False)
 
 
-# run functions
-unique_opvs = UniqueOPVs(opv_min=OPV_MIN, opv_clean=OPV_MIN)
+# run functions to create missing DONOR/ACCEPTORS.
+# WARNING: Do not run these unless you want to restart.
+# WARNING: The correct structures have been manually input for the missing DONORS/ACCEPTORS.
+unique_opvs = UniqueOPVs(opv_min=OPV_MIN, opv_clean=OPV_CLEAN)
 
 # min_unique_donors = unique_opvs.unique_list("D", "min")
 # min_unique_acceptors = unique_opvs.unique_list("A", "min")
@@ -329,14 +330,15 @@ unique_opvs = UniqueOPVs(opv_min=OPV_MIN, opv_clean=OPV_MIN)
 
 # unique_opvs.create_missing_csv(missing_smi_donors, "D")
 
-# unique_opvs.clean_up_missing()
+unique_opvs.clean_up_missing()
 
+# STEP 2 - takes place here
 # concatenate for donors
-# unique_opvs.concat_missing_and_clean(MISSING_SMI_DONOR, CLEAN_DONOR, "D")
+unique_opvs.concat_missing_and_clean(MISSING_SMI_DONOR, CLEAN_DONOR, "D")
 
 # concatenate for acceptors
-# unique_opvs.concat_missing_and_clean(MISSING_SMI_ACCEPTOR, CLEAN_ACCEPTOR, "A")
+unique_opvs.concat_missing_and_clean(MISSING_SMI_ACCEPTOR, CLEAN_ACCEPTOR, "A")
 
 # compare Google Sheets and ChemDraw file
-unique_opvs.compare(COMPARE_PATH, CHEMDRAW_DONOR, CHEMDRAW_ACCEPTOR)
+# unique_opvs.compare(COMPARE_PATH, CHEMDRAW_DONOR, CHEMDRAW_ACCEPTOR)
 

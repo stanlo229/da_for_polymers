@@ -399,10 +399,12 @@ def cli_main():
     # prepare manual frag data
     manual = manual_frag(PS_INVENTORY)
     frag_dict = manual.return_frag_dict()
+    print(frag_dict)
     # manual.frag_visualization(frag_dict)
     manual.bigsmiles_from_frag(PS_INVENTORY)
     manual.create_manual_csv(frag_dict, PS_EXPT_RESULT, MASTER_MANUAL_DATA)
 
 
 if __name__ == "__main__":
-    cli_main()
+    # cli_main()
+    pass

@@ -9,35 +9,41 @@ import pandas as pd
 pd.set_option("display.max_columns", 20)
 
 MASTER_DONOR_CSV = pkg_resources.resource_filename(
-    "ml_for_opvs", "data/preprocess/OPV_Min/min_donors_smiles_master_EDITED.csv"
+    "da_for_polymers", "data/preprocess/OPV_Min/min_donors_smiles_master_EDITED.csv"
 )
 MASTER_ACCEPTOR_CSV = pkg_resources.resource_filename(
-    "ml_for_opvs", "data/preprocess/OPV_Min/min_acceptors_smiles_master_EDITED.csv"
+    "da_for_polymers", "data/preprocess/OPV_Min/min_acceptors_smiles_master_EDITED.csv"
 )
 
 CLEAN_DONOR_CSV = pkg_resources.resource_filename(
-    "ml_for_opvs", "data/preprocess/OPV_Min/clean_min_donors.csv"
+    "da_for_polymers", "data/preprocess/OPV_Min/clean_min_donors.csv"
 )
 
 CLEAN_ACCEPTOR_CSV = pkg_resources.resource_filename(
-    "ml_for_opvs", "data/preprocess/OPV_Min/clean_min_acceptors.csv"
+    "da_for_polymers", "data/preprocess/OPV_Min/clean_min_acceptors.csv"
 )
 
 # From OPV Google Drive
 OPV_DATA = pkg_resources.resource_filename(
-    "ml_for_opvs",
+    "da_for_polymers",
     "data/process/OPV_Min/Machine Learning OPV Parameters - device_params.csv",
 )
 OPV_DONOR_DATA = pkg_resources.resource_filename(
-    "ml_for_opvs", "data/process/OPV_Min/Machine Learning OPV Parameters - Donors.csv"
+    "da_for_polymers",
+    "data/process/OPV_Min/Machine Learning OPV Parameters - Donors.csv",
 )
 OPV_ACCEPTOR_DATA = pkg_resources.resource_filename(
-    "ml_for_opvs",
+    "da_for_polymers",
     "data/process/OPV_Min/Machine Learning OPV Parameters - Acceptors.csv",
 )
 
 MASTER_ML_DATA = pkg_resources.resource_filename(
-    "ml_for_opvs", "data/process/OPV_Min/master_ml_for_opvs_from_min.csv"
+    "da_for_polymers", "data/process/OPV_Min/master_da_for_polymers_from_min.csv"
+)
+
+MASTER_ML_DATA_PLOT = pkg_resources.resource_filename(
+    "da_for_polymers",
+    "data/process/OPV_Min/master_da_for_polymers_from_min_for_plotting.csv",
 )
 
 
@@ -337,7 +343,7 @@ class AcceptorClean:
             if row["Comments (Stanley)"] not in error_list:
                 clean_df = clean_df.append(
                     {
-                        "Acceptor": row["Name"],
+                        "Acceptor": row["Name_Stanley"],
                         "SMILES": row["SMILE"],
                         "SMILES w/o R_group replacement": row["R group Smiles"],
                         "SMILES w/o R_group": " ",
@@ -348,7 +354,7 @@ class AcceptorClean:
                 )
             else:
                 error_acceptors += 1
-            if row["Name"] not in opv_labels:
+            if row["Name_Stanley"] not in opv_labels:
                 missing_acceptors += 1
             total_acceptors += 1
         print(clean_df.head())
@@ -542,6 +548,7 @@ class DAPairs:
             "hole mobility blend (cm^2 V^-1 s^-1)",
             "electron mobility blend (cm^2 V^-1 s^-1)",
             "PCE (%)",
+            "calc_PCE (%)",
             "Voc (V)",
             "Jsc (mA cm^-2)",
             "FF (%)",
@@ -585,6 +592,16 @@ class DAPairs:
                 donor_bigsmile = donor_row["Big_SMILES"].values[0]
                 acceptor_bigsmile = acceptor_row["Big_SMILES"].values[0]
 
+                # strip whitespace of solvent
+                solvent = row["solvent"]
+                if isinstance(row["solvent"], str):
+                    solvent = solvent.strip()
+
+                # strip whitespace of hole contact layer
+                hole_contact_layer = row["hole contact layer"]
+                if isinstance(row["hole contact layer"], str):
+                    hole_contact_layer = hole_contact_layer.strip()
+
                 # append new donor-acceptor pair to masters dataframe
                 master_df = master_df.append(
                     {
@@ -601,7 +618,7 @@ class DAPairs:
                         "HOMO_A (eV)": row["HOMO_A (eV)"],
                         "LUMO_A (eV)": row["LUMO_A (eV)"],
                         "D:A ratio (m/m)": row["D:A ratio (m/m)"],
-                        "solvent": row["solvent"],
+                        "solvent": solvent,
                         "total solids conc. (mg/mL)": row["total solids conc. (mg/mL)"],
                         "solvent additive": row["solvent additive"],
                         "solvent additive conc. (%v/v)": row[
@@ -613,7 +630,7 @@ class DAPairs:
                         "annealing temperature": row[
                             "temperature of thermal annealing (leave gap if not annealed)"
                         ],
-                        "hole contact layer": row["hole contact layer"],
+                        "hole contact layer": hole_contact_layer,
                         "electron contact layer": row["electron contact layer"],
                         "hole mobility blend (cm^2 V^-1 s^-1)": row[
                             "hole mobility blend (cm^2 V^-1 s^-1)"
@@ -622,6 +639,7 @@ class DAPairs:
                             "electron mobility blend"
                         ],
                         "PCE (%)": row["PCE (%)"],
+                        "calc_PCE (%)": row["calc_PCE"],
                         "Voc (V)": row["Voc (V)"],
                         "Jsc (mA cm^-2)": row["Jsc (mA cm^-2)"],
                         "FF (%)": row["FF (%)"],
@@ -630,28 +648,124 @@ class DAPairs:
                 )
         master_df.to_csv(master_csv_path)
 
+    def fill_empty_values(self, master_csv_path):
+        """
+        Function that fills in NaN values because it is reasonable.
+        Ex. Solvent additive does not have to be present. Therefore, "N/A" should replace NaN        
+        
+        Args:
+            master_csv_path: path to the processed master file for future data representation modifications
+
+        Returns:
+            .csv file with filled reasonable values
+        """
+        master_data = pd.read_csv(master_csv_path)
+        column_names = master_data.columns
+
+        # columns that can have NaN values
+        idx_solvent_additive = 16
+        idx_solvent_additive_conc = 17
+        idx_annealing_temp = 19
+        null_master_data = master_data.isna()
+
+        # placeholders
+        # N/A for string values, -1 for int,float values
+        for index, row in master_data.iterrows():
+            if null_master_data.at[index, column_names[idx_solvent_additive]] == True:
+                master_data.at[index, column_names[idx_solvent_additive]] = "N/A"
+            if (
+                null_master_data.at[index, column_names[idx_solvent_additive_conc]]
+                == True
+            ):
+                master_data.at[index, column_names[idx_solvent_additive_conc]] = -1
+            if null_master_data.at[index, column_names[idx_annealing_temp]] == True:
+                master_data.at[index, column_names[idx_annealing_temp]] = -1
+
+        master_data.to_csv(master_csv_path, index=False)
+
+    def filter_master_csv(
+        self, master_csv_path, filtered_master_csv_path, column_idx_list
+    ):
+        """
+        Function that filters the .csv file for rows that contain ONLY present values in the important columns:
+        
+        
+        Args:
+            master_csv_path: path to the processed master file for future data representation modifications
+            filtered_master_csv_path: path to the filtered master file for future data representation modifications
+
+        Returns:
+            .csv file with values that contain all of the parameters
+        """
+        master_data = pd.read_csv(master_csv_path)
+        column_names = master_data.columns
+        columns_dict = {}
+        index = 0
+        while index < len(column_names):
+            columns_dict[column_names[index]] = index
+            index += 1
+
+        print(columns_dict)
+
+        important_columns = []
+        for idx in column_idx_list:
+            important_columns.append(column_names[idx])
+
+        # select important columns
+        filter_master_data = master_data[important_columns]
+
+        # drop rows if there are any NaN values
+        filter_master_data = filter_master_data.dropna(axis=0, how="any")
+
+        filter_master_data.to_csv(filtered_master_csv_path, index=False)
+
+    def convert_str_to_float(self, master_csv_path):
+        """
+        Converts D:A ratio and solvent additive conc. string representation to float
+        """
+        master_data = pd.read_csv(master_csv_path)
+        for index, row in master_data.iterrows():
+            ratio_data = master_data.at[index, "D:A ratio (m/m)"]
+            solvent_add_conc_data = master_data.at[
+                index, "solvent additive conc. (%v/v)"
+            ]
+            # ratio data
+            if isinstance(ratio_data, str):
+                ratio_list = ratio_data.split(":")
+                donor_ratio = float(ratio_list[0])
+                acceptor_ratio = float(ratio_list[1])
+                float_ratio_data = donor_ratio / acceptor_ratio
+                master_data.at[index, "D:A ratio (m/m)"] = round(float_ratio_data, 3)
+
+            # solvent additive conc. data
+            master_data.at[index, "solvent additive conc. (%v/v)"] = float(
+                solvent_add_conc_data
+            )
+
+        master_data.to_csv(master_csv_path, index=False)
+
 
 # Step 1
 # donors = DonorClean(MASTER_DONOR_CSV, OPV_DONOR_DATA)
 # donors.clean_donor(CLEAN_DONOR_CSV)
 
-# # Step 1b
+# # # # Step 1b
 # donors.replace_r(CLEAN_DONOR_CSV)
 
-# # # Step 1c - do not include for fragmentation
-# donors.remove_methyl(CLEAN_DONOR_CSV)
+# # # # # # # Step 1c - do not include for fragmentation
+# # # # # donors.remove_methyl(CLEAN_DONOR_CSV)
 
-# # Step 1d - canonSMILES to remove %10-%100
+# # # # # # Step 1d - canonSMILES to remove %10-%100
 # donors.canon_smi(CLEAN_DONOR_CSV)
 
-# # # Step 1
+# # # # # Step 1
 # acceptors = AcceptorClean(MASTER_ACCEPTOR_CSV, OPV_ACCEPTOR_DATA)
 # acceptors.clean_acceptor(CLEAN_ACCEPTOR_CSV)
 
-# Step 1b
+# # Step 1b
 # acceptors.replace_r(CLEAN_ACCEPTOR_CSV)
 
-# # Step 1d - canonSMILES to remove %10-%100
+# # # # # Step 1d - canonSMILES to remove %10-%100
 # acceptors.canon_smi(CLEAN_ACCEPTOR_CSV)
 
 # Step 1e - Fragmentation
@@ -662,10 +776,21 @@ class DAPairs:
 
 # Step 3 - smiles_to_bigsmiles.py & smiles_to_selfies.py
 
+
 # Step 4
-# NOTE: without PBDTTz, we lose 3 D.A pairs, 3 donors
 pairings = DAPairs(OPV_DATA, CLEAN_DONOR_CSV, CLEAN_ACCEPTOR_CSV)
 pairings.create_master_csv(MASTER_ML_DATA)
+pairings.create_master_csv(MASTER_ML_DATA_PLOT)
+
+# # # Step 4b - Convert STR -> FLOAT
+pairings.convert_str_to_float(MASTER_ML_DATA)
+pairings.convert_str_to_float(MASTER_ML_DATA_PLOT)
+
+# Step 4c - Fill empty values for Thermal Annealing, and Solvent Additives
+pairings.fill_empty_values(MASTER_ML_DATA)
+
+# Step 4d - Remove anomalies!
+# Go to da_for_polymers > data > error_correction > remove_anomaly.py
 
 # Step 5
 # Go to rdkit_frag.py (if needed)

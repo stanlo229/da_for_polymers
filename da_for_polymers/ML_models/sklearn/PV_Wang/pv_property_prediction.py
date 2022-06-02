@@ -239,7 +239,7 @@ def augment_smi_in_loop(x, y, num_of_augment, swap: bool):
     return aug_smi_list, aug_sd_array
 
 
-def augment_polymer_frags_in_loop(x, y: float):
+def augment_polymer_frags_in_loop(x, y: float, swap: bool):
     """
     Function that augments polymer frags by swapping D.A -> A.D, and D1D2D3 -> D2D3D1 -> D3D1D2
     Assumes that input (x) is DA_tokenized.
@@ -261,6 +261,20 @@ def augment_polymer_frags_in_loop(x, y: float):
         polymer_frag_deque_rotate = copy.copy(polymer_frag_deque)
         polymer_frag_deque_rotate.rotate(i)
         rotated_polymer_frag_list = list(polymer_frag_deque_rotate)
+        solvent_list = x[period_idx + 1 :]
+        solvent_list.append(x[period_idx])
+        if swap:
+            if 0 in x:
+                swap_rotated_polymer_frag_list = (
+                    x[: last_zero_idx + 1] + solvent_list + rotated_polymer_frag_list
+                )
+            else:
+                swap_rotated_polymer_frag_list = (
+                    solvent_list + rotated_polymer_frag_list
+                )
+            if swap_rotated_polymer_frag_list != x:
+                aug_polymer_list.append(swap_rotated_polymer_frag_list)
+                aug_sd_list.append(y)
         # replace original frags with rotated polymer frags
         if 0 in x:
             rotated_polymer_frag_list = (
@@ -597,7 +611,7 @@ if batch:
                 aug_x_train = list(copy.copy(x_train))
                 aug_y_train = list(copy.copy(y_train))
                 for x_, y_ in zip(x_train, y_train):
-                    x_aug, y_aug = augment_polymer_frags_in_loop(x_, y_)
+                    x_aug, y_aug = augment_polymer_frags_in_loop(x_, y_, swap)
                     aug_x_train.extend(x_aug)
                     aug_y_train.extend(y_aug)
 
@@ -820,7 +834,7 @@ else:
             aug_x_train = list(copy.copy(x_train))
             aug_y_train = list(copy.copy(y_train))
             for x_, y_ in zip(x_train, y_train):
-                x_aug, y_aug = augment_polymer_frags_in_loop(x_, y_)
+                x_aug, y_aug = augment_polymer_frags_in_loop(x_, y_, swap)
                 aug_x_train.extend(x_aug)
                 aug_y_train.extend(y_aug)
 

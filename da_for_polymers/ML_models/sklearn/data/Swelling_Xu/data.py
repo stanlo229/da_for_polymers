@@ -9,6 +9,13 @@ import selfies as sf
 import torch
 from torch.utils.data import random_split
 
+from da_for_polymers.ML_models.sklearn.data.Swelling_Xu.tokenizer import Tokenizer
+from da_for_polymers.data.postprocess.Swelling_Xu.BRICS.brics_frag import BRIC_FRAGS
+from da_for_polymers.data.postprocess.Swelling_Xu.manual_frag.manual_frag import (
+    PS_INVENTORY,
+    manual_frag,
+)
+
 AUGMENT_SMILES_DATA = pkg_resources.resource_filename(
     "da_for_polymers", "data/postprocess/Swelling_Xu/augmentation/train_aug_master.csv"
 )
@@ -26,8 +33,6 @@ FP_SWELLING = pkg_resources.resource_filename(
     "data/postprocess/Swelling_Xu/fingerprint/swelling_fingerprint.csv",
 )
 
-from da_for_polymers.ML_models.sklearn.data.Swelling_Xu.tokenizer import Tokenizer
-
 
 class Dataset:
     """
@@ -35,37 +40,53 @@ class Dataset:
     dataframe with the feature variables and the sd, etc.
     """
 
-    def __init__(self, data_dir, input: int, shuffled: bool):
-        self.data = pd.read_csv(data_dir)
-        self.input = input
-        self.shuffled = shuffled
+    def __init__(self):
+        pass
 
-    def prepare_data(self):
+    def prepare_data(self, data_dir: str, input: int):
         """
         Function that concatenates donor-acceptor pair
         """
+        self.data = pd.read_csv(data_dir)
+        self.input = input
         self.data["PS_pair"] = " "
         # concatenate Donor and Acceptor Inputs
-        if self.input == 0:
+        if self.input == "smi":
             representation = "SMILES"
-        elif self.input == 1:
+        elif self.input == "bigsmi":
             representation = "BigSMILES"
-        elif self.input == 2:
+        elif self.input == "selfies":
             representation = "SELFIES"
 
-        for index, row in self.data.iterrows():
-            self.data.at[index, "PS_pair"] = (
-                row["Polymer_{}".format(representation)]
-                + "."
-                + row["Solvent_{}".format(representation)]
-            )
+        if self.input == "smi" or self.input == "bigsmi" or self.input == "selfies":
+            for index, row in self.data.iterrows():
+                self.data.at[index, "PS_pair"] = (
+                    row["Polymer_{}".format(representation)]
+                    + "."
+                    + row["Solvent_{}".format(representation)]
+                )
+
+    def feature_scale(self, feature_series: pd.Series) -> np.array:
+        """
+        Min-max scaling of a feature.
+        Args:
+            feature_series: a pd.Series of a feature
+        Returns:
+            scaled_feature: a np.array (same index) of feature that is min-max scaled
+            max_value: maximum value from the entire feature array
+        """
+        feature_array = feature_series.to_numpy().astype("float32")
+        max_value = np.nanmax(feature_array)
+        min_value = np.nanmin(feature_array)
+        scaled_feature = (feature_array - min_value) / (max_value - min_value)
+        return scaled_feature, max_value, min_value
 
     def setup(self):
         """
         NOTE: for SMILES
         Function that sets up data ready for training 
         """
-        if self.input == 0:
+        if self.input == "smi":
             # tokenize data
             (
                 tokenized_input,
@@ -73,14 +94,14 @@ class Dataset:
                 vocab_length,
                 input_dict,
             ) = Tokenizer().tokenize_data(self.data["PS_pair"])
-        elif self.input == 1:
+        elif self.input == "bigsmi":
             (
                 tokenized_input,
                 max_seq_length,
                 vocab_length,
                 input_dict,
             ) = Tokenizer().tokenize_data(self.data["PS_pair"])
-        elif self.input == 2:
+        elif self.input == "selfies":
             # tokenize data using selfies
             tokenized_input = []
             selfie_dict, max_selfie_length = Tokenizer().tokenize_selfies(
@@ -98,121 +119,57 @@ class Dataset:
 
             # tokenized_input = np.asarray(tokenized_input)
             tokenized_input = Tokenizer().pad_input(tokenized_input, max_selfie_length)
-        if self.shuffled:
-            sd_array = self.data["SD_shuffled"].to_numpy().astype("float32")
-        else:
-            sd_array = self.data["SD"].to_numpy().astype("float32")
+        elif self.input == "brics":
+            tokenized_input = []
+            for i in range(len(self.data["PS_tokenized_BRICS"])):
+                # convert string to list (because csv cannot store list type)
+                da_pair_list = json.loads(self.data["PS_tokenized_BRICS"][i])
+                tokenized_input.append(da_pair_list)
+            # add device parameters to the end of input
+            b_frag = BRIC_FRAGS(BRICS_FRAG_DATA)
+            token_dict = b_frag.bric_frag()
+        elif self.input == "manual":
+            tokenized_input = []
+            for i in range(len(self.data["PS_manual_tokenized"])):
+                # convert string to list (because csv cannot store list type)
+                da_pair_list = json.loads(self.data["PS_manual_tokenized"][i])
+                tokenized_input.append(da_pair_list)
+            # add device parameters to the end of input
+            manual = manual_frag(PS_INVENTORY)
+            token_dict = manual.return_frag_dict()
+        elif self.input == "fp":
+            column_da_pair = "PS_FP_radius_3_nbits_512"
+            tokenized_input = []
+            for i in range(len(self.data[column_da_pair])):
+                # convert string to list (because csv cannot store list type)
+                da_pair_list = json.loads(self.data[column_da_pair][i])
+                tokenized_input.append(da_pair_list)
+            token_dict = {0: 0, 1: 1}
+        elif self.input == "sum_of_frags":
+            tokenized_input = []
+            token_dict = {}
+            for i in range(len(self.data["Sum_of_frags"])):
+                # convert string to list (because csv cannot store list type)
+                da_pair_list = json.loads(self.data["Sum_of_frags"][i])
+                tokenized_input.append(da_pair_list)
 
-        # minimize range of sd between 0-1
-        # find max of sd_array
-        self.max_sd = sd_array.max()
-        sd_array = sd_array / self.max_sd
+        sd_array = self.data["SD"]
+        # min-max scaling
+        scaled_feature, max_value, min_value = self.feature_scale(sd_array)
 
         # split data into cv
-        return np.asarray(tokenized_input), sd_array
+        return np.asarray(tokenized_input), scaled_feature, max_value, min_value
 
     def setup_aug_smi(self):
         """
         NOTE: for Augmented SMILES
         Function that sets up data ready for training 
         """
-        if self.shuffled:
-            sd_array = self.data["SD_shuffled"].to_numpy().astype("float32")
-        else:
-            sd_array = self.data["SD"].to_numpy().astype("float32")
+        sd_array = self.data["SD"]
+        # min-max scaling
+        scaled_feature, max_value, min_value = self.feature_scale(sd_array)
 
-        # minimize range of sd between 0-1
-        # find max of sd_array
-        self.max_sd = sd_array.max()
-        sd_array = sd_array / self.max_sd
-        return np.asarray(self.data["PS_pair"]), sd_array
-
-    def setup_frag_BRICS(self):
-        self.df = pd.DataFrame(columns=["tokenized_input", "sd"], index=[0])
-        if self.shuffled:
-            sd_array = self.data["SD_shuffled"].to_numpy().astype("float32")
-        else:
-            sd_array = self.data["SD"].to_numpy().astype("float32")
-
-        self.max_sd = sd_array.max()
-        sd_array = sd_array / self.max_sd
-
-        x = []
-        y = []
-        for i in range(len(self.data["PS_tokenized_BRICS"])):
-            # convert string to list (because csv cannot store list type)
-            da_pair_list = json.loads(self.data["PS_tokenized_BRICS"][i])
-            x.append(da_pair_list)
-            y.append(sd_array[i])
-        x = np.asarray(x)
-        y = np.asarray(y)
-        return x, y
-
-    def setup_manual_frag(self):
-        self.df = pd.DataFrame(columns=["tokenized_input", "SD"], index=[0])
-        if self.shuffled:
-            sd_array = self.data["SD_shuffled"].to_numpy().astype("float32")
-        else:
-            sd_array = self.data["SD"].to_numpy().astype("float32")
-
-        self.max_sd = sd_array.max()
-        sd_array = sd_array / self.max_sd
-
-        x = []
-        y = []
-        for i in range(len(self.data["PS_manual_tokenized"])):
-            # convert string to list (because csv cannot store list type)
-            da_pair_list = json.loads(self.data["PS_manual_tokenized"][i])
-            x.append(da_pair_list)
-            y.append(sd_array[i])
-        x = np.asarray(x)
-        y = np.asarray(y)
-        return x, y
-
-    def setup_fp(self, radius: int, nbits: int):
-        self.df = pd.DataFrame(columns=["tokenized_input", "SD"], index=[0])
-        if self.shuffled:
-            sd_array = self.data["SD_shuffled"].to_numpy().astype("float32")
-        else:
-            sd_array = self.data["SD"].to_numpy().astype("float32")
-
-        self.max_sd = sd_array.max()
-        sd_array = sd_array / self.max_sd
-
-        x = []
-        y = []
-
-        column_da_pair = "PS_FP" + "_radius_" + str(radius) + "_nbits_" + str(nbits)
-        for i in range(len(self.data[column_da_pair])):
-            # convert string to list (because csv cannot store list type)
-            da_pair_list = json.loads(self.data[column_da_pair][i])
-            x.append(da_pair_list)
-            y.append(sd_array[i])
-        x = np.asarray(x)
-        y = np.asarray(y)
-        return x, y
-
-    def setup_sum_of_frags(self):
-        self.df = pd.DataFrame(columns=["tokenized_input", "SD"], index=[0])
-        if self.shuffled:
-            sd_array = self.data["SD_shuffled"].to_numpy().astype("float32")
-        else:
-            sd_array = self.data["SD"].to_numpy().astype("float32")
-
-        self.max_sd = sd_array.max()
-        sd_array = sd_array / self.max_sd
-
-        x = []
-        y = []
-
-        for i in range(len(self.data["Sum_of_Frags"])):
-            # convert string to list (because csv cannot store list type)
-            da_pair_list = json.loads(self.data["Sum_of_Frags"][i])
-            x.append(da_pair_list)
-            y.append(sd_array[i])
-        x = np.asarray(x)
-        y = np.asarray(y)
-        return x, y
+        return np.asarray(self.data["PS_pair"]), scaled_feature, max_value, min_value
 
 
 # dataset = Dataset(MASTER_MANUAL_DATA, 1, False)
