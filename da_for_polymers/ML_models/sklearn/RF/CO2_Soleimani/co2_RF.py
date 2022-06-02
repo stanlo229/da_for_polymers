@@ -1,33 +1,20 @@
-import copy
-import math
-from argparse import ArgumentParser
-from typing import Dict, List, Optional, Union
-from numpy.core.numeric import outer
-import pandas as pd
-from collections import deque
-from rdkit import Chem
-
-# for plotting
+from scipy.sparse.construct import random
+from sklearn.ensemble import RandomForestRegressor
+from sklearn.model_selection import KFold, StratifiedKFold
+from sklearn.model_selection import GridSearchCV
+from sklearn.metrics import make_scorer
 import pkg_resources
 import numpy as np
+import pandas as pd
+import copy as copy
 from numpy import mean
 from numpy import std
 import matplotlib.pyplot as plt
-
-# sklearn
-from scipy.sparse.construct import random
-from sklearn.model_selection import KFold, StratifiedKFold
-from sklearn.model_selection import GridSearchCV
-from sklearn.metrics import make_scorer, mean_absolute_error
-from sklearn.ensemble import GradientBoostingRegressor
-from sklearn.model_selection import cross_val_score
-from sklearn.model_selection import cross_val_predict
-from sklearn.model_selection import RepeatedKFold
-from sklearn.metrics import mean_squared_error
+from rdkit import Chem
+from collections import deque
+from sklearn.metrics import mean_squared_error, mean_absolute_error
+from sklearn.inspection import permutation_importance
 from skopt import BayesSearchCV
-
-# xgboost
-import xgboost
 
 from da_for_polymers.ML_models.sklearn.data.CO2_Soleimani.data import Dataset
 from da_for_polymers.ML_models.sklearn.data.CO2_Soleimani.tokenizer import Tokenizer
@@ -55,7 +42,7 @@ FP_CO2 = pkg_resources.resource_filename(
 )
 
 SUMMARY_DIR = pkg_resources.resource_filename(
-    "da_for_polymers", "ML_models/sklearn/BRT/CO2_Soleimani/"
+    "da_for_polymers", "ML_models/sklearn/RF/CO2_Soleimani/"
 )
 
 SEED_VAL = 4
@@ -330,11 +317,11 @@ for param in parameter_type:
     if parameter_type[param] == 1:
         descriptor_param = param
         if descriptor_param == "none":
-            SUMMARY_DIR = SUMMARY_DIR + "none_co2_brt_results.csv"
+            SUMMARY_DIR = SUMMARY_DIR + "none_co2_rf_results.csv"
         elif descriptor_param == "gross":
-            SUMMARY_DIR = SUMMARY_DIR + "gross_co2_brt_results.csv"
+            SUMMARY_DIR = SUMMARY_DIR + "gross_co2_rf_results.csv"
         elif descriptor_param == "gross_only":
-            SUMMARY_DIR = SUMMARY_DIR + "gross_only_co2_brt_results.csv"
+            SUMMARY_DIR = SUMMARY_DIR + "gross_only_co2_rf_results.csv"
 
 if unique_datatype["fingerprint"] == 1:
     radius = 3
@@ -502,19 +489,15 @@ for train_ix, test_ix in cv_outer.split(x, dataset.data["Polymer"]):
     cv_inner = KFold(n_splits=5, shuffle=True, random_state=1)
 
     # define the model
-    model = xgboost.XGBRegressor(
-        objective="reg:squarederror",
-        alpha=0.9,
+    model = RandomForestRegressor(
+        criterion="squared_error",
+        max_features="auto",
         random_state=0,
+        bootstrap=True,
         n_jobs=-1,
-        learning_rate=0.2,
-        n_estimators=100,
-        max_depth=10,
-        subsample=1,
     )
     # define search space
     space = dict()
-    space["alpha"] = [0, 0.2, 0.4, 0.6, 0.8, 1]
     space["n_estimators"] = [
         50,
         100,
@@ -533,9 +516,10 @@ for train_ix, test_ix in cv_outer.split(x, dataset.data["Polymer"]):
         1400,
         1500,
     ]
-    space["max_depth"] = (8, 20)
-    space["subsample"] = [0.1, 0.3, 0.5, 0.7, 1]
-    space["min_child_weight"] = [1, 2, 3, 4]
+    space["min_samples_leaf"] = [1, 2, 3, 4, 5, 6]
+    space["min_samples_split"] = [2, 3, 4]
+    space["max_depth"] = (5, 15)
+
     # define search
     search = BayesSearchCV(
         estimator=model,
