@@ -7,7 +7,7 @@ from matplotlib.offsetbox import AnchoredText
 # OPV data after pre-processing
 MASTER_ML_DATA_PLOT = pkg_resources.resource_filename(
     "da_for_polymers",
-    "data/process/OPV_Min/master_da_for_polymers_from_min_for_plotting.csv",
+    "data/process/OPV_Min/master_ml_for_opvs_from_min_for_plotting.csv",
 )
 
 DISTRIBUTION_PLOT = pkg_resources.resource_filename(

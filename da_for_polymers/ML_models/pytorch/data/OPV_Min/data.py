@@ -20,7 +20,7 @@ import selfies as sf
 from transformers import AutoTokenizer
 
 DATA_DIR = pkg_resources.resource_filename(
-    "da_for_polymers", "data/process/OPV_Min/master_da_for_polymers_from_min.csv"
+    "da_for_polymers", "data/process/OPV_Min/master_ml_for_opvs_from_min.csv"
 )
 
 FRAG_MASTER_DATA = pkg_resources.resource_filename(

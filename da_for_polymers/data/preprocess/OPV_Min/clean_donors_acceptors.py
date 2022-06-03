@@ -38,12 +38,12 @@ OPV_ACCEPTOR_DATA = pkg_resources.resource_filename(
 )
 
 MASTER_ML_DATA = pkg_resources.resource_filename(
-    "da_for_polymers", "data/process/OPV_Min/master_da_for_polymers_from_min.csv"
+    "da_for_polymers", "data/process/OPV_Min/master_ml_for_opvs_from_min.csv"
 )
 
 MASTER_ML_DATA_PLOT = pkg_resources.resource_filename(
     "da_for_polymers",
-    "data/process/OPV_Min/master_da_for_polymers_from_min_for_plotting.csv",
+    "data/process/OPV_Min/master_ml_for_opvs_from_min_for_plotting.csv",
 )
 
 

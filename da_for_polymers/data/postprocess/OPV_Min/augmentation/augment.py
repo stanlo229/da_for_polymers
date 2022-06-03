@@ -8,7 +8,7 @@ from rdkit import Chem
 from da_for_polymers.ML_models.sklearn.data.OPV_Min.tokenizer import Tokenizer
 
 MASTER_DATA = pkg_resources.resource_filename(
-    "da_for_polymers", "data/process/OPV_Min/master_da_for_polymers_from_min.csv"
+    "da_for_polymers", "data/process/OPV_Min/master_ml_for_opvs_from_min.csv"
 )
 
 AUGMENT_SMILES_DATA = pkg_resources.resource_filename(
@@ -171,9 +171,9 @@ class Augment:
         aug_smi_data.to_csv(train_aug_data, index=False)
 
 
-augmenter = Augment(MASTER_DATA)
-augmenter.aug_smi_doRandom(AUGMENT_SMILES_DATA, 4)
-augmenter.aug_smi_tokenize(AUGMENT_SMILES_DATA)
+# augmenter = Augment(MASTER_DATA)
+# augmenter.aug_smi_doRandom(AUGMENT_SMILES_DATA, 4)
+# augmenter.aug_smi_tokenize(AUGMENT_SMILES_DATA)
 
 # from rdkit.Chem import Descriptors
 

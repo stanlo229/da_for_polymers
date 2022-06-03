@@ -20,7 +20,7 @@ from sklearn import preprocessing
 from da_for_polymers.ML_models.sklearn.data.OPV_Min.tokenizer import Tokenizer
 
 TRAIN_MASTER_DATA = pkg_resources.resource_filename(
-    "da_for_polymers", "data/process/OPV_Min/master_da_for_polymers_from_min.csv"
+    "da_for_polymers", "data/process/OPV_Min/master_ml_for_opvs_from_min.csv"
 )
 
 AUG_SMI_MASTER_DATA = pkg_resources.resource_filename(

@@ -12,7 +12,7 @@ import copy
 import ast
 
 MASTER_DATA = pkg_resources.resource_filename(
-    "da_for_polymers", "data/process/OPV_Min/master_da_for_polymers_from_min.csv"
+    "da_for_polymers", "data/process/OPV_Min/master_ml_for_opvs_from_min.csv"
 )
 
 BRICS_FRAG_DATA = pkg_resources.resource_filename(
@@ -175,7 +175,7 @@ class BRIC_FRAGS:
         display(img)
 
 
-b_frag = BRIC_FRAGS(MASTER_DATA)
-frag_dict = b_frag.bric_frag()
+# b_frag = BRIC_FRAGS(MASTER_DATA)
+# frag_dict = b_frag.bric_frag()
 # print(frag_dict)
 # b_frag.frag_visualization(frag_dict)

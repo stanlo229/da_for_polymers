@@ -15,7 +15,7 @@ OPV_MIN = pkg_resources.resource_filename(
 
 # OPV data after pre-processing
 OPV_CLEAN = pkg_resources.resource_filename(
-    "da_for_polymers", "data/process/OPV_Min/master_da_for_polymers_from_min.csv"
+    "da_for_polymers", "data/process/OPV_Min/master_ml_for_opvs_from_min.csv"
 )
 
 CLEAN_DONOR = pkg_resources.resource_filename(

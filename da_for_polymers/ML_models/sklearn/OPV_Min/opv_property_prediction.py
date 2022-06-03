@@ -6,8 +6,8 @@ import numpy as np
 import pandas as pd
 import pkg_resources
 import xgboost
-from da_for_polymers.ML_models.sklearn.data.Swelling_Xu.data import Dataset
-from da_for_polymers.ML_models.sklearn.data.Swelling_Xu.tokenizer import Tokenizer
+from da_for_polymers.ML_models.sklearn.data.OPV_Min.data import Dataset
+from da_for_polymers.ML_models.sklearn.data.OPV_Min.tokenizer import Tokenizer
 from numpy import mean, std
 from rdkit import Chem
 from scipy.sparse.construct import random
@@ -19,26 +19,28 @@ from sklearn.metrics import make_scorer, mean_absolute_error, mean_squared_error
 from sklearn.model_selection import GridSearchCV, KFold, StratifiedKFold
 from skopt import BayesSearchCV
 
-AUGMENT_SMILES_DATA = pkg_resources.resource_filename(
-    "da_for_polymers", "data/postprocess/Swelling_Xu/augmentation/train_aug_master.csv",
+TRAIN_MASTER_DATA = pkg_resources.resource_filename(
+    "da_for_polymers", "data/process/OPV_Min/master_ml_for_opvs_from_min.csv"
 )
 
-BRICS_FRAG_DATA = pkg_resources.resource_filename(
-    "da_for_polymers", "data/postprocess/Swelling_Xu/BRICS/master_brics_frag.csv"
+AUG_SMI_MASTER_DATA = pkg_resources.resource_filename(
+    "da_for_polymers", "data/postprocess/OPV_Min/augmentation/train_aug_master4.csv"
 )
 
-MASTER_MANUAL_DATA = pkg_resources.resource_filename(
-    "da_for_polymers",
-    "data/postprocess/Swelling_Xu/manual_frag/master_manual_frag.csv",
+BRICS_MASTER_DATA = pkg_resources.resource_filename(
+    "da_for_polymers", "data/postprocess/OPV_Min/BRICS/master_brics_frag.csv"
 )
 
-FP_SWELLING = pkg_resources.resource_filename(
-    "da_for_polymers",
-    "data/postprocess/Swelling_Xu/fingerprint/swelling_fingerprint.csv",
+MANUAL_MASTER_DATA = pkg_resources.resource_filename(
+    "da_for_polymers", "data/postprocess/OPV_Min/manual_frag/master_manual_frag.csv"
+)
+
+FP_MASTER_DATA = pkg_resources.resource_filename(
+    "da_for_polymers", "data/postprocess/OPV_Min/fingerprint/opv_fingerprint.csv"
 )
 
 SUMMARY_DIR = pkg_resources.resource_filename(
-    "da_for_polymers", "ML_models/sklearn/Swelling_Xu/"
+    "da_for_polymers", "ML_models/sklearn/OPV_Min/"
 )
 
 SEED_VAL = 4
@@ -56,188 +58,188 @@ def augment_smi_in_loop(x, y, num_of_augment, swap: bool):
 
     Args:
         num_of_augment: number of new random SMILES
-        swap: whether to augmented frags by swapping P.S -> S.P
+        swap: whether to augmented frags by swapping D.A <-> A.D
 
     Returns
     ---------
     aug_smi_array: tokenized array of augmented smile
-    aug_sd_array: array of SD(%)
+    aug_pce_array: array of PCE(%)
     """
     aug_smi_list = []
-    aug_sd_list = []
+    aug_pce_list = []
     try:
         period_idx = x.index(".")
-        polymer_smi = x[0:period_idx]
-        solvent_smi = x[period_idx + 1 :]
-        # keep track of unique polymers and solvents
-        unique_polymer = [polymer_smi]
-        unique_solvent = [solvent_smi]
-        polymer_mol = Chem.MolFromSmiles(polymer_smi)
-        solvent_mol = Chem.MolFromSmiles(solvent_smi)
+        donor_smi = x[0:period_idx]
+        acceptor_smi = x[period_idx + 1 :]
+        # keep track of unique polymers and acceptors
+        unique_donor = [donor_smi]
+        unique_acceptor = [acceptor_smi]
+        donor_mol = Chem.MolFromSmiles(donor_smi)
+        acceptor_mol = Chem.MolFromSmiles(acceptor_smi)
         canonical_smi = (
-            Chem.CanonSmiles(polymer_smi) + "." + Chem.CanonSmiles(solvent_smi)
+            Chem.CanonSmiles(donor_smi) + "." + Chem.CanonSmiles(acceptor_smi)
         )
         aug_smi_list.append(canonical_smi)
-        aug_sd_list.append(y)
+        aug_pce_list.append(y)
         if swap:
             swap_canonical_smi = (
-                Chem.CanonSmiles(solvent_smi) + "." + Chem.CanonSmiles(polymer_smi)
+                Chem.CanonSmiles(acceptor_smi) + "." + Chem.CanonSmiles(donor_smi)
             )
             aug_smi_list.append(swap_canonical_smi)
-            aug_sd_list.append(y)
+            aug_pce_list.append(y)
         # ERROR: could not augment CC=O.CCCCCOC.CNCCCCCCCCCCCC(C)=O.COC.COC(C)=O
-        if "." in polymer_smi:
-            polymer_list = polymer_smi.split(".")
+        if "." in donor_smi:
+            donor_list = donor_smi.split(".")
             augmented = 0
             inf_loop = 0
             while augmented < num_of_augment:
                 index = 0
-                polymer_aug_smi = ""
-                for monomer in polymer_list:
+                donor_aug_smi = ""
+                for monomer in donor_list:
                     monomer_mol = Chem.MolFromSmiles(monomer)
                     monomer_aug_smi = Chem.MolToSmiles(monomer_mol, doRandom=True)
                     index += 1
-                    if index == len(polymer_list):
-                        polymer_aug_smi = polymer_aug_smi + monomer_aug_smi
+                    if index == len(donor_list):
+                        donor_aug_smi = donor_aug_smi + monomer_aug_smi
                     else:
-                        polymer_aug_smi = polymer_aug_smi + monomer_aug_smi + "."
-                solvent_aug_smi = Chem.MolToSmiles(solvent_mol, doRandom=True)
+                        donor_aug_smi = donor_aug_smi + monomer_aug_smi + "."
+                acceptor_aug_smi = Chem.MolToSmiles(acceptor_mol, doRandom=True)
                 if inf_loop == 10:
                     break
                 elif (
-                    polymer_aug_smi not in unique_polymer
-                    and solvent_aug_smi not in unique_solvent
+                    donor_aug_smi not in unique_donor
+                    and acceptor_aug_smi not in unique_acceptor
                 ):
-                    unique_polymer.append(polymer_aug_smi)
-                    unique_solvent.append(solvent_aug_smi)
-                    aug_smi_list.append(polymer_aug_smi + "." + solvent_aug_smi)
-                    aug_sd_list.append(y)
+                    unique_donor.append(donor_aug_smi)
+                    unique_acceptor.append(acceptor_aug_smi)
+                    aug_smi_list.append(donor_aug_smi + "." + acceptor_aug_smi)
+                    aug_pce_list.append(y)
                     if swap:
-                        aug_smi_list.append(solvent_aug_smi + "." + polymer_aug_smi)
-                        aug_sd_list.append(y)
+                        aug_smi_list.append(acceptor_aug_smi + "." + donor_aug_smi)
+                        aug_pce_list.append(y)
                         augmented += 1
                     augmented += 1
                 elif (
-                    polymer_aug_smi == unique_polymer[0]
-                    or solvent_aug_smi == unique_solvent[0]
+                    donor_aug_smi == unique_donor[0]
+                    or acceptor_aug_smi == unique_acceptor[0]
                 ):
                     inf_loop += 1
         else:
             augmented = 0
             inf_loop = 0
             while augmented < num_of_augment:
-                polymer_aug_smi = Chem.MolToSmiles(polymer_mol, doRandom=True)
-                solvent_aug_smi = Chem.MolToSmiles(solvent_mol, doRandom=True)
+                donor_aug_smi = Chem.MolToSmiles(donor_mol, doRandom=True)
+                acceptor_aug_smi = Chem.MolToSmiles(acceptor_mol, doRandom=True)
                 if inf_loop == 10:
                     break
                 elif (
-                    polymer_aug_smi not in unique_polymer
-                    and solvent_aug_smi not in unique_solvent
+                    donor_aug_smi not in unique_donor
+                    and acceptor_aug_smi not in unique_acceptor
                 ):
-                    unique_polymer.append(polymer_aug_smi)
-                    unique_solvent.append(solvent_aug_smi)
-                    aug_smi_list.append(polymer_aug_smi + "." + solvent_aug_smi)
-                    aug_sd_list.append(y)
+                    unique_donor.append(donor_aug_smi)
+                    unique_acceptor.append(acceptor_aug_smi)
+                    aug_smi_list.append(donor_aug_smi + "." + acceptor_aug_smi)
+                    aug_pce_list.append(y)
                     if swap:
-                        aug_smi_list.append(solvent_aug_smi + "." + polymer_aug_smi)
-                        aug_sd_list.append(y)
+                        aug_smi_list.append(acceptor_aug_smi + "." + donor_aug_smi)
+                        aug_pce_list.append(y)
                         augmented += 1
                     augmented += 1
                 elif (
-                    polymer_aug_smi == unique_polymer[0]
-                    or solvent_aug_smi == unique_solvent[0]
+                    donor_aug_smi == unique_donor[0]
+                    or acceptor_aug_smi == unique_acceptor[0]
                 ):
                     inf_loop += 1
     except:
         period_idx_list = [i for i, x_ in enumerate(x) if x_ == "."]
         period_idx = period_idx_list[len(period_idx_list) - 1]
-        polymer_smi = x[0:period_idx]
-        solvent_smi = x[period_idx + 1 :]
-        # keep track of unique polymers and solvents
-        unique_polymer = [polymer_smi]
-        unique_solvent = [solvent_smi]
-        polymer_mol = Chem.MolFromSmiles(polymer_smi)
-        solvent_mol = Chem.MolFromSmiles(solvent_smi)
+        donor_smi = x[0:period_idx]
+        acceptor_smi = x[period_idx + 1 :]
+        # keep track of unique polymers and acceptors
+        unique_donor = [donor_smi]
+        unique_acceptor = [acceptor_smi]
+        donor_mol = Chem.MolFromSmiles(donor_smi)
+        acceptor_mol = Chem.MolFromSmiles(acceptor_smi)
         canonical_smi = (
-            Chem.CanonSmiles(polymer_smi) + "." + Chem.CanonSmiles(solvent_smi)
+            Chem.CanonSmiles(donor_smi) + "." + Chem.CanonSmiles(acceptor_smi)
         )
         aug_smi_list.append(canonical_smi)
-        aug_sd_list.append(y)
+        aug_pce_list.append(y)
         if swap:
             swap_canonical_smi = (
-                Chem.CanonSmiles(solvent_smi) + "." + Chem.CanonSmiles(polymer_smi)
+                Chem.CanonSmiles(acceptor_smi) + "." + Chem.CanonSmiles(donor_smi)
             )
             aug_smi_list.append(swap_canonical_smi)
-            aug_sd_list.append(y)
+            aug_pce_list.append(y)
         # ERROR: could not augment CC=O.CCCCCOC.CNCCCCCCCCCCCC(C)=O.COC.COC(C)=O
-        if "." in polymer_smi:
-            polymer_list = polymer_smi.split(".")
+        if "." in donor_smi:
+            donor_list = donor_smi.split(".")
             augmented = 0
             inf_loop = 0
             while augmented < num_of_augment:
                 index = 0
-                polymer_aug_smi = ""
-                for monomer in polymer_list:
+                donor_aug_smi = ""
+                for monomer in donor_list:
                     monomer_mol = Chem.MolFromSmiles(monomer)
                     monomer_aug_smi = Chem.MolToSmiles(monomer_mol, doRandom=True)
                     index += 1
-                    if index == len(polymer_list):
-                        polymer_aug_smi = polymer_aug_smi + monomer_aug_smi
+                    if index == len(donor_list):
+                        donor_aug_smi = donor_aug_smi + monomer_aug_smi
                     else:
-                        polymer_aug_smi = polymer_aug_smi + monomer_aug_smi + "."
-                solvent_aug_smi = Chem.MolToSmiles(solvent_mol, doRandom=True)
+                        donor_aug_smi = donor_aug_smi + monomer_aug_smi + "."
+                acceptor_aug_smi = Chem.MolToSmiles(acceptor_mol, doRandom=True)
                 if inf_loop == 10:
                     break
                 elif (
-                    polymer_aug_smi not in unique_polymer
-                    and solvent_aug_smi not in unique_solvent
+                    donor_aug_smi not in unique_donor
+                    and acceptor_aug_smi not in unique_acceptor
                 ):
-                    unique_polymer.append(polymer_aug_smi)
-                    unique_solvent.append(solvent_aug_smi)
-                    aug_smi_list.append(polymer_aug_smi + "." + solvent_aug_smi)
-                    aug_sd_list.append(y)
+                    unique_donor.append(donor_aug_smi)
+                    unique_acceptor.append(acceptor_aug_smi)
+                    aug_smi_list.append(donor_aug_smi + "." + acceptor_aug_smi)
+                    aug_pce_list.append(y)
                     if swap:
-                        aug_smi_list.append(solvent_aug_smi + "." + polymer_aug_smi)
-                        aug_sd_list.append(y)
+                        aug_smi_list.append(acceptor_aug_smi + "." + donor_aug_smi)
+                        aug_pce_list.append(y)
                         augmented += 1
                     augmented += 1
                 elif (
-                    polymer_aug_smi == unique_polymer[0]
-                    or solvent_aug_smi == unique_solvent[0]
+                    donor_aug_smi == unique_donor[0]
+                    or acceptor_aug_smi == unique_acceptor[0]
                 ):
                     inf_loop += 1
         else:
             augmented = 0
             inf_loop = 0
             while augmented < num_of_augment:
-                polymer_aug_smi = Chem.MolToSmiles(polymer_mol, doRandom=True)
-                solvent_aug_smi = Chem.MolToSmiles(solvent_mol, doRandom=True)
+                donor_aug_smi = Chem.MolToSmiles(donor_mol, doRandom=True)
+                acceptor_aug_smi = Chem.MolToSmiles(acceptor_mol, doRandom=True)
                 if inf_loop == 10:
                     break
                 elif (
-                    polymer_aug_smi not in unique_polymer
-                    and solvent_aug_smi not in unique_solvent
+                    donor_aug_smi not in unique_donor
+                    and acceptor_aug_smi not in unique_acceptor
                 ):
-                    unique_polymer.append(polymer_aug_smi)
-                    unique_solvent.append(solvent_aug_smi)
-                    aug_smi_list.append(polymer_aug_smi + "." + solvent_aug_smi)
-                    aug_sd_list.append(y)
+                    unique_donor.append(donor_aug_smi)
+                    unique_acceptor.append(acceptor_aug_smi)
+                    aug_smi_list.append(donor_aug_smi + "." + acceptor_aug_smi)
+                    aug_pce_list.append(y)
                     if swap:
-                        aug_smi_list.append(solvent_aug_smi + "." + polymer_aug_smi)
-                        aug_sd_list.append(y)
+                        aug_smi_list.append(acceptor_aug_smi + "." + donor_aug_smi)
+                        aug_pce_list.append(y)
                         augmented += 1
                     augmented += 1
                 elif (
-                    polymer_aug_smi == unique_polymer[0]
-                    or solvent_aug_smi == unique_solvent[0]
+                    donor_aug_smi == unique_donor[0]
+                    or acceptor_aug_smi == unique_acceptor[0]
                 ):
                     inf_loop += 1
 
-    aug_sd_array = np.asarray(aug_sd_list)
-    return aug_smi_list, aug_sd_array
+    aug_pce_array = np.asarray(aug_pce_list)
+    return aug_smi_list, aug_pce_array
 
 
-def augment_polymer_frags_in_loop(x, y: float, swap: bool):
+def augment_donor_frags_in_loop(x, y: float, swap: bool):
     """
     Function that augments polymer frags by swapping D.A -> A.D, and D1D2D3 -> D2D3D1 -> D3D1D2
     Assumes that input (x) is DA_tokenized.
@@ -249,43 +251,41 @@ def augment_polymer_frags_in_loop(x, y: float, swap: bool):
     period_idx = x.index(1)
     if 0 in x:
         last_zero_idx = len(x) - 1 - x[::-1].index(0)
-        polymer_frag_to_aug = x[last_zero_idx + 1 : period_idx]
+        donor_frag_to_aug = x[last_zero_idx + 1 : period_idx]
     else:
-        polymer_frag_to_aug = x[:period_idx]
-    polymer_frag_deque = deque(polymer_frag_to_aug)
-    aug_polymer_list = []
-    aug_sd_list = []
-    for i in range(len(polymer_frag_to_aug)):
-        polymer_frag_deque_rotate = copy.copy(polymer_frag_deque)
-        polymer_frag_deque_rotate.rotate(i)
-        rotated_polymer_frag_list = list(polymer_frag_deque_rotate)
-        solvent_list = x[period_idx + 1 :]
-        solvent_list.append(x[period_idx])
+        donor_frag_to_aug = x[:period_idx]
+    donor_frag_deque = deque(donor_frag_to_aug)
+    aug_donor_list = []
+    aug_pce_list = []
+    for i in range(len(donor_frag_to_aug)):
+        donor_frag_deque_rotate = copy.copy(donor_frag_deque)
+        donor_frag_deque_rotate.rotate(i)
+        rotated_donor_frag_list = list(donor_frag_deque_rotate)
+        acceptor_list = x[period_idx + 1 :]
+        acceptor_list.append(x[period_idx])
         if swap:
             if 0 in x:
-                swap_rotated_polymer_frag_list = (
-                    x[: last_zero_idx + 1] + solvent_list + rotated_polymer_frag_list
+                swap_rotated_donor_frag_list = (
+                    x[: last_zero_idx + 1] + acceptor_list + rotated_donor_frag_list
                 )
             else:
-                swap_rotated_polymer_frag_list = (
-                    solvent_list + rotated_polymer_frag_list
-                )
-            if swap_rotated_polymer_frag_list != x:
-                aug_polymer_list.append(swap_rotated_polymer_frag_list)
-                aug_sd_list.append(y)
+                swap_rotated_donor_frag_list = acceptor_list + rotated_donor_frag_list
+            if swap_rotated_donor_frag_list != x:
+                aug_donor_list.append(swap_rotated_donor_frag_list)
+                aug_pce_list.append(y)
         # replace original frags with rotated polymer frags
         if 0 in x:
-            rotated_polymer_frag_list = (
-                x[: last_zero_idx + 1] + rotated_polymer_frag_list + x[period_idx:]
+            rotated_donor_frag_list = (
+                x[: last_zero_idx + 1] + rotated_donor_frag_list + x[period_idx:]
             )
         else:
-            rotated_polymer_frag_list = rotated_polymer_frag_list + x[period_idx:]
+            rotated_donor_frag_list = rotated_donor_frag_list + x[period_idx:]
         # NOTE: do not keep original
-        if rotated_polymer_frag_list != x:
-            aug_polymer_list.append(rotated_polymer_frag_list)
-            aug_sd_list.append(y)
+        if rotated_donor_frag_list != x:
+            aug_donor_list.append(rotated_donor_frag_list)
+            aug_pce_list.append(y)
 
-    return aug_polymer_list, aug_sd_list
+    return aug_donor_list, aug_pce_list
 
 
 # create scoring function
@@ -295,8 +295,8 @@ score_func = make_scorer(custom_scorer, greater_is_better=False)
 summary_df = pd.DataFrame(
     columns=[
         "Datatype",
-        "R2_mean",
-        "R2_std",
+        "R_mean",
+        "R_std",
         "RMSE_mean",
         "RMSE_std",
         "MAE_mean",
@@ -320,36 +320,40 @@ def get_data(unique_datatype):
     """
     dataset = Dataset()
     if unique_datatype["smiles"] == 1:
-        dataset.prepare_data(MASTER_MANUAL_DATA, "smi")
+        dataset = Dataset()
+        dataset.prepare_data(TRAIN_MASTER_DATA, "smi")
         x, y, max_value, min_value = dataset.setup()
     elif unique_datatype["bigsmiles"] == 1:
-        dataset.prepare_data(MASTER_MANUAL_DATA, "bigsmi")
+        dataset = Dataset()
+        dataset.prepare_data(TRAIN_MASTER_DATA, "bigsmi")
         x, y, max_value, min_value = dataset.setup()
     elif unique_datatype["selfies"] == 1:
-        dataset.prepare_data(MASTER_MANUAL_DATA, "selfies")
+        dataset = Dataset()
+        dataset.prepare_data(TRAIN_MASTER_DATA, "selfies")
         x, y, max_value, min_value = dataset.setup()
     elif unique_datatype["aug_smiles"] == 1:
-        dataset.prepare_data(AUGMENT_SMILES_DATA, "smi")
+        dataset = Dataset()
+        dataset.prepare_data(TRAIN_MASTER_DATA, "smi")
         x, y, max_value, min_value, token_dict = dataset.setup_aug_smi()
     elif unique_datatype["brics"] == 1:
-        dataset.prepare_data(BRICS_FRAG_DATA, "brics")
+        dataset = Dataset()
+        dataset.prepare_data(BRICS_MASTER_DATA, "brics")
         x, y, max_value, min_value = dataset.setup()
     elif unique_datatype["manual"] == 1:
-        dataset.prepare_data(MASTER_MANUAL_DATA, "manual")
+        dataset = Dataset()
+        dataset.prepare_data(MANUAL_MASTER_DATA, "manual")
         x, y, max_value, min_value = dataset.setup()
     elif unique_datatype["aug_manual"] == 1:
-        dataset.prepare_data(MASTER_MANUAL_DATA, "manual")
+        dataset = Dataset()
+        dataset.prepare_data(MANUAL_MASTER_DATA, "manual")
         x, y, max_value, min_value = dataset.setup()
     elif unique_datatype["fingerprint"] == 1:
-        dataset.prepare_data(FP_SWELLING, "fp")
-        x, y, max_value, min_value = dataset.setup()
-        print("RADIUS: " + str(radius) + " NBITS: " + str(nbits))
-    elif unique_datatype["sum_of_frags"] == 1:
-        dataset = Dataset(MASTER_MANUAL_DATA, "sum_of_frags")
+        dataset = Dataset()
+        dataset.prepare_data(FP_MASTER_DATA, "fp")
         x, y, max_value, min_value = dataset.setup()
 
     # outer cv gives different training and testing sets for inner cv
-    cv_outer = StratifiedKFold(n_splits=7, shuffle=True, random_state=0)
+    cv_outer = KFold(n_splits=5, shuffle=True, random_state=0)
     if unique_datatype["aug_smiles"] == 1:
         return dataset, x, y, max_value, min_value, cv_outer, token_dict
     else:
@@ -383,9 +387,6 @@ def get_model(model_type):
             max_depth=12,
             subsample=0.3,
         )
-    elif model_type == "KRR":
-        kernel = PairwiseKernel(gamma=1, gamma_bounds="fixed", metric="laplacian")
-        model = KernelRidge(alpha=0.05, kernel=kernel, gamma=1)
     else:
         raise NameError("Model not found. Please use RF or BRT")
 
@@ -447,9 +448,6 @@ def get_space(model_type):
         space["max_depth"] = (8, 20)
         space["subsample"] = [0.1, 0.3, 0.5, 0.7, 1]
         space["min_child_weight"] = [1, 2, 3, 4]
-    elif model_type == "KRR":
-        space["alpha"] = [0, 0.2, 0.4, 0.6, 0.8, 1]
-        space["gamma"] = [0, 0.2, 0.4, 0.6, 0.8, 1]
     else:
         raise NameError("Model not found. Please use RF or BRT")
 
@@ -460,7 +458,7 @@ def get_space(model_type):
 # ALL CONDITIONS
 # ------------------------------------------------------------------------------
 
-model = {"RF": 0, "BRT": 0, "KRR": 1}
+model = {"RF": 1, "BRT": 0}
 for key in model.keys():
     if model[key] == 1:
         model_name = key
@@ -484,10 +482,9 @@ unique_datatype = {
     "manual": 0,
     "aug_manual": 1,
     "fingerprint": 0,
-    "sum_of_frags": 0,
 }
 
-outer_r2 = list()
+outer_r = list()
 outer_rmse = list()
 outer_mae = list()
 
@@ -503,7 +500,6 @@ if batch:
             "manual": 0,
             "aug_manual": 0,
             "fingerprint": 0,
-            "sum_of_frags": 0,
         }
         index_list = list(np.zeros(len(unique_datatype) - 1))
         index_list.insert(i, 1)
@@ -523,13 +519,13 @@ if batch:
             nbits = 512
             dataset, x, y, max_value, min_value, cv_outer = get_data(unique_datatype)
         elif unique_datatype["aug_smiles"] == 1:
-            num_of_augment = 3
+            num_of_augment = 4
             dataset, x, y, max_value, min_value, cv_outer, token_dict = get_data(
                 unique_datatype
             )
         else:
             dataset, x, y, max_value, min_value, cv_outer = get_data(unique_datatype)
-        for train_ix, test_ix in cv_outer.split(x, dataset.data["Polymer"]):
+        for train_ix, test_ix in cv_outer.split(x):
             # split data
             x_train, x_test = x[train_ix], x[test_ix]
             y_train, y_test = y[train_ix], y[test_ix]
@@ -539,7 +535,7 @@ if batch:
                 aug_x_train = list(copy.copy(x_train))
                 aug_y_train = list(copy.copy(y_train))
                 for x_, y_ in zip(x_train, y_train):
-                    x_aug, y_aug = augment_polymer_frags_in_loop(x_, y_, swap)
+                    x_aug, y_aug = augment_donor_frags_in_loop(x_, y_, swap)
                     aug_x_train.extend(x_aug)
                     aug_y_train.extend(y_aug)
 
@@ -659,26 +655,30 @@ if batch:
             else:
                 yhat = model.predict(x_test)
 
+            # reverse min-max scaling
+            y_test = (y_test * (max_value - min_value)) + min_value
+            yhat = (yhat * (max_value - min_value)) + min_value
+
             # evaluate the model
-            r2 = (np.corrcoef(y_test, yhat)[0, 1]) ** 2
+            r = np.corrcoef(y_test, yhat)[0, 1]
             rmse = np.sqrt(mean_squared_error(y_test, yhat))
             mae = mean_absolute_error(y_test, yhat)
             # store the result
-            outer_r2.append(r2)
+            outer_r.append(r)
             outer_rmse.append(rmse)
             outer_mae.append(mae)
             # report progress (best training score)
-            print(">r2=%.3f, rmse=%.3f, mae=%.3f" % (r2, rmse, mae))
+            print(">r=%.3f, rmse=%.3f, mae=%.3f" % (r, rmse, mae))
 
         # summarize the estimated performance of the model
-        print("R2: %.3f (%.3f)" % (mean(outer_r2), std(outer_r2)))
+        print("R: %.3f (%.3f)" % (mean(outer_r), std(outer_r)))
         print("RMSE: %.3f (%.3f)" % (mean(outer_rmse), std(outer_rmse)))
         print("MAE: %.3f (%.3f)" % (mean(outer_mae), std(outer_mae)))
         summary_series = pd.DataFrame(
             {
                 "Datatype": unique_datatype_name,
-                "R2_mean": mean(outer_r2),
-                "R2_std": std(outer_r2),
+                "R_mean": mean(outer_r),
+                "R_std": std(outer_r),
                 "RMSE_mean": mean(outer_rmse),
                 "RMSE_std": std(outer_rmse),
                 "MAE_mean": mean(outer_mae),
@@ -699,13 +699,13 @@ else:
         nbits = 512
         dataset, x, y, max_value, min_value, cv_outer = get_data(unique_datatype)
     elif unique_datatype["aug_smiles"] == 1:
-        num_of_augment = 3
+        num_of_augment = 4
         dataset, x, y, max_value, min_value, cv_outer, token_dict = get_data(
             unique_datatype
         )
     else:
         dataset, x, y, max_value, min_value, cv_outer = get_data(unique_datatype)
-    for train_ix, test_ix in cv_outer.split(x, dataset.data["Polymer"]):
+    for train_ix, test_ix in cv_outer.split(x):
         # split data
         x_train, x_test = x[train_ix], x[test_ix]
         y_train, y_test = y[train_ix], y[test_ix]
@@ -715,7 +715,7 @@ else:
             aug_x_train = list(copy.copy(x_train))
             aug_y_train = list(copy.copy(y_train))
             for x_, y_ in zip(x_train, y_train):
-                x_aug, y_aug = augment_polymer_frags_in_loop(x_, y_, swap)
+                x_aug, y_aug = augment_donor_frags_in_loop(x_, y_, swap)
                 aug_x_train.extend(x_aug)
                 aug_y_train.extend(y_aug)
 
@@ -832,16 +832,19 @@ else:
         else:
             yhat = model.predict(x_test)
 
+        # reverse min-max scaling
+        y_test = (y_test * (max_value - min_value)) + min_value
+        yhat = (yhat * (max_value - min_value)) + min_value
         # evaluate the model
-        r2 = (np.corrcoef(y_test, yhat)[0, 1]) ** 2
+        r = np.corrcoef(y_test, yhat)[0, 1]
         rmse = np.sqrt(mean_squared_error(y_test, yhat))
         mae = mean_absolute_error(y_test, yhat)
         # store the result
-        outer_r2.append(r2)
+        outer_r.append(r)
         outer_rmse.append(rmse)
         outer_mae.append(mae)
         # report progress (best training score)
-        print(">r2=%.3f, rmse=%.3f, mae=%.3f" % (r2, rmse, mae))
+        print(">R=%.3f, rmse=%.3f, mae=%.3f" % (r, rmse, mae))
 
         # learning curves
         # evalset = [(x_train, y_train), (x_test, y_test)]
@@ -857,14 +860,14 @@ else:
         # plt.show()
 
     # summarize the estimated performance of the model
-    print("R2: %.3f (%.3f)" % (mean(outer_r2), std(outer_r2)))
+    print("R: %.3f (%.3f)" % (mean(outer_r), std(outer_r)))
     print("RMSE: %.3f (%.3f)" % (mean(outer_rmse), std(outer_rmse)))
     print("MAE: %.3f (%.3f)" % (mean(outer_mae), std(outer_mae)))
     summary_series = pd.DataFrame(
         {
             "Datatype": unique_datatype_name,
-            "R2_mean": mean(outer_r2),
-            "R2_std": std(outer_r2),
+            "R_mean": mean(outer_r),
+            "R_std": std(outer_r),
             "RMSE_mean": mean(outer_rmse),
             "RMSE_std": std(outer_rmse),
             "MAE_mean": mean(outer_mae),
