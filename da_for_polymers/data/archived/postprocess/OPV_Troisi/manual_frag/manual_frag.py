@@ -17,20 +17,23 @@ OPV_TROISI_ACCEPTORS = pkg_resources.resource_filename(
 )
 
 IMG_PATH = pkg_resources.resource_filename(
-    "da_for_polymers", "data/postprocess/OPV_Troisi/manual_frag/"
+    "da_for_polymers", "data/input_representation/OPV_Troisi/manual_frag/"
 )
 
 # For Manual Fragments!
 MANUAL_DONOR_CSV = pkg_resources.resource_filename(
-    "da_for_polymers", "data/postprocess/OPV_Troisi/manual_frag/donor_frags.csv"
+    "da_for_polymers",
+    "data/input_representation/OPV_Troisi/manual_frag/donor_frags.csv",
 )
 
 MANUAL_ACCEPTOR_CSV = pkg_resources.resource_filename(
-    "da_for_polymers", "data/postprocess/OPV_Troisi/manual_frag/acceptor_frags.csv"
+    "da_for_polymers",
+    "data/input_representation/OPV_Troisi/manual_frag/acceptor_frags.csv",
 )
 
 MASTER_MANUAL_DATA = pkg_resources.resource_filename(
-    "da_for_polymers", "data/postprocess/OPV_Troisi/manual_frag/master_manual_frag.csv"
+    "da_for_polymers",
+    "data/input_representation/OPV_Troisi/manual_frag/master_manual_frag.csv",
 )
 
 MASTER_ML_DATA = pkg_resources.resource_filename(

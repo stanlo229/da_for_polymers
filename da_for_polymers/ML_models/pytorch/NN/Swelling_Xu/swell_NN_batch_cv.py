@@ -33,20 +33,23 @@ os.environ["WANDB_MODE"] = "offline"
 
 
 AUGMENT_SMILES_DATA = pkg_resources.resource_filename(
-    "da_for_polymers", "data/postprocess/Swelling_Xu/augmentation/train_aug_master.csv"
+    "da_for_polymers",
+    "data/input_representation/Swelling_Xu/augmentation/train_aug_master.csv",
 )
 
 BRICS_FRAG_DATA = pkg_resources.resource_filename(
-    "da_for_polymers", "data/postprocess/Swelling_Xu/BRICS/master_brics_frag.csv"
+    "da_for_polymers",
+    "data/input_representation/Swelling_Xu/BRICS/master_brics_frag.csv",
 )
 
 MASTER_MANUAL_DATA = pkg_resources.resource_filename(
-    "da_for_polymers", "data/postprocess/Swelling_Xu/manual_frag/master_manual_frag.csv"
+    "da_for_polymers",
+    "data/input_representation/Swelling_Xu/manual_frag/master_manual_frag.csv",
 )
 
 FP_SWELLING = pkg_resources.resource_filename(
     "da_for_polymers",
-    "data/postprocess/Swelling_Xu/fingerprint/swelling_fingerprint.csv",
+    "data/input_representation/Swelling_Xu/fingerprint/swelling_fingerprint.csv",
 )
 
 CHECKPOINT_DIR = pkg_resources.resource_filename(

@@ -64,7 +64,7 @@ class Catalysis_Clean:
 
     def clean_expt(self):
         """
-        Cleans the cataylsis experiment data into a neat .csv file for postprocessing into several data types.
+        Cleans the cataylsis experiment data into a neat .csv file for input_representationing into several data types.
         Converts the raw data units to mol% for consistency
         Removes the extra columns (mostly just 0's for the ligands)
 

@@ -12,29 +12,33 @@ from torch.utils.data import random_split
 
 AUGMENT_SMILES_DATA = pkg_resources.resource_filename(
     "da_for_polymers",
-    "data/postprocess/CO2_Soleimani/augmentation/train_aug_master.csv",
+    "data/input_representation/CO2_Soleimani/augmentation/train_aug_master.csv",
 )
 
 BRICS_FRAG_DATA = pkg_resources.resource_filename(
-    "da_for_polymers", "data/postprocess/CO2_Soleimani/BRICS/master_brics_frag.csv"
+    "da_for_polymers",
+    "data/input_representation/CO2_Soleimani/BRICS/master_brics_frag.csv",
 )
 
 MASTER_TRAIN_DATA = pkg_resources.resource_filename(
-    "da_for_polymers", "data/process/CO2_Soleimani/co2_expt_data.csv"
+    "da_for_polymers", "data/preprocess/CO2_Soleimani/co2_expt_data.csv"
 )
 
 MASTER_MANUAL_DATA = pkg_resources.resource_filename(
     "da_for_polymers",
-    "data/postprocess/CO2_Soleimani/manual_frag/master_manual_frag.csv",
+    "data/input_representation/CO2_Soleimani/manual_frag/master_manual_frag.csv",
 )
 
 FP_CO2 = pkg_resources.resource_filename(
-    "da_for_polymers", "data/postprocess/CO2_Soleimani/fingerprint/co2_fingerprint.csv",
+    "da_for_polymers",
+    "data/input_representation/CO2_Soleimani/fingerprint/co2_fingerprint.csv",
 )
 
 from da_for_polymers.ML_models.sklearn.data.CO2_Soleimani.tokenizer import Tokenizer
-from da_for_polymers.data.postprocess.CO2_Soleimani.BRICS.brics_frag import BRIC_FRAGS
-from da_for_polymers.data.postprocess.CO2_Soleimani.manual_frag.manual_frag import (
+from da_for_polymers.data.input_representation.CO2_Soleimani.BRICS.brics_frag import (
+    BRIC_FRAGS,
+)
+from da_for_polymers.data.input_representation.CO2_Soleimani.manual_frag.manual_frag import (
     CO2_INVENTORY,
     manual_frag,
 )

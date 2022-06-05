@@ -19,7 +19,8 @@ from da_for_polymers.ML_models.sklearn.data.PV_Wang.data import Dataset
 from da_for_polymers.ML_models.sklearn.data.PV_Wang.tokenizer import Tokenizer
 
 AUGMENT_SMILES_DATA = pkg_resources.resource_filename(
-    "da_for_polymers", "data/postprocess/PV_Wang/augmentation/train_aug_master.csv"
+    "da_for_polymers",
+    "data/input_representation/PV_Wang/augmentation/train_aug_master.csv",
 )
 
 MASTER_TRAIN_DATA = pkg_resources.resource_filename(
@@ -27,15 +28,17 @@ MASTER_TRAIN_DATA = pkg_resources.resource_filename(
 )
 
 MASTER_MANUAL_DATA = pkg_resources.resource_filename(
-    "da_for_polymers", "data/postprocess/PV_Wang/manual_frag/master_manual_frag.csv"
+    "da_for_polymers",
+    "data/input_representation/PV_Wang/manual_frag/master_manual_frag.csv",
 )
 
 FP_PERVAPORATION = pkg_resources.resource_filename(
-    "da_for_polymers", "data/postprocess/PV_Wang/fingerprint/pv_fingerprint.csv",
+    "da_for_polymers",
+    "data/input_representation/PV_Wang/fingerprint/pv_fingerprint.csv",
 )
 
 BRICS_FRAG_DATA = pkg_resources.resource_filename(
-    "da_for_polymers", "data/postprocess/PV_Wang/BRICS/master_brics_frag.csv"
+    "da_for_polymers", "data/input_representation/PV_Wang/BRICS/master_brics_frag.csv"
 )
 
 SUMMARY_DIR = pkg_resources.resource_filename(

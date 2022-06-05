@@ -24,7 +24,7 @@ DATA_DIR = pkg_resources.resource_filename(
 )
 
 TRAIN_FRAG_MASTER_DATA = pkg_resources.resource_filename(
-    "da_for_polymers", "data/postprocess/train_frag_master.csv"
+    "da_for_polymers", "data/input_representation/train_frag_master.csv"
 )
 
 TRAIN_AUG_SMI_MASTER_DATA = pkg_resources.resource_filename(
@@ -36,11 +36,11 @@ MANUAL_MASTER_DATA = pkg_resources.resource_filename(
 )
 
 BRICS_MASTER_DATA = pkg_resources.resource_filename(
-    "da_for_polymers", "data/postprocess/BRICS/master_brics_frag.csv"
+    "da_for_polymers", "data/input_representation/BRICS/master_brics_frag.csv"
 )
 
 FP_MASTER_DATA = pkg_resources.resource_filename(
-    "da_for_polymers", "data/postprocess/fingerprint/opv_fingerprint.csv"
+    "da_for_polymers", "data/input_representation/fingerprint/opv_fingerprint.csv"
 )
 
 CHECKPOINT_DIR = pkg_resources.resource_filename(

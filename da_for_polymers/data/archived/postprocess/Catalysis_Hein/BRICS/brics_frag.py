@@ -16,7 +16,8 @@ CATALYSIS_MASTER = pkg_resources.resource_filename(
 )
 
 BRICS_FRAG_DATA = pkg_resources.resource_filename(
-    "da_for_polymers", "data/postprocess/Catalysis_Hein/BRICS/catalysis_brics.csv"
+    "da_for_polymers",
+    "data/input_representation/Catalysis_Hein/BRICS/catalysis_brics.csv",
 )
 
 

@@ -25,19 +25,22 @@ TRAIN_MASTER_DATA = pkg_resources.resource_filename(
 )
 
 AUG_SMI_MASTER_DATA = pkg_resources.resource_filename(
-    "da_for_polymers", "data/postprocess/OPV_Min/augmentation/train_aug_master4.csv"
+    "da_for_polymers",
+    "data/input_representation/OPV_Min/augmentation/train_aug_master4.csv",
 )
 
 BRICS_MASTER_DATA = pkg_resources.resource_filename(
-    "da_for_polymers", "data/postprocess/OPV_Min/BRICS/master_brics_frag.csv"
+    "da_for_polymers", "data/input_representation/OPV_Min/BRICS/master_brics_frag.csv"
 )
 
 MANUAL_MASTER_DATA = pkg_resources.resource_filename(
-    "da_for_polymers", "data/postprocess/OPV_Min/manual_frag/master_manual_frag.csv"
+    "da_for_polymers",
+    "data/input_representation/OPV_Min/manual_frag/master_manual_frag.csv",
 )
 
 FP_MASTER_DATA = pkg_resources.resource_filename(
-    "da_for_polymers", "data/postprocess/OPV_Min/fingerprint/opv_fingerprint.csv"
+    "da_for_polymers",
+    "data/input_representation/OPV_Min/fingerprint/opv_fingerprint.csv",
 )
 
 DATA_EVAL = pkg_resources.resource_filename(

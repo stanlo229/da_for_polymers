@@ -12,7 +12,8 @@ MASTER_DATA = pkg_resources.resource_filename(
 )
 
 AUGMENT_SMILES_DATA = pkg_resources.resource_filename(
-    "da_for_polymers", "data/postprocess/OPV_Troisi/augmentation/train_aug_master5.csv"
+    "da_for_polymers",
+    "data/input_representation/OPV_Troisi/augmentation/train_aug_master5.csv",
 )
 
 SEED_VAL = 4

@@ -31,15 +31,15 @@ DATA_DIR = pkg_resources.resource_filename(
 )
 
 FRAG_MASTER_DATA = pkg_resources.resource_filename(
-    "da_for_polymers", "data/postprocess/train_frag_master.csv"
+    "da_for_polymers", "data/input_representation/train_frag_master.csv"
 )
 
 # TRAIN_MASTER_DATA = pkg_resources.resource_filename(
-#     "da_for_polymers", "data/postprocess/frag_master_ml_for_opvs_from_min_old.csv"
+#     "da_for_polymers", "data/input_representation/frag_master_ml_for_opvs_from_min_old.csv"
 # )
 
 BRICS_MASTER_DATA = pkg_resources.resource_filename(
-    "da_for_polymers", "data/postprocess/BRICS/master_brics_frag.csv"
+    "da_for_polymers", "data/input_representation/BRICS/master_brics_frag.csv"
 )
 
 MANUAL_MASTER_DATA = pkg_resources.resource_filename(
@@ -47,7 +47,7 @@ MANUAL_MASTER_DATA = pkg_resources.resource_filename(
 )
 
 FP_MASTER_DATA = pkg_resources.resource_filename(
-    "da_for_polymers", "data/postprocess/fingerprint/opv_fingerprint.csv"
+    "da_for_polymers", "data/input_representation/fingerprint/opv_fingerprint.csv"
 )
 
 PREDICTION_PATH = pkg_resources.resource_filename(

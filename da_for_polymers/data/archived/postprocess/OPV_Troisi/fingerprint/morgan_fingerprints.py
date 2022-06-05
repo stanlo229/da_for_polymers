@@ -11,11 +11,13 @@ MASTER_ML_DATA = pkg_resources.resource_filename(
 )
 
 FP_DATA = pkg_resources.resource_filename(
-    "da_for_polymers", "data/postprocess/OPV_Troisi/fingerprint/opv_fingerprint.csv"
+    "da_for_polymers",
+    "data/input_representation/OPV_Troisi/fingerprint/opv_fingerprint.csv",
 )
 
 FP_DATA_PKL = pkg_resources.resource_filename(
-    "da_for_polymers", "data/postprocess/OPV_Troisi/fingerprint/opv_fingerprint.pkl"
+    "da_for_polymers",
+    "data/input_representation/OPV_Troisi/fingerprint/opv_fingerprint.pkl",
 )
 
 np.set_printoptions(threshold=np.inf)

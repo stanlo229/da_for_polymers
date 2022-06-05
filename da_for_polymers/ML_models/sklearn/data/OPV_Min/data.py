@@ -16,37 +16,45 @@ from torch.utils.data import random_split
 import yaspin
 
 TRAIN_MASTER_DATA = pkg_resources.resource_filename(
-    "da_for_polymers", "data/process/OPV_Min/master_ml_for_opvs_from_min.csv"
+    "da_for_polymers", "data/preprocess/OPV_Min/master_ml_for_opvs_from_min.csv"
 )
 
 AUG_SMI_MASTER_DATA = pkg_resources.resource_filename(
-    "da_for_polymers", "data/postprocess/OPV_Min/augmentation/train_aug_master4.csv"
+    "da_for_polymers",
+    "data/input_representation/OPV_Min/augmentation/train_aug_master4.csv",
 )
 
 BRICS_MASTER_DATA = pkg_resources.resource_filename(
-    "da_for_polymers", "data/postprocess/OPV_Min/BRICS/master_brics_frag.csv"
+    "da_for_polymers", "data/input_representation/OPV_Min/BRICS/master_brics_frag.csv"
 )
 
 MANUAL_MASTER_DATA = pkg_resources.resource_filename(
-    "da_for_polymers", "data/postprocess/OPV_Min/manual_frag/master_manual_frag.csv"
+    "da_for_polymers",
+    "data/input_representation/OPV_Min/manual_frag/master_manual_frag.csv",
 )
 
 # For Manual Fragments!
 MANUAL_DONOR_CSV = pkg_resources.resource_filename(
-    "da_for_polymers", "data/postprocess/OPV_Min/manual_frag/donor_frags.csv"
+    "da_for_polymers", "data/input_representation/OPV_Min/manual_frag/donor_frags.csv"
 )
 
 MANUAL_ACCEPTOR_CSV = pkg_resources.resource_filename(
-    "da_for_polymers", "data/postprocess/OPV_Min/manual_frag/acceptor_frags.csv"
+    "da_for_polymers",
+    "data/input_representation/OPV_Min/manual_frag/acceptor_frags.csv",
 )
 
 FP_MASTER_DATA = pkg_resources.resource_filename(
-    "da_for_polymers", "data/postprocess/OPV_Min/fingerprint/opv_fingerprint.csv"
+    "da_for_polymers",
+    "data/input_representation/OPV_Min/fingerprint/opv_fingerprint.csv",
 )
 
 from da_for_polymers.ML_models.sklearn.data.OPV_Min.tokenizer import Tokenizer
-from da_for_polymers.data.postprocess.OPV_Min.BRICS.brics_frag import BRIC_FRAGS
-from da_for_polymers.data.postprocess.OPV_Min.manual_frag.manual_frag import manual_frag
+from da_for_polymers.data.input_representation.OPV_Min.BRICS.brics_frag import (
+    BRIC_FRAGS,
+)
+from da_for_polymers.data.input_representation.OPV_Min.manual_frag.manual_frag import (
+    manual_frag,
+)
 
 
 class Dataset:

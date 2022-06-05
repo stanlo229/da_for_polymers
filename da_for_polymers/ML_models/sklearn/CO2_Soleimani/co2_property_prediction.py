@@ -7,38 +7,36 @@ import pandas as pd
 import pkg_resources
 import xgboost
 from da_for_polymers.ML_models.sklearn.data.CO2_Soleimani.data import Dataset
-from da_for_polymers.ML_models.sklearn.data.CO2_Soleimani.tokenizer import \
-    Tokenizer
+from da_for_polymers.ML_models.sklearn.data.CO2_Soleimani.tokenizer import Tokenizer
 from numpy import mean, std
 from rdkit import Chem
 from scipy.sparse.construct import random
 from sklearn.ensemble import RandomForestRegressor
 from sklearn.inspection import permutation_importance
-from sklearn.metrics import (make_scorer, mean_absolute_error,
-                             mean_squared_error)
+from sklearn.metrics import make_scorer, mean_absolute_error, mean_squared_error
 from sklearn.model_selection import GridSearchCV, KFold, StratifiedKFold
 from skopt import BayesSearchCV
 
 AUGMENT_SMILES_DATA = pkg_resources.resource_filename(
     "da_for_polymers",
-    "data/postprocess/CO2_Soleimani/augmentation/train_aug_master.csv",
+    "data/input_representation/CO2_Soleimani/augmentation/train_aug_master.csv",
 )
 
 BRICS_FRAG_DATA = pkg_resources.resource_filename(
-    "da_for_polymers", "data/postprocess/CO2_Soleimani/BRICS/master_brics_frag.csv"
+    "da_for_polymers", "data/input_representation/CO2_Soleimani/BRICS/master_brics_frag.csv"
 )
 
 MASTER_TRAIN_DATA = pkg_resources.resource_filename(
-    "da_for_polymers", "data/process/CO2_Soleimani/co2_expt_data.csv"
+    "da_for_polymers", "data/preprocess/CO2_Soleimani/co2_expt_data.csv"
 )
 
 MASTER_MANUAL_DATA = pkg_resources.resource_filename(
     "da_for_polymers",
-    "data/postprocess/CO2_Soleimani/manual_frag/master_manual_frag.csv",
+    "data/input_representation/CO2_Soleimani/manual_frag/master_manual_frag.csv",
 )
 
 FP_CO2 = pkg_resources.resource_filename(
-    "da_for_polymers", "data/postprocess/CO2_Soleimani/fingerprint/co2_fingerprint.csv",
+    "da_for_polymers", "data/input_representation/CO2_Soleimani/fingerprint/co2_fingerprint.csv",
 )
 
 SUMMARY_DIR = pkg_resources.resource_filename(
@@ -413,9 +411,7 @@ if batch:
                 x_aug_dev_list = []
                 for x_, y_ in zip(x_train, y_train):
                     if descriptor_param == "none":
-                        x_aug, y_aug = augment_smi_in_loop(
-                            x_[0], y_, num_of_augment, True
-                        )
+                        x_aug, y_aug = augment_smi_in_loop(x_, y_, num_of_augment, True)
                     else:
                         x_list = list(x_)
                         x_aug, y_aug = augment_smi_in_loop(

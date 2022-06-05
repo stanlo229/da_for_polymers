@@ -24,27 +24,30 @@ from sklearn.model_selection import KFold
 from sklearn.metrics import mean_squared_error
 
 DATA_DIR = pkg_resources.resource_filename(
-    "da_for_polymers", "data/process/OPV_Min/master_ml_for_opvs_from_min.csv"
+    "da_for_polymers", "data/preprocess/OPV_Min/master_ml_for_opvs_from_min.csv"
 )
 
 FRAG_MASTER_DATA = pkg_resources.resource_filename(
-    "da_for_polymers", "data/postprocess/OPV_Min/hw_frag/train_frag_master.csv"
+    "da_for_polymers", "data/input_representation/OPV_Min/hw_frag/train_frag_master.csv"
 )
 
 AUGMENT_SMILES_DATA = pkg_resources.resource_filename(
-    "da_for_polymers", "data/postprocess/OPV_Min/augmentation/train_aug_master15.csv"
+    "da_for_polymers",
+    "data/input_representation/OPV_Min/augmentation/train_aug_master15.csv",
 )
 
 BRICS_MASTER_DATA = pkg_resources.resource_filename(
-    "da_for_polymers", "data/postprocess/OPV_Min/BRICS/master_brics_frag.csv"
+    "da_for_polymers", "data/input_representation/OPV_Min/BRICS/master_brics_frag.csv"
 )
 
 MANUAL_MASTER_DATA = pkg_resources.resource_filename(
-    "da_for_polymers", "data/postprocess/OPV_Min/manual_frag/master_manual_frag.csv"
+    "da_for_polymers",
+    "data/input_representation/OPV_Min/manual_frag/master_manual_frag.csv",
 )
 
 FP_MASTER_DATA = pkg_resources.resource_filename(
-    "da_for_polymers", "data/postprocess/OPV_Min/fingerprint/opv_fingerprint.csv"
+    "da_for_polymers",
+    "data/input_representation/OPV_Min/fingerprint/opv_fingerprint.csv",
 )
 
 CHEMBERT_TOKENIZER = pkg_resources.resource_filename(
@@ -222,18 +225,6 @@ class OPVDataModule(pl.LightningDataModule):
         val_batch_size: int,
         test_batch_size: int,
         num_workers: int,
-        smiles: int,  # True - string representation, False - Fragments
-        bigsmiles: int,
-        selfies: int,
-        aug_smiles: int,  # number of data augmented SMILES
-        hw_frag: int,
-        aug_hw_frag: int,
-        brics: int,
-        manual: int,
-        aug_manual: int,
-        fingerprint: int,
-        fp_radius: int,
-        fp_nbits: int,
         cv: int,
         pt_model: str,
         pt_tokenizer: str,
@@ -246,18 +237,6 @@ class OPVDataModule(pl.LightningDataModule):
         self.test_batch_size = test_batch_size
         self.num_workers = num_workers
         self.transform = None
-        self.smiles = smiles
-        self.bigsmiles = bigsmiles
-        self.selfies = selfies
-        self.aug_smiles = aug_smiles
-        self.hw_frag = hw_frag
-        self.aug_hw_frag = aug_hw_frag
-        self.brics = brics
-        self.manual = manual
-        self.aug_manual = aug_manual
-        self.fingerprint = fingerprint
-        self.fp_radius = fp_radius
-        self.fp_nbits = fp_nbits
         self.cv = cv
         self.pt_model = pt_model
         self.pt_tokenizer = pt_tokenizer
@@ -265,10 +244,11 @@ class OPVDataModule(pl.LightningDataModule):
         self.max_length = 1
         self.seed_val = seed_val
 
-    def setup(self) -> None:
+    def setup(self, input_representation: str) -> None:
+        self.input_representation = input_representation
         self.data = pd.read_csv(DATA_DIR)
         # concatenate Donor and Acceptor Inputs
-        if self.smiles == 1 or self.aug_smiles == 1:
+        if input_representation == "smiles":
             representation = "SMILES"
             for index, row in self.data.iterrows():
                 self.data.at[index, "DA_pair"] = (
@@ -276,7 +256,7 @@ class OPVDataModule(pl.LightningDataModule):
                     + "."
                     + row["Acceptor_{}".format(representation)]
                 )
-        elif self.bigsmiles == 1:
+        elif input_representation == "bigsmiles":
             self.data = pd.read_csv(MANUAL_MASTER_DATA)
             representation = "BigSMILES"
             for index, row in self.data.iterrows():
@@ -285,7 +265,7 @@ class OPVDataModule(pl.LightningDataModule):
                     + "."
                     + row["Acceptor_{}".format(representation)]
                 )
-        elif self.selfies == 1:
+        elif input_representation == "selfies":
             representation = "SELFIES"
             for index, row in self.data.iterrows():
                 self.data.at[index, "DA_pair"] = (
@@ -294,15 +274,15 @@ class OPVDataModule(pl.LightningDataModule):
                     + row["Acceptor_{}".format(representation)]
                 )
 
-    def prepare_data(self):
+    def prepare_data(self, fp_radius: int, fp_bits: int):
         """
         Setup dataset with fragments that have been tokenized and augmented already in rdkit_frag_in_dataset.py
         """
         # convert other columns into numpy arrays
         if self.shuffled:
-            pce_array = self.data["PCE(%)_shuffled"].to_numpy().astype("float32")
+            pce_array = self.data["PCE (%)_shuffled"].to_numpy().astype("float32")
         else:
-            pce_array = self.data["PCE(%)"].to_numpy().astype("float32")
+            pce_array = self.data["PCE (%)"].to_numpy().astype("float32")
 
         # minimize range of pce between 0-1
         # find max of pce_array
@@ -316,7 +296,10 @@ class OPVDataModule(pl.LightningDataModule):
         if self.pt_model != None:
             self.prepare_transformer()
         else:
-            if self.smiles == 1 or self.bigsmiles == 1:
+            if (
+                self.input_representation == "smiles"
+                or self.input_representation == "bigsmiles"
+            ):
                 # tokenize data
                 (
                     tokenized_input,
@@ -327,7 +310,7 @@ class OPVDataModule(pl.LightningDataModule):
                 self.vocab_length = vocab_length
                 da_pair_list = tokenized_input
 
-            elif self.selfies == 1:
+            elif self.input_representation == "selfies":
                 # tokenize data using selfies
                 tokenized_input = []
                 selfie_dict, max_selfie_length = Tokenizer().tokenize_selfies(
@@ -353,7 +336,7 @@ class OPVDataModule(pl.LightningDataModule):
                 da_pair_list = tokenized_input
 
             # convert str to list for DA_pairs
-            elif self.aug_smiles == 1:
+            elif self.input_representation == "aug_smiles":
                 self.data_aug_smi = pd.read_csv(AUGMENT_SMILES_DATA)
 
                 da_aug_list = []
@@ -386,38 +369,7 @@ class OPVDataModule(pl.LightningDataModule):
                 self.vocab_length = vocab_length
                 print("LEN: ", len(da_pair_list))
 
-            elif self.hw_frag == 1:
-                self.data = pd.read_csv(FRAG_MASTER_DATA)
-                da_pair_list = []
-                for i in range(len(self.data["DA_pair_tokenized"])):
-                    da_pair_list.append(
-                        ast.literal_eval(self.data["DA_pair_tokenized"][i])
-                    )
-                self.vocab_length = 239
-                # max_seq_length
-                self.max_seq_length = len(da_pair_list[0])
-                print(self.max_seq_length)
-
-            elif self.aug_hw_frag == 1:
-                self.data = pd.read_csv(FRAG_MASTER_DATA)
-                da_aug_list = []
-                for i in range(len(self.data["DA_pair_tokenized_aug"])):
-                    da_aug_list.append(
-                        ast.literal_eval(self.data["DA_pair_tokenized_aug"][i])
-                    )
-                ad_aug_list = []
-                for i in range(len(self.data["AD_pair_tokenized_aug"])):
-                    ad_aug_list.append(
-                        ast.literal_eval(self.data["AD_pair_tokenized_aug"][i])
-                    )
-                self.vocab_length = 239
-                # original data comes from first augmented d-a / a-d pair from each pair
-                da_pair_list = []
-                for i in range(len(da_aug_list)):
-                    da_pair_list.append(da_aug_list[i][0])
-                self.max_seq_length = len(da_pair_list[0])
-
-            elif self.brics == 1:
+            elif self.input_representation == "brics":
                 self.data = pd.read_csv(BRICS_MASTER_DATA)
                 da_pair_list = []
                 print("BRICS: ", len(self.data["DA_tokenized_BRICS"]))
@@ -428,7 +380,7 @@ class OPVDataModule(pl.LightningDataModule):
                 self.vocab_length = 191
                 self.max_seq_length = len(da_pair_list[0])
 
-            elif self.manual == 1:
+            elif self.input_representation == "manual":
                 self.data = pd.read_csv(MANUAL_MASTER_DATA)
                 da_pair_list = []
                 print("MANUAL: ", len(self.data["DA_manual_tokenized"]))
@@ -439,7 +391,7 @@ class OPVDataModule(pl.LightningDataModule):
                 self.vocab_length = 337
                 self.max_seq_length = len(da_pair_list[0])
 
-            elif self.aug_manual == 1:
+            elif self.input_representation == "aug_manual":
                 self.data = pd.read_csv(MANUAL_MASTER_DATA)
                 da_aug_list = []
                 for i in range(len(self.data["DA_manual_tokenized_aug"])):
@@ -458,20 +410,16 @@ class OPVDataModule(pl.LightningDataModule):
                     da_pair_list.append(da_aug_list[i][0])
                 self.max_seq_length = len(da_pair_list[0])
 
-            elif self.fingerprint == 1:
+            elif self.input_representation == "fingerprint":
                 self.data = pd.read_csv(FP_MASTER_DATA)
                 da_pair_list = []
                 column_da_pair = (
-                    "DA_FP"
-                    + "_radius_"
-                    + str(self.fp_radius)
-                    + "_nbits_"
-                    + str(self.fp_nbits)
+                    "DA_FP" + "_radius_" + str(fp_radius) + "_nbits_" + str(fp_bits)
                 )
                 print("Fingerprint: ", len(self.data[column_da_pair]))
                 for i in range(len(self.data[column_da_pair])):
                     da_pair_list.append(ast.literal_eval(self.data[column_da_pair][i]))
-                self.vocab_length = self.fp_nbits
+                self.vocab_length = fp_bits
                 self.max_seq_length = len(da_pair_list[0])
 
                 # Double-check the amount of augmented training data
@@ -494,7 +442,10 @@ class OPVDataModule(pl.LightningDataModule):
                 # expected number can change due to different d-a pairs having different number of augmentation frags
             da_pair_array = np.array(da_pair_list)
             pce_dataset = OPVDataset(da_pair_array, pce_array)
-            if self.aug_hw_frag == 1 or self.aug_manual == 1 or self.aug_smiles == 1:
+            if (
+                self.input_representation == "aug_manual"
+                or self.input_representation == "aug_smiles"
+            ):
                 if self.cv != None:
                     (
                         self.pce_train,
@@ -536,9 +487,9 @@ class OPVDataModule(pl.LightningDataModule):
         self.data = self.data.reset_index(drop=True)
         # convert other columns into numpy arrays
         if self.shuffled:
-            pce_array = self.data["PCE(%)_shuffled"].to_numpy().astype("float32")
+            pce_array = self.data["PCE (%)_shuffled"].to_numpy().astype("float32")
         else:
-            pce_array = self.data["PCE(%)"].to_numpy().astype("float32")
+            pce_array = self.data["PCE (%)"].to_numpy().astype("float32")
         # minimize range of pce between 0-1
         # find max of pce_array
         self.max_pce = pce_array.max()
@@ -570,7 +521,7 @@ class OPVDataModule(pl.LightningDataModule):
             )
         elif self.aug_smiles:
             data = pd.read_csv(AUGMENT_SMILES_DATA)
-            pce_array = data["PCE(%)"].to_numpy().astype("float32")
+            pce_array = data["PCE (%)"].to_numpy().astype("float32")
 
             # minimize range of pce between 0-1
             # find max of pce_array
@@ -666,7 +617,7 @@ class OPVDataModule(pl.LightningDataModule):
 
 def distribution_plot(data_dir):
     df = pd.read_csv(data_dir)
-    pce_array = df["PCE(%)"].to_numpy().astype("float32")
+    pce_array = df["PCE (%)"].to_numpy().astype("float32")
     # minimize range of pce between 0-1
     # find max of pce_array
     max_pce = pce_array.max()

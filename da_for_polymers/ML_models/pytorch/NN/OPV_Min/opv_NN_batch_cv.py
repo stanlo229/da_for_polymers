@@ -36,27 +36,30 @@ os.environ["WANDB_MODE"] = "offline"
 
 
 DATA_DIR = pkg_resources.resource_filename(
-    "da_for_polymers", "data/process/OPV_Min/master_ml_for_opvs_from_min.csv"
+    "da_for_polymers", "data/preprocess/OPV_Min/master_ml_for_opvs_from_min.csv"
 )
 
 FRAG_MASTER_DATA = pkg_resources.resource_filename(
-    "da_for_polymers", "data/postprocess/OPV_Min/train_frag_master.csv"
+    "da_for_polymers", "data/input_representation/OPV_Min/train_frag_master.csv"
 )
 
 AUGMENT_SMILES_DATA = pkg_resources.resource_filename(
-    "da_for_polymers", "data/postprocess/OPV_Min/augmentation/train_aug_master15.csv"
+    "da_for_polymers",
+    "data/input_representation/OPV_Min/augmentation/train_aug_master15.csv",
 )
 
 BRICS_MASTER_DATA = pkg_resources.resource_filename(
-    "da_for_polymers", "data/postprocess/OPV_Min/BRICS/master_brics_frag.csv"
+    "da_for_polymers", "data/input_representation/OPV_Min/BRICS/master_brics_frag.csv"
 )
 
 MANUAL_MASTER_DATA = pkg_resources.resource_filename(
-    "da_for_polymers", "data/postprocess/OPV_Min/manual_frag/master_manual_frag.csv"
+    "da_for_polymers",
+    "data/input_representation/OPV_Min/manual_frag/master_manual_frag.csv",
 )
 
 FP_MASTER_DATA = pkg_resources.resource_filename(
-    "da_for_polymers", "data/postprocess/OPV_Min/fingerprint/opv_fingerprint.csv"
+    "da_for_polymers",
+    "data/input_representation/OPV_Min/fingerprint/opv_fingerprint.csv",
 )
 
 CHECKPOINT_DIR = pkg_resources.resource_filename(
@@ -173,8 +176,6 @@ def cli_main():
         "bigsmiles": 0,
         "selfies": 0,
         "aug_smiles": 0,
-        "hw_frag": 0,
-        "aug_hw_frag": 0,
         "brics": 0,
         "manual": 0,
         "aug_manual": 0,
@@ -215,8 +216,6 @@ def cli_main():
             "bigsmiles": 0,
             "selfies": 0,
             "aug_smiles": 0,
-            "hw_frag": 0,
-            "aug_hw_frag": 0,
             "brics": 0,
             "manual": 0,
             "aug_manual": 0,
@@ -249,12 +248,6 @@ def cli_main():
         elif unique_datatype["aug_smiles"] == 1:
             suffix = "/aug_smi"
             print("AUG_SMILES")
-        elif unique_datatype["hw_frag"] == 1:
-            suffix = "/hw_frag"
-            print("HW_FRAG")
-        elif unique_datatype["aug_hw_frag"] == 1:
-            suffix = "/aug_hw_frag"
-            print("AUG_HW_FRAG")
         elif unique_datatype["brics"] == 1:
             suffix = "/brics"
             print("BRICS")
@@ -271,6 +264,10 @@ def cli_main():
         if shuffled:
             suffix += "_shuffled"
             print("SHUFFLED")
+
+        for representation in unique_datatype.keys():
+            if unique_datatype[representation] == 1:
+                unique_representation = representation
 
         # parse arguments using the terminal shell (for ComputeCanada purposes)
         # suffix = suffix + (
@@ -315,26 +312,14 @@ def cli_main():
                 val_batch_size=args.val_batch_size,
                 test_batch_size=args.test_batch_size,
                 num_workers=args.dataloader_num_workers,
-                smiles=unique_datatype["smiles"],
-                bigsmiles=unique_datatype["bigsmiles"],
-                selfies=unique_datatype["selfies"],
-                aug_smiles=unique_datatype["aug_smiles"],
-                hw_frag=unique_datatype["hw_frag"],
-                aug_hw_frag=unique_datatype["aug_hw_frag"],
-                brics=unique_datatype["brics"],
-                manual=unique_datatype["manual"],
-                aug_manual=unique_datatype["aug_manual"],
-                fingerprint=unique_datatype["fingerprint"],
-                fp_radius=fp_radius,
-                fp_nbits=fp_nbits,
                 cv=cv,
                 pt_model=None,
                 pt_tokenizer=None,
                 shuffled=shuffled,
                 seed_val=SEED_VAL,
             )
-            data_module.setup()
-            data_module.prepare_data()
+            data_module.setup(input_representation=unique_representation)
+            data_module.prepare_data(fp_radius, fp_nbits)
 
             # ------------
             # model

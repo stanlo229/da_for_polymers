@@ -13,7 +13,7 @@ CATALYSIS_MASTER = pkg_resources.resource_filename(
 
 AUGMENT_SMILES_DATA = pkg_resources.resource_filename(
     "da_for_polymers",
-    "data/postprocess/Catalysis_Hein/augmentation/train_aug_master3.csv",
+    "data/input_representation/Catalysis_Hein/augmentation/train_aug_master3.csv",
 )
 
 SEED_VAL = 4

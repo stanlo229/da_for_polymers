@@ -16,11 +16,12 @@ MASTER_DATA = pkg_resources.resource_filename(
 )
 
 BRICS_FRAG_DATA = pkg_resources.resource_filename(
-    "da_for_polymers", "data/postprocess/OPV_Troisi/BRICS/master_brics_frag.csv"
+    "da_for_polymers",
+    "data/input_representation/OPV_Troisi/BRICS/master_brics_frag.csv",
 )
 
 ERROR_DF = pkg_resources.resource_filename(
-    "da_for_polymers", "data/postprocess/OPV_Troisi/BRICS/bric_errors.csv"
+    "da_for_polymers", "data/input_representation/OPV_Troisi/BRICS/bric_errors.csv"
 )
 
 

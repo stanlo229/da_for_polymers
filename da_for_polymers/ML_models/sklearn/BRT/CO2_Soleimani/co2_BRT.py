@@ -34,11 +34,12 @@ from da_for_polymers.ML_models.sklearn.data.CO2_Soleimani.tokenizer import Token
 
 AUGMENT_SMILES_DATA = pkg_resources.resource_filename(
     "da_for_polymers",
-    "data/postprocess/CO2_Soleimani/augmentation/train_aug_master.csv",
+    "data/input_representation/CO2_Soleimani/augmentation/train_aug_master.csv",
 )
 
 BRICS_FRAG_DATA = pkg_resources.resource_filename(
-    "da_for_polymers", "data/postprocess/CO2_Soleimani/BRICS/master_brics_frag.csv"
+    "da_for_polymers",
+    "data/input_representation/CO2_Soleimani/BRICS/master_brics_frag.csv",
 )
 
 MASTER_TRAIN_DATA = pkg_resources.resource_filename(
@@ -47,11 +48,12 @@ MASTER_TRAIN_DATA = pkg_resources.resource_filename(
 
 MASTER_MANUAL_DATA = pkg_resources.resource_filename(
     "da_for_polymers",
-    "data/postprocess/CO2_Soleimani/manual_frag/master_manual_frag.csv",
+    "data/input_representation/CO2_Soleimani/manual_frag/master_manual_frag.csv",
 )
 
 FP_CO2 = pkg_resources.resource_filename(
-    "da_for_polymers", "data/postprocess/CO2_Soleimani/fingerprint/co2_fingerprint.csv",
+    "da_for_polymers",
+    "data/input_representation/CO2_Soleimani/fingerprint/co2_fingerprint.csv",
 )
 
 SUMMARY_DIR = pkg_resources.resource_filename(

@@ -6,7 +6,7 @@ import matplotlib.pyplot as plt
 from da_for_polymers.ML_models.sklearn.data.data import Dataset
 
 FRAG_MASTER_DATA = pkg_resources.resource_filename(
-    "da_for_polymers", "data/postprocess/frag_master_ml_for_opvs_from_min.csv"
+    "da_for_polymers", "data/input_representation/frag_master_ml_for_opvs_from_min.csv"
 )
 
 DATA_DIR = pkg_resources.resource_filename(

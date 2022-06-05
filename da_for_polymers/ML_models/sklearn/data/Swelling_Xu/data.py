@@ -10,27 +10,32 @@ import torch
 from torch.utils.data import random_split
 
 from da_for_polymers.ML_models.sklearn.data.Swelling_Xu.tokenizer import Tokenizer
-from da_for_polymers.data.postprocess.Swelling_Xu.BRICS.brics_frag import BRIC_FRAGS
-from da_for_polymers.data.postprocess.Swelling_Xu.manual_frag.manual_frag import (
+from da_for_polymers.data.input_representation.Swelling_Xu.BRICS.brics_frag import (
+    BRIC_FRAGS,
+)
+from da_for_polymers.data.input_representation.Swelling_Xu.manual_frag.manual_frag import (
     PS_INVENTORY,
     manual_frag,
 )
 
 AUGMENT_SMILES_DATA = pkg_resources.resource_filename(
-    "da_for_polymers", "data/postprocess/Swelling_Xu/augmentation/train_aug_master.csv"
+    "da_for_polymers",
+    "data/input_representation/Swelling_Xu/augmentation/train_aug_master.csv",
 )
 
 BRICS_FRAG_DATA = pkg_resources.resource_filename(
-    "da_for_polymers", "data/postprocess/Swelling_Xu/BRICS/master_brics_frag.csv"
+    "da_for_polymers",
+    "data/input_representation/Swelling_Xu/BRICS/master_brics_frag.csv",
 )
 
 MASTER_MANUAL_DATA = pkg_resources.resource_filename(
-    "da_for_polymers", "data/postprocess/Swelling_Xu/manual_frag/master_manual_frag.csv"
+    "da_for_polymers",
+    "data/input_representation/Swelling_Xu/manual_frag/master_manual_frag.csv",
 )
 
 FP_SWELLING = pkg_resources.resource_filename(
     "da_for_polymers",
-    "data/postprocess/Swelling_Xu/fingerprint/swelling_fingerprint.csv",
+    "data/input_representation/Swelling_Xu/fingerprint/swelling_fingerprint.csv",
 )
 
 
@@ -168,16 +173,32 @@ class Dataset:
         sd_array = self.data["SD"]
         # min-max scaling
         scaled_feature, max_value, min_value = self.feature_scale(sd_array)
+        (
+            tokenized_input,
+            max_seq_length,
+            vocab_length,
+            input_dict,
+        ) = Tokenizer().tokenize_data(self.data["PS_pair"])
 
-        return np.asarray(self.data["PS_pair"]), scaled_feature, max_value, min_value
+        return (
+            self.data["PS_pair"],
+            scaled_feature,
+            max_value,
+            min_value,
+            input_dict,
+        )
 
 
-# dataset = Dataset(MASTER_MANUAL_DATA, 1, False)
-# dataset.prepare_data()
-# x, y = dataset.setup_sum_of_frags()
-# x, y = dataset.setup()
-# x, y = dataset.setup_cv()
-# x, y = dataset.setup_aug_smi(AUG_SMI_MASTER_DATA)
+# dataset = Dataset()
+# dataset.prepare_data(AUGMENT_SMILES_DATA, "smi")
+# x, y, max_value, min_value = dataset.setup()
+# x, y, max_value, min_value, token_dict = dataset.setup_aug_smi()
+# for i in x:
+#     try:
+#         period_idx = i.index(".")
+#         print(period_idx)
+#     except:
+#         print("ERROR NO PERIOD")
 # x, y = dataset.setup_fp(2, 512)
 # print(x[1], y[1])
 
