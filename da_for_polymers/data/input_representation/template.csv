@@ -1,0 +1,2 @@
+input_smiles, input_representation, target_value
+CCCC, ["C", "C", "C", "C"], target_value

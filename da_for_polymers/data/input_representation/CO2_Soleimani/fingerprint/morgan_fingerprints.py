@@ -6,7 +6,7 @@ import pandas as pd
 import numpy as np
 
 MASTER_CO2_DATA = pkg_resources.resource_filename(
-    "da_for_polymers", "data/process/CO2_Soleimani/co2_expt_data.csv"
+    "da_for_polymers", "data/preprocess/CO2_Soleimani/co2_expt_data.csv"
 )
 
 
@@ -62,7 +62,7 @@ class fp_data:
 
             fp_df.at[index, new_column_pm_pair] = fp
 
-        fp_df.to_csv(fp_path, index=False)
+        fp_df.to_csv(fp_path, index=True)
         # fp_df.to_pickle(fp_path)
 
 

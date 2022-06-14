@@ -481,10 +481,10 @@ unique_datatype = {
     "smiles": 0,
     "bigsmiles": 0,
     "selfies": 0,
-    "aug_smiles": 1,
+    "aug_smiles": 0,
     "brics": 0,
     "manual": 0,
-    "aug_manual": 0,
+    "aug_manual": 1,
     "fingerprint": 0,
     "sum_of_frags": 0,
 }

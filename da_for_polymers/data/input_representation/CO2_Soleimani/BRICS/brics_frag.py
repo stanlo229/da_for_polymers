@@ -12,7 +12,7 @@ import copy
 import ast
 
 MASTER_CO2_DATA = pkg_resources.resource_filename(
-    "da_for_polymers", "data/process/CO2_Soleimani/co2_expt_data.csv"
+    "da_for_polymers", "data/preprocess/CO2_Soleimani/co2_expt_data.csv"
 )
 
 BRICS_FRAG_DATA = pkg_resources.resource_filename(
@@ -115,7 +115,7 @@ class BRIC_FRAGS:
                 "pred_CO2_sol (g/g)",
                 "train/test",
                 "Polymer_BRICS",
-                "Polymer_Tokenized_BRICS",
+                # "Polymer_Tokenized_BRICS",
             ]
         )
         brics_df["Polymer"] = self.data["Polymer"]
@@ -126,7 +126,7 @@ class BRIC_FRAGS:
         brics_df["pred_CO2_sol (g/g)"] = self.data["pred_CO2_sol (g/g)"]
         brics_df["train/test"] = self.data["train/test"]
         brics_df["Polymer_BRICS"] = ""
-        brics_df["Polymer_Tokenized_BRICS"] = ""
+        # brics_df["Polymer_Tokenized_BRICS"] = ""
 
         # Iterate through row and fragment using BRICS
         # to get polymer_BRICS, solvent_BRICS, and DA_pair_BRICS
@@ -141,15 +141,15 @@ class BRIC_FRAGS:
 
             brics_df.at[index, "Polymer_BRICS"] = polymer_brics_smi
 
-        tokenized_array, frag_dict = self.tokenize_frag(brics_df["Polymer_BRICS"])
-        index = 0
-        for polymer in tokenized_array:
-            brics_df.at[index, "Polymer_Tokenized_BRICS"] = polymer
-            index += 1
+        # tokenized_array, frag_dict = self.tokenize_frag(brics_df["Polymer_BRICS"])
+        # index = 0
+        # for polymer in tokenized_array:
+        #     brics_df.at[index, "Polymer_Tokenized_BRICS"] = polymer
+        #     index += 1
 
-        brics_df.to_csv(BRICS_FRAG_DATA, index=False)
+        brics_df.to_csv(BRICS_FRAG_DATA, index=True)
 
-        return frag_dict
+        # return frag_dict
 
     def frag_visualization(self, frag_dict):
         """
@@ -180,6 +180,6 @@ class BRIC_FRAGS:
 
 
 b_frag = BRIC_FRAGS(MASTER_CO2_DATA)
-frag_dict = b_frag.bric_frag()
+b_frag.bric_frag()
 # print(frag_dict)
 # b_frag.frag_visualization(frag_dict)

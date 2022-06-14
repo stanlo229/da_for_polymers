@@ -13,7 +13,7 @@ CO2_INVENTORY = pkg_resources.resource_filename(
 )
 
 CO2_EXPT_RESULT = pkg_resources.resource_filename(
-    "da_for_polymers", "data/preprocess/CO2_Soleimani/co2_solubility_data.csv"
+    "da_for_polymers", "data/preprocess/CO2_Soleimani/co2_expt_data.csv"
 )
 
 MASTER_MANUAL_DATA = pkg_resources.resource_filename(
@@ -225,8 +225,10 @@ class manual_frag:
 
         manual_df = pd.read_csv(co2_expt_path)
         manual_df["Polymer_BigSMILES"] = ""
-        manual_df["Polymer_manual_tokenized"] = ""
-        manual_df["Polymer_manual_tokenized_aug"] = ""
+        manual_df["Polymer_manual"] = ""
+        manual_df["Polymer_manual_aug"] = ""
+        # manual_df["Polymer_manual_tokenized"] = ""
+        # manual_df["Polymer_manual_tokenized_aug"] = ""
 
         aug_count = 0
         # find max_seq_length
@@ -254,9 +256,9 @@ class manual_frag:
             )
 
             # Polymer
-            polymer_tokenized = self.tokenize_frag(
-                polymer_frags, frag_dict, max_seq_length
-            )
+            # polymer_tokenized = self.tokenize_frag(
+            #     polymer_frags, frag_dict, max_seq_length
+            # )
 
             # AUGMENT Polymer (pre-ordered)
             augmented_polymer_list = []
@@ -269,25 +271,27 @@ class manual_frag:
                 aug_count += 1
 
             # PS Pairs augmented
-            polymer_tokenized_aug = []
-            for aug_polymer in augmented_polymer_list:
-                aug_polymer_copy = copy.copy(aug_polymer)
-                aug_polymer_tokenized = self.tokenize_frag(
-                    aug_polymer_copy, frag_dict, max_seq_length
-                )
-                polymer_tokenized_aug.append(aug_polymer_tokenized)
+            # polymer_tokenized_aug = []
+            # for aug_polymer in augmented_polymer_list:
+            #     aug_polymer_copy = copy.copy(aug_polymer)
+            #     aug_polymer_tokenized = self.tokenize_frag(
+            #         aug_polymer_copy, frag_dict, max_seq_length
+            #     )
+            #     polymer_tokenized_aug.append(aug_polymer_tokenized)
 
             # ADD TO MANUAL DF from inventory (does not separate polymer and mixture)
             manual_df.at[i, "Polymer_BigSMILES"] = self.co2_inventory.at[
                 inventory_dict[polymer_label], "Polymer_BigSMILES"
             ]
-            manual_df.at[i, "Polymer_manual_tokenized"] = polymer_tokenized
-            manual_df.at[i, "Polymer_manual_tokenized_aug"] = polymer_tokenized_aug
+            manual_df.at[i, "Polymer_manual"] = polymer_frags
+            manual_df.at[i, "Polymer_manual_aug"] = augmented_polymer_list
+            # manual_df.at[i, "Polymer_manual_tokenized"] = polymer_tokenized
+            # manual_df.at[i, "Polymer_manual_tokenized_aug"] = polymer_tokenized_aug
 
         # number of augmented polymers
         print("AUG POLYMERS: ", aug_count)
 
-        manual_df.to_csv(master_manual_path, index=False)
+        manual_df.to_csv(master_manual_path, index=True)
 
     def bigsmiles_from_frag(self, co2_inventory_path):
         """
@@ -375,5 +379,5 @@ def cli_main():
 
 
 if __name__ == "__main__":
-    # cli_main()
-    pass
+    cli_main()
+    # pass
