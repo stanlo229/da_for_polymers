@@ -2,6 +2,7 @@ import copy
 import re
 from collections import Counter
 import selfies as sf
+import pandas as pd
 
 import numpy as np
 
@@ -102,18 +103,19 @@ class Tokenizer:
         Function that tokenizes array of string representations with an existing dictionary
         * usually for test set
         """
-        tokenized_array = copy.copy(input_series)
+        # initialize array
+        tokenized_array = pd.Series(list(range(len(input_series))), dtype=object)
         # Dictionaries to store the token to index mappings and vice versa
         token2idx = {j: i for i, j in enumerate(dictionary)}
         for i, reaction in enumerate(input_series):
             # The SMILES/BigSMILES/SELFIES will be stored as a list of tokens
             tokenized_array[i] = []
             tokenized_reaction = self.tokenize(reaction).split(",")
-            for token in tokenized_reaction:  # tokenizing SMILES/BigSMILES/SELFIES
-                tokenized_array[i].append(token)
+            tokenized_array[i] = tokenized_reaction
             # Looking up the mapping dictionary and assigning the index to the respective reactions
             tokenized_array[i] = [
-                token2idx[token] if token in token2idx else 0 for token in reaction
+                token2idx[token] if token in token2idx else 0
+                for token in tokenized_reaction
             ]
         # check if there are longer arrays in test set
         for input_array in tokenized_array:
@@ -121,7 +123,7 @@ class Tokenizer:
                 max_length = len(input_array)
         tokenized_array = self.pad_input(tokenized_array, max_length)
         print("Max sequence length: ", max_length)
-        return tokenized_array
+        return tokenized_array, max_length
 
     def build_token2idx(self, input_list):
         """Function that arranges list of SMILES/BigSMILES/SELFIES and builds dictionary.

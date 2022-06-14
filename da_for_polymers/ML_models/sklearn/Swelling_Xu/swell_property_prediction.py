@@ -467,8 +467,8 @@ for key in model.keys():
     if model[key] == 1:
         model_name = key
 
-batch = True
-# batch = False
+# batch = True
+batch = False
 
 hyperparameter_opt = True
 # hyperparameter_opt = False
@@ -481,7 +481,7 @@ unique_datatype = {
     "smiles": 0,
     "bigsmiles": 0,
     "selfies": 0,
-    "aug_smiles": 0,
+    "aug_smiles": 1,
     "brics": 0,
     "manual": 0,
     "aug_manual": 0,
@@ -494,6 +494,7 @@ outer_rmse = list()
 outer_mae = list()
 
 if batch:
+    SUMMARY_DIR = SUMMARY_DIR + model_name + "_results.csv"
     for i in range(len(unique_datatype)):
         # reset conditions
         unique_datatype = {
@@ -632,6 +633,8 @@ else:
         if unique_datatype[key] == 1:
             unique_datatype_name = key
 
+    SUMMARY_DIR = SUMMARY_DIR + model_name + "_" + unique_datatype_name + "_results.csv"
+
     if unique_datatype["fingerprint"] == 1:
         radius = 3
         nbits = 512
@@ -659,14 +662,12 @@ else:
 
             x_train = np.array(aug_x_train)
             y_train = np.array(aug_y_train)
-            print(x_train)
         # augment smiles data
         elif unique_datatype["aug_smiles"] == 1:
             aug_x_train = []
             aug_y_train = []
             for x_, y_ in zip(x_train, y_train):
-                x_list = list(x_)
-                x_aug, y_aug = augment_smi_in_loop(x_list[0], y_, num_of_augment, swap)
+                x_aug, y_aug = augment_smi_in_loop(x_, y_, num_of_augment, swap)
                 aug_x_train.extend(x_aug)
                 aug_y_train.extend(y_aug)
             # tokenize Augmented SMILES
