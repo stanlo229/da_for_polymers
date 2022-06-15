@@ -116,8 +116,6 @@ class BRIC_FRAGS:
                 "Polymer_BRICS",
                 "Solvent_BRICS",
                 "PS_pair_BRICS",
-                "PS_tokenized_BRICS",
-                "SP_tokenized_BRICS",
             ]
         )
         brics_df["Polymer"] = self.data["Polymer"]
@@ -145,7 +143,6 @@ class BRIC_FRAGS:
                 solvent_brics_smi.append(frag_smi)
 
             brics_df.at[index, "Polymer_BRICS"] = polymer_brics_smi
-            print(polymer_smi, polymer_brics_smi)
             brics_df.at[index, "Solvent_BRICS"] = solvent_brics_smi
             # ps_pair fragments
             ps_pair = polymer_brics_smi
@@ -153,15 +150,7 @@ class BRIC_FRAGS:
             ps_pair.extend(solvent_brics_smi)
             brics_df.at[index, "PS_pair_BRICS"] = ps_pair
 
-        tokenized_pair_array, frag_dict = self.tokenize_frag(brics_df["PS_pair_BRICS"])
-        index = 0
-        for da_pair in tokenized_pair_array:
-            brics_df.at[index, "PS_tokenized_BRICS"] = da_pair
-            index += 1
-
         brics_df.to_csv(BRICS_FRAG_DATA, index=False)
-
-        return frag_dict
 
     def frag_visualization(self, frag_dict):
         """
@@ -191,7 +180,7 @@ class BRIC_FRAGS:
         display(img)
 
 
-# b_frag = BRIC_FRAGS(MASTER_MANUAL_DATA)
-# frag_dict = b_frag.bric_frag()
+b_frag = BRIC_FRAGS(MASTER_MANUAL_DATA)
+b_frag.bric_frag()
 # print(frag_dict)
 # b_frag.frag_visualization(frag_dict)

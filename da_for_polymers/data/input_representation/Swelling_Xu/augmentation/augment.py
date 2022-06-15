@@ -74,7 +74,6 @@ class Augment:
             "Solvent",
             "Solvent_SMILES",
             "PS_pair_aug",
-            "SP_pair_aug",
             "SD",
         ]
         train_aug_df = pd.DataFrame(columns=column_names)
@@ -84,9 +83,11 @@ class Augment:
         train_aug_df["Solvent_SMILES"] = self.data["Solvent_SMILES"]
         train_aug_df["SD"] = self.data["SD"]
 
+        total_count = 0
+
         for i in range(len(train_aug_df["Polymer"])):
             augmented_ps_list = []
-            augmented_sp_list = []
+
             polymer_smi = train_aug_df.at[i, "Polymer_SMILES"]
             solvent_smi = train_aug_df.at[i, "Solvent_SMILES"]
 
@@ -96,7 +97,6 @@ class Augment:
 
             # add original polymer-Solvent / Solvent-polymer pair
             augmented_ps_list.append(polymer_smi + "." + solvent_smi)
-            augmented_sp_list.append(solvent_smi + "." + polymer_smi)
 
             polymer_mol = Chem.MolFromSmiles(polymer_smi)
             solvent_mol = Chem.MolFromSmiles(solvent_smi)
@@ -114,8 +114,8 @@ class Augment:
                     unique_polymer.append(polymer_aug_smi)
                     unique_solvent.append(solvent_aug_smi)
                     augmented_ps_list.append(polymer_aug_smi + "." + solvent_aug_smi)
-                    augmented_sp_list.append(solvent_aug_smi + "." + polymer_aug_smi)
                     augmented += 1
+                    total_count += 1
                 elif (
                     polymer_aug_smi == unique_polymer[0]
                     or solvent_aug_smi == unique_solvent[0]
@@ -123,7 +123,8 @@ class Augment:
                     inf_loop += 1
 
             train_aug_df.at[i, "PS_pair_aug"] = augmented_ps_list
-            train_aug_df.at[i, "SP_pair_aug"] = augmented_sp_list
+
+        print("TOTAL COUNT: ", total_count)
 
         train_aug_df.to_csv(augment_smiles_data)
 
@@ -197,8 +198,8 @@ class Augment:
 
 
 augmenter = Augment(SWELLING_MASTER)
-augmenter.aug_smi_doRandom(AUGMENT_SMILES_DATA, 5)
-augmenter.aug_smi_tokenize(AUGMENT_SMILES_DATA)
+augmenter.aug_smi_doRandom(AUGMENT_SMILES_DATA, 8)
+# augmenter.aug_smi_tokenize(AUGMENT_SMILES_DATA)
 
 # from rdkit.Chem import Descriptors
 

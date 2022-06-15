@@ -6,7 +6,7 @@ import pandas as pd
 import numpy as np
 
 MASTER_ML_DATA = pkg_resources.resource_filename(
-    "da_for_polymers", "data/process/OPV_Min/master_ml_for_opvs_from_min.csv"
+    "da_for_polymers", "data/preprocess/OPV_Min/master_ml_for_opvs_from_min.csv"
 )
 
 FP_DATA = pkg_resources.resource_filename(
@@ -84,5 +84,5 @@ class fp_data:
 
 
 # put master_ml_data first, and then when you create more fingerprints, use fp_data
-# fp_main = fp_data(FP_DATA)
-# fp_main.create_master_fp(FP_DATA, 3, 512)
+fp_main = fp_data(MASTER_ML_DATA)
+fp_main.create_master_fp(FP_DATA, 3, 512)

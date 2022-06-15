@@ -12,7 +12,7 @@ import copy
 import ast
 
 MASTER_DATA = pkg_resources.resource_filename(
-    "da_for_polymers", "data/process/OPV_Min/master_ml_for_opvs_from_min.csv"
+    "da_for_polymers", "data/preprocess/OPV_Min/master_ml_for_opvs_from_min.csv"
 )
 
 BRICS_FRAG_DATA = pkg_resources.resource_filename(
@@ -108,8 +108,6 @@ class BRIC_FRAGS:
         brics_df["Donor_BRICS"] = ""
         brics_df["Acceptor_BRICS"] = ""
         brics_df["DA_pair_BRICS"] = ""
-        brics_df["DA_tokenized_BRICS"] = ""
-        brics_df["AD_tokenized_BRICS"] = ""
 
         # Iterate through row and fragment using BRICS
         # to get Donor_BRICS, Acceptor_BRICS, and DA_pair_BRICS
@@ -138,14 +136,7 @@ class BRIC_FRAGS:
             da_pair.extend(acceptor_brics_smi)
             brics_df.at[index, "DA_pair_BRICS"] = da_pair
 
-        tokenized_pair_array, frag_dict = self.tokenize_frag(brics_df["DA_pair_BRICS"])
-        index = 0
-        for da_pair in tokenized_pair_array:
-            brics_df.at[index, "DA_tokenized_BRICS"] = da_pair
-            index += 1
         brics_df.to_csv(BRICS_FRAG_DATA, index=False)
-
-        return frag_dict
 
     def frag_visualization(self, frag_dict):
         """
@@ -175,7 +166,7 @@ class BRIC_FRAGS:
         display(img)
 
 
-# b_frag = BRIC_FRAGS(MASTER_DATA)
-# frag_dict = b_frag.bric_frag()
+b_frag = BRIC_FRAGS(MASTER_DATA)
+frag_dict = b_frag.bric_frag()
 # print(frag_dict)
 # b_frag.frag_visualization(frag_dict)

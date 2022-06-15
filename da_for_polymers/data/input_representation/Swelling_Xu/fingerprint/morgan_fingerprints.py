@@ -47,15 +47,14 @@ class fp_data:
         fp_df = self.master_data
 
         # Only used when first creating dataframe from master data before
-        fp_df.drop(
+        fp_df = fp_df.drop(
             [
                 "Polymer_BigSMILES",
+                "Solvent_BigSMILES",
                 "Polymer_SELFIES",
                 "Solvent_SELFIES",
-                "PS_manual_tokenized",
-                "SP_manual_tokenized",
-                "PS_manual_tokenized_aug",
-                "SP_manual_tokenized_aug",
+                "PS_manual",
+                "PS_manual_aug",
             ],
             axis=1,
         )
@@ -78,27 +77,9 @@ class fp_data:
 
             fp_df.at[index, new_column_ps_pair] = fp_ps
 
-        new_column_sp_pair = "SP_FP" + "_radius_" + str(radius) + "_nbits_" + str(nbits)
-        fp_df[new_column_sp_pair] = " "
-        for index, row in fp_df.iterrows():
-            sp_pair = (
-                fp_df.at[index, "Solvent_SMILES"]
-                + "."
-                + fp_df.at[index, "Polymer_SMILES"]
-            )
-            sp_pair_mol = Chem.MolFromSmiles(sp_pair)
-            bitvector_sp = AllChem.GetMorganFingerprintAsBitVect(
-                sp_pair_mol, radius, nBits=nbits
-            )
-            fp_sp_list = list(bitvector_sp.ToBitString())
-            fp_sp_map = map(int, fp_sp_list)
-            fp_sp = list(fp_sp_map)
-
-            fp_df.at[index, new_column_sp_pair] = fp_sp
-
         fp_df.to_csv(fp_path, index=False)
         # fp_df.to_pickle(fp_path)
 
 
-fp_main = fp_data(FP_SWELLING)
+fp_main = fp_data(SWELLING_MASTER)
 fp_main.create_master_fp(FP_SWELLING, 3, 512)

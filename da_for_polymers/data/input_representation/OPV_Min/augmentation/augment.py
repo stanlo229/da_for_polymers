@@ -8,12 +8,12 @@ from rdkit import Chem
 from da_for_polymers.ML_models.sklearn.data.OPV_Min.tokenizer import Tokenizer
 
 MASTER_DATA = pkg_resources.resource_filename(
-    "da_for_polymers", "data/process/OPV_Min/master_ml_for_opvs_from_min.csv"
+    "da_for_polymers", "data/preprocess/OPV_Min/master_ml_for_opvs_from_min.csv"
 )
 
 AUGMENT_SMILES_DATA = pkg_resources.resource_filename(
     "da_for_polymers",
-    "data/input_representation/OPV_Min/augmentation/train_aug_master4.csv",
+    "data/input_representation/OPV_Min/augmentation/train_aug_master5.csv",
 )
 
 
@@ -66,11 +66,11 @@ class Augment:
         random.seed(1)
         train_aug_df = self.data
         train_aug_df["DA_pair_aug"] = ""
-        train_aug_df["AD_pair_aug"] = ""
+
+        total_count = 0
 
         for i in range(len(train_aug_df["Donor"])):
             augmented_da_list = []
-            augmented_ad_list = []
             donor_smi = train_aug_df.at[i, "Donor_SMILES"]
             acceptor_smi = train_aug_df.at[i, "Acceptor_SMILES"]
 
@@ -80,7 +80,6 @@ class Augment:
 
             # add original donor-acceptor / acceptor-donor pair
             augmented_da_list.append(donor_smi + "." + acceptor_smi)
-            augmented_ad_list.append(acceptor_smi + "." + donor_smi)
 
             donor_mol = Chem.MolFromSmiles(donor_smi)
             acceptor_mol = Chem.MolFromSmiles(acceptor_smi)
@@ -95,12 +94,12 @@ class Augment:
                     unique_donor.append(donor_aug_smi)
                     unique_acceptor.append(acceptor_aug_smi)
                     augmented_da_list.append(donor_aug_smi + "." + acceptor_aug_smi)
-                    augmented_ad_list.append(acceptor_aug_smi + "." + donor_aug_smi)
                     augmented += 1
+                    total_count += 1
 
             train_aug_df.at[i, "DA_pair_aug"] = augmented_da_list
-            train_aug_df.at[i, "AD_pair_aug"] = augmented_ad_list
 
+        print("TOTAL_COUNT: ", total_count)
         train_aug_df.to_csv(augment_smiles_data)
 
     def aug_smi_tokenize(self, train_aug_data):
@@ -172,8 +171,8 @@ class Augment:
         aug_smi_data.to_csv(train_aug_data, index=False)
 
 
-# augmenter = Augment(MASTER_DATA)
-# augmenter.aug_smi_doRandom(AUGMENT_SMILES_DATA, 4)
+augmenter = Augment(MASTER_DATA)
+augmenter.aug_smi_doRandom(AUGMENT_SMILES_DATA, 4)
 # augmenter.aug_smi_tokenize(AUGMENT_SMILES_DATA)
 
 # from rdkit.Chem import Descriptors

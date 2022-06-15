@@ -227,10 +227,8 @@ class manual_frag:
         manual_df = pd.read_csv(pv_expt_path)
         manual_df["Polymer_BigSMILES"] = ""
         manual_df["Solvent_BigSMILES"] = ""
-        manual_df["PS_manual_tokenized"] = ""
-        manual_df["SP_manual_tokenized"] = ""
-        manual_df["PS_manual_tokenized_aug"] = ""
-        manual_df["SP_manual_tokenized_aug"] = ""
+        manual_df["PS_manual"] = ""
+        manual_df["PS_manual_aug"] = ""
 
         aug_count = 0
         # find max_seq_length
@@ -275,17 +273,6 @@ class manual_frag:
             pm_pair_frags = copy.copy(polymer_frags)
             pm_pair_frags.append(".")
             pm_pair_frags.extend(mixture_frags)
-            pm_pair_tokenized = self.tokenize_frag(
-                pm_pair_frags, frag_dict, max_seq_length
-            )
-
-            # MP Pairs
-            mp_pair_frags = copy.copy(mixture_frags)
-            mp_pair_frags.append(".")
-            mp_pair_frags.extend(polymer_frags)
-            mp_pair_tokenized = self.tokenize_frag(
-                mp_pair_frags, frag_dict, max_seq_length
-            )
 
             # AUGMENT Polymer (pre-ordered)
             augmented_polymer_list = []
@@ -297,27 +284,13 @@ class manual_frag:
                 augmented_polymer_list.append(frag_rotate)
                 aug_count += 1
 
-            # PS Pairs augmented
-            pm_pair_tokenized_aug = []
+            # PM Pairs augmented
+            pm_pair_frags_aug = []
             for aug_polymer in augmented_polymer_list:
                 pm_aug_pair = copy.copy(aug_polymer)
                 pm_aug_pair.append(".")
                 pm_aug_pair.extend(mixture_frags)
-                pm_aug_tokenized = self.tokenize_frag(
-                    pm_aug_pair, frag_dict, max_seq_length
-                )
-                pm_pair_tokenized_aug.append(pm_aug_tokenized)
-
-            # SP Pairs augmented
-            mp_pair_tokenized_aug = []
-            for aug_polymer in augmented_polymer_list:
-                sp_aug_pair = copy.copy(mixture_frags)
-                sp_aug_pair.append(".")
-                sp_aug_pair.extend(aug_polymer)
-                sp_aug_tokenized = self.tokenize_frag(
-                    sp_aug_pair, frag_dict, max_seq_length
-                )
-                mp_pair_tokenized_aug.append(sp_aug_tokenized)
+                pm_pair_frags_aug.append(pm_aug_pair)
 
             # ADD TO MANUAL DF from inventory (does not separate polymer and mixture)
             manual_df.at[i, "Polymer_BigSMILES"] = self.pv_inventory.at[
@@ -326,10 +299,8 @@ class manual_frag:
             manual_df.at[i, "Solvent_BigSMILES"] = self.pv_inventory.at[
                 inventory_dict[mixture_label], "Polymer_BigSMILES"
             ]
-            manual_df.at[i, "PS_manual_tokenized"] = pm_pair_tokenized
-            manual_df.at[i, "SP_manual_tokenized"] = mp_pair_tokenized
-            manual_df.at[i, "PS_manual_tokenized_aug"] = pm_pair_tokenized_aug
-            manual_df.at[i, "SP_manual_tokenized_aug"] = mp_pair_tokenized_aug
+            manual_df.at[i, "PS_manual"] = pm_pair_frags
+            manual_df.at[i, "PS_manual_aug"] = pm_pair_frags_aug
 
         # number of augmented polymers
         print("AUG POLYMERS: ", aug_count)

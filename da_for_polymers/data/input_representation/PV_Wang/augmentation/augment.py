@@ -73,14 +73,6 @@ class Augment:
             "Polymer_SMILES",
             "Solvent",
             "Solvent_SMILES",
-            "Contact_angle",
-            "Thickness",
-            "Solvent_solubility_parameter",
-            "xw_(wt%)",
-            "Temperature",
-            "Permeate_pressure",
-            "J_total_flux",
-            "a_separation_factor",
             "PS_pair_aug",
         ]
         train_aug_df = pd.DataFrame(columns=column_names)
@@ -179,7 +171,7 @@ class Augment:
             train_aug_df.at[i, "PS_pair_aug"] = augmented_ps_list
             total_augmented += len(augmented_ps_list)
 
-        print(total_augmented)
+        print("TOTAL_COUNT: ", total_augmented)
 
         train_aug_df.to_csv(augment_smiles_data)
 
@@ -238,7 +230,7 @@ class Augment:
 
 augmenter = Augment(PV_MASTER)
 augmenter.aug_smi_doRandom(AUGMENT_SMILES_DATA, 4)
-augmenter.aug_smi_tokenize(AUGMENT_SMILES_DATA)
+# augmenter.aug_smi_tokenize(AUGMENT_SMILES_DATA)
 
 # from rdkit.Chem import Descriptors
 
