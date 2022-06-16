@@ -109,8 +109,8 @@ class BRIC_FRAGS:
             columns=[
                 "Polymer",
                 "Polymer_SMILES",
-                "T (K)",
-                "P (Mpa)",
+                "T(K)",
+                "P(Mpa)",
                 "exp_CO2_sol (g/g)",
                 "pred_CO2_sol (g/g)",
                 "train/test",
@@ -120,8 +120,8 @@ class BRIC_FRAGS:
         )
         brics_df["Polymer"] = self.data["Polymer"]
         brics_df["Polymer_SMILES"] = self.data["Polymer_SMILES"]
-        brics_df["T (K)"] = self.data["T (K)"]
-        brics_df["P (Mpa)"] = self.data["P (Mpa)"]
+        brics_df["T(K)"] = self.data["T(K)"]
+        brics_df["P(Mpa)"] = self.data["P(Mpa)"]
         brics_df["exp_CO2_sol (g/g)"] = self.data["exp_CO2_sol (g/g)"]
         brics_df["pred_CO2_sol (g/g)"] = self.data["pred_CO2_sol (g/g)"]
         brics_df["train/test"] = self.data["train/test"]

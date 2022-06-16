@@ -69,8 +69,8 @@ class Augment:
         column_names = [
             "Polymer",
             "Polymer_SMILES",
-            "T (K)",
-            "P (Mpa)",
+            "T(K)",
+            "P(Mpa)",
             "exp_CO2_sol (g/g)",
             "pred_CO2_sol (g/g)",
             "train/test",
@@ -80,8 +80,8 @@ class Augment:
         train_aug_df = pd.DataFrame(columns=column_names)
         train_aug_df["Polymer"] = self.data["Polymer"]
         train_aug_df["Polymer_SMILES"] = self.data["Polymer_SMILES"]
-        train_aug_df["T (K)"] = self.data["T (K)"]
-        train_aug_df["P (Mpa)"] = self.data["P (Mpa)"]
+        train_aug_df["T(K)"] = self.data["T(K)"]
+        train_aug_df["P(Mpa)"] = self.data["P(Mpa)"]
         train_aug_df["exp_CO2_sol (g/g)"] = self.data["exp_CO2_sol (g/g)"]
         train_aug_df["pred_CO2_sol (g/g)"] = self.data["pred_CO2_sol (g/g)"]
         train_aug_df["train/test"] = self.data["train/test"]

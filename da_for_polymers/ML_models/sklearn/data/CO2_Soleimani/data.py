@@ -94,9 +94,9 @@ class Dataset:
         index = 0
         while index < len(tokenized_input):
             if parameter == "gross" or parameter == "gross_only":
-                temp, max_temp, min_temp = self.feature_scale(self.data["T (K)"])
+                temp, max_temp, min_temp = self.feature_scale(self.data["T(K)"])
                 pressure, max_pressure, min_pressure = self.feature_scale(
-                    self.data["P (Mpa)"]
+                    self.data["P(Mpa)"]
                 )
                 tokenized_input[index].append(temp[index])
                 tokenized_input[index].append(pressure[index])

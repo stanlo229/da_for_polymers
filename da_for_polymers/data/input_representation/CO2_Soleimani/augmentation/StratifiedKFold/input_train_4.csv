@@ -1,4 +1,4 @@
-Unnamed: 0,Polymer,Polymer_SMILES,T (K),P (Mpa),exp_CO2_sol (g/g),pred_CO2_sol (g/g),train/test,Polymer_Augmented_SMILES
+Unnamed: 0,Polymer,Polymer_SMILES,T(K),P(Mpa),exp_CO2_sol(g/g),pred_CO2_sol(g/g),train/test,Polymer_Augmented_SMILES
 0,PBS,COCCCCOC(=O)CCC(C)=O,323.15,1.025,0.00984,0.00987,train,"['COCCCCOC(CCC(C)=O)=O', 'O(CCCCOC)C(=O)CCC(=O)C', 'C(=O)(CCC(OCCCCOC)=O)C', 'O(C)CCCCOC(=O)CCC(C)=O']"
 1,PBS,COCCCCOC(=O)CCC(C)=O,323.15,2.209,0.02063,0.02061,train,"['O=C(CCC(=O)C)OCCCCOC', 'C(C(OCCCCOC)=O)CC(=O)C', 'C(CCCOC)OC(CCC(C)=O)=O', 'C(CCOC)COC(=O)CCC(C)=O']"
 2,PBS,COCCCCOC(=O)CCC(C)=O,323.15,3.068,0.02826,0.02828,train,"['C(CCC(C)=O)(OCCCCOC)=O', 'O(C)CCCCOC(CCC(C)=O)=O', 'C(CCCOC(CCC(C)=O)=O)OC', 'C(CCCOC(=O)CCC(=O)C)OC']"

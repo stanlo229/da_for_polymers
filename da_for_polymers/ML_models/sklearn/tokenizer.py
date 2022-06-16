@@ -79,7 +79,7 @@ class Tokenizer:
         tokenized_array = self.pad_input(tokenized_array, max_length)
         vocab_length = len(input_dict)
 
-        return tokenized_array, max_length, vocab_length, input_dict
+        return tokenized_array, max_length, vocab_length, token2idx
 
     def tokenize_selfies(self, da_pair):
         """
@@ -98,32 +98,17 @@ class Tokenizer:
 
         return selfie_dict, max_selfie_length
 
-    def tokenize_from_dict(self, input_series, max_length, dictionary):
+    def tokenize_from_dict(self, token2idx, input):
         """
         Function that tokenizes array of string representations with an existing dictionary
         * usually for test set
         """
-        # initialize array
-        tokenized_array = pd.Series(list(range(len(input_series))), dtype=object)
-        # Dictionaries to store the token to index mappings and vice versa
-        token2idx = {j: i for i, j in enumerate(dictionary)}
-        for i, reaction in enumerate(input_series):
-            # The SMILES/BigSMILES/SELFIES will be stored as a list of tokens
-            tokenized_array[i] = []
-            tokenized_reaction = self.tokenize(reaction).split(",")
-            tokenized_array[i] = tokenized_reaction
-            # Looking up the mapping dictionary and assigning the index to the respective reactions
-            tokenized_array[i] = [
-                token2idx[token] if token in token2idx else 0
-                for token in tokenized_reaction
-            ]
-        # check if there are longer arrays in test set
-        for input_array in tokenized_array:
-            if len(input_array) > max_length:
-                max_length = len(input_array)
-        tokenized_array = self.pad_input(tokenized_array, max_length)
-        print("Max sequence length: ", max_length)
-        return tokenized_array, max_length
+        tokenized_input = self.tokenize(input).split(",")
+        tokenized_list = [
+            token2idx[token] if token in token2idx else 0 for token in tokenized_input
+        ]
+
+        return tokenized_list
 
     def build_token2idx(self, input_list):
         """Function that arranges list of SMILES/BigSMILES/SELFIES and builds dictionary.

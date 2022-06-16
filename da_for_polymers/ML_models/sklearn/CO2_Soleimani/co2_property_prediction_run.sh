@@ -8,4 +8,4 @@
 #SBATCH --mem=12G
 module load python
 source /project/6025683/stanlo/opv_project/bin/activate
-python co2_property_prediction.py
+python co2_train.py --train_paths 
