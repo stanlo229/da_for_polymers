@@ -1,4 +1,5 @@
 import ast
+import json
 from multiprocessing.sharedctypes import Value
 from tokenize import Token
 import pandas as pd
@@ -229,8 +230,69 @@ class Pipeline:
 
         return input_train_array, input_val_array
 
-    def process_target(self):
-        pass
+    def process_target(self, train_target_df, val_target_df):
+        """ Processes one target value through the following steps: 
+        1) min-max scaling
+        2) return as array
+
+        Args:
+            train_target_df (pd.DataFrame): target values for training dataframe
+            val_target_df (pd.DataFrame): target values for validation dataframe
+        Returns:
+            target_train_array (np.array): array of training targets
+            target_val_array (np.array): array of validation targets
+            target_max (float): maximum value in dataset
+            target_min (float): minimum value in dataset
+        """
+        assert len(train_target_df) > 1, train_target_df
+        assert len(val_target_df) > 1, val_target_df
+        concat_df = pd.concat([train_target_df, val_target_df], ignore_index=True)
+        target_max, target_min = feature_scale(concat_df[concat_df.columns[0]])
+
+        target_train_array = train_target_df.to_numpy()
+        target_train_array = np.ravel(target_train_array)
+        target_val_array = val_target_df.to_numpy()
+        target_val_array = np.ravel(target_val_array)
+
+        target_train_array = (target_train_array - target_min) / (
+            target_max - target_min
+        )
+        target_val_array = (target_val_array - target_min) / (target_max - target_min)
+
+        return target_train_array, target_val_array, target_max, target_min
+
+    def get_space_dict(self, space_json_path, model_type):
+        """Opens json file and returns a dictionary of the space.
+
+        Args:
+            space_json_path (str): filepath to json containing search space of hyperparameters
+        
+        Returns:
+            space (dict): dictionary of necessary hyperparameters
+        """
+        space = {}
+        with open(space_json_path) as json_file:
+            space_json = json.load(json_file)
+        if model_type == "RF":
+            space_keys = [
+                "n_estimators",
+                "min_samples_leaf",
+                "min_samples_split",
+                "max_depth",
+            ]
+        elif model_type == "BRT":
+            space_keys = [
+                "alpha",
+                "n_estimators",
+                "max_depth",
+                "subsample",
+                "min_child_weight",
+            ]
+        for key in space_keys:
+            assert key in space_json.keys(), key
+            space[key] = space_json[key]
+
+        return space
 
 
 # l = [[1, 2, 3], [2, 3, 4], [3, 4, 5]]
