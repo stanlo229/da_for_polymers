@@ -1,2 +1,0 @@
-Dataset,num_of_folds,Features,Targets,Model,r2_mean,r2_std,rmse_mean,rmse_std,mae_mean,mae_std,num_of_data
-CO2,8,"Polymer_SMILES,T(K)",exp_CO2_sol(g/g),RF,0.3660370177860234,0.008115162079690943,0.10005131394357918,0.0006920441704285657,0.06733484433717293,0.0004156901585364049,515

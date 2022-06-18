@@ -40,6 +40,20 @@ def handle_dir(dir_names):
     filtered_dir_names = ''.join([dir_names[i] for i in range(len(dir_names)) if dir_names[i] not in special_chars])
     return filtered_dir_names
 
+def dataset_find(result_path):
+    """Finds the dataset name for the given path from the known datasets we have.
+
+    Args:
+        result_path (str): filepath to results
+    Returns:
+        dataset_name (str): dataset name
+    """
+    result_path_list = list(result_path.split("/"))
+    datasets = ["CO2_Soleimani", "PV_Wang", "OPV_Min", "Swelling_Xu"]
+    for dataset_name in datasets:
+        if dataset_name in result_path_list:
+            return dataset_name
+
 def main(config):
     """Runs training and calls from pipeline to perform preprocessing.
 
@@ -185,8 +199,8 @@ def main(config):
     # make new file
     # summarize results
     summary_path = os.path.join(target_dir_path, "summary.csv")
-    summary_dict["Dataset"] = ["CO2"]
-    summary_dict["num_of_folds"] = [fold + 1]
+    summary_dict["Dataset"] = [dataset_find(config["results_path"])]
+    summary_dict["num_of_folds"] = [fold]
     summary_dict["Features"] = [config["feature_names"]]
     summary_dict["Targets"] = [config["target_name"]]
     summary_dict["Model"] = [config["model_type"]]

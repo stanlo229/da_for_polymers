@@ -8,4 +8,4 @@
 #SBATCH --mem=12G
 module load python
 source /project/6025683/stanlo/opv_project/bin/activate
-python co2_train.py --train_path ../../../data/input_representation/CO2_Soleimani/BRICS/StratifiedKFold/input_train_[0-9].csv --validation_path ../../../data/input_representation/CO2_Soleimani/BRICS/StratifiedKFold/input_valid_[0-9].csv --train_params_path co2_train_params.json --model_type RF --hyperparameter_optimization True --hyperparameter_space_path ./co2_space.json --results_path ../../../Training/CO2_Soleimani/BRICS --random_state 22
+python co2_train.py --train_path ../../../data/input_representation/CO2_Soleimani/BRICS/StratifiedKFold/input_train_[0-9].csv --validation_path ../../../data/input_representation/CO2_Soleimani/BRICS/StratifiedKFold/input_valid_[0-9].csv --train_params_path co2_train_params.json --model_type RF --hyperparameter_optimization True --hyperparameter_space_path ./co2_space.json --results_path ../../../training/CO2_Soleimani/BRICS --random_state 22
