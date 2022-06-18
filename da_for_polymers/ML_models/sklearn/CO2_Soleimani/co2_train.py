@@ -7,6 +7,8 @@ import os
 import pandas as pd
 import pickle  # for saving scikit-learn models
 import numpy as np
+import json
+from pathlib import Path
 from numpy import mean, std
 from skopt import BayesSearchCV
 from sklearn.model_selection import KFold
@@ -25,6 +27,18 @@ def custom_scorer(y, yhat):
 # create scoring function
 score_func = make_scorer(custom_scorer, greater_is_better=False)
 
+def handle_dir(dir_names):
+    """Since directories cannot have special characters, these must be removed before making the directory.
+
+    Args:
+        dir_names (str): name of dirs used for training
+
+    Returns:
+        filtered_dir_names (str): dir name appropriate for creating files and directories.
+    """
+    special_chars = ["[", "]", "~", "{", "}", "(", ")","*", "&", "%","#","@","!","^", "/", "\\"]
+    filtered_dir_names = ''.join([dir_names[i] for i in range(len(dir_names)) if dir_names[i] not in special_chars])
+    return filtered_dir_names
 
 def main(config):
     """Runs training and calls from pipeline to perform preprocessing.
@@ -32,12 +46,19 @@ def main(config):
     Args:
         config (dict): Configuration parameters.
     """
+    # process training parameters
+    with open(config["train_params_path"]) as train_param_path:
+        train_param = json.load(train_param_path)
+    for param in train_param.keys():
+        config[param] = train_param[param]
+
     # process multiple data files
-    train_paths = config["train_paths"].split(",")
-    validation_paths = config["validation_paths"].split(",")
+    train_paths = config["train_paths"]
+    validation_paths = config["validation_paths"]
 
     # if multiple train and validation paths, X-Fold Cross-Validation occurs here.
     fold = 0
+    outer_r = []
     outer_r2 = []
     outer_rmse = []
     outer_mae = []
@@ -60,11 +81,10 @@ def main(config):
             target_max,
             target_min,
         ) = Pipeline().process_target(
-            train_df[config["target_names"].split(",")],
-            val_df[config["target_names"].split(",")],
+            train_df[config["target_name"].split(",")],
+            val_df[config["target_name"].split(",")],
         )
-        print(target_train_array.shape, target_val_array.shape)
-        print(input_train_array.shape, input_val_array.shape)
+
         # choose model
         # setup model with default parameters
         if config["model_type"] == "RF":
@@ -110,9 +130,9 @@ def main(config):
             # execute search
             result = search.fit(input_train_array, target_train_array)
             # get the best performing model fit on the whole training set
-            best_model = result.best_estimator_
+            model = result.best_estimator_
             # inference on hold out set
-            yhat = best_model.predict(input_val_array)
+            yhat = model.predict(input_val_array)
         else:
             # train
             model.fit(input_train_array, target_train_array)
@@ -124,32 +144,54 @@ def main(config):
         y_test = (target_val_array * (target_max - target_min)) + target_min
 
         # make new files
-        # TODO: save model, outputs
-        results_path = os.path.abspath(config["results_path"])
-        results_path = os.path.join(results_path, f"prediction_{fold}.csv")
-        yhat.tofile(results_path, sep=",")
+        # save model, outputs, generates new directory based on training/dataset/model/features/target
+        results_path = Path(os.path.abspath(config["results_path"]))
+        model_dir_path = results_path / "{}".format(config["model_type"])
+        feature_names = handle_dir(config["feature_names"])
+        target_name = handle_dir(config["target_name"])
+        print("WHAT IS IT: ", feature_names, target_name)
+        feature_dir_path = model_dir_path / "{}".format(feature_names)
+        target_dir_path = feature_dir_path / "{}".format(target_name)
+        # create folders if not present
+        try:
+            target_dir_path.mkdir(parents=True, exist_ok=True)
+        except:
+            print("Folder already exists.")
+        # save model
+        model_path = target_dir_path /  "model_{}.sav".format(fold)
+        pickle.dump(model, open(model_path, "wb")) # difficult to maintain 
+        # save outputs
+        prediction_path = target_dir_path / "prediction_{}.csv".format(fold)
+        # export predictions
+        yhat_df = pd.DataFrame(yhat, columns=["predicted_{}".format(config["target_name"])])
+        for feature in list(config["feature_names"].split(",")):
+            yhat_df[feature] = val_df[feature]
+        yhat_df.to_csv(prediction_path, index=False)
         fold += 1
 
         # evaluate the model
-        r2 = (np.corrcoef(y_test, yhat)[0, 1]) ** 2
+        r = np.corrcoef(y_test, yhat)[0, 1]
+        r2 = (r) ** 2
         rmse = np.sqrt(mean_squared_error(y_test, yhat))
         mae = mean_absolute_error(y_test, yhat)
         # report progress (best training score)
-        print(">r2=%.3f, rmse=%.3f, mae=%.3f" % (r2, rmse, mae))
+        print(">r=%.3f, r2=%.3f, rmse=%.3f, mae=%.3f" % (r, r2, rmse, mae))
         # append to outer list
+        outer_r.append(r)
         outer_r2.append(r2)
         outer_rmse.append(rmse)
         outer_mae.append(mae)
 
     # make new file
     # summarize results
-    summary_path = os.path.abspath(config["results_path"])
-    summary_path = os.path.join(summary_path, "summary.csv")
+    summary_path = os.path.join(target_dir_path, "summary.csv")
     summary_dict["Dataset"] = ["CO2"]
     summary_dict["num_of_folds"] = [fold + 1]
     summary_dict["Features"] = [config["feature_names"]]
-    summary_dict["Targets"] = [config["target_names"]]
+    summary_dict["Targets"] = [config["target_name"]]
     summary_dict["Model"] = [config["model_type"]]
+    summary_dict["r_mean"] = [mean(outer_r)]
+    summary_dict["r_std"] = [std(outer_r)]
     summary_dict["r2_mean"] = [mean(outer_r2)]
     summary_dict["r2_std"] = [std(outer_r2)]
     summary_dict["rmse_mean"] = [mean(outer_rmse)]
@@ -168,20 +210,23 @@ if __name__ == "__main__":
     parser.add_argument(
         "--train_paths",
         type=str,
+        nargs="+",
         help="Path to training data. If multiple training data: format is 'train_0.csv, train_1.csv, train_2.csv', required that multiple validation paths are provided.",
     )
     parser.add_argument(
         "--validation_paths",
         type=str,
+        nargs="+",
         help="Path to validation data. If multiple validation data: format is 'val_0.csv, val_1.csv, val_2.csv', required that multiple training paths are provided.",
     )
+    parser.add_argument("--train_params_path", type=str, help="Filepath to features and targets.")
     parser.add_argument(
         "--feature_names",
         type=str,
-        help="Choose input features. Format is: ex. SMILES, T(K), P(Mpa)",
+        help="Choose input features. Format is: ex. SMILES, T(K), P(Mpa) - Always put representation at the front.",
     )
     parser.add_argument(
-        "--target_names",
+        "--target_name",
         type=str,
         help="Choose target value. Format is ex. a_separation_factor",
     )
@@ -202,7 +247,7 @@ if __name__ == "__main__":
     parser.add_argument(
         "--results_path",
         type=str,
-        help="Filepath to location of result summaries and predictions",
+        help="Filepath to location of result summaries and predictions up to the dataset is sufficient.",
     )
     parser.add_argument(
         "--random_state", type=int, default=22, help="Integer number for random seed."

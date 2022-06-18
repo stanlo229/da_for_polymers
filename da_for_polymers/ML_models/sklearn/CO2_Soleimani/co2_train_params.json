@@ -1,0 +1,4 @@
+{
+    "feature_names": "Polymer_SMILES,T(K)",
+    "target_name": "exp_CO2_sol(g/g)"
+}
