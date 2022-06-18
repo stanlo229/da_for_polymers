@@ -14,6 +14,10 @@ from skopt import BayesSearchCV
 from sklearn.model_selection import KFold
 from sklearn.metrics import make_scorer, mean_absolute_error, mean_squared_error
 from sklearn.ensemble import RandomForestRegressor
+from sklearn.gaussian_process.kernels import RBF, PairwiseKernel
+from sklearn.linear_model import LinearRegression
+from sklearn.svm import SVR
+from sklearn.kernel_ridge import KernelRidge
 import xgboost
 
 from da_for_polymers.ML_models.sklearn.pipeline import Pipeline
@@ -120,11 +124,17 @@ def main(config):
                 max_depth=10,
                 subsample=1,
             )
-        # TODO: add models, and add features in space
+        # KRR and LR do not require HPO, they do not have space parameters
+        # MUST be paired with hyperparameter_optimization == False
         elif config["model_type"] == "KRR":
-            pass
-        elif config["model_type"] == "LR":
-            pass
+            assert config["hyperparameter_optimization"] == False, "KRR cannot be paired with HPO"
+            kernel = PairwiseKernel(gamma=1, gamma_bounds="fixed", metric="laplacian")
+            model = KernelRidge(alpha=0.05, kernel=kernel, gamma=1)
+        elif config["model_type"] == "LR" and not config["hyperparameter_optimization"]:
+            assert config["hyperparameter_optimization"] == False, "LR cannot be paired with HPO"
+            model = LinearRegression()
+        elif config["model_type"] == "SVM":
+            model = SVR(kernel = "rbf", degree="3")
         else:
             raise NameError("Model not found. Please use RF, BRT, LR, KRR")
 

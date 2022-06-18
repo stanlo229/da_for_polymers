@@ -288,6 +288,12 @@ class Pipeline:
                 "subsample",
                 "min_child_weight",
             ]
+        elif model_type == "KRR":
+            pass
+        elif model_type == "LR":
+            pass
+        elif model_type == "SVM":
+            space_keys = ["kernel", "degree"]
         for key in space_keys:
             assert key in space_json.keys(), key
             space[key] = space_json[key]
