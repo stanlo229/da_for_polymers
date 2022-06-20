@@ -29,7 +29,7 @@ class BRIC_FRAGS:
     def __init__(self, datapath):
         """
         Inits BRIC_FRAGS with preprocessed data
-        
+
         Args:
             datapath: path to preprocessed polymer-solvent data
         """
@@ -109,10 +109,10 @@ class BRIC_FRAGS:
             columns=[
                 "Polymer",
                 "Polymer_SMILES",
-                "T(K)",
-                "P(Mpa)",
-                "exp_CO2_sol (g/g)",
-                "pred_CO2_sol (g/g)",
+                "T_K",
+                "P_Mpa",
+                "exp_CO2_sol _g_g",
+                "pred_CO2_sol _g_g",
                 "train/test",
                 "Polymer_BRICS",
                 # "Polymer_Tokenized_BRICS",
@@ -120,10 +120,10 @@ class BRIC_FRAGS:
         )
         brics_df["Polymer"] = self.data["Polymer"]
         brics_df["Polymer_SMILES"] = self.data["Polymer_SMILES"]
-        brics_df["T(K)"] = self.data["T(K)"]
-        brics_df["P(Mpa)"] = self.data["P(Mpa)"]
-        brics_df["exp_CO2_sol (g/g)"] = self.data["exp_CO2_sol (g/g)"]
-        brics_df["pred_CO2_sol (g/g)"] = self.data["pred_CO2_sol (g/g)"]
+        brics_df["T_K"] = self.data["T_K"]
+        brics_df["P_Mpa"] = self.data["P_Mpa"]
+        brics_df["exp_CO2_sol _g_g"] = self.data["exp_CO2_sol _g_g"]
+        brics_df["pred_CO2_sol _g_g"] = self.data["pred_CO2_sol _g_g"]
         brics_df["train/test"] = self.data["train/test"]
         brics_df["Polymer_BRICS"] = ""
         # brics_df["Polymer_Tokenized_BRICS"] = ""
@@ -158,7 +158,7 @@ class BRIC_FRAGS:
 
         Args:
             dictionary of unique fragments from polymer and solvent molecules
-        
+
         Returns:
             img: image of all the unique fragments
         """

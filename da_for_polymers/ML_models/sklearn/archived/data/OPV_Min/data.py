@@ -59,7 +59,7 @@ from da_for_polymers.data.input_representation.OPV_Min.manual_frag.manual_frag i
 
 class Dataset:
     """
-    Class that contains functions to prepare the data into a 
+    Class that contains functions to prepare the data into a
     dataframe with the feature variables and the PCE, etc.
     """
 
@@ -159,7 +159,7 @@ class Dataset:
 
     def setup(self):
         """
-        Function that sets up data ready for training 
+        Function that sets up data ready for training
         # NOTE: only run parameter_only on setup("electronic_only", target)
 
         Args:
@@ -170,7 +170,7 @@ class Dataset:
             target: the target value we want to predict for (PCE, Jsc, Voc, FF)
 
         """
-        target_array = self.data["calc_PCE (%)"]
+        target_array = self.data["calc_PCE_percent"]
 
         # min-max scaling
         target_array, max_value, min_value = self.feature_scale(target_array)
@@ -246,7 +246,7 @@ class Dataset:
     def setup_aug_smi(self):
         """
         NOTE: for Augmented SMILES
-        Function that sets up data ready for training 
+        Function that sets up data ready for training
         Args:
             parameter: type of parameters to include:
                 - electronic: HOMO, LUMO
@@ -254,7 +254,7 @@ class Dataset:
                 - fabrication: all the fabrication parameters (D:A ratio - Annealing Temp.)
             target: the target value we want to predict for (PCE, Jsc, Voc, FF)
         """
-        target_array = self.data["calc_PCE (%)"]
+        target_array = self.data["calc_PCE_percent"]
 
         target_array, max_value, min_value = self.feature_scale(target_array)
 
@@ -278,4 +278,3 @@ class Dataset:
             min_value,
             token_dict,
         )
-

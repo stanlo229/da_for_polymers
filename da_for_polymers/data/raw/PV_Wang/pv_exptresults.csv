@@ -1,4 +1,4 @@
-Index,Polymer,Contact_angle,Thickness_(um),Solvent,Solvent_solubility_parameter_(MPa1/2),xw_(wt%),Temperature_(C),Permeate_pressure_(mbar),J_Total_flux_(kg/m-2h-1),a_Separation_factor_(w/o),Sum_of_frags
+Index,Polymer,Contact_angle,Thickness_um,Solvent,Solvent_solubility_parameter_Mpa_sqrt,xw_wt_percent,Temp_C,Permeate_pressure_mbar,J_Total_flux_kg_m_2h_1,a_Separation_factor_wo,Sum_of_frags
 1,chitosan,55.1,40,ipa,23.5,5,30,13.3,0.0378,606.617647,"[2, 2, 11, 0, 5, 0, 2, 0, 0, 0, 4, 0, 0, 0, 0]"
 2,chitosan,55.1,40,ipa,23.5,10,30,13.3,0.0523,257.352941,"[2, 2, 11, 0, 5, 0, 2, 0, 0, 0, 4, 0, 0, 0, 0]"
 3,chitosan,55.1,40,ipa,23.5,15,30,13.3,0.0894,122.54902,"[2, 2, 11, 0, 5, 0, 2, 0, 0, 0, 4, 0, 0, 0, 0]"

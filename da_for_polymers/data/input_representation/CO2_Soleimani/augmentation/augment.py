@@ -43,7 +43,7 @@ class Augment:
         Args:
             tokenized_array: tokenized SMILES array to be padded
             seq_len: maximum sequence length for the entire dataset
-        
+
         Returns:
             pre-padded tokenized SMILES
         """
@@ -69,10 +69,10 @@ class Augment:
         column_names = [
             "Polymer",
             "Polymer_SMILES",
-            "T(K)",
-            "P(Mpa)",
-            "exp_CO2_sol (g/g)",
-            "pred_CO2_sol (g/g)",
+            "T_K",
+            "P_Mpa",
+            "exp_CO2_sol _g_g",
+            "pred_CO2_sol _g_g",
             "train/test",
             "Polymer_Augmented_SMILES",
             # "Polymer_Tokenized_Augmented_SMILES",
@@ -80,10 +80,10 @@ class Augment:
         train_aug_df = pd.DataFrame(columns=column_names)
         train_aug_df["Polymer"] = self.data["Polymer"]
         train_aug_df["Polymer_SMILES"] = self.data["Polymer_SMILES"]
-        train_aug_df["T(K)"] = self.data["T(K)"]
-        train_aug_df["P(Mpa)"] = self.data["P(Mpa)"]
-        train_aug_df["exp_CO2_sol (g/g)"] = self.data["exp_CO2_sol (g/g)"]
-        train_aug_df["pred_CO2_sol (g/g)"] = self.data["pred_CO2_sol (g/g)"]
+        train_aug_df["T_K"] = self.data["T_K"]
+        train_aug_df["P_Mpa"] = self.data["P_Mpa"]
+        train_aug_df["exp_CO2_sol _g_g"] = self.data["exp_CO2_sol _g_g"]
+        train_aug_df["pred_CO2_sol _g_g"] = self.data["pred_CO2_sol _g_g"]
         train_aug_df["train/test"] = self.data["train/test"]
         train_aug_df["Polymer_Augmented_SMILES"] = ""
         # train_aug_df["Polymer_Tokenized_Augmented_SMILES"] = ""
@@ -154,7 +154,7 @@ class Augment:
             train_aug_data: path to augmented data to be tokenized
 
         Returns:
-            new columns to train_aug_master.csv: DA_pair_tokenized_aug, AD_pair_tokenized_aug 
+            new columns to train_aug_master.csv: DA_pair_tokenized_aug, AD_pair_tokenized_aug
         """
         aug_smi_data = pd.read_csv(train_aug_data)
         # initialize new columns
@@ -213,4 +213,3 @@ augmenter.aug_smi_doRandom(AUGMENT_SMILES_DATA, 4)
 #         )
 #     )
 # )
-

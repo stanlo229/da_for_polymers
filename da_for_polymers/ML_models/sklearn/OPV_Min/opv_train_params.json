@@ -1,0 +1,4 @@
+{
+    "feature_names": "DA_pair_BRICS",
+    "target_name": "calc_PCE_percent"
+}

@@ -516,7 +516,7 @@ class DAPairs:
     def create_master_csv(self, master_csv_path):
         """
         Function that creates the .csv file used for ML project
-        
+
         Args:
             master_csv_path: path to the processed master file for future data representation modifications
 
@@ -532,10 +532,10 @@ class DAPairs:
             "Acceptor_SMILES",
             "Acceptor_Big_SMILES",
             "Acceptor_SELFIES",
-            "HOMO_D (eV)",
-            "LUMO_D (eV)",
-            "HOMO_A (eV)",
-            "LUMO_A (eV)",
+            "HOMO_D_eV",
+            "LUMO_D_eV",
+            "HOMO_A_eV",
+            "LUMO_A_eV",
             "D:A ratio (m/m)",
             "solvent",
             "total solids conc. (mg/mL)",
@@ -547,11 +547,11 @@ class DAPairs:
             "electron contact layer",
             "hole mobility blend (cm^2 V^-1 s^-1)",
             "electron mobility blend (cm^2 V^-1 s^-1)",
-            "PCE (%)",
-            "calc_PCE (%)",
-            "Voc (V)",
-            "Jsc (mA cm^-2)",
-            "FF (%)",
+            "PCE_percent",
+            "calc_PCE_percent",
+            "Voc_V",
+            "Jsc_mA_cm_neg2",
+            "FF_percent",
         ]
         master_df = pd.DataFrame(columns=headers)
         donor_avail = list(self.donors["Donor"])
@@ -613,10 +613,10 @@ class DAPairs:
                         "Acceptor_SMILES": acceptor_smile,
                         "Acceptor_Big_SMILES": acceptor_bigsmile,
                         "Acceptor_SELFIES": acceptor_selfies,
-                        "HOMO_D (eV)": row["HOMO_D (eV)"],
-                        "LUMO_D (eV)": row["LUMO_D (eV)"],
-                        "HOMO_A (eV)": row["HOMO_A (eV)"],
-                        "LUMO_A (eV)": row["LUMO_A (eV)"],
+                        "HOMO_D_eV": row["HOMO_D_eV"],
+                        "LUMO_D_eV": row["LUMO_D_eV"],
+                        "HOMO_A_eV": row["HOMO_A_eV"],
+                        "LUMO_A_eV": row["LUMO_A_eV"],
                         "D:A ratio (m/m)": row["D:A ratio (m/m)"],
                         "solvent": solvent,
                         "total solids conc. (mg/mL)": row["total solids conc. (mg/mL)"],
@@ -638,11 +638,11 @@ class DAPairs:
                         "electron mobility blend (cm^2 V^-1 s^-1)": row[
                             "electron mobility blend"
                         ],
-                        "PCE (%)": row["PCE (%)"],
-                        "calc_PCE (%)": row["calc_PCE"],
-                        "Voc (V)": row["Voc (V)"],
-                        "Jsc (mA cm^-2)": row["Jsc (mA cm^-2)"],
-                        "FF (%)": row["FF (%)"],
+                        "PCE_percent": row["PCE_percent"],
+                        "calc_PCE_percent": row["calc_PCE"],
+                        "Voc_V": row["Voc_V"],
+                        "Jsc_mA_cm_neg2": row["Jsc_mA_cm_neg2"],
+                        "FF_percent": row["FF_percent"],
                     },
                     ignore_index=True,
                 )
@@ -651,8 +651,8 @@ class DAPairs:
     def fill_empty_values(self, master_csv_path):
         """
         Function that fills in NaN values because it is reasonable.
-        Ex. Solvent additive does not have to be present. Therefore, "N/A" should replace NaN        
-        
+        Ex. Solvent additive does not have to be present. Therefore, "N/A" should replace NaN
+
         Args:
             master_csv_path: path to the processed master file for future data representation modifications
 
@@ -688,8 +688,8 @@ class DAPairs:
     ):
         """
         Function that filters the .csv file for rows that contain ONLY present values in the important columns:
-        
-        
+
+
         Args:
             master_csv_path: path to the processed master file for future data representation modifications
             filtered_master_csv_path: path to the filtered master file for future data representation modifications

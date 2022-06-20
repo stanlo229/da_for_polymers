@@ -280,9 +280,9 @@ class OPVDataModule(pl.LightningDataModule):
         """
         # convert other columns into numpy arrays
         if self.shuffled:
-            pce_array = self.data["PCE (%)_shuffled"].to_numpy().astype("float32")
+            pce_array = self.data["PCE_percent_shuffled"].to_numpy().astype("float32")
         else:
-            pce_array = self.data["PCE (%)"].to_numpy().astype("float32")
+            pce_array = self.data["PCE_percent"].to_numpy().astype("float32")
 
         # minimize range of pce between 0-1
         # find max of pce_array
@@ -487,9 +487,9 @@ class OPVDataModule(pl.LightningDataModule):
         self.data = self.data.reset_index(drop=True)
         # convert other columns into numpy arrays
         if self.shuffled:
-            pce_array = self.data["PCE (%)_shuffled"].to_numpy().astype("float32")
+            pce_array = self.data["PCE_percent_shuffled"].to_numpy().astype("float32")
         else:
-            pce_array = self.data["PCE (%)"].to_numpy().astype("float32")
+            pce_array = self.data["PCE_percent"].to_numpy().astype("float32")
         # minimize range of pce between 0-1
         # find max of pce_array
         self.max_pce = pce_array.max()
@@ -521,7 +521,7 @@ class OPVDataModule(pl.LightningDataModule):
             )
         elif self.aug_smiles:
             data = pd.read_csv(AUGMENT_SMILES_DATA)
-            pce_array = data["PCE (%)"].to_numpy().astype("float32")
+            pce_array = data["PCE_percent"].to_numpy().astype("float32")
 
             # minimize range of pce between 0-1
             # find max of pce_array
@@ -617,7 +617,7 @@ class OPVDataModule(pl.LightningDataModule):
 
 def distribution_plot(data_dir):
     df = pd.read_csv(data_dir)
-    pce_array = df["PCE (%)"].to_numpy().astype("float32")
+    pce_array = df["PCE_percent"].to_numpy().astype("float32")
     # minimize range of pce between 0-1
     # find max of pce_array
     max_pce = pce_array.max()

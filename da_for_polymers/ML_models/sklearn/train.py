@@ -31,7 +31,8 @@ def custom_scorer(y, yhat):
 # create scoring function
 score_func = make_scorer(custom_scorer, greater_is_better=False)
 
-def handle_dir(dir_names):
+
+def handle_dir(dir_names: str):
     """Since directories cannot have special characters, these must be removed before making the directory.
 
     Args:
@@ -40,11 +41,35 @@ def handle_dir(dir_names):
     Returns:
         filtered_dir_names (str): dir name appropriate for creating files and directories.
     """
-    special_chars = ["[", "]", "~", "{", "}", "(", ")","*", "&", "%","#","@","!","^", "/", "\\"]
-    filtered_dir_names = ''.join([dir_names[i] for i in range(len(dir_names)) if dir_names[i] not in special_chars])
+    special_chars: list = [
+        "[",
+        "]",
+        "~",
+        "{",
+        "}",
+        "(",
+        ")",
+        "*",
+        "&",
+        "%",
+        "#",
+        "@",
+        "!",
+        "^",
+        "/",
+        "\\",
+    ]
+    filtered_dir_names: str = "".join(
+        [
+            dir_names[i]
+            for i in range(len(dir_names))
+            if dir_names[i] not in special_chars
+        ]
+    )
     return filtered_dir_names
 
-def dataset_find(result_path):
+
+def dataset_find(result_path: str):
     """Finds the dataset name for the given path from the known datasets we have.
 
     Args:
@@ -52,13 +77,14 @@ def dataset_find(result_path):
     Returns:
         dataset_name (str): dataset name
     """
-    result_path_list = list(result_path.split("/"))
-    datasets = ["CO2_Soleimani", "PV_Wang", "OPV_Min", "Swelling_Xu"]
+    result_path_list: list = result_path.split("/")
+    datasets: list = ["CO2_Soleimani", "PV_Wang", "OPV_Min", "Swelling_Xu"]
     for dataset_name in datasets:
         if dataset_name in result_path_list:
             return dataset_name
 
-def main(config):
+
+def main(config: dict):
     """Runs training and calls from pipeline to perform preprocessing.
 
     Args:
@@ -66,44 +92,40 @@ def main(config):
     """
     # process training parameters
     with open(config["train_params_path"]) as train_param_path:
-        train_param = json.load(train_param_path)
+        train_param: dict = json.load(train_param_path)
     for param in train_param.keys():
         config[param] = train_param[param]
 
     # process multiple data files
-    train_paths = config["train_paths"]
-    validation_paths = config["validation_paths"]
+    train_paths: str = config["train_paths"]
+    validation_paths: str = config["validation_paths"]
 
     # if multiple train and validation paths, X-Fold Cross-Validation occurs here.
-    fold = 0
-    outer_r = []
-    outer_r2 = []
-    outer_rmse = []
-    outer_mae = []
-    summary_dict = {}
+    fold: int = 0
+    outer_r: list = []
+    outer_r2: list = []
+    outer_rmse: list = []
+    outer_mae: list = []
     for train_path, validation_path in zip(train_paths, validation_paths):
-        train_df = pd.read_csv(train_path)
-        val_df = pd.read_csv(validation_path)
+        train_df: pd.DataFrame = pd.read_csv(train_path)
+        val_df: pd.DataFrame = pd.read_csv(validation_path)
         # process SMILES vs. Fragments vs. Fingerprints. How to handle that? handle this and tokenization in pipeline
-        (
-            input_train_array,
-            input_val_array,
-        ) = Pipeline().process_features(  # additional features are added at the end of array
+        input_train_array: np.ndarray
+        input_val_array: np.ndarray = Pipeline().process_features(  # additional features are added at the end of array
             train_df[config["feature_names"].split(",")],
             val_df[config["feature_names"].split(",")],
         )
         # process target values
-        (
-            target_train_array,
-            target_val_array,
-            target_max,
-            target_min,
-        ) = Pipeline().process_target(
+        target_train_array: np.ndarray
+        target_val_array: np.ndarray
+        target_max: float
+        target_min: float = Pipeline().process_target(
             train_df[config["target_name"].split(",")],
             val_df[config["target_name"].split(",")],
         )
 
         # choose model
+        # TODO: factory pattern
         # setup model with default parameters
         if config["model_type"] == "RF":
             model = RandomForestRegressor(
@@ -127,14 +149,18 @@ def main(config):
         # KRR and LR do not require HPO, they do not have space parameters
         # MUST be paired with hyperparameter_optimization == False
         elif config["model_type"] == "KRR":
-            assert config["hyperparameter_optimization"] == False, "KRR cannot be paired with HPO"
+            assert (
+                config["hyperparameter_optimization"] == False
+            ), "KRR cannot be paired with HPO"
             kernel = PairwiseKernel(gamma=1, gamma_bounds="fixed", metric="laplacian")
             model = KernelRidge(alpha=0.05, kernel=kernel, gamma=1)
         elif config["model_type"] == "LR" and not config["hyperparameter_optimization"]:
-            assert config["hyperparameter_optimization"] == False, "LR cannot be paired with HPO"
+            assert (
+                config["hyperparameter_optimization"] == False
+            ), "LR cannot be paired with HPO"
             model = LinearRegression()
         elif config["model_type"] == "SVM":
-            model = SVR(kernel = "rbf", degree="3")
+            model = SVR(kernel="rbf", degree="3")
         else:
             raise NameError("Model not found. Please use RF, BRT, LR, KRR")
 
@@ -162,48 +188,49 @@ def main(config):
             # TODO: save best hyperparams for each model
             model = result.best_estimator_
             # inference on hold out set
-            yhat = model.predict(input_val_array)
+            yhat: np.ndarray = model.predict(input_val_array)
         else:
             # train
             model.fit(input_train_array, target_train_array)
             # inference on hold out set
-            yhat = model.predict(input_val_array)
+            yhat: np.ndarray = model.predict(input_val_array)
 
         # reverse min-max scaling
-        yhat = (yhat * (target_max - target_min)) + target_min
-        y_test = (target_val_array * (target_max - target_min)) + target_min
+        yhat: np.ndarray = (yhat * (target_max - target_min)) + target_min
+        y_test: np.ndarray = (target_val_array * (target_max - target_min)) + target_min
 
         # make new files
         # save model, outputs, generates new directory based on training/dataset/model/features/target
-        results_path = Path(os.path.abspath(config["results_path"]))
-        model_dir_path = results_path / "{}".format(config["model_type"])
-        feature_names = handle_dir(config["feature_names"])
-        target_name = handle_dir(config["target_name"])
-        print("WHAT IS IT: ", feature_names, target_name)
-        feature_dir_path = model_dir_path / "{}".format(feature_names)
-        target_dir_path = feature_dir_path / "{}".format(target_name)
+        results_path: Path = Path(os.path.abspath(config["results_path"]))
+        model_dir_path: Path = results_path / "{}".format(config["model_type"])
+        feature_names: str = handle_dir(config["feature_names"])
+        target_name: str = handle_dir(config["target_name"])
+        feature_dir_path: Path = model_dir_path / "{}".format(feature_names)
+        target_dir_path: Path = feature_dir_path / "{}".format(target_name)
         # create folders if not present
         try:
             target_dir_path.mkdir(parents=True, exist_ok=True)
         except:
             print("Folder already exists.")
         # save model
-        model_path = target_dir_path /  "model_{}.sav".format(fold)
-        pickle.dump(model, open(model_path, "wb")) # difficult to maintain 
+        model_path: Path = target_dir_path / "model_{}.sav".format(fold)
+        pickle.dump(model, open(model_path, "wb"))  # difficult to maintain
         # save outputs
-        prediction_path = target_dir_path / "prediction_{}.csv".format(fold)
+        prediction_path: Path = target_dir_path / "prediction_{}.csv".format(fold)
         # export predictions
-        yhat_df = pd.DataFrame(yhat, columns=["predicted_{}".format(config["target_name"])])
+        yhat_df: pd.DataFrame = pd.DataFrame(
+            yhat, columns=["predicted_{}".format(config["target_name"])]
+        )
         for feature in list(config["feature_names"].split(",")):
             yhat_df[feature] = val_df[feature]
         yhat_df.to_csv(prediction_path, index=False)
         fold += 1
 
         # evaluate the model
-        r = np.corrcoef(y_test, yhat)[0, 1]
-        r2 = (r) ** 2
-        rmse = np.sqrt(mean_squared_error(y_test, yhat))
-        mae = mean_absolute_error(y_test, yhat)
+        r: float = np.corrcoef(y_test, yhat)[0, 1]
+        r2: float = (r) ** 2
+        rmse: float = np.sqrt(mean_squared_error(y_test, yhat))
+        mae: float = mean_absolute_error(y_test, yhat)
         # report progress (best training score)
         print(">r=%.3f, r2=%.3f, rmse=%.3f, mae=%.3f" % (r, r2, rmse, mae))
         # append to outer list
@@ -215,21 +242,23 @@ def main(config):
     # make new file
     # summarize results
     summary_path = os.path.join(target_dir_path, "summary.csv")
-    summary_dict["Dataset"] = [dataset_find(config["results_path"])]
-    summary_dict["num_of_folds"] = [fold]
-    summary_dict["Features"] = [config["feature_names"]]
-    summary_dict["Targets"] = [config["target_name"]]
-    summary_dict["Model"] = [config["model_type"]]
-    summary_dict["r_mean"] = [mean(outer_r)]
-    summary_dict["r_std"] = [std(outer_r)]
-    summary_dict["r2_mean"] = [mean(outer_r2)]
-    summary_dict["r2_std"] = [std(outer_r2)]
-    summary_dict["rmse_mean"] = [mean(outer_rmse)]
-    summary_dict["rmse_std"] = [std(outer_rmse)]
-    summary_dict["mae_mean"] = [mean(outer_mae)]
-    summary_dict["mae_std"] = [std(outer_mae)]
-    summary_dict["num_of_data"] = [len(input_train_array) + len(input_val_array)]
-    summary_df = pd.DataFrame.from_dict(summary_dict)
+    summary_dict: dict = {
+        "Dataset": dataset_find(config["results_path"]),
+        "num_of_folds": fold,
+        "Features": config["feature_names"],
+        "Targets": config["target_name"],
+        "Model": config["model_type"],
+        "r_mean": mean(outer_r),
+        "r_std": std(outer_r),
+        "r2_mean": mean(outer_r2),
+        "r2_std": std(outer_r2),
+        "rmse_mean": mean(outer_rmse),
+        "rmse_std": std(outer_rmse),
+        "mae_mean": mean(outer_mae),
+        "mae_std": std(outer_mae),
+        "num_of_data": len(input_train_array) + len(input_val_array),
+    }
+    summary_df: pd.DataFrame = pd.DataFrame.from_dict(summary_dict)
     summary_df.to_csv(summary_path, index=False)
 
 
@@ -249,11 +278,13 @@ if __name__ == "__main__":
         nargs="+",
         help="Path to validation data. If multiple validation data: format is 'val_0.csv, val_1.csv, val_2.csv', required that multiple training paths are provided.",
     )
-    parser.add_argument("--train_params_path", type=str, help="Filepath to features and targets.")
+    parser.add_argument(
+        "--train_params_path", type=str, help="Filepath to features and targets."
+    )
     parser.add_argument(
         "--feature_names",
         type=str,
-        help="Choose input features. Format is: ex. SMILES, T(K), P(Mpa) - Always put representation at the front.",
+        help="Choose input features. Format is: ex. SMILES, T_K, P_Mpa - Always put representation at the front.",
     )
     parser.add_argument(
         "--target_name",

@@ -45,7 +45,7 @@ from da_for_polymers.data.input_representation.PV_Wang.manual_frag.manual_frag i
 
 class Dataset:
     """
-    Class that contains functions to prepare the data into a 
+    Class that contains functions to prepare the data into a
     dataframe with the feature variables and the PCE, etc.
     """
 
@@ -98,18 +98,16 @@ class Dataset:
                 contact_angle, max_contact_angle = self.feature_scale(
                     self.data["Contact_angle"]
                 )
-                thickness, max_thickness = self.feature_scale(
-                    self.data["Thickness_(um)"]
-                )
+                thickness, max_thickness = self.feature_scale(self.data["Thickness_um"])
                 solvent_solubility, max_solvent_solubility = self.feature_scale(
-                    self.data["Solvent_solubility_parameter_(MPa1/2)"]
+                    self.data["Solvent_solubility_parameter_Mpa_sqrt"]
                 )
                 water_percent, max_water_percent = self.feature_scale(
-                    self.data["xw_(wt%)"]
+                    self.data["xw_wt_percent"]
                 )
-                temp, max_temp = self.feature_scale(self.data["Temperature_(C)"])
+                temp, max_temp = self.feature_scale(self.data["Temp_C"])
                 permeate_pressure, max_permeate_pressure = self.feature_scale(
-                    self.data["Permeate_pressure_(mbar)"]
+                    self.data["Permeate_pressure_mbar"]
                 )
                 tokenized_input[index].append(contact_angle[index])
                 tokenized_input[index].append(thickness[index])
@@ -192,7 +190,7 @@ class Dataset:
 
     def setup(self, parameter, target):
         """
-        Function that sets up data ready for training 
+        Function that sets up data ready for training
         # NOTE: only run parameter_only on setup("electronic_only", target)
 
         Args:
@@ -205,11 +203,11 @@ class Dataset:
         """
         if target == "J":
             target_array = (
-                self.data["J_Total_flux_(kg/m-2h-1)"].to_numpy().astype("float32")
+                self.data["J_Total_flux_kg_m_2h_1"].to_numpy().astype("float32")
             )
         elif target == "a":
             target_array = (
-                self.data["a_Separation_factor_(w/o)"].to_numpy().astype("float32")
+                self.data["a_Separation_factor_wo"].to_numpy().astype("float32")
             )
         # minimize range of target between 0-1
         target_array = np.log10(target_array)
@@ -329,7 +327,7 @@ class Dataset:
     def setup_aug_smi(self, parameter, target):
         """
         NOTE: for Augmented SMILES
-        Function that sets up data ready for training 
+        Function that sets up data ready for training
         Args:
             parameter: type of parameters to include:
                 - none: only chemical representation
@@ -339,11 +337,11 @@ class Dataset:
         """
         if target == "J":
             target_array = (
-                self.data["J_Total_flux_(kg/m-2h-1)"].to_numpy().astype("float32")
+                self.data["J_Total_flux_kg_m_2h_1"].to_numpy().astype("float32")
             )
         elif target == "a":
             target_array = (
-                self.data["a_Separation_factor_(w/o)"].to_numpy().astype("float32")
+                self.data["a_Separation_factor_wo"].to_numpy().astype("float32")
             )
 
         target_array = np.log10(target_array)
@@ -408,4 +406,3 @@ class Dataset:
 # x, y, max_target = dataset.setup("gross", "J")
 # print("7")
 # print(x, y, max_target)
-

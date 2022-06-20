@@ -53,7 +53,8 @@ FP_MASTER_DATA = pkg_resources.resource_filename(
 )
 
 PREDICTION_PATH = pkg_resources.resource_filename(
-    "da_for_polymers", "data/predictions/",
+    "da_for_polymers",
+    "data/predictions/",
 )
 
 MODEL_CHECKPOINT = pkg_resources.resource_filename(
@@ -72,8 +73,7 @@ SEED_VAL = 4
 
 
 class Evaluator:
-    """Class that contains functions to make predictions/inferences from any model, and visualize results
-    """
+    """Class that contains functions to make predictions/inferences from any model, and visualize results"""
 
     def __init__(
         self, model_type: str, model_checkpoint, prediction_csv, model_file, data_dir
@@ -258,7 +258,7 @@ class Evaluator:
         )
 
         fig, ax = plt.subplots()
-        ax.set_title("Predicted vs. Experimental PCE (%)")
+        ax.set_title("Predicted vs. Experimental PCE_percent")
         ax.set_xlabel("Experimental_PCE_(%)")
         ax.set_ylabel("Predicted_PCE_(%)")
         ax.scatter(

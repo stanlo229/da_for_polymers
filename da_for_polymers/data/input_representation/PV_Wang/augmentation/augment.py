@@ -45,7 +45,7 @@ class Augment:
         Args:
             tokenized_array: tokenized SMILES array to be padded
             seq_len: maximum sequence length for the entire dataset
-        
+
         Returns:
             pre-padded tokenized SMILES
         """
@@ -81,17 +81,15 @@ class Augment:
         train_aug_df["Solvent"] = self.data["Solvent"]
         train_aug_df["Solvent_SMILES"] = self.data["Solvent_SMILES"]
         train_aug_df["Contact_angle"] = self.data["Contact_angle"]
-        train_aug_df["Thickness_(um)"] = self.data["Thickness_(um)"]
-        train_aug_df["Solvent_solubility_parameter_(MPa1/2)"] = self.data[
-            "Solvent_solubility_parameter_(MPa1/2)"
+        train_aug_df["Thickness_um"] = self.data["Thickness_um"]
+        train_aug_df["Solvent_solubility_parameter_Mpa_sqrt"] = self.data[
+            "Solvent_solubility_parameter_Mpa_sqrt"
         ]
-        train_aug_df["xw_(wt%)"] = self.data["xw_(wt%)"]
-        train_aug_df["Temperature_(C)"] = self.data["Temperature_(C)"]
-        train_aug_df["Permeate_pressure_(mbar)"] = self.data["Permeate_pressure_(mbar)"]
-        train_aug_df["J_Total_flux_(kg/m-2h-1)"] = self.data["J_Total_flux_(kg/m-2h-1)"]
-        train_aug_df["a_Separation_factor_(w/o)"] = self.data[
-            "a_Separation_factor_(w/o)"
-        ]
+        train_aug_df["xw_wt_percent"] = self.data["xw_wt_percent"]
+        train_aug_df["Temp_C"] = self.data["Temp_C"]
+        train_aug_df["Permeate_pressure_mbar"] = self.data["Permeate_pressure_mbar"]
+        train_aug_df["J_Total_flux_kg_m_2h_1"] = self.data["J_Total_flux_kg_m_2h_1"]
+        train_aug_df["a_Separation_factor_wo"] = self.data["a_Separation_factor_wo"]
 
         total_augmented = 0
 
@@ -183,7 +181,7 @@ class Augment:
             train_aug_data: path to augmented data to be tokenized
 
         Returns:
-            new columns to train_aug_master.csv: DA_pair_tokenized_aug, AD_pair_tokenized_aug 
+            new columns to train_aug_master.csv: DA_pair_tokenized_aug, AD_pair_tokenized_aug
         """
         aug_smi_data = pd.read_csv(train_aug_data)
         # initialize new columns
@@ -241,4 +239,3 @@ augmenter.aug_smi_doRandom(AUGMENT_SMILES_DATA, 4)
 #         )
 #     )
 # )
-

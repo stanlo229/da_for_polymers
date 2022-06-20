@@ -29,7 +29,7 @@ class BRIC_FRAGS:
     def __init__(self, datapath):
         """
         Inits BRIC_FRAGS with preprocessed data
-        
+
         Args:
             datapath: path to preprocessed polymer-solvent data
         """
@@ -114,7 +114,7 @@ class BRIC_FRAGS:
                 "Contact_angle",
                 "Thickness",
                 "Solvent_solubility_parameter",
-                "xw_(wt%)",
+                "xw_wt_percent",
                 "Temperature",
                 "Permeate_pressure",
                 "J_total_flux",
@@ -129,15 +129,15 @@ class BRIC_FRAGS:
         brics_df["Solvent"] = self.data["Solvent"]
         brics_df["Solvent_SMILES"] = self.data["Solvent_SMILES"]
         brics_df["Contact_angle"] = self.data["Contact_angle"]
-        brics_df["Thickness_(um)"] = self.data["Thickness_(um)"]
-        brics_df["Solvent_solubility_parameter_(MPa1/2)"] = self.data[
-            "Solvent_solubility_parameter_(MPa1/2)"
+        brics_df["Thickness_um"] = self.data["Thickness_um"]
+        brics_df["Solvent_solubility_parameter_Mpa_sqrt"] = self.data[
+            "Solvent_solubility_parameter_Mpa_sqrt"
         ]
-        brics_df["xw_(wt%)"] = self.data["xw_(wt%)"]
-        brics_df["Temperature_(C)"] = self.data["Temperature_(C)"]
-        brics_df["Permeate_pressure_(mbar)"] = self.data["Permeate_pressure_(mbar)"]
-        brics_df["J_Total_flux_(kg/m-2h-1)"] = self.data["J_Total_flux_(kg/m-2h-1)"]
-        brics_df["a_Separation_factor_(w/o)"] = self.data["a_Separation_factor_(w/o)"]
+        brics_df["xw_wt_percent"] = self.data["xw_wt_percent"]
+        brics_df["Temp_C"] = self.data["Temp_C"]
+        brics_df["Permeate_pressure_mbar"] = self.data["Permeate_pressure_mbar"]
+        brics_df["J_Total_flux_kg_m_2h_1"] = self.data["J_Total_flux_kg_m_2h_1"]
+        brics_df["a_Separation_factor_wo"] = self.data["a_Separation_factor_wo"]
 
         # Iterate through row and fragment using BRICS
         # to get polymer_BRICS, solvent_BRICS, and DA_pair_BRICS
@@ -174,7 +174,7 @@ class BRIC_FRAGS:
 
         Args:
             dictionary of unique fragments from polymer and solvent molecules
-        
+
         Returns:
             img: image of all the unique fragments
         """

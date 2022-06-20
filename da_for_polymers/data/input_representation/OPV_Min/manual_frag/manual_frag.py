@@ -50,7 +50,8 @@ OPV_DATA = pkg_resources.resource_filename(
 )
 
 MASTER_ML_DATA = pkg_resources.resource_filename(
-    "da_for_polymers", "data/preprocess/OPV_Min/master_ml_for_opvs_from_min.csv",
+    "da_for_polymers",
+    "data/preprocess/OPV_Min/master_ml_for_opvs_from_min.csv",
 )
 
 
@@ -86,7 +87,7 @@ class manual_frag:
     def lookup(self, group_type: str, index: int) -> str:
         """
         Function that finds and returns SMILES from donor or acceptor .csv
-        
+
         Args:
             group_type: choose between donor and acceptor
             index: index of row in dataframe
@@ -120,7 +121,7 @@ class manual_frag:
         Args:
             smi: SMILES to fragment
             mol_type: fragmenting donor or acceptor?
-        
+
         Returns:
             ordered_frag: molecule that was fragmented by user's input, and properly ordered
         """
@@ -251,7 +252,7 @@ class manual_frag:
             frag_path: path to file with pre-existing fragmented data
             master_path: path to file with all data (OPV ML data)
             mol_type: option for donors and acceptors
-        
+
         Returns:
             .csv file with new molecules that was fragmented by user's input, and properly ordered
         """
@@ -312,7 +313,7 @@ class manual_frag:
 
         Args:
             None
-        
+
         Returns:
             frag_dict: dictionary of unique fragments in the combination of donor and acceptor fragmented molecules
         """
@@ -372,15 +373,15 @@ class manual_frag:
             "Donor_SMILES",
             "Acceptor",
             "Acceptor_SMILES",
-            "HOMO_D (eV)",
-            "LUMO_D (eV)",
-            "HOMO_A (eV)",
-            "LUMO_A (eV)",
-            "PCE (%)",
-            "calc_PCE (%)",
-            "Voc (V)",
-            "Jsc (mA cm^-2)",
-            "FF (%)",
+            "HOMO_D_eV",
+            "LUMO_D_eV",
+            "HOMO_A_eV",
+            "LUMO_A_eV",
+            "PCE_percent",
+            "calc_PCE_percent",
+            "Voc_V",
+            "Jsc_mA_cm_neg2",
+            "FF_percent",
         ]
         manual_df = pd.DataFrame(columns=headers)
         manual_df["DA_manual"] = ""
@@ -413,15 +414,15 @@ class manual_frag:
                         "Acceptor": row["Acceptor"],
                         "Acceptor_SMILES": acceptor_smile,
                         "Acceptor_BigSMILES": acceptor_big_smi,
-                        "HOMO_D (eV)": row["HOMO_D (eV)"],
-                        "LUMO_D (eV)": row["LUMO_D (eV)"],
-                        "HOMO_A (eV)": row["HOMO_A (eV)"],
-                        "LUMO_A (eV)": row["LUMO_A (eV)"],
-                        "PCE (%)": row["PCE (%)"],
-                        "calc_PCE (%)": row["calc_PCE (%)"],
-                        "Voc (V)": row["Voc (V)"],
-                        "Jsc (mA cm^-2)": row["Jsc (mA cm^-2)"],
-                        "FF (%)": row["FF (%)"],
+                        "HOMO_D_eV": row["HOMO_D_eV"],
+                        "LUMO_D_eV": row["LUMO_D_eV"],
+                        "HOMO_A_eV": row["HOMO_A_eV"],
+                        "LUMO_A_eV": row["LUMO_A_eV"],
+                        "PCE_percent": row["PCE_percent"],
+                        "calc_PCE_percent": row["calc_PCE_percent"],
+                        "Voc_V": row["Voc_V"],
+                        "Jsc_mA_cm_neg2": row["Jsc_mA_cm_neg2"],
+                        "FF_percent": row["FF_percent"],
                         "DA_manual": " ",
                         "DA_manual_aug": " ",
                     },
@@ -535,7 +536,7 @@ class manual_frag:
 
         Args:
             dictionary of unique fragments from donor and acceptor molecules
-        
+
         Returns:
             img: image of all the unique fragments
         """

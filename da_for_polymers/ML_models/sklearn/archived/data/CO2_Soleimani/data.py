@@ -46,7 +46,7 @@ from da_for_polymers.data.input_representation.CO2_Soleimani.manual_frag.manual_
 
 class Dataset:
     """
-    Class that contains functions to prepare the data into a 
+    Class that contains functions to prepare the data into a
     dataframe with the feature variables and the PCE, etc.
     """
 
@@ -94,9 +94,9 @@ class Dataset:
         index = 0
         while index < len(tokenized_input):
             if parameter == "gross" or parameter == "gross_only":
-                temp, max_temp, min_temp = self.feature_scale(self.data["T(K)"])
+                temp, max_temp, min_temp = self.feature_scale(self.data["T_K"])
                 pressure, max_pressure, min_pressure = self.feature_scale(
-                    self.data["P(Mpa)"]
+                    self.data["P_Mpa"]
                 )
                 tokenized_input[index].append(temp[index])
                 tokenized_input[index].append(pressure[index])
@@ -175,7 +175,7 @@ class Dataset:
 
     def setup(self, parameter):
         """
-        Function that sets up data ready for training 
+        Function that sets up data ready for training
         # NOTE: only run parameter_only on setup("electronic_only", target)
 
         Args:
@@ -185,7 +185,7 @@ class Dataset:
                 - gross_only: only gross descriptors, no chemical representation
 
         """
-        target_array = self.data["exp_CO2_sol (g/g)"]
+        target_array = self.data["exp_CO2_sol _g_g"]
         # minimize range of target between 0-1
         target_array, max_value, min_value = self.feature_scale(target_array)
         # NOTE: read paper, not sure if we need to scale features!!!
@@ -303,14 +303,14 @@ class Dataset:
     def setup_aug_smi(self, parameter):
         """
         NOTE: for Augmented SMILES
-        Function that sets up data ready for training 
+        Function that sets up data ready for training
         Args:
             parameter: type of parameters to include:
                 - none: only chemical representation
                 - gross: add gross descriptors on top of chemical representation
                 - gross_only: only gross descriptors, no chemical representation
         """
-        target_array = self.data["exp_CO2_sol (g/g)"]
+        target_array = self.data["exp_CO2_sol _g_g"]
         # minimize range of target between 0-1
         target_array, max_value, min_value = self.feature_scale(target_array)
         # NOTE: read paper, not sure if we need to scale features!!!
@@ -383,4 +383,3 @@ class Dataset:
 # x, y, max_target, min_target = dataset.setup("gross")
 # print("7")
 # print(x, y, max_target)
-
