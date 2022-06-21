@@ -32,43 +32,6 @@ def custom_scorer(y, yhat):
 score_func = make_scorer(custom_scorer, greater_is_better=False)
 
 
-def handle_dir(dir_names: str):
-    """Since directories cannot have special characters, these must be removed before making the directory.
-
-    Args:
-        dir_names (str): name of dirs used for training
-
-    Returns:
-        filtered_dir_names (str): dir name appropriate for creating files and directories.
-    """
-    special_chars: list = [
-        "[",
-        "]",
-        "~",
-        "{",
-        "}",
-        "(",
-        ")",
-        "*",
-        "&",
-        "%",
-        "#",
-        "@",
-        "!",
-        "^",
-        "/",
-        "\\",
-    ]
-    filtered_dir_names: str = "".join(
-        [
-            dir_names[i]
-            for i in range(len(dir_names))
-            if dir_names[i] not in special_chars
-        ]
-    )
-    return filtered_dir_names
-
-
 def dataset_find(result_path: str):
     """Finds the dataset name for the given path from the known datasets we have.
 
@@ -91,10 +54,10 @@ def main(config: dict):
         config (dict): Configuration parameters.
     """
     # process training parameters
-    with open(config["train_params_path"]) as train_param_path:
-        train_param: dict = json.load(train_param_path)
-    for param in train_param.keys():
-        config[param] = train_param[param]
+    # with open(config["train_params_path"]) as train_param_path:
+    #     train_param: dict = json.load(train_param_path)
+    # for param in train_param.keys():
+    #     config[param] = train_param[param]
 
     # process multiple data files
     train_paths: str = config["train_paths"]
@@ -106,20 +69,25 @@ def main(config: dict):
     outer_r2: list = []
     outer_rmse: list = []
     outer_mae: list = []
+    progress_dict: dict = {"fold": [], "r": [], "r2": [], "rmse": [], "mae": []}
     for train_path, validation_path in zip(train_paths, validation_paths):
         train_df: pd.DataFrame = pd.read_csv(train_path)
         val_df: pd.DataFrame = pd.read_csv(validation_path)
         # process SMILES vs. Fragments vs. Fingerprints. How to handle that? handle this and tokenization in pipeline
-        input_train_array: np.ndarray
-        input_val_array: np.ndarray = Pipeline().process_features(  # additional features are added at the end of array
+        (
+            input_train_array,
+            input_val_array,
+        ) = Pipeline().process_features(  # additional features are added at the end of array
             train_df[config["feature_names"].split(",")],
             val_df[config["feature_names"].split(",")],
         )
         # process target values
-        target_train_array: np.ndarray
-        target_val_array: np.ndarray
-        target_max: float
-        target_min: float = Pipeline().process_target(
+        (
+            target_train_array,
+            target_val_array,
+            target_max,
+            target_min,
+        ) = Pipeline().process_target(
             train_df[config["target_name"].split(",")],
             val_df[config["target_name"].split(",")],
         )
@@ -130,7 +98,7 @@ def main(config: dict):
         if config["model_type"] == "RF":
             model = RandomForestRegressor(
                 criterion="squared_error",
-                max_features="auto",
+                max_features=1.0,
                 random_state=config["random_state"],
                 bootstrap=True,
                 n_jobs=-1,
@@ -203,10 +171,8 @@ def main(config: dict):
         # save model, outputs, generates new directory based on training/dataset/model/features/target
         results_path: Path = Path(os.path.abspath(config["results_path"]))
         model_dir_path: Path = results_path / "{}".format(config["model_type"])
-        feature_names: str = handle_dir(config["feature_names"])
-        target_name: str = handle_dir(config["target_name"])
-        feature_dir_path: Path = model_dir_path / "{}".format(feature_names)
-        target_dir_path: Path = feature_dir_path / "{}".format(target_name)
+        feature_dir_path: Path = model_dir_path / "{}".format(config["feature_names"])
+        target_dir_path: Path = feature_dir_path / "{}".format(config["target_name"])
         # create folders if not present
         try:
             target_dir_path.mkdir(parents=True, exist_ok=True)
@@ -233,6 +199,11 @@ def main(config: dict):
         mae: float = mean_absolute_error(y_test, yhat)
         # report progress (best training score)
         print(">r=%.3f, r2=%.3f, rmse=%.3f, mae=%.3f" % (r, r2, rmse, mae))
+        progress_dict["fold"].append(fold)
+        progress_dict["r"].append(r)
+        progress_dict["r2"].append(r2)
+        progress_dict["rmse"].append(rmse)
+        progress_dict["mae"].append(mae)
         # append to outer list
         outer_r.append(r)
         outer_r2.append(r2)
@@ -241,7 +212,11 @@ def main(config: dict):
 
     # make new file
     # summarize results
-    summary_path = os.path.join(target_dir_path, "summary.csv")
+    progress_path: Path = target_dir_path / "progress_report.csv"
+    progress_df: pd.DataFrame = pd.DataFrame.from_dict(progress_dict, orient="index")
+    progress_df = progress_df.transpose()
+    progress_df.to_csv(progress_path, index=False)
+    summary_path: Path = target_dir_path / "summary.csv"
     summary_dict: dict = {
         "Dataset": dataset_find(config["results_path"]),
         "num_of_folds": fold,
@@ -258,7 +233,8 @@ def main(config: dict):
         "mae_std": std(outer_mae),
         "num_of_data": len(input_train_array) + len(input_val_array),
     }
-    summary_df: pd.DataFrame = pd.DataFrame.from_dict(summary_dict)
+    summary_df: pd.DataFrame = pd.DataFrame.from_dict(summary_dict, orient="index")
+    summary_df = summary_df.transpose()
     summary_df.to_csv(summary_path, index=False)
 
 
@@ -277,9 +253,6 @@ if __name__ == "__main__":
         type=str,
         nargs="+",
         help="Path to validation data. If multiple validation data: format is 'val_0.csv, val_1.csv, val_2.csv', required that multiple training paths are provided.",
-    )
-    parser.add_argument(
-        "--train_params_path", type=str, help="Filepath to features and targets."
     )
     parser.add_argument(
         "--feature_names",
