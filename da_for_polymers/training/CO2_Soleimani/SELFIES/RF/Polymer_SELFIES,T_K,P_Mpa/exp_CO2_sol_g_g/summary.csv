@@ -1,0 +1,2 @@
+Dataset,num_of_folds,Features,Targets,Model,r_mean,r_std,r2_mean,r2_std,rmse_mean,rmse_std,mae_mean,mae_std,num_of_data
+CO2_Soleimani,7,"Polymer_SELFIES,T_K,P_Mpa",exp_CO2_sol_g_g,RF,0.9859480209062627,0.006248407062220035,0.9721325425197911,0.012311067989192586,0.021519905376502675,0.004454659059089075,0.013165136200748594,0.001807364563003056,515

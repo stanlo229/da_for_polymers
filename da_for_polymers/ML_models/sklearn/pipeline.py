@@ -116,14 +116,14 @@ def process_features(train_feature_df, val_feature_df) -> Tuple[np.ndarray, np.n
         input_value = ast.literal_eval(concat_df[input_representation][1])
         if isinstance(input_value[0], list):
             input_instance = "list_of_list"
-            print("input_value is a list of list")
+            # print("input_value is a list of list")
         else:
             input_instance = "list"
-            print("input_value is a list which could be: 1) fragments or 2) SMILES")
+            # print("input_value is a list which could be: 1) fragments or 2) SMILES")
     except:  # The input_value was not a list, so ast.literal_eval will raise ValueError.
         input_instance = "str"
         input_value = concat_df[input_representation][1]
-        print("input_value is a string")
+        # print("input_value is a string")
     print(input_instance)
     if (
         input_instance == "list"
@@ -416,13 +416,13 @@ def process_target(
         input_value = ast.literal_eval(concat_df[input_representation][1])
         if isinstance(input_value[0], list):
             input_instance = "list_of_list"
-            print("input_value is a list of list")
+            # print("input_value is a list of list")
         else:
             input_instance = "list"
-            print("input_value is a list which could be: 1) fragments or 2) SMILES")
+            # print("input_value is a list which could be: 1) fragments or 2) SMILES")
     except:  # The input_value was not a list, so ast.literal_eval will raise ValueError.
         input_instance = "str"
-        print("input_value is a string")
+        # print("input_value is a string")
 
     # duplicate number of target values with the number of augmented data points
     if any(
