@@ -29,27 +29,31 @@ def main(config):
         fold_path = current_dir / Path(config["type_of_crossval"] + "/")
         fold_path.mkdir(parents=True, exist_ok=True)
         kf = KFold(n_splits=num_of_folds, shuffle=True, random_state=seed)
-        for i in range(num_of_folds):
-            result = next(kf.split(data_df), None)
-            train = data_df.iloc[result[0]]
-            valid = data_df.iloc[result[1]]
+        i = 0
+        for train_index, test_index in kf.split(data_df):
+            train = data_df.iloc[train_index]
+            valid = data_df.iloc[test_index]
             train_dir = fold_path / f"input_train_{i}.csv"
             valid_dir = fold_path / f"input_valid_{i}.csv"
             train.to_csv(train_dir, index=False)
             valid.to_csv(valid_dir, index=False)
+            i += 1
 
     elif config["type_of_crossval"] == "StratifiedKFold":
         fold_path = current_dir / Path(config["type_of_crossval"] + "/")
         fold_path.mkdir(parents=True, exist_ok=True)
         kf = StratifiedKFold(n_splits=num_of_folds, shuffle=True, random_state=seed)
-        for i in range(num_of_folds):
-            result = next(kf.split(data_df, data_df[config["stratified_label"]]), None)
-            train = data_df.iloc[result[0]]
-            valid = data_df.iloc[result[1]]
+        i = 0
+        for train_index, test_index in kf.split(
+            data_df, data_df[config["stratified_label"]]
+        ):
+            train = data_df.iloc[train_index]
+            valid = data_df.iloc[test_index]
             train_dir = fold_path / f"input_train_{i}.csv"
             valid_dir = fold_path / f"input_valid_{i}.csv"
             train.to_csv(train_dir, index=False)
             valid.to_csv(valid_dir, index=False)
+            i += 1
     else:
         raise ValueError(
             "Wrong KFold operation. Choose between KFold or StratifiedKFold."
@@ -94,4 +98,6 @@ if __name__ == "__main__":
 ### EXAMPLE USE
 """
 python ../../cross_validation.py --dataset_path ~/Research/Repos/da_for_polymers/da_for_polymers/data/input_representation/PV_Wang/SMILES/master_smiles.csv --num_of_folds 5 --type_of_crossval StratifiedKFold --stratified_label Solvent
+
+python ../../cross_validation.py --dataset_path ~/Research/Repos/da_for_polymers/da_for_polymers/data/input_representation/CO2_Soleimani/augmentation/train_aug_master.csv --num_of_folds 7 --type_of_crossval StratifiedKFold --stratified_label Polymer
 """

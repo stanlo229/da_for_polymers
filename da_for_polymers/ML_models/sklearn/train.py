@@ -80,6 +80,7 @@ def main(config: dict):
         train_df: pd.DataFrame = pd.read_csv(train_path)
         val_df: pd.DataFrame = pd.read_csv(validation_path)
         # process SMILES vs. Fragments vs. Fingerprints. How to handle that? handle this and tokenization in pipeline
+        print(config["feature_names"].split(","))
         (
             input_train_array,
             input_val_array,

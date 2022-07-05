@@ -114,18 +114,17 @@ def process_features(train_feature_df, val_feature_df) -> Tuple[np.ndarray, np.n
     input_instance = None
     try:
         input_value = ast.literal_eval(concat_df[input_representation][1])
-        try:
-            ast.literal_eval(input_value[0])
+        if isinstance(input_value[0], list):
             input_instance = "list_of_list"
             print("input_value is a list of list")
-        except:
+        else:
             input_instance = "list"
             print("input_value is a list which could be: 1) fragments or 2) SMILES")
     except:  # The input_value was not a list, so ast.literal_eval will raise ValueError.
         input_instance = "str"
         input_value = concat_df[input_representation][1]
         print("input_value is a string")
-
+    print(input_instance)
     if (
         input_instance == "list"
     ):  # could be list of fragments or list of (augmented) SMILES.
@@ -158,20 +157,19 @@ def process_features(train_feature_df, val_feature_df) -> Tuple[np.ndarray, np.n
         for index, row in concat_df.iterrows():
             input_value = ast.literal_eval(row[input_representation])
             for aug_value in input_value:
-                aug_value = ast.literal_eval(aug_value)
                 for frag in aug_value:
                     if frag not in list(token2idx.keys()):
                         token2idx[frag] = token_idx
                         token_idx += 1
     elif input_instance == "str":
-        if "SMILES" == input_representation:
+        if "SMILES" in input_representation:
             (
                 tokenized_array,
                 max_length,
                 vocab_length,
                 token2idx,
             ) = Tokenizer().tokenize_data(concat_df[input_representation])
-        elif "SELFIES" == input_representation:
+        elif "SELFIES" in input_representation:
             token2idx, max_length = Tokenizer().tokenize_selfies(
                 concat_df[input_representation]
             )
@@ -416,11 +414,10 @@ def process_target(
     input_instance = None
     try:
         input_value = ast.literal_eval(concat_df[input_representation][1])
-        try:
-            ast.literal_eval(input_value[0])
+        if isinstance(input_value[0], list):
             input_instance = "list_of_list"
             print("input_value is a list of list")
-        except:
+        else:
             input_instance = "list"
             print("input_value is a list which could be: 1) fragments or 2) SMILES")
     except:  # The input_value was not a list, so ast.literal_eval will raise ValueError.
@@ -443,8 +440,13 @@ def process_target(
             for i in range(len(input_value)):
                 target_val_list.append(row[val_target_df.columns[0]])
 
-    target_train_array = np.array(target_train_list)
-    target_val_array = np.array(target_val_list)
+        target_train_array = np.array(target_train_list)
+        target_val_array = np.array(target_val_list)
+    else:
+        target_train_array = train_target_df[train_target_df.columns[0]].to_numpy()
+        target_train_array = np.ravel(target_train_array)
+        target_val_array = val_target_df[val_target_df.columns[0]].to_numpy()
+        target_val_array = np.ravel(target_val_array)
 
     target_train_array = (target_train_array - target_min) / (target_max - target_min)
     target_val_array = (target_val_array - target_min) / (target_max - target_min)

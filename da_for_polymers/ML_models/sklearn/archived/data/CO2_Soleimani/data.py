@@ -34,7 +34,7 @@ FP_CO2 = pkg_resources.resource_filename(
     "data/input_representation/CO2_Soleimani/fingerprint/co2_fingerprint.csv",
 )
 
-from da_for_polymers.ML_models.sklearn.data.CO2_Soleimani.tokenizer import Tokenizer
+from da_for_polymers.ML_models.sklearn.tokenizer import Tokenizer
 from da_for_polymers.data.input_representation.CO2_Soleimani.BRICS.brics_frag import (
     BRIC_FRAGS,
 )
