@@ -59,7 +59,7 @@ SUMMARY_DIR = pkg_resources.resource_filename(
     "da_for_polymers", "ML_models/sklearn/BRT/PV_Wang/"
 )
 
-SEED_VAL = 4
+SEED_VAL = 22
 
 
 def custom_scorer(y, yhat):
@@ -585,7 +585,10 @@ summary_series = pd.DataFrame(
     },
     index=[0],
 )
-summary_df = pd.concat([summary_df, summary_series], ignore_index=True,)
+summary_df = pd.concat(
+    [summary_df, summary_series],
+    ignore_index=True,
+)
 summary_df.to_csv(SUMMARY_DIR, index=False)
 
 
@@ -639,4 +642,3 @@ summary_df.to_csv(SUMMARY_DIR, index=False)
 
 # NOTE: average of averages != average over all data
 # NOTE: https://math.stackexchange.com/questions/95909/why-is-an-average-of-an-average-usually-incorrect/95912#:~:text=The%20average%20of%20averages%20is,all%20values%20in%20two%20cases%3A&text=This%20answers%20the%20first%20OP,usually%20gives%20the%20wrong%20answer.&text=This%20is%20why%20the%20average,groups%20have%20the%20same%20size.
-

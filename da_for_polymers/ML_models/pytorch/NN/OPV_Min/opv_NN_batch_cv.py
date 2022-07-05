@@ -70,7 +70,7 @@ SUMMARY_DIR = pkg_resources.resource_filename(
     "da_for_polymers", "ML_models/pytorch/NN/OPV_Min/opv_NN_batch_cv_results.csv"
 )
 
-SEED_VAL = 4
+SEED_VAL = 22
 
 # initialize weights for model
 def initialize_weights(model):

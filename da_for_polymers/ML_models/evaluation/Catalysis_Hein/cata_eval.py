@@ -67,7 +67,7 @@ CHEMBERT = pkg_resources.resource_filename(
     "da_for_polymers", "ML_models/pytorch/Transformer/chembert/"
 )
 
-SEED_VAL = 4
+SEED_VAL = 22
 
 
 class Evaluator:

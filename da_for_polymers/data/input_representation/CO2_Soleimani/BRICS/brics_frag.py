@@ -111,8 +111,8 @@ class BRIC_FRAGS:
                 "Polymer_SMILES",
                 "T_K",
                 "P_Mpa",
-                "exp_CO2_sol _g_g",
-                "pred_CO2_sol _g_g",
+                "exp_CO2_sol_g_g",
+                "pred_CO2_sol_g_g",
                 "train/test",
                 "Polymer_BRICS",
                 # "Polymer_Tokenized_BRICS",
@@ -122,8 +122,8 @@ class BRIC_FRAGS:
         brics_df["Polymer_SMILES"] = self.data["Polymer_SMILES"]
         brics_df["T_K"] = self.data["T_K"]
         brics_df["P_Mpa"] = self.data["P_Mpa"]
-        brics_df["exp_CO2_sol _g_g"] = self.data["exp_CO2_sol _g_g"]
-        brics_df["pred_CO2_sol _g_g"] = self.data["pred_CO2_sol _g_g"]
+        brics_df["exp_CO2_sol_g_g"] = self.data["exp_CO2_sol_g_g"]
+        brics_df["pred_CO2_sol_g_g"] = self.data["pred_CO2_sol_g_g"]
         brics_df["train/test"] = self.data["train/test"]
         brics_df["Polymer_BRICS"] = ""
         # brics_df["Polymer_Tokenized_BRICS"] = ""

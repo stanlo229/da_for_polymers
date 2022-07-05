@@ -185,7 +185,7 @@ class Dataset:
                 - gross_only: only gross descriptors, no chemical representation
 
         """
-        target_array = self.data["exp_CO2_sol _g_g"]
+        target_array = self.data["exp_CO2_sol_g_g"]
         # minimize range of target between 0-1
         target_array, max_value, min_value = self.feature_scale(target_array)
         # NOTE: read paper, not sure if we need to scale features!!!
@@ -310,7 +310,7 @@ class Dataset:
                 - gross: add gross descriptors on top of chemical representation
                 - gross_only: only gross descriptors, no chemical representation
         """
-        target_array = self.data["exp_CO2_sol _g_g"]
+        target_array = self.data["exp_CO2_sol_g_g"]
         # minimize range of target between 0-1
         target_array, max_value, min_value = self.feature_scale(target_array)
         # NOTE: read paper, not sure if we need to scale features!!!

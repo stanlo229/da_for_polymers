@@ -5,7 +5,7 @@ import pkg_resources
 import random
 from rdkit import Chem
 
-from da_for_polymers.ML_models.sklearn.data.Swelling_Xu.tokenizer import Tokenizer
+from da_for_polymers.ML_models.sklearn.tokenizer import Tokenizer
 
 PV_MASTER = pkg_resources.resource_filename(
     "da_for_polymers",
@@ -17,7 +17,7 @@ AUGMENT_SMILES_DATA = pkg_resources.resource_filename(
     "data/input_representation/PV_Wang/augmentation/train_aug_master.csv",
 )
 
-SEED_VAL = 4
+SEED_VAL = 22
 
 random.seed(SEED_VAL)
 
@@ -65,7 +65,7 @@ class Augment:
             num_of_augment: number of augmentations to perform per SMILES
 
         Returns:
-            New .csv with PS_pair_aug, PS_pair_tokenized_list, and SD(%)
+            New .csv with Augmented_SMILES, PS_pair_tokenized_list, and SD(%)
         """
         # keeps randomness the same
         column_names = [
@@ -73,7 +73,7 @@ class Augment:
             "Polymer_SMILES",
             "Solvent",
             "Solvent_SMILES",
-            "PS_pair_aug",
+            "Augmented_SMILES",
         ]
         train_aug_df = pd.DataFrame(columns=column_names)
         train_aug_df["Polymer"] = self.data["Polymer"]
@@ -166,7 +166,7 @@ class Augment:
                     ):
                         inf_loop += 1
 
-            train_aug_df.at[i, "PS_pair_aug"] = augmented_ps_list
+            train_aug_df.at[i, "Augmented_SMILES"] = augmented_ps_list
             total_augmented += len(augmented_ps_list)
 
         print("TOTAL_COUNT: ", total_augmented)
@@ -187,8 +187,8 @@ class Augment:
         # initialize new columns
         aug_smi_data["PS_pair_tokenized_aug"] = " "
         ps_aug_list = []
-        for i in range(len(aug_smi_data["PS_pair_aug"])):
-            ps_aug_list.append(ast.literal_eval(aug_smi_data["PS_pair_aug"][i]))
+        for i in range(len(aug_smi_data["Augmented_SMILES"])):
+            ps_aug_list.append(ast.literal_eval(aug_smi_data["Augmented_SMILES"][i]))
 
         # build token2idx dictionary
         # flatten lists
@@ -227,7 +227,7 @@ class Augment:
 
 
 augmenter = Augment(PV_MASTER)
-augmenter.aug_smi_doRandom(AUGMENT_SMILES_DATA, 4)
+augmenter.aug_smi_doRandom(AUGMENT_SMILES_DATA, 5)
 # augmenter.aug_smi_tokenize(AUGMENT_SMILES_DATA)
 
 # from rdkit.Chem import Descriptors

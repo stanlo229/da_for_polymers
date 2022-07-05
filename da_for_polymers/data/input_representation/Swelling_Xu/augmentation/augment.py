@@ -5,7 +5,7 @@ import pkg_resources
 import random
 from rdkit import Chem
 
-from da_for_polymers.ML_models.sklearn.data.Swelling_Xu.tokenizer import Tokenizer
+from da_for_polymers.ML_models.sklearn.tokenizer import Tokenizer
 
 SWELLING_MASTER = pkg_resources.resource_filename(
     "da_for_polymers",
@@ -17,7 +17,7 @@ AUGMENT_SMILES_DATA = pkg_resources.resource_filename(
     "data/input_representation/Swelling_Xu/augmentation/train_aug_master.csv",
 )
 
-SEED_VAL = 4
+SEED_VAL = 22
 
 random.seed(SEED_VAL)
 
@@ -45,7 +45,7 @@ class Augment:
         Args:
             tokenized_array: tokenized SMILES array to be padded
             seq_len: maximum sequence length for the entire dataset
-        
+
         Returns:
             pre-padded tokenized SMILES
         """
@@ -65,7 +65,7 @@ class Augment:
             num_of_augment: number of augmentations to perform per SMILES
 
         Returns:
-            New .csv with PS_pair_aug, SP_pair_aug, PS_pair_tokenized_list, SP_pair_tokenized_list, and SD(%)
+            New .csv with Augmented_SMILES, SP_pair_aug, PS_pair_tokenized_list, SP_pair_tokenized_list, and SD(%)
         """
         # keeps randomness the same
         column_names = [
@@ -73,7 +73,7 @@ class Augment:
             "Polymer_SMILES",
             "Solvent",
             "Solvent_SMILES",
-            "PS_pair_aug",
+            "Augmented_SMILES",
             "SD",
         ]
         train_aug_df = pd.DataFrame(columns=column_names)
@@ -122,7 +122,7 @@ class Augment:
                 ):
                     inf_loop += 1
 
-            train_aug_df.at[i, "PS_pair_aug"] = augmented_ps_list
+            train_aug_df.at[i, "Augmented_SMILES"] = augmented_ps_list
 
         print("TOTAL COUNT: ", total_count)
 
@@ -136,15 +136,15 @@ class Augment:
             train_aug_data: path to augmented data to be tokenized
 
         Returns:
-            new columns to train_aug_master.csv: DA_pair_tokenized_aug, AD_pair_tokenized_aug 
+            new columns to train_aug_master.csv: DA_pair_tokenized_aug, AD_pair_tokenized_aug
         """
         aug_smi_data = pd.read_csv(train_aug_data)
         # initialize new columns
         aug_smi_data["PS_pair_tokenized_aug"] = " "
         aug_smi_data["SP_pair_tokenized_aug"] = " "
         ps_aug_list = []
-        for i in range(len(aug_smi_data["PS_pair_aug"])):
-            ps_aug_list.append(ast.literal_eval(aug_smi_data["PS_pair_aug"][i]))
+        for i in range(len(aug_smi_data["Augmented_SMILES"])):
+            ps_aug_list.append(ast.literal_eval(aug_smi_data["Augmented_SMILES"][i]))
 
         sp_aug_list = []
         for i in range(len(aug_smi_data["SP_pair_aug"])):
@@ -210,4 +210,3 @@ augmenter.aug_smi_doRandom(AUGMENT_SMILES_DATA, 8)
 #         )
 #     )
 # )
-

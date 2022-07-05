@@ -1,2 +1,0 @@
-Dataset,num_of_folds,Features,Targets,Model,r_mean,r_std,r2_mean,r2_std,rmse_mean,rmse_std,mae_mean,mae_std,num_of_data
-CO2_Soleimani,7,"CO2_FP_radius_3_nbits_512,T_K,P_Mpa",exp_CO2_sol_g_g,RF,0.9913709324350403,8.254029864657632e-05,0.9828163324900219,0.0001636644120458382,0.016441113809623258,8.864038146655513e-05,0.010301243557677042,9.815136867428433e-05,515

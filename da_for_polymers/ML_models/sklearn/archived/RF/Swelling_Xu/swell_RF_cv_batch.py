@@ -43,7 +43,7 @@ SUMMARY_DIR = pkg_resources.resource_filename(
     "da_for_polymers", "ML_models/sklearn/RF/Swelling_Xu/swell_rf_results.csv"
 )
 
-SEED_VAL = 4
+SEED_VAL = 22
 
 
 def custom_scorer(y, yhat):

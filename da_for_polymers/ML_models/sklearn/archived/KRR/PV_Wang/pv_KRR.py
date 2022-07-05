@@ -52,7 +52,7 @@ SUMMARY_DIR = pkg_resources.resource_filename(
     "da_for_polymers", "ML_models/sklearn/KRR/PV_Wang/"
 )
 
-SEED_VAL = 4
+SEED_VAL = 22
 
 
 def custom_scorer(y, yhat):
@@ -559,5 +559,8 @@ summary_series = pd.DataFrame(
     },
     index=[0],
 )
-summary_df = pd.concat([summary_df, summary_series], ignore_index=True,)
+summary_df = pd.concat(
+    [summary_df, summary_series],
+    ignore_index=True,
+)
 summary_df.to_csv(SUMMARY_DIR, index=False)

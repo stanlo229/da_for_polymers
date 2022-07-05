@@ -60,7 +60,7 @@ CHECKPOINT_DIR = pkg_resources.resource_filename(
     "da_for_polymers", "model_checkpoints/NN"
 )
 
-SEED_VAL = 4
+SEED_VAL = 22
 
 # initialize weights for model
 def initialize_weights(model):

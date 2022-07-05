@@ -24,7 +24,8 @@ TRAIN_MASTER_DATA = pkg_resources.resource_filename(
 )
 
 AUG_SMI_MASTER_DATA = pkg_resources.resource_filename(
-    "da_for_polymers", "data/input_representation/OPV_Min/augmentation/train_aug_master4.csv"
+    "da_for_polymers",
+    "data/input_representation/OPV_Min/augmentation/train_aug_master4.csv",
 )
 
 BRICS_MASTER_DATA = pkg_resources.resource_filename(
@@ -32,18 +33,20 @@ BRICS_MASTER_DATA = pkg_resources.resource_filename(
 )
 
 MANUAL_MASTER_DATA = pkg_resources.resource_filename(
-    "da_for_polymers", "data/input_representation/OPV_Min/manual_frag/master_manual_frag.csv"
+    "da_for_polymers",
+    "data/input_representation/OPV_Min/manual_frag/master_manual_frag.csv",
 )
 
 FP_MASTER_DATA = pkg_resources.resource_filename(
-    "da_for_polymers", "data/input_representation/OPV_Min/fingerprint/opv_fingerprint.csv"
+    "da_for_polymers",
+    "data/input_representation/OPV_Min/fingerprint/opv_fingerprint.csv",
 )
 
 SUMMARY_DIR = pkg_resources.resource_filename(
     "da_for_polymers", "ML_models/sklearn/OPV_Min/"
 )
 
-SEED_VAL = 4
+SEED_VAL = 22
 
 
 def custom_scorer(y, yhat):
@@ -557,9 +560,10 @@ if batch:
                     vocab_length,
                     input_dict,  # dictionary of vocab
                 ) = Tokenizer().tokenize_data(aug_x_train)
-                (tokenized_test, test_max_seq_length,) = Tokenizer().tokenize_from_dict(
-                    x_test, max_seq_length, input_dict
-                )
+                (
+                    tokenized_test,
+                    test_max_seq_length,
+                ) = Tokenizer().tokenize_from_dict(x_test, max_seq_length, input_dict)
 
                 x_test = np.array(tokenized_test)
                 x_train = np.array(tokenized_input)
@@ -624,7 +628,10 @@ if batch:
             },
             index=[0],
         )
-        summary_df = pd.concat([summary_df, summary_series], ignore_index=True,)
+        summary_df = pd.concat(
+            [summary_df, summary_series],
+            ignore_index=True,
+        )
     summary_df.to_csv(SUMMARY_DIR, index=False)
 else:
     for key in unique_datatype.keys():
@@ -677,9 +684,10 @@ else:
                 input_dict,  # dictionary of vocab
             ) = Tokenizer().tokenize_data(aug_x_train)
 
-            (tokenized_test, test_max_seq_length,) = Tokenizer().tokenize_from_dict(
-                x_test, max_seq_length, input_dict
-            )
+            (
+                tokenized_test,
+                test_max_seq_length,
+            ) = Tokenizer().tokenize_from_dict(x_test, max_seq_length, input_dict)
 
             x_test = np.array(tokenized_test)
             x_train = np.array(tokenized_input)
@@ -756,6 +764,8 @@ else:
         },
         index=[0],
     )
-    summary_df = pd.concat([summary_df, summary_series], ignore_index=True,)
+    summary_df = pd.concat(
+        [summary_df, summary_series],
+        ignore_index=True,
+    )
     summary_df.to_csv(SUMMARY_DIR, index=False)
-

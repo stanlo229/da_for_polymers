@@ -5,7 +5,7 @@ import pkg_resources
 import random
 from rdkit import Chem
 
-from da_for_polymers.ML_models.sklearn.data.OPV_Min.tokenizer import Tokenizer
+from da_for_polymers.ML_models.sklearn.tokenizer import Tokenizer
 
 MASTER_DATA = pkg_resources.resource_filename(
     "da_for_polymers", "data/preprocess/OPV_Min/master_ml_for_opvs_from_min.csv"
@@ -13,7 +13,7 @@ MASTER_DATA = pkg_resources.resource_filename(
 
 AUGMENT_SMILES_DATA = pkg_resources.resource_filename(
     "da_for_polymers",
-    "data/input_representation/OPV_Min/augmentation/train_aug_master5.csv",
+    "data/input_representation/OPV_Min/augmentation/train_aug_master.csv",
 )
 
 
@@ -40,7 +40,7 @@ class Augment:
         Args:
             tokenized_array: tokenized SMILES array to be padded
             seq_len: maximum sequence length for the entire dataset
-        
+
         Returns:
             pre-padded tokenized SMILES
         """
@@ -60,12 +60,12 @@ class Augment:
             num_of_augment: number of augmentations to perform per SMILES
 
         Returns:
-            New .csv with DA_pair_aug, AD_pair_aug, DA_pair_tokenized_list, AD_pair_tokenized_list, and PCE
+            New .csv with Augmented_SMILES, AD_pair_aug, DA_pair_tokenized_list, AD_pair_tokenized_list, and PCE
         """
         # keeps randomness the same
         random.seed(1)
         train_aug_df = self.data
-        train_aug_df["DA_pair_aug"] = ""
+        train_aug_df["Augmented_SMILES"] = ""
 
         total_count = 0
 
@@ -97,7 +97,7 @@ class Augment:
                     augmented += 1
                     total_count += 1
 
-            train_aug_df.at[i, "DA_pair_aug"] = augmented_da_list
+            train_aug_df.at[i, "Augmented_SMILES"] = augmented_da_list
 
         print("TOTAL_COUNT: ", total_count)
         train_aug_df.to_csv(augment_smiles_data)
@@ -110,15 +110,15 @@ class Augment:
             train_aug_data: path to augmented data to be tokenized
 
         Returns:
-            new columns to train_aug_master.csv: DA_pair_tokenized_aug, AD_pair_tokenized_aug 
+            new columns to train_aug_master.csv: DA_pair_tokenized_aug, AD_pair_tokenized_aug
         """
         aug_smi_data = pd.read_csv(train_aug_data)
         # initialize new columns
         aug_smi_data["DA_pair_tokenized_aug"] = " "
         aug_smi_data["AD_pair_tokenized_aug"] = " "
         da_aug_list = []
-        for i in range(len(aug_smi_data["DA_pair_aug"])):
-            da_aug_list.append(ast.literal_eval(aug_smi_data["DA_pair_aug"][i]))
+        for i in range(len(aug_smi_data["Augmented_SMILES"])):
+            da_aug_list.append(ast.literal_eval(aug_smi_data["Augmented_SMILES"][i]))
 
         ad_aug_list = []
         for i in range(len(aug_smi_data["AD_pair_aug"])):
@@ -172,7 +172,7 @@ class Augment:
 
 
 augmenter = Augment(MASTER_DATA)
-augmenter.aug_smi_doRandom(AUGMENT_SMILES_DATA, 4)
+augmenter.aug_smi_doRandom(AUGMENT_SMILES_DATA, 5)
 # augmenter.aug_smi_tokenize(AUGMENT_SMILES_DATA)
 
 # from rdkit.Chem import Descriptors

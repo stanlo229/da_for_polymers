@@ -57,7 +57,7 @@ FEATURE_DIR = pkg_resources.resource_filename(
 
 
 np.set_printoptions(precision=3)
-SEED_VAL = 4
+SEED_VAL = 22
 
 
 def custom_scorer(y, yhat):
@@ -71,7 +71,7 @@ def augment_smi_in_loop(x, y, num_of_augment, swap: bool):
     Uses doRandom=True for augmentation
     Ex. num_of_augment = 4 --> 5x amount of data, if swap = True --> 2x amount of data
     Result of both --> 10x amount of data.
-    
+
     Arguments
     ----------
     num_of_augment: number of new random SMILES
@@ -681,7 +681,9 @@ for train_ix, test_ix in cv_outer.split(x):
         importances = importances[len(importances) - device_idx : len(importances)]
         forest_importances = pd.DataFrame(importances, index=feature_columns)
         feature_impt_df = pd.concat(
-            [feature_impt_df, forest_importances], axis=1, ignore_index=False,
+            [feature_impt_df, forest_importances],
+            axis=1,
+            ignore_index=False,
         )
     if shapley:
         explainer = shap.TreeExplainer(best_model)
@@ -723,7 +725,10 @@ summary_series = pd.DataFrame(
     },
     index=[0],
 )
-summary_df = pd.concat([summary_df, summary_series], ignore_index=True,)
+summary_df = pd.concat(
+    [summary_df, summary_series],
+    ignore_index=True,
+)
 summary_df.to_csv(SUMMARY_DIR, index=False)
 
 if feature:
@@ -743,4 +748,3 @@ if feature:
         "fabrication_solvent_minus_active_layer",
     ]:
         feature_impt_df.to_csv(FEATURE_DIR)
-

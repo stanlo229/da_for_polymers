@@ -5,7 +5,7 @@ import pkg_resources
 import random
 from rdkit import Chem
 
-from da_for_polymers.ML_models.sklearn.data.Swelling_Xu.tokenizer import Tokenizer
+from da_for_polymers.ML_models.sklearn.tokenizer import Tokenizer
 
 MASTER_CO2_DATA = pkg_resources.resource_filename(
     "da_for_polymers", "data/preprocess/CO2_Soleimani/co2_expt_data.csv"
@@ -63,7 +63,7 @@ class Augment:
             num_of_augment: number of augmentations to perform per SMILES
 
         Returns:
-            New .csv with PS_pair_aug, PS_pair_tokenized_list, and SD(%)
+            New .csv with Augmented_SMILES, PS_pair_tokenized_list, and SD(%)
         """
         # keeps randomness the same
         column_names = [
@@ -71,10 +71,10 @@ class Augment:
             "Polymer_SMILES",
             "T_K",
             "P_Mpa",
-            "exp_CO2_sol _g_g",
-            "pred_CO2_sol _g_g",
+            "exp_CO2_sol_g_g",
+            "pred_CO2_sol_g_g",
             "train/test",
-            "Polymer_Augmented_SMILES",
+            "Augmented_SMILES",
             # "Polymer_Tokenized_Augmented_SMILES",
         ]
         train_aug_df = pd.DataFrame(columns=column_names)
@@ -82,10 +82,10 @@ class Augment:
         train_aug_df["Polymer_SMILES"] = self.data["Polymer_SMILES"]
         train_aug_df["T_K"] = self.data["T_K"]
         train_aug_df["P_Mpa"] = self.data["P_Mpa"]
-        train_aug_df["exp_CO2_sol _g_g"] = self.data["exp_CO2_sol _g_g"]
-        train_aug_df["pred_CO2_sol _g_g"] = self.data["pred_CO2_sol _g_g"]
+        train_aug_df["exp_CO2_sol_g_g"] = self.data["exp_CO2_sol_g_g"]
+        train_aug_df["pred_CO2_sol_g_g"] = self.data["pred_CO2_sol_g_g"]
         train_aug_df["train/test"] = self.data["train/test"]
-        train_aug_df["Polymer_Augmented_SMILES"] = ""
+        train_aug_df["Augmented_SMILES"] = ""
         # train_aug_df["Polymer_Tokenized_Augmented_SMILES"] = ""
 
         total_data_count = 0
@@ -140,11 +140,11 @@ class Augment:
                     elif polymer_aug_smi == unique_polymer[0]:
                         inf_loop += 1
 
-            train_aug_df.at[i, "Polymer_Augmented_SMILES"] = augmented_p_list
+            train_aug_df.at[i, "Augmented_SMILES"] = augmented_p_list
 
         print("TOTAL AMOUNT OF DATA: ", total_data_count)
 
-        train_aug_df.to_csv(augment_smiles_data, index=True)
+        train_aug_df.to_csv(augment_smiles_data, index=False)
 
     def aug_smi_tokenize(self, train_aug_data):
         """
@@ -160,10 +160,8 @@ class Augment:
         # initialize new columns
         aug_smi_data["Polymer_Tokenized_Augmented_SMILES"] = " "
         ps_aug_list = []
-        for i in range(len(aug_smi_data["Polymer_Augmented_SMILES"])):
-            ps_aug_list.append(
-                ast.literal_eval(aug_smi_data["Polymer_Augmented_SMILES"][i])
-            )
+        for i in range(len(aug_smi_data["Augmented_SMILES"])):
+            ps_aug_list.append(ast.literal_eval(aug_smi_data["Augmented_SMILES"][i]))
 
         # build token2idx dictionary
         # flatten lists
@@ -202,7 +200,7 @@ class Augment:
 
 
 augmenter = Augment(MASTER_CO2_DATA)
-augmenter.aug_smi_doRandom(AUGMENT_SMILES_DATA, 4)
+augmenter.aug_smi_doRandom(AUGMENT_SMILES_DATA, 5)
 
 # from rdkit.Chem import Descriptors
 

@@ -60,7 +60,7 @@ CHECKPOINT_DIR = pkg_resources.resource_filename(
     "da_for_polymers", "model_checkpoints/NN"
 )
 
-SEED_VAL = 4
+SEED_VAL = 22
 
 # initialize weights for model
 def initialize_weights(model):
@@ -225,7 +225,10 @@ def cli_main():
         )
     )
     checkpoint_callback = ModelCheckpoint(
-        monitor="val_loss", filename=CHECKPOINT_DIR + suffix, save_top_k=1, mode="min",
+        monitor="val_loss",
+        filename=CHECKPOINT_DIR + suffix,
+        save_top_k=1,
+        mode="min",
     )
     parser.add_argument("--callbacks", type=str, default=[checkpoint_callback])
     args = parser.parse_args()

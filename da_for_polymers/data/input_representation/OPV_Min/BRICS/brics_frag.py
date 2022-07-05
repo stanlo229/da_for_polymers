@@ -4,8 +4,6 @@ import matplotlib.pyplot as plt
 from rdkit import Chem
 from rdkit.Chem import BRICS
 from rdkit.Chem import Draw, rdmolops
-from rdkit.Chem.Draw import IPythonConsole
-from IPython.display import display
 from collections import deque
 import numpy as np
 import copy
@@ -28,7 +26,7 @@ class BRIC_FRAGS:
     def __init__(self, datapath):
         """
         Inits BRIC_FRAGS with preprocessed data
-        
+
         Args:
             datapath: path to preprocessed donor-acceptor data
         """
@@ -131,7 +129,7 @@ class BRIC_FRAGS:
             # print(donor_smi, donor_brics_smi)
             brics_df.at[index, "Acceptor_BRICS"] = acceptor_brics_smi
             # da_pair fragments
-            da_pair = donor_brics_smi
+            da_pair = copy.copy(donor_brics_smi)
             da_pair.append(".")
             da_pair.extend(acceptor_brics_smi)
             brics_df.at[index, "DA_pair_BRICS"] = da_pair
@@ -145,7 +143,7 @@ class BRIC_FRAGS:
 
         Args:
             dictionary of unique fragments from donor and acceptor molecules
-        
+
         Returns:
             img: image of all the unique fragments
         """
@@ -163,7 +161,7 @@ class BRIC_FRAGS:
             subImgSize=(300, 300),
             legends=frag_legends,
         )
-        display(img)
+        plt.show(img)
 
 
 b_frag = BRIC_FRAGS(MASTER_DATA)

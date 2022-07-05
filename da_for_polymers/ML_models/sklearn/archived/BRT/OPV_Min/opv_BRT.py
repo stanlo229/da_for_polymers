@@ -64,7 +64,7 @@ SUMMARY_DIR = pkg_resources.resource_filename(
 )
 
 np.set_printoptions(precision=3)
-SEED_VAL = 4
+SEED_VAL = 22
 
 
 def custom_scorer(y, yhat):
@@ -78,7 +78,7 @@ def augment_smi_in_loop(x, y, num_of_augment, swap: bool):
     Uses doRandom=True for augmentation
     Ex. num_of_augment = 4 --> 5x amount of data, if swap = True --> 2x amount of data
     Result of both --> 10x amount of data.
-    
+
     Arguments
     ----------
     num_of_augment: number of new random SMILES

@@ -47,7 +47,7 @@ FP_MASTER_DATA = pkg_resources.resource_filename(
     "data/input_representation/OPV_Min/fingerprint/opv_fingerprint.csv",
 )
 
-SEED_VAL = 4
+SEED_VAL = 22
 
 
 def custom_scorer(y, yhat):

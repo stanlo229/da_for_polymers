@@ -62,7 +62,7 @@ TROUBLESHOOT = pkg_resources.resource_filename(
     "da_for_polymers", "ML_models/pytorch/Transformer/"
 )
 
-SEED_VAL = 4
+SEED_VAL = 22
 
 os.environ["TOKENIZERS_PARALLELISM"] = "false"
 
@@ -532,10 +532,10 @@ class OPVDataModule(pl.LightningDataModule):
             # print("num_of_pairs: ", self.data_size)
 
             # tokenize augmented SMILES
-            # print(len(ast.literal_eval(data["DA_pair_aug"][0])))
+            # print(len(ast.literal_eval(data["Augmented_SMILES"][0])))
             da_aug_list = []
-            for i in range(len(data["DA_pair_aug"])):
-                da_aug_list.extend(ast.literal_eval(data["DA_pair_aug"][i]))
+            for i in range(len(data["Augmented_SMILES"])):
+                da_aug_list.extend(ast.literal_eval(data["Augmented_SMILES"][i]))
 
             ad_aug_list = []
             for i in range(len(data["AD_pair_aug"])):

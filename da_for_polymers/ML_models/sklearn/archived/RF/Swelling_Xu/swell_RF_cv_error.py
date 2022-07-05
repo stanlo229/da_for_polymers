@@ -48,7 +48,7 @@ ERROR_CSV = pkg_resources.resource_filename(
     "da_for_polymers", "ML_models/sklearn/RF/Swelling_Xu/swell_RF_error.csv"
 )
 
-SEED_VAL = 4
+SEED_VAL = 22
 
 
 def custom_scorer(y, yhat):
@@ -361,4 +361,3 @@ for i in seed:
     # print(sum_train_error, sum_train_count)
 
 error_df.to_csv(ERROR_CSV, index=False)
-

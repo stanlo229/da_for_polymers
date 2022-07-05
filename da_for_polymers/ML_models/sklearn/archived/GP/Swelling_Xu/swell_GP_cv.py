@@ -43,7 +43,7 @@ BRICS_FRAG_DATA = pkg_resources.resource_filename(
     "data/input_representation/Swelling_Xu/BRICS/master_brics_frag.csv",
 )
 
-SEED_VAL = 4
+SEED_VAL = 22
 
 
 def custom_scorer(y, yhat):

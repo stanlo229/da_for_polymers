@@ -59,7 +59,7 @@ class Tokenizer:
         # Sorting the atoms according to the number of appearances, with the most common atom being first
         input_dict = sorted(input_dict, key=input_dict.get, reverse=True)
         # Adding padding and unknown to our vocabulary so that they will be assigned an index
-        input_dict = ["_PAD", "_UNK", "\\", "/"] + input_dict
+        input_dict = ["_UNK", "_PAD", "\\", "/"] + input_dict
         print(input_dict)
 
         # Dictionaries to store the token to index mappings and vice versa
@@ -81,7 +81,7 @@ class Tokenizer:
 
         return tokenized_array, max_length, vocab_length, token2idx
 
-    def tokenize_selfies(self, da_pair):
+    def tokenize_selfies(self, da_pair: pd.Series):
         """
         Function that returns max selfie length and unique selfie dictionary
         """

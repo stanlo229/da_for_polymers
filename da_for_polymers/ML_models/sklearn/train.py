@@ -3,7 +3,9 @@
 2. Output of prediction files must have consistent column names. (Ex. predicted_value, ground_truth_value)
 3. Summary file that contains R, R2, RMSE, MAE of all folds.
 """
+from ctypes import Union
 import os
+from typing import Tuple
 import pandas as pd
 import pickle  # for saving scikit-learn models
 import numpy as np
@@ -20,7 +22,11 @@ from sklearn.svm import SVR
 from sklearn.kernel_ridge import KernelRidge
 import xgboost
 
-from da_for_polymers.ML_models.sklearn.pipeline import Pipeline
+from da_for_polymers.ML_models.sklearn.pipeline import (
+    process_features,
+    process_target,
+    get_space_dict,
+)
 
 
 def custom_scorer(y, yhat):
@@ -77,19 +83,21 @@ def main(config: dict):
         (
             input_train_array,
             input_val_array,
-        ) = Pipeline().process_features(  # additional features are added at the end of array
+        ) = process_features(  # additional features are added at the end of array
             train_df[config["feature_names"].split(",")],
             val_df[config["feature_names"].split(",")],
         )
         # process target values
+        target_df_columns = config["target_name"].split(",")
+        target_df_columns.extend(config["feature_names"].split(","))
         (
             target_train_array,
             target_val_array,
             target_max,
             target_min,
-        ) = Pipeline().process_target(
-            train_df[config["target_name"].split(",")],
-            val_df[config["target_name"].split(",")],
+        ) = process_target(
+            train_df[target_df_columns],
+            val_df[target_df_columns],
         )
 
         # choose model
@@ -135,7 +143,7 @@ def main(config: dict):
         # run hyperparameter optimization
         if config["hyperparameter_optimization"]:
             # setup HPO space
-            space = Pipeline().get_space_dict(
+            space = get_space_dict(
                 config["hyperparameter_space_path"], config["model_type"]
             )
             # define search
@@ -152,8 +160,9 @@ def main(config: dict):
             # train
             # execute search
             result = search.fit(input_train_array, target_train_array)
+            # save best hyperparams for the best model from each fold
+            best_params: dict = result.best_params_
             # get the best performing model fit on the whole training set
-            # TODO: save best hyperparams for each model
             model = result.best_estimator_
             # inference on hold out set
             yhat: np.ndarray = model.predict(input_val_array)
@@ -181,6 +190,16 @@ def main(config: dict):
         # save model
         model_path: Path = target_dir_path / "model_{}.sav".format(fold)
         pickle.dump(model, open(model_path, "wb"))  # difficult to maintain
+        # save best hyperparams for the best model from each fold
+        if config["hyperparameter_optimization"]:
+            hyperparam_path: Path = (
+                target_dir_path / "hyperparameter_optimization_{}.csv".format(fold)
+            )
+            hyperparam_df: pd.DataFrame = pd.DataFrame.from_dict(
+                best_params, orient="index"
+            )
+            hyperparam_df = hyperparam_df.transpose()
+            hyperparam_df.to_csv(hyperparam_path, index=False)
         # save outputs
         prediction_path: Path = target_dir_path / "prediction_{}.csv".format(fold)
         # export predictions

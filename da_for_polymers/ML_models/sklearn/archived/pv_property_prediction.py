@@ -20,7 +20,8 @@ from sklearn.model_selection import GridSearchCV, KFold, StratifiedKFold
 from skopt import BayesSearchCV
 
 AUGMENT_SMILES_DATA = pkg_resources.resource_filename(
-    "da_for_polymers", "data/input_representation/PV_Wang/augmentation/train_aug_master.csv",
+    "da_for_polymers",
+    "data/input_representation/PV_Wang/augmentation/train_aug_master.csv",
 )
 
 BRICS_FRAG_DATA = pkg_resources.resource_filename(
@@ -32,18 +33,20 @@ MASTER_TRAIN_DATA = pkg_resources.resource_filename(
 )
 
 MASTER_MANUAL_DATA = pkg_resources.resource_filename(
-    "da_for_polymers", "data/input_representation/PV_Wang/manual_frag/master_manual_frag.csv",
+    "da_for_polymers",
+    "data/input_representation/PV_Wang/manual_frag/master_manual_frag.csv",
 )
 
 FP_PERVAPORATION = pkg_resources.resource_filename(
-    "da_for_polymers", "data/input_representation/PV_Wang/fingerprint/pv_fingerprint.csv",
+    "da_for_polymers",
+    "data/input_representation/PV_Wang/fingerprint/pv_fingerprint.csv",
 )
 
 SUMMARY_DIR = pkg_resources.resource_filename(
     "da_for_polymers", "ML_models/sklearn/PV_Wang/"
 )
 
-SEED_VAL = 4
+SEED_VAL = 22
 
 
 def custom_scorer(y, yhat):
@@ -784,7 +787,10 @@ if batch:
             },
             index=[0],
         )
-        summary_df = pd.concat([summary_df, summary_series], ignore_index=True,)
+        summary_df = pd.concat(
+            [summary_df, summary_series],
+            ignore_index=True,
+        )
     summary_df.to_csv(SUMMARY_DIR, index=False)
 else:
     for key in unique_datatype.keys():
@@ -866,9 +872,10 @@ else:
                 input_dict,  # dictionary of vocab
             ) = Tokenizer().tokenize_data(aug_x_train)
             if descriptor_param == "none":
-                (tokenized_test, test_max_seq_length,) = Tokenizer().tokenize_from_dict(
-                    x_test, max_seq_length, input_dict
-                )
+                (
+                    tokenized_test,
+                    test_max_seq_length,
+                ) = Tokenizer().tokenize_from_dict(x_test, max_seq_length, input_dict)
                 if test_max_seq_length > max_seq_length:
                     (tokenized_input, max_seq_length,) = Tokenizer().tokenize_from_dict(
                         aug_x_train, test_max_seq_length, input_dict
@@ -1006,6 +1013,8 @@ else:
         },
         index=[0],
     )
-    summary_df = pd.concat([summary_df, summary_series], ignore_index=True,)
+    summary_df = pd.concat(
+        [summary_df, summary_series],
+        ignore_index=True,
+    )
     summary_df.to_csv(SUMMARY_DIR, index=False)
-

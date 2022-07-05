@@ -45,7 +45,7 @@ SUMMARY_DIR = pkg_resources.resource_filename(
     "da_for_polymers", "ML_models/sklearn/CO2_Soleimani/"
 )
 
-SEED_VAL = 4
+SEED_VAL = 22
 
 
 def custom_scorer(y, yhat):
@@ -575,7 +575,10 @@ if batch:
             },
             index=[0],
         )
-        summary_df = pd.concat([summary_df, summary_series], ignore_index=True,)
+        summary_df = pd.concat(
+            [summary_df, summary_series],
+            ignore_index=True,
+        )
     summary_df.to_csv(SUMMARY_DIR, index=False)
 else:
     for key in unique_datatype.keys():
@@ -659,9 +662,10 @@ else:
                 input_dict,  # dictionary of vocab
             ) = Tokenizer().tokenize_data(aug_x_train)
             if descriptor_param == "none":
-                (tokenized_test, test_max_seq_length,) = Tokenizer().tokenize_from_dict(
-                    x_test, max_seq_length, input_dict
-                )
+                (
+                    tokenized_test,
+                    test_max_seq_length,
+                ) = Tokenizer().tokenize_from_dict(x_test, max_seq_length, input_dict)
                 if test_max_seq_length > max_seq_length:
                     (tokenized_input, max_seq_length,) = Tokenizer().tokenize_from_dict(
                         aug_x_train, test_max_seq_length, input_dict
@@ -804,6 +808,8 @@ else:
         },
         index=[0],
     )
-    summary_df = pd.concat([summary_df, summary_series], ignore_index=True,)
+    summary_df = pd.concat(
+        [summary_df, summary_series],
+        ignore_index=True,
+    )
     summary_df.to_csv(SUMMARY_DIR, index=False)
-

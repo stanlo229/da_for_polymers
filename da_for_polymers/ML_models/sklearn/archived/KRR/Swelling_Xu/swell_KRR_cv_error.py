@@ -46,7 +46,7 @@ ERROR_CSV = pkg_resources.resource_filename(
     "da_for_polymers", "ML_models/sklearn/KRR/Swelling_Xu/swell_KRR_error.csv"
 )
 
-SEED_VAL = 4
+SEED_VAL = 22
 
 
 def custom_scorer(y, yhat):
