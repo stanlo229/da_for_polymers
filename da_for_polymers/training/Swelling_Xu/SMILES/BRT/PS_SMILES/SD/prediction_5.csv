@@ -1,0 +1,12 @@
+predicted_SD,PS_SMILES
+5.1633587,Cc7ccc(Cc6ccc(c5ccc(n4c(=O)c3ccc(C(=O)c2ccc1c(=O)n(C)c(=O)c1c2)cc3c4=O)c(C)c5)cc6)cc7.CCCCCC
+8.9997425,COc2ccc(S(=O)(=O)c1ccc(C)cc1)cc2.c1ccccc1C
+13.091455,C/C(C)=C(C)\[Si](C)(C)C.CCOC(=O)C
+7.605729,C[Si](C)(C)OC.CCC(=O)C
+7.275387,C[Si](C)(C)OC.CC(=O)C
+9.373295,Cc7ccc(Cc6ccc(c5ccc(n4c(=O)c3ccc(C(=O)c2ccc1c(=O)n(C)c(=O)c1c2)cc3c4=O)c(C)c5)cc6)cc7.CC(=O)C
+2.055258,Cc7cccc(n6c(=O)c5ccc(Oc4ccc(C(C)(C)c3ccc(Oc2ccc1c(=O)n(C)c(=O)c1c2)cc3)cc4)cc5c6=O)c7.CC(C)O
+5.671426,C[Si](C)(C)OC.CCO
+10.547288,CNCCCCCCCCCCCC(=O)OCCCCCOCCCCOCCCCC.CO
+5.1608315,COc4ccc(S(=O)(=O)c3ccc(Oc2ccc(C(C)(C)c1ccc(C)cc1)cc2)cc3)cc4.CO
+4.9660535,Cc7cccc(n6c(=O)c5ccc(Oc4ccc(C(C)(C)c3ccc(Oc2ccc1c(=O)n(C)c(=O)c1c2)cc3)cc4)cc5c6=O)c7.O

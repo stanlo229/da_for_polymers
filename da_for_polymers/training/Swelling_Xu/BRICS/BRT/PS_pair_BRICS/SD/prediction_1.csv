@@ -1,0 +1,12 @@
+predicted_SD,PS_pair_BRICS
+5.621836,"['CCC(C)C#N', '.', 'CCCCCC']"
+7.5241876,"['CCC(C)C#N', '.', 'Cc1ccccc1']"
+12.889059,"['O', 'CCCCC', 'CCCCC', 'CCCC', 'CN', 'CCCCCCCCCCCC=O', '.', 'CC=O', 'O', 'CC']"
+10.843353,"['CN1C(=O)c2ccccc2C1=O', 'O', 'c1ccccc1', 'CCC', 'Cc1ccccc1', 'O=C1NC(=O)c2ccccc21', '.', 'CC=O', 'O', 'CC']"
+12.090116,"['CN1C(=O)c2ccccc2C1=O', 'C=O', 'O=C1NC(=O)c2ccccc21', 'Cc1ccc2c(c1)C(C)(c1ccccc1)CC2(C)C', '.', 'CCC(C)=O']"
+10.41497,"['CN1C(=O)c2ccccc2C1=O', 'C=O', 'O=C1NC(=O)c2ccccc21', 'Cc1ccc2c(c1)C(C)(c1ccccc1)CC2(C)C', '.', 'CC(C)=O']"
+7.412305,"['CO', 'O=S(=O)(c1ccccc1)c1ccccc1', 'O', 'c1ccccc1', 'Cc1ccccc1', 'CCC', '.', 'CC(C)O']"
+10.692081,"['CN1C(=O)c2ccccc2C1=O', 'C=O', 'O=C1NC(=O)c2ccccc21', 'Cc1ccc2c(c1)C(C)(c1ccccc1)CC2(C)C', '.', 'CC(C)O']"
+5.6382537,"['CO', 'Cc1ccc(S(=O)(=O)c2ccccc2)cc1', '.', 'CCO']"
+5.327028,"['CO', 'Cc1ccc(S(=O)(=O)c2ccccc2)cc1', '.', 'CO']"
+8.000417,"['CN1C(=O)c2ccccc2C1=O', 'C=O', 'O=C1NC(=O)c2ccccc21', 'Cc1ccc2c(c1)C(C)(c1ccccc1)CC2(C)C', '.', 'O']"
