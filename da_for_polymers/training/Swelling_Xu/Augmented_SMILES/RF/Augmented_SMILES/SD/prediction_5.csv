@@ -1,0 +1,57 @@
+predicted_SD,Augmented_SMILES
+4.315347398176278,"['Cc7ccc(Cc6ccc(c5ccc(n4c(=O)c3ccc(C(=O)c2ccc1c(=O)n(C)c(=O)c1c2)cc3c4=O)c(C)c5)cc6)cc7.CCCCCC', 'C1(N(C(c2c1ccc(c2)C(=O)c1cc2C(N(C(c2cc1)=O)C)=O)=O)c1c(C)cc(cc1)-c1ccc(Cc2ccc(C)cc2)cc1)=O.C(C)CCCC', 'c1cc(ccc1Cc1ccc(cc1)-c1cc(c(cc1)N1C(c2c(C1=O)ccc(C(=O)c1cc3C(=O)N(C(c3cc1)=O)C)c2)=O)C)C.C(CCCC)C', 'N1(c2c(C)cc(-c3ccc(cc3)Cc3ccc(cc3)C)cc2)C(=O)c2c(C1=O)ccc(C(c1ccc3c(C(=O)N(C)C3=O)c1)=O)c2.C(CCC)CC', 'c1cc(ccc1C)Cc1ccc(-c2ccc(N3C(c4c(cc(C(c5ccc6c(C(=O)N(C)C6=O)c5)=O)cc4)C3=O)=O)c(C)c2)cc1.C(CC)CCC']"
+5.710577944564369,"['COc2ccc(S(=O)(=O)c1ccc(C)cc1)cc2.c1ccccc1C', 'c1c(ccc(OC)c1)S(=O)(=O)c1ccc(C)cc1.c1cc(C)ccc1', 'c1cc(ccc1C)S(=O)(c1ccc(cc1)OC)=O.c1cccc(c1)C', 'c1cc(ccc1C)S(=O)(=O)c1ccc(cc1)OC.Cc1ccccc1', 'O=S(=O)(c1ccc(C)cc1)c1ccc(cc1)OC.c1c(cccc1)C', 'c1(C)ccc(cc1)S(=O)(=O)c1ccc(OC)cc1.c1cc(ccc1)C', 'Cc1ccc(S(c2ccc(cc2)OC)(=O)=O)cc1.c1(ccccc1)C', 'c1c(ccc(S(c2ccc(cc2)OC)(=O)=O)c1)C.c1ccc(C)cc1', 'S(=O)(c1ccc(C)cc1)(=O)c1ccc(cc1)OC.c1ccc(cc1)C']"
+6.478490850612306,"['C/C(C)=C(C)\\[Si](C)(C)C.CCOC(=O)C', 'C[Si](C)(C)C(C)=C(C)C.O=C(C)OCC', '[Si](C)(C)(C(=C(C)C)C)C.C(OC(=O)C)C', 'C[Si](C)(C)C(=C(C)C)C.CC(OCC)=O', 'C[Si](C(=C(C)C)C)(C)C.O(CC)C(C)=O', 'CC(=C(C)C)[Si](C)(C)C.O(C(=O)C)CC', 'C[Si](C(C)=C(C)C)(C)C.O(CC)C(=O)C', 'C(C)(=C(C)[Si](C)(C)C)C.CC(=O)OCC', 'CC(C)=C(C)[Si](C)(C)C.O=C(OCC)C']"
+7.6116741239596495,"['C[Si](C)(C)OC.CCC(=O)C', 'O(C)[Si](C)(C)C.C(C)(CC)=O', 'C[Si](OC)(C)C.O=C(C)CC', 'O([Si](C)(C)C)C.CC(CC)=O', '[Si](C)(C)(C)OC.C(=O)(CC)C', 'C[Si](C)(OC)C.CCC(C)=O', 'CO[Si](C)(C)C.C(CC)(=O)C']"
+7.605035315934452,"['C[Si](C)(C)OC.CC(=O)C', 'O([Si](C)(C)C)C.CC(C)=O', 'O(C)[Si](C)(C)C.C(C)(C)=O', '[Si](OC)(C)(C)C.C(=O)(C)C', 'C[Si](C)(OC)C.O=C(C)C']"
+10.949945964103785,"['Cc7ccc(Cc6ccc(c5ccc(n4c(=O)c3ccc(C(=O)c2ccc1c(=O)n(C)c(=O)c1c2)cc3c4=O)c(C)c5)cc6)cc7.CC(=O)C', 'O=C1N(C)C(c2cc(ccc21)C(=O)c1cc2C(=O)N(c3c(cc(cc3)-c3ccc(cc3)Cc3ccc(cc3)C)C)C(=O)c2cc1)=O.O=C(C)C', 'N1(C(c2ccc(C(c3ccc4C(N(c5c(cc(-c6ccc(Cc7ccc(cc7)C)cc6)cc5)C)C(c4c3)=O)=O)=O)cc2C1=O)=O)C.CC(C)=O', 'O=C1N(C)C(=O)c2cc(C(c3ccc4c(c3)C(=O)N(C4=O)c3ccc(-c4ccc(Cc5ccc(cc5)C)cc4)cc3C)=O)ccc12.C(C)(C)=O', 'c1c(ccc(c1)-c1cc(C)c(cc1)N1C(=O)c2cc(ccc2C1=O)C(=O)c1cc2c(C(N(C)C2=O)=O)cc1)Cc1ccc(C)cc1.C(C)(=O)C', 'C1(=O)c2cc(ccc2C(=O)N1c1ccc(cc1C)-c1ccc(Cc2ccc(cc2)C)cc1)C(c1ccc2C(=O)N(C(c2c1)=O)C)=O.C(=O)(C)C']"
+12.991312715869038,"['Cc7cccc(n6c(=O)c5ccc(Oc4ccc(C(C)(C)c3ccc(Oc2ccc1c(=O)n(C)c(=O)c1c2)cc3)cc4)cc5c6=O)c7.CC(C)O', 'c1c(Oc2ccc(C(c3ccc(cc3)Oc3cc4c(C(N(c5cc(ccc5)C)C4=O)=O)cc3)(C)C)cc2)cc2C(N(C(=O)c2c1)C)=O.C(C)(C)O', 'O=C1c2c(C(=O)N1C)ccc(Oc1ccc(C(C)(C)c3ccc(cc3)Oc3ccc4c(c3)C(=O)N(C4=O)c3cccc(c3)C)cc1)c2.OC(C)C', 'c1ccc(cc1C)N1C(c2c(C1=O)cc(Oc1ccc(C(C)(C)c3ccc(cc3)Oc3ccc4c(C(N(C)C4=O)=O)c3)cc1)cc2)=O.CC(O)C', 'C1(=O)c2c(C(N1c1cccc(C)c1)=O)cc(Oc1ccc(cc1)C(C)(c1ccc(Oc3ccc4c(c3)C(=O)N(C4=O)C)cc1)C)cc2.C(O)(C)C', 'c1cc(C(c2ccc(cc2)Oc2cc3c(C(N(c4cccc(C)c4)C3=O)=O)cc2)(C)C)ccc1Oc1ccc2C(N(C(c2c1)=O)C)=O.C(C)(O)C']"
+9.239358902784314,"['C[Si](C)(C)OC.CCO', '[Si](OC)(C)(C)C.OCC', 'C[Si](OC)(C)C.C(C)O', '[Si](C)(C)(OC)C.C(O)C']"
+9.102735848524171,"['CNCCCCCCCCCCCC(=O)OCCCCCOCCCCOCCCCC.CO', 'C(CCOCCCCOCCCCCOC(CCCCCCCCCCCNC)=O)CC.OC']"
+8.196919531467687,"['COc4ccc(S(=O)(=O)c3ccc(Oc2ccc(C(C)(C)c1ccc(C)cc1)cc2)cc3)cc4.CO', 'c1cc(C(C)(C)c2ccc(Oc3ccc(S(=O)(c4ccc(OC)cc4)=O)cc3)cc2)ccc1C.OC']"
+10.828739338613294,['Cc7cccc(n6c(=O)c5ccc(Oc4ccc(C(C)(C)c3ccc(Oc2ccc1c(=O)n(C)c(=O)c1c2)cc3)cc4)cc5c6=O)c7.O']
+9.999076049583286,
+11.690462321409964,
+8.870143659563126,
+18.932134937480164,
+16.390552518920103,
+12.579642168732505,
+16.56270942021881,
+14.080303974057129,
+14.566841646922109,
+14.337836170712086,
+14.2669417972313,
+20.50033626197617,
+18.673576041854272,
+19.0026296809954,
+28.78153466283069,
+20.98511088042403,
+9.366573483954516,
+21.762469529322953,
+17.416925062678047,
+6.527149769796769,
+14.429602713737399,
+14.818107829930627,
+18.788685002765686,
+7.336375069589068,
+7.2023944448858535,
+7.632473156690867,
+9.76854196186085,
+8.361611630692256,
+7.3720534703278675,
+8.556374603002945,
+2.8311164979129324,
+7.3450376774221295,
+6.809277820042509,
+7.168562177345197,
+7.302504475121,
+6.830784935975266,
+1.6738289602947625,
+12.128174394788187,
+2.2458559650494365,
+14.89784555980846,
+11.825946018595312,
+13.029468912575327,
+5.1501810915069886,
+8.44546628023564,
+8.89764568817169,

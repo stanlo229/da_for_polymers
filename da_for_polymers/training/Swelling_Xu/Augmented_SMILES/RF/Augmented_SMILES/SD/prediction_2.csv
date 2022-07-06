@@ -1,0 +1,60 @@
+predicted_SD,Augmented_SMILES
+18.15267997206556,"['CNCCCCCCCCCCCC(=O)OCCCCCOCCCCOCCCCC.CCCCCC', 'C(CCC)COCCCCOCCCCCOC(=O)CCCCCCCCCCCNC.C(CC)CCC', 'O(C(CCCCCCCCCCCNC)=O)CCCCCOCCCCOCCCCC.C(CCC)CC', 'C(CCCCCCCCCCNC)C(=O)OCCCCCOCCCCOCCCCC.C(C)CCCC', 'C(CCOC(CCCCCCCCCCCNC)=O)CCOCCCCOCCCCC.C(CCCC)C']"
+18.82652591269844,"['C[Si](C)(C)OC.c1ccccc1C', '[Si](C)(OC)(C)C.c1cccc(c1)C', '[Si](C)(C)(C)OC.c1c(C)cccc1', 'C[Si](C)(OC)C.Cc1ccccc1', '[Si](OC)(C)(C)C.c1c(cccc1)C', 'C[Si](OC)(C)C.c1(ccccc1)C', 'CO[Si](C)(C)C.c1(C)ccccc1', 'O([Si](C)(C)C)C.c1ccc(C)cc1']"
+17.445075362103218,"['C[Si](C)(C)OC.CCOC(=O)C', 'C[Si](C)(OC)C.CC(OCC)=O', 'C[Si](OC)(C)C.C(=O)(C)OCC', 'O([Si](C)(C)C)C.C(OCC)(=O)C', 'CO[Si](C)(C)C.O=C(C)OCC', '[Si](C)(OC)(C)C.CC(=O)OCC', 'O(C)[Si](C)(C)C.O(CC)C(=O)C', '[Si](OC)(C)(C)C.C(OCC)(C)=O']"
+18.217422331800204,"['Cc7ccc(Cc6ccc(c5ccc(n4c(=O)c3ccc(C(=O)c2ccc1c(=O)n(C)c(=O)c1c2)cc3c4=O)c(C)c5)cc6)cc7.CCOC(=O)C', 'c12ccc(cc2C(N(C1=O)C)=O)C(c1cc2C(N(c3ccc(-c4ccc(cc4)Cc4ccc(C)cc4)cc3C)C(c2cc1)=O)=O)=O.O=C(C)OCC', 'c12cc(C(=O)c3ccc4C(=O)N(c5c(cc(-c6ccc(cc6)Cc6ccc(cc6)C)cc5)C)C(=O)c4c3)ccc2C(N(C)C1=O)=O.C(OC(C)=O)C', 'c1c(ccc(Cc2ccc(cc2)-c2ccc(N3C(c4c(C3=O)ccc(c4)C(=O)c3ccc4C(=O)N(C(c4c3)=O)C)=O)c(C)c2)c1)C.CCOC(C)=O', 'c1c(cc2c(C(N(C)C2=O)=O)c1)C(c1cc2c(C(=O)N(c3ccc(-c4ccc(Cc5ccc(cc5)C)cc4)cc3C)C2=O)cc1)=O.C(OCC)(C)=O', 'O=C1N(C(=O)c2c1ccc(c2)C(=O)c1ccc2C(N(c3ccc(-c4ccc(Cc5ccc(C)cc5)cc4)cc3C)C(c2c1)=O)=O)C.CC(=O)OCC', 'c12C(N(C(=O)c1ccc(C(c1cc3C(=O)N(C)C(c3cc1)=O)=O)c2)c1ccc(cc1C)-c1ccc(Cc2ccc(cc2)C)cc1)=O.O=C(OCC)C', 'c1c(Cc2ccc(cc2)-c2ccc(N3C(c4c(cc(C(c5ccc6C(N(C)C(c6c5)=O)=O)=O)cc4)C3=O)=O)c(c2)C)ccc(C)c1.O(C(C)=O)CC', 'c1c(C(=O)c2ccc3C(N(C(=O)c3c2)c2c(C)cc(-c3ccc(Cc4ccc(C)cc4)cc3)cc2)=O)ccc2c1C(=O)N(C)C2=O.C(OCC)(=O)C']"
+16.538458616071438,"['Cc7cccc(n6c(=O)c5ccc(Oc4ccc(C(C)(C)c3ccc(Oc2ccc1c(=O)n(C)c(=O)c1c2)cc3)cc4)cc5c6=O)c7.CCC(=O)C', 'c1c(Oc2ccc3c(c2)C(=O)N(c2cccc(C)c2)C3=O)ccc(c1)C(c1ccc(cc1)Oc1ccc2c(C(N(C2=O)C)=O)c1)(C)C.C(C(C)=O)C', 'CC(c1ccc(cc1)Oc1ccc2c(C(N(C)C2=O)=O)c1)(C)c1ccc(Oc2cc3C(N(C(=O)c3cc2)c2cc(ccc2)C)=O)cc1.C(C)C(=O)C', 'c1c2C(N(C)C(c2ccc1Oc1ccc(C(C)(c2ccc(Oc3cc4C(N(C(c4cc3)=O)c3cc(ccc3)C)=O)cc2)C)cc1)=O)=O.CC(=O)CC', 'CC(c1ccc(cc1)Oc1cc2C(N(C)C(c2cc1)=O)=O)(c1ccc(Oc2cc3c(cc2)C(N(c2cccc(c2)C)C3=O)=O)cc1)C.C(C(=O)C)C', 'c1c(Oc2cc3C(=O)N(c4cc(C)ccc4)C(c3cc2)=O)ccc(C(c2ccc(Oc3cc4c(C(N(C4=O)C)=O)cc3)cc2)(C)C)c1.O=C(C)CC', 'c1(ccc(cc1)C(C)(C)c1ccc(Oc2ccc3C(=O)N(C)C(=O)c3c2)cc1)Oc1cc2c(C(=O)N(C2=O)c2cccc(C)c2)cc1.O=C(CC)C', 'c1(ccc(Oc2ccc3C(N(C(c3c2)=O)C)=O)cc1)C(c1ccc(cc1)Oc1cc2c(C(=O)N(c3cc(ccc3)C)C2=O)cc1)(C)C.C(=O)(CC)C', 'O(c1ccc2C(N(C)C(c2c1)=O)=O)c1ccc(cc1)C(C)(C)c1ccc(cc1)Oc1ccc2C(=O)N(c3cc(C)ccc3)C(=O)c2c1.C(C)C(C)=O']"
+5.3156229017857015,"['Cc7cccc(n6c(=O)c5ccc(Oc4ccc(C(C)(C)c3ccc(Oc2ccc1c(=O)n(C)c(=O)c1c2)cc3)cc4)cc5c6=O)c7.CC(=O)C', 'c1c(ccc2c1C(N(c1cc(C)ccc1)C2=O)=O)Oc1ccc(C(C)(C)c2ccc(Oc3ccc4c(c3)C(=O)N(C)C4=O)cc2)cc1.O=C(C)C', 'c1c(ccc2C(=O)N(C(=O)c21)c1cc(C)ccc1)Oc1ccc(C(C)(C)c2ccc(cc2)Oc2ccc3c(C(=O)N(C)C3=O)c2)cc1.CC(C)=O']"
+8.960383983134879,"['C[Si](C)(C)OC.CC(C)O', 'C[Si](C)(OC)C.OC(C)C', 'CO[Si](C)(C)C.CC(O)C', 'O(C)[Si](C)(C)C.C(C)(O)C', 'C[Si](OC)(C)C.C(C)(C)O', '[Si](C)(C)(OC)C.C(O)(C)C']"
+9.103016334325359,"['CNCCCCCCCCCCCC(=O)OCCCCCOCCCCOCCCCC.CCO', 'C(OC(CCCCCCCCCCCNC)=O)CCCCOCCCCOCCCCC.OCC', 'N(C)CCCCCCCCCCCC(=O)OCCCCCOCCCCOCCCCC.C(C)O', 'O(CCCCOCCCCC)CCCCCOC(=O)CCCCCCCCCCCNC.C(O)C']"
+4.209198635912684,"['Cc1ccc7c(c1)C(C)(c6ccc(n5c(=O)c4ccc(C(=O)c3ccc2c(=O)n(C)c(=O)c2c3)cc4c5=O)cc6)CC7(C)C.CCO', 'N1(c2ccc(C3(C)CC(C)(C)c4ccc(cc34)C)cc2)C(=O)c2ccc(C(c3cc4C(N(C(=O)c4cc3)C)=O)=O)cc2C1=O.C(C)O', 'c1c2C(N(C)C(c2cc(C(c2ccc3c(c2)C(N(c2ccc(cc2)C2(c4c(C(C)(C2)C)ccc(c4)C)C)C3=O)=O)=O)c1)=O)=O.C(O)C', 'c1cc2c(cc1C(c1ccc3c(c1)C(=O)N(C)C3=O)=O)C(N(c1ccc(cc1)C1(CC(C)(C)c3ccc(cc31)C)C)C2=O)=O.OCC']"
+8.474894077380917,"['C/C(C)=C(C)\\[Si](C)(C)C.CO', 'CC(C)=C([Si](C)(C)C)C.OC']"
+7.926601299603132,['C/C(C)=C(C)\\[Si](C)(C)C.O']
+4.845725758928559,
+9.093966137740155,
+3.9134454166666583,
+3.171881160714291,
+8.580447286706317,
+10.559658146668722,
+7.398977127976177,
+6.1030319940476,
+10.412174580200453,
+10.315507759763962,
+6.39979589285715,
+8.572324995039672,
+9.278139525637018,
+8.344215659722225,
+7.847344791666667,
+9.667036760912696,
+8.753886466901145,
+8.6578858829365,
+9.393157073863629,
+9.16443554338024,
+8.95480817460319,
+8.291555009920632,
+6.140738968253961,
+8.738387392225837,
+8.893873888888892,
+6.822885014880951,
+8.040442023809506,
+9.000916919642867,
+7.869866949404767,
+7.93850142857143,
+9.535958680555561,
+15.47994468344154,
+13.869787033730146,
+4.232827256944431,
+18.208101696428535,
+30.016799196428572,
+22.095460992063444,
+12.090019797900592,
+12.13856859462359,
+14.45102399984335,
+12.729974940476195,
+6.670736185515868,
+8.975157266865091,
+9.95581783234127,
+8.216323718885285,
+4.465939670364333,
+6.932475783730143,
+5.266045535714277,

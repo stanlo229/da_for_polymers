@@ -1,0 +1,12 @@
+predicted_SD,PS_pair_BRICS
+2.3219688999375236,"['CN1C(=O)c2ccccc2C1=O', 'O', 'c1ccccc1', 'CCC', 'Cc1ccccc1', 'O=C1NC(=O)c2ccccc21', '.', 'CCCCCC']"
+9.079799553195947,"['CN1C(=O)c2ccccc2C1=O', 'C=O', 'O=C1NC(=O)c2ccccc21', 'Cc1ccc2c(c1)C(C)(c1ccccc1)CC2(C)C', '.', 'Cc1ccccc1']"
+8.225115716955903,"['CN1C(=O)c2ccccc2C1=O', 'C=O', 'O=C1NC(=O)c2ccccc21', 'Cc1ccc2c(c1)C(C)(c1ccccc1)CC2(C)C', '.', 'CC=O', 'O', 'CC']"
+10.91243960505416,"['CCC(C)C#N', '.', 'CCC(C)=O']"
+7.249556403351121,"['CO', 'O=S(=O)(c1ccccc1)c1ccccc1', 'O', 'c1ccccc1', 'Cc1ccccc1', 'CCC', '.', 'CCC(C)=O']"
+9.88653652489301,"['CCC(C)C#N', '.', 'CC(C)=O']"
+4.348750723371914,"['CN1C(=O)c2ccccc2C1=O', 'C=O', 'Cc1ccccc1', 'C', 'O=C1NC(=O)c2ccccc21', 'c1ccccc1', 'Cc1ccccc1', '.', 'CC(C)O']"
+7.510032597666984,"['CCC(C)C#N', '.', 'CCO']"
+3.859613429975338,"['CCC(C)C#N', '.', 'CO']"
+3.989164001940783,"['CN1C(=O)c2ccccc2C1=O', 'C=O', 'O=C1NC(=O)c2ccccc21', 'Cc1ccc2c(c1)C(C)(c1ccccc1)CC2(C)C', '.', 'CO']"
+2.3207547569971307,"['CO', 'O=S(=O)(c1ccccc1)c1ccccc1', 'O', 'c1ccccc1', 'Cc1ccccc1', 'CCC', '.', 'O']"

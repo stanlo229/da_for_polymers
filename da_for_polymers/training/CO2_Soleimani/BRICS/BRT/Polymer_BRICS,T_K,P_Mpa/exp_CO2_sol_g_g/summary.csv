@@ -1,0 +1,2 @@
+Dataset,num_of_folds,Features,Targets,Model,r_mean,r_std,r2_mean,r2_std,rmse_mean,rmse_std,mae_mean,mae_std,num_of_data
+CO2_Soleimani,7,"Polymer_BRICS,T_K,P_Mpa",exp_CO2_sol_g_g,BRT,0.989005796920104,0.008324473255233259,0.9782017631965471,0.016346018467971995,0.01847482460395736,0.0051860223693152106,0.011006229670126244,0.0020749482735121717,515

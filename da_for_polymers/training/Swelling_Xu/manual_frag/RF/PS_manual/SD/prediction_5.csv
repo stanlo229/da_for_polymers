@@ -1,0 +1,12 @@
+predicted_SD,PS_manual
+2.0086384497202148,"['O=C1NC(=O)c2ccccc21', 'C=O', 'CN1C(=O)c2ccccc2C1=O', 'Cc1ccccc1', 'c1ccccc1', 'C', 'Cc1ccccc1', '.', 'CCCCCC']"
+6.86051632559434,"['CO', 'c1ccccc1', 'O=S=O', 'Cc1ccccc1', '.', 'c1ccccc1C']"
+13.46200826090576,"['CCC', 'CC[Si](C)(C)C', '.', 'CCOC(=O)C']"
+18.932933909701408,"['C[Si](C)C', 'CO', '.', 'CCC(=O)C']"
+18.72612502081252,"['C[Si](C)C', 'CO', '.', 'CC(=O)C']"
+5.589758214563215,"['O=C1NC(=O)c2ccccc21', 'C=O', 'CN1C(=O)c2ccccc2C1=O', 'Cc1ccccc1', 'c1ccccc1', 'C', 'Cc1ccccc1', '.', 'CC(=O)C']"
+3.2281635101010107,"['CN1C(=O)c2ccccc2C1=O', 'O', 'c1ccccc1', 'CCC', 'c1ccccc1', 'O', 'O=C1NC(=O)c2ccccc21', 'Cc1ccccc1', '.', 'CC(C)O']"
+18.59176284132534,"['C[Si](C)C', 'CO', '.', 'CCO']"
+10.91049225413475,"['CNCCCCCCCCCCCC=O', 'CCCCCOCCCCOCCCCCO', '.', 'CO']"
+3.0015893624186263,"['CO', 'c1ccccc1', 'O=S=O', 'c1ccccc1', 'O', 'c1ccccc1', 'CCC', 'Cc1ccccc1', '.', 'CO']"
+1.7784598785691437,"['CN1C(=O)c2ccccc2C1=O', 'O', 'c1ccccc1', 'CCC', 'c1ccccc1', 'O', 'O=C1NC(=O)c2ccccc21', 'Cc1ccccc1', '.', 'O']"

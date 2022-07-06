@@ -1,0 +1,357 @@
+predicted_exp_CO2_sol_g_g,Augmented_SMILES,T_K,P_Mpa
+0.034325723,"['O(C(=O)CCC(C)=O)CCCCOC', 'COCCCCOC(CCC(=O)C)=O', 'C(OC(=O)CCC(C)=O)CCCOC', 'O(CCCCOC)C(=O)CCC(C)=O', 'CC(=O)CCC(=O)OCCCCOC']",423.15,4.705
+0.029557874,"['C(COC)CCOC(CCC(=O)C)=O', 'C(OC(CCC(=O)C)=O)CCCOC', 'C(OCCCCOC)(=O)CCC(=O)C', 'O(CCCCOC)C(CCC(C)=O)=O', 'C(C(C)=O)CC(=O)OCCCCOC']",423.15,6.035
+0.033515856,"['CC(=O)CCC(OCCCCOC)=O', 'C(CC(C)=O)C(=O)OCCCCOC', 'O(CCCCOC)C(=O)CCC(C)=O', 'COCCCCOC(CCC(C)=O)=O', 'COCCCCOC(CCC(=O)C)=O']",423.15,20.095
+0.03318065,"['C(OC(=O)CCC(=O)C)CCCOC', 'O(CCCCOC(CCC(C)=O)=O)C', 'O(CCCCOC(=O)CCC(C)=O)C', 'C(CC(OCCCCOC)=O)C(=O)C', 'O=C(C)CCC(=O)OCCCCOC']",453.15,8.037
+0.032146137,"['C(C(OCCCCOC)=O)CC(=O)C', 'C(CCCOC)OC(=O)CCC(C)=O', 'C(CCOC)COC(=O)CCC(=O)C', 'C(CCOC)COC(=O)CCC(C)=O', 'CC(CCC(=O)OCCCCOC)=O']",453.15,12.007
+0.038915444,"['C(CCCOC(CCC(=O)C)=O)OC(CCCCC(OCCCCOC)=O)=O', 'C(CCOC(CCC(C)=O)=O)COC(=O)CCCCC(=O)OCCCCOC', 'O=C(OCCCCOC(CCCCC(=O)OCCCCOC)=O)CCC(C)=O', 'C(C(=O)OCCCCOC)CCCC(=O)OCCCCOC(CCC(C)=O)=O', 'CC(CCC(OCCCCOC(CCCCC(=O)OCCCCOC)=O)=O)=O']",323.15,2.097
+0.034571018,"['C(OC(=O)CCCCC(=O)OCCCCOC)CCCOC(=O)CCC(=O)C', 'O=C(CCCCC(=O)OCCCCOC(=O)CCC(=O)C)OCCCCOC', 'O(CCCCOC(=O)CCCCC(=O)OCCCCOC)C(CCC(=O)C)=O', 'C(CCCCC(=O)OCCCCOC)(OCCCCOC(CCC(=O)C)=O)=O', 'C(OCCCCOC(CCCCC(OCCCCOC)=O)=O)(=O)CCC(C)=O']",393.15,12.46
+0.0407185,"['C(COC(=O)CCC(C)=O)CCOC(=O)CCCCC(OCCCCOC)=O', 'C(CCCOC)OC(CCCCC(=O)OCCCCOC(=O)CCC(=O)C)=O', 'C(CC(OCCCCOC)=O)CCC(OCCCCOC(CCC(=O)C)=O)=O', 'O=C(CCCCC(=O)OCCCCOC)OCCCCOC(CCC(C)=O)=O', 'O(CCCCOC(CCCCC(OCCCCOC)=O)=O)C(=O)CCC(=O)C']",393.15,16.548
+0.043159615,"['C(OC(CCCCC(=O)OCCCCOC)=O)CCCOC(=O)CCC(=O)C', 'C(CCCC(=O)OCCCCOC(CCC(C)=O)=O)C(=O)OCCCCOC', 'C(COC(=O)CCCCC(OCCCCOC(CCC(=O)C)=O)=O)CCOC', 'C(OC(CCC(C)=O)=O)CCCOC(CCCCC(=O)OCCCCOC)=O', 'C(OC(=O)CCCCC(=O)OCCCCOC(=O)CCC(C)=O)CCCOC']",423.15,2.676
+0.04017955,"['C(CC)C', 'C(C)CC']",433.2,13.644
+0.12788615,"['C(C)CC', 'C(CC)C']",433.2,15.286
+0.117924444,"['C(CC)C', 'C(C)CC']",453.2,11.326
+0.14026873,"['CC(=O)CCC(OCCCCOC)=O', 'C(CC(OCCCCOC)=O)C(=O)C', 'C(COC(=O)CCC(C)=O)CCOC', 'C(OCCCCOC)(=O)CCC(C)=O', 'O(C)CCCCOC(CCC(=O)C)=O']",393.15,6.06
+0.13199031,"['COCCCCOC(CCC(C)=O)=O', 'C(CCC(C)=O)(OCCCCOC)=O', 'CC(CCC(OCCCCOC)=O)=O', 'CC(=O)CCC(OCCCCOC)=O', 'O=C(CCC(C)=O)OCCCCOC']",453.15,4.132
+0.12280757,"['O(C)CCCCOC(CCCCC(OCCCCOC(=O)CCC(C)=O)=O)=O', 'C(CC(=O)OCCCCOC)CCC(OCCCCOC(=O)CCC(=O)C)=O', 'CC(CCC(=O)OCCCCOC(CCCCC(OCCCCOC)=O)=O)=O', 'C(CCC(=O)C)(=O)OCCCCOC(CCCCC(=O)OCCCCOC)=O', 'O(CCCCOC)C(=O)CCCCC(=O)OCCCCOC(CCC(C)=O)=O']",323.15,9.844
+0.04569754,"['CC(CCC(OCCCCOC(CCCCC(=O)OCCCCOC)=O)=O)=O', 'C(C(=O)C)CC(OCCCCOC(CCCCC(=O)OCCCCOC)=O)=O', 'C(COC(=O)CCCCC(OCCCCOC)=O)CCOC(=O)CCC(C)=O', 'C(CCOC(=O)CCCCC(=O)OCCCCOC)COC(=O)CCC(C)=O', 'O(C)CCCCOC(CCCCC(OCCCCOC(=O)CCC(=O)C)=O)=O']",423.15,20.074
+0.03837748,"['OC(c1cccc(c1)C(O)=O)=O.c1c(C(O)=O)ccc(C(O)=O)c1.C(CCCCC(=O)O)(O)=O.C(CO)O.CC(CO)(C)CO.OCC(CC)(CO)CO', 'O=C(c1cc(ccc1)C(=O)O)O.c1(ccc(cc1)C(=O)O)C(O)=O.C(C(O)=O)CCCC(O)=O.OCCO.OCC(C)(CO)C.C(CO)(CO)(CO)CC', 'c1c(cc(C(O)=O)cc1)C(=O)O.O=C(c1ccc(C(O)=O)cc1)O.C(CCC(O)=O)CC(O)=O.OCCO.OCC(C)(C)CO.C(CO)(CC)(CO)CO', 'c1(cc(ccc1)C(=O)O)C(=O)O.O=C(O)c1ccc(C(=O)O)cc1.O=C(CCCCC(O)=O)O.OCCO.OCC(C)(C)CO.C(C(CC)(CO)CO)O', 'C(O)(c1cccc(c1)C(O)=O)=O.C(=O)(O)c1ccc(cc1)C(=O)O.C(CCCCC(=O)O)(O)=O.C(O)CO.CC(C)(CO)CO.OCC(CO)(CC)CO']",343.0,2.41
+0.04830405,"['c1ccc(cc1C(O)=O)C(O)=O.c1(ccc(C(O)=O)cc1)C(=O)O.C(O)(CCCCC(=O)O)=O.OCCO.C(C(C)(CO)C)O.OCC(CO)(CO)CC', 'c1c(C(=O)O)cc(cc1)C(O)=O.OC(c1ccc(cc1)C(=O)O)=O.C(O)(CCCCC(=O)O)=O.OCCO.OCC(CO)(C)C.OCC(CC)(CO)CO', 'c1(C(=O)O)cccc(C(O)=O)c1.c1(C(=O)O)ccc(cc1)C(O)=O.C(CCC(O)=O)CC(=O)O.OCCO.CC(C)(CO)CO.C(CO)(CO)(CO)CC', 'c1cc(cc(C(O)=O)c1)C(O)=O.c1cc(C(O)=O)ccc1C(=O)O.C(C(O)=O)CCCC(O)=O.OCCO.C(C(C)(CO)C)O.C(CO)(CC)(CO)CO', 'OC(=O)c1cc(C(O)=O)ccc1.c1cc(C(=O)O)ccc1C(=O)O.O=C(O)CCCCC(=O)O.OCCO.OCC(C)(C)CO.C(C(CO)(CC)CO)O']",309.2,31.0
+0.04313944,"['C(O)(=O)c1cc(C(=O)O)ccc1.C(=O)(c1ccc(C(=O)O)cc1)O.C(CCCC(=O)O)C(O)=O.C(CO)O.OCC(C)(CO)C.C(C(CC)(CO)CO)O', 'OC(=O)c1cc(C(O)=O)ccc1.c1c(C(=O)O)ccc(C(O)=O)c1.C(CCCC(O)=O)C(=O)O.OCCO.C(C(CO)(C)C)O.C(CC)(CO)(CO)CO', 'C(=O)(c1cc(C(=O)O)ccc1)O.c1cc(ccc1C(O)=O)C(=O)O.O=C(O)CCCCC(=O)O.C(CO)O.C(C(CO)(C)C)O.C(C(CO)(CC)CO)O', 'c1(cccc(c1)C(O)=O)C(O)=O.c1cc(ccc1C(=O)O)C(O)=O.C(CCCC(O)=O)C(O)=O.OCCO.C(CO)(CO)(C)C.OCC(CO)(CO)CC', 'c1c(cc(cc1)C(O)=O)C(O)=O.c1cc(C(=O)O)ccc1C(O)=O.C(C(=O)O)CCCC(O)=O.C(CO)O.C(C)(C)(CO)CO.CCC(CO)(CO)CO']",343.3,28.14
+0.04373929,"['COc1c(cc(cc1C)C)C', 'c1c(cc(C)c(c1C)OC)C', 'c1c(C)cc(c(c1C)OC)C', 'Cc1cc(C)cc(c1OC)C', 'c1(cc(C)cc(c1OC)C)C']",473.15,12.078
+0.068727225,"['C(C(C)c1ccccc1)C', 'C(C)(CC)c1ccccc1', 'C(C)C(c1ccccc1)C', 'c1(ccccc1)C(C)CC', 'c1c(cccc1)C(C)CC']",413.2,20.036
+0.07020279,"['c1c(cccc1)C(CC)C', 'c1(ccccc1)C(C)CC', 'c1(C(CC)C)ccccc1', 'c1ccc(C(CC)C)cc1', 'C(C)C(c1ccccc1)C']",362.5,8.09
+0.069259495,"['c1ccccc1C(CC)C', 'c1cc(C(CC)C)ccc1', 'c1(C(C)CC)ccccc1', 'c1cc(ccc1)C(CC)C', 'c1(ccccc1)C(C)CC']",373.15,8.585
+0.06789146,"['c1cccc(c1)C(C)CC', 'c1c(C(C)CC)cccc1', 'c1cccc(C(CC)C)c1', 'c1ccccc1C(CC)C', 'C(C(c1ccccc1)C)C']",373.15,12.631
+0.06631225,"['C(C(C)C)C', 'CC(C)CC', 'C(C)(C)CC', 'C(C)C(C)C', 'C(CC)(C)C']",353.2,5.04
+0.018017977,"['C(C)(C)CC', 'C(C(C)C)C', 'CC(C)CC', 'CC(CC)C', 'C(C)C(C)C']",373.15,11.76
+0.016618164,"['O=C(OCC(=O)OC)C(C)C', 'C(OCC(=O)OC)(=O)C(C)C', 'O=C(OC)COC(C(C)C)=O', 'CC(C)C(=O)OCC(OC)=O', 'O=C(C(C)C)OCC(=O)OC']",308.0,15.31
+0.017149271,"['COC(=O)COC(C(C)C)=O', 'C(C(C)C)(OCC(OC)=O)=O', 'O=C(C(C)C)OCC(OC)=O', 'C(=O)(C(C)C)OCC(=O)OC', 'O=C(C(C)C)OCC(=O)OC']",308.0,18.4
+0.025593543,"['C(C(=O)OC)OC(=O)C(C)C', 'C(C(OC)=O)OC(C(C)C)=O', 'C(C)(C(=O)OCC(=O)OC)C', 'O(C(=O)C(C)C)CC(=O)OC', 'COC(COC(C(C)C)=O)=O']",323.0,19.3
+0.01788121,"['C(OC(=O)C(C)C)C(OC)=O', 'O(C)C(=O)COC(=O)C(C)C', 'COC(COC(=O)C(C)C)=O', 'C(C)(C(=O)OCC(=O)OC)C', 'COC(COC(C(C)C)=O)=O']",323.0,26.44
+0.11016231,"['CC(C)C(OC)=O', 'C(OC)(C(C)C)=O', 'O=C(C(C)C)OC', 'C(C)(C)C(OC)=O', 'O(C(C(C)C)=O)C']",313.0,31.46
+0.116731115,"['CC(C(=O)OC)C', 'CC(C)C(=O)OC', 'CC(C(OC)=O)C', 'C(C(=O)OC)(C)C', 'O=C(OC)C(C)C']",323.0,10.73
+0.103057794,"['CC(C(=O)OC)C', 'C(C)(C)C(=O)OC', 'C(=O)(C(C)C)OC', 'COC(=O)C(C)C', 'C(C)(C(=O)OC)C']",323.0,22.46
+0.10435423,"['C(OC)(C(C)C)=O', 'CC(C(OC)=O)C', 'O=C(OC)C(C)C', 'CC(C)C(=O)OC', 'CC(C(=O)OC)C']",323.0,25.31
+0.10805684,"['OC(c1cc(ccc1)C(=O)O)=O.O=C(c1ccc(cc1)C(=O)O)O.C(C(O)=O)CCCC(O)=O.OCCO.CC(CO)(CO)C.C(O)C(CO)(CC)CO', 'C(O)(c1cc(ccc1)C(=O)O)=O.C(=O)(O)c1ccc(C(O)=O)cc1.C(C(O)=O)CCCC(=O)O.OCCO.OCC(C)(CO)C.C(C(CO)(CO)CC)O', 'O=C(O)c1cccc(c1)C(=O)O.c1c(ccc(C(O)=O)c1)C(O)=O.O=C(O)CCCCC(=O)O.OCCO.C(C(C)(C)CO)O.C(O)C(CO)(CO)CC', 'c1ccc(cc1C(O)=O)C(=O)O.OC(c1ccc(cc1)C(=O)O)=O.O=C(CCCCC(=O)O)O.OCCO.C(CO)(C)(C)CO.OCC(CO)(CO)CC', 'C(c1cccc(C(O)=O)c1)(=O)O.c1cc(ccc1C(O)=O)C(=O)O.O=C(O)CCCCC(O)=O.C(CO)O.C(O)C(CO)(C)C.C(C(CO)(CC)CO)O']",306.0,22.15
+0.14531352,"['c1(C(O)=O)cccc(C(=O)O)c1.c1cc(C(O)=O)ccc1C(=O)O.O=C(O)CCCCC(O)=O.C(O)CO.CC(CO)(CO)C.OCC(CO)(CO)CC', 'c1ccc(C(=O)O)cc1C(=O)O.O=C(c1ccc(C(O)=O)cc1)O.C(O)(CCCCC(O)=O)=O.C(O)CO.C(O)C(C)(C)CO.OCC(CC)(CO)CO', 'O=C(O)c1cc(C(=O)O)ccc1.c1(C(=O)O)ccc(C(O)=O)cc1.OC(=O)CCCCC(O)=O.OCCO.C(C)(C)(CO)CO.OCC(CO)(CC)CO', 'O=C(c1cccc(c1)C(O)=O)O.c1cc(ccc1C(=O)O)C(O)=O.C(CCC(=O)O)CC(=O)O.C(O)CO.C(C(CO)(C)C)O.OCC(CC)(CO)CO', 'c1(cc(C(O)=O)ccc1)C(=O)O.C(=O)(O)c1ccc(C(=O)O)cc1.C(C(=O)O)CCCC(O)=O.OCCO.OCC(C)(CO)C.C(C)C(CO)(CO)CO']",306.0,25.34
+0.14844617,"['c1(cccc(C(=O)O)c1)C(=O)O.c1c(C(=O)O)ccc(c1)C(O)=O.OC(=O)CCCCC(O)=O.C(O)CO.C(C)(CO)(CO)C.OCC(CC)(CO)CO', 'c1(C(O)=O)cc(ccc1)C(=O)O.c1(C(O)=O)ccc(C(O)=O)cc1.OC(CCCCC(O)=O)=O.OCCO.CC(CO)(CO)C.C(CO)(CO)(CO)CC', 'c1(C(O)=O)cc(C(O)=O)ccc1.OC(=O)c1ccc(C(O)=O)cc1.C(CC(O)=O)CCC(O)=O.OCCO.C(CO)(CO)(C)C.C(CO)(CC)(CO)CO', 'c1c(C(O)=O)cccc1C(O)=O.c1cc(C(O)=O)ccc1C(=O)O.C(CCCCC(=O)O)(O)=O.C(CO)O.C(C(C)(C)CO)O.C(CC)(CO)(CO)CO', 'C(O)(=O)c1cccc(c1)C(O)=O.O=C(O)c1ccc(cc1)C(O)=O.OC(=O)CCCCC(O)=O.C(O)CO.C(C(CO)(C)C)O.CCC(CO)(CO)CO']",343.0,25.67
+0.15408234,"['c1(cccc(c1)C(=O)O)C(=O)O.c1c(C(O)=O)ccc(C(O)=O)c1.C(CC(=O)O)CCC(O)=O.OCC(C)(CO)C.OCC(CO)(CO)CC', 'C(=O)(O)c1cc(ccc1)C(=O)O.c1(C(=O)O)ccc(cc1)C(=O)O.C(CCCCC(O)=O)(=O)O.C(C)(C)(CO)CO.C(C)C(CO)(CO)CO', 'c1c(cccc1C(=O)O)C(=O)O.c1(C(O)=O)ccc(C(O)=O)cc1.C(CCC(=O)O)CC(=O)O.C(C(C)(CO)C)O.OCC(CO)(CO)CC', 'c1cc(C(O)=O)cc(C(O)=O)c1.c1(C(O)=O)ccc(C(O)=O)cc1.C(CCCC(O)=O)C(O)=O.C(C(C)(CO)C)O.OCC(CC)(CO)CO', 'c1c(cccc1C(=O)O)C(=O)O.c1(C(O)=O)ccc(C(=O)O)cc1.C(CCCCC(=O)O)(=O)O.C(CO)(C)(C)CO.C(C(CO)(CO)CC)O']",306.2,14.89
+0.15207952,"['c1ccc(cc1C(=O)O)C(=O)O.C(c1ccc(C(O)=O)cc1)(=O)O.C(C(=O)O)CCCC(O)=O.CC(CO)(CO)C.C(C(CC)(CO)CO)O', 'c1cc(cc(C(O)=O)c1)C(=O)O.C(c1ccc(cc1)C(O)=O)(O)=O.C(O)(=O)CCCCC(O)=O.OCC(CO)(C)C.CCC(CO)(CO)CO', 'OC(=O)c1cccc(C(=O)O)c1.c1(ccc(C(=O)O)cc1)C(O)=O.OC(=O)CCCCC(O)=O.CC(C)(CO)CO.C(C)C(CO)(CO)CO', 'C(O)(=O)c1cc(ccc1)C(=O)O.OC(c1ccc(cc1)C(=O)O)=O.OC(CCCCC(O)=O)=O.C(C(C)(C)CO)O.OCC(CC)(CO)CO', 'OC(=O)c1cccc(C(=O)O)c1.c1cc(ccc1C(=O)O)C(=O)O.C(CCCC(=O)O)C(=O)O.OCC(C)(CO)C.OCC(CO)(CO)CC']",306.2,29.88
+0.14042477,"['C(c1cccc(C(=O)O)c1)(=O)O.O=C(c1ccc(cc1)C(O)=O)O.C(CCCCC(=O)O)(=O)O.OCC(C)(C)CO.OCC(CO)(CC)CO', 'OC(c1cccc(c1)C(O)=O)=O.OC(c1ccc(C(O)=O)cc1)=O.O=C(CCCCC(=O)O)O.CC(CO)(CO)C.OCC(CO)(CC)CO', 'c1(C(O)=O)cc(ccc1)C(=O)O.O=C(O)c1ccc(C(=O)O)cc1.OC(=O)CCCCC(O)=O.CC(C)(CO)CO.C(C(CO)(CC)CO)O', 'c1ccc(C(=O)O)cc1C(O)=O.c1(C(=O)O)ccc(C(O)=O)cc1.C(CCC(=O)O)CC(=O)O.C(C(CO)(C)C)O.C(O)C(CO)(CO)CC', 'C(c1cc(C(O)=O)ccc1)(O)=O.O=C(O)c1ccc(cc1)C(O)=O.C(C(=O)O)CCCC(O)=O.C(C(CO)(C)C)O.C(C(CO)(CC)CO)O']",344.0,10.33
+0.022107156,"['O=C(O)c1cc(ccc1)C(=O)O.c1(ccc(cc1)C(=O)O)C(O)=O.C(CCCC(O)=O)C(=O)O.CC(CO)(CO)C.C(C(CC)(CO)CO)O', 'OC(=O)c1cc(C(=O)O)ccc1.c1cc(C(O)=O)ccc1C(O)=O.C(CCC(O)=O)CC(O)=O.C(C(C)(C)CO)O.OCC(CO)(CO)CC', 'c1cc(cc(C(O)=O)c1)C(=O)O.c1c(ccc(c1)C(O)=O)C(O)=O.C(CCC(O)=O)CC(=O)O.C(O)C(CO)(C)C.C(O)C(CO)(CC)CO', 'c1c(cccc1C(O)=O)C(=O)O.c1cc(C(=O)O)ccc1C(=O)O.C(CCCCC(O)=O)(=O)O.CC(CO)(C)CO.C(O)C(CO)(CO)CC', 'c1c(cc(C(O)=O)cc1)C(O)=O.c1cc(C(O)=O)ccc1C(O)=O.C(C(=O)O)CCCC(O)=O.OCC(CO)(C)C.C(CO)(CO)(CO)CC']",344.0,23.31
+0.020430518,"['O=C(c1cc(ccc1)C(O)=O)O.c1c(C(=O)O)ccc(C(=O)O)c1.O=C(O)CCCCC(=O)O.OCCO.CC(CO)(C)CO.C(C(CO)(CO)CO)C', 'c1(cc(ccc1)C(O)=O)C(=O)O.c1cc(ccc1C(O)=O)C(O)=O.O=C(O)CCCCC(=O)O.OCCO.C(CO)(CO)(C)C.C(C(CC)(CO)CO)O', 'c1c(cc(cc1)C(O)=O)C(O)=O.c1cc(C(=O)O)ccc1C(=O)O.C(CCCC(O)=O)C(=O)O.C(CO)O.C(C(C)(C)CO)O.OCC(CO)(CC)CO', 'c1cc(cc(C(O)=O)c1)C(=O)O.O=C(c1ccc(C(O)=O)cc1)O.C(O)(=O)CCCCC(O)=O.OCCO.OCC(C)(CO)C.CCC(CO)(CO)CO', 'c1c(C(=O)O)cccc1C(O)=O.c1c(ccc(C(=O)O)c1)C(O)=O.C(CC(O)=O)CCC(=O)O.C(CO)O.OCC(C)(C)CO.C(C(CO)(CO)CC)O']",309.2,18.01
+0.023610286,"['c1c(cc(cc1)C(=O)O)C(O)=O.c1cc(C(=O)O)ccc1C(O)=O.C(=O)(O)CCCCC(O)=O.OCCO.CC(CO)(CO)C.OCC(CO)(CC)CO', 'O=C(O)c1cc(C(O)=O)ccc1.c1c(ccc(c1)C(O)=O)C(O)=O.C(CC(O)=O)CCC(=O)O.C(O)CO.CC(CO)(C)CO.C(C)C(CO)(CO)CO', 'c1c(C(O)=O)cccc1C(=O)O.C(O)(=O)c1ccc(cc1)C(=O)O.O=C(CCCCC(=O)O)O.C(CO)O.OCC(C)(CO)C.C(C(CO)(CO)CC)O', 'OC(=O)c1cccc(C(=O)O)c1.OC(=O)c1ccc(C(=O)O)cc1.C(C(=O)O)CCCC(=O)O.C(CO)O.C(CO)(C)(C)CO.CCC(CO)(CO)CO', 'c1cc(C(O)=O)cc(c1)C(O)=O.c1(C(=O)O)ccc(C(O)=O)cc1.O=C(CCCCC(=O)O)O.C(CO)O.CC(C)(CO)CO.C(CO)(CO)(CO)CC']",343.3,25.0
+0.017528828,"['COc1c(cc(cc1C)C)C', 'c1(C)cc(cc(c1OC)C)C', 'O(c1c(C)cc(C)cc1C)C', 'c1(cc(cc(C)c1OC)C)C', 'c1c(C)cc(C)c(c1C)OC']",373.15,8.1
+0.021128986,"['COc1c(C)cc(cc1C)C', 'c1(c(C)cc(C)cc1C)OC', 'c1(cc(C)c(c(C)c1)OC)C', 'Cc1cc(C)c(c(C)c1)OC', 'Cc1cc(c(c(C)c1)OC)C']",373.15,15.993
+0.08826633,"['c1(c(OC)c(cc(c1)C)C)C', 'c1(C)cc(C)cc(C)c1OC', 'c1c(C)cc(C)c(c1C)OC', 'c1(C)cc(C)c(OC)c(C)c1', 'Cc1c(c(cc(C)c1)C)OC']",373.15,20.006
+0.08924505,"['COc1c(C)cc(cc1C)C', 'Cc1cc(c(c(c1)C)OC)C', 'Cc1c(OC)c(C)cc(c1)C', 'c1(C)c(OC)c(cc(c1)C)C', 'c1c(cc(C)c(OC)c1C)C']",423.15,10.061
+0.111995704,"['Cc1cc(C)cc(c1OC)C', 'c1(C)c(c(C)cc(c1)C)OC', 'c1(cc(cc(C)c1OC)C)C', 'c1c(cc(c(c1C)OC)C)C', 'O(C)c1c(C)cc(C)cc1C']",373.15,4.118
+0.110731706,"['c1(OC)c(C)cc(cc1C)C', 'COc1c(cc(cc1C)C)C', 'c1(C)cc(cc(C)c1OC)C', 'Cc1cc(C)cc(C)c1OC', 'c1(OC)c(cc(C)cc1C)C']",473.15,2.097
+0.06508905,"['CCC(c1ccccc1)C', 'C(C(c1ccccc1)C)C', 'c1cc(ccc1)C(C)CC', 'c1(ccccc1)C(C)CC', 'c1(ccccc1)C(CC)C']",373.2,18.554
+0.06456496,"['C(CC)(C)c1ccccc1', 'CC(c1ccccc1)CC', 'c1cccc(C(C)CC)c1', 'c1(ccccc1)C(CC)C', 'c1cc(ccc1)C(CC)C']",413.2,11.594
+0.055165354,"['c1cccc(C(CC)C)c1', 'C(c1ccccc1)(C)CC', 'c1cccc(c1)C(C)CC', 'c1cc(C(C)CC)ccc1', 'C(C)(c1ccccc1)CC']",362.5,16.5
+0.061446503,"['C(C)(c1ccccc1)CC', 'c1c(cccc1)C(C)CC', 'c1c(cccc1)C(CC)C', 'C(c1ccccc1)(CC)C', 'c1cccc(c1)C(C)CC']",362.5,24.65
+0.055650182,"['c1c(cccc1)C(CC)C', 'c1c(cccc1)C(C)CC', 'c1cc(C(CC)C)ccc1', 'c1(C(CC)C)ccccc1', 'c1(ccccc1)C(C)CC']",383.22,14.51
+0.053314105,"['c1cc(C(C)CC)ccc1', 'c1(ccccc1)C(C)CC', 'c1cc(ccc1)C(C)CC', 'c1c(cccc1)C(CC)C', 'CC(CC)c1ccccc1']",383.22,42.81
+0.05249114,"['c1c(cccc1)C(C)CC', 'c1ccccc1C(CC)C', 'C(C(C)c1ccccc1)C', 'c1cccc(c1)C(C)CC', 'c1c(C(C)CC)cccc1']",402.51,9.39
+0.021445949,"['c1c(cccc1)C(C)CC', 'c1cc(ccc1)C(CC)C', 'c1cccc(c1)C(C)CC', 'CCC(c1ccccc1)C', 'c1(ccccc1)C(CC)C']",402.51,44.41
+0.022237962,"['c1cccc(c1)C(C)CC', 'CC(c1ccccc1)CC', 'c1cc(C(CC)C)ccc1', 'CCC(c1ccccc1)C', 'c1(C(C)CC)ccccc1']",423.15,6.53
+0.020403935,"['c1(C(C)CC)ccccc1', 'c1ccccc1C(CC)C', 'c1(ccccc1)C(C)CC', 'CC(CC)c1ccccc1', 'C(C(C)c1ccccc1)C']",473.15,6.685
+0.023710707,"['C(OC(C)CC)(C)=O', 'CC(CC)OC(C)=O', 'O(C(=O)C)C(C)CC', 'CC(=O)OC(C)CC', 'C(C)(OC(C)=O)CC']",313.15,0.858
+0.024534555,"['C(OC(C)=O)(CC)C', 'CC(=O)OC(C)CC', 'CC(OC(C)=O)CC', 'CCC(OC(C)=O)C', 'C(C)C(OC(=O)C)C']",353.15,8.015
+0.14721596,"['O(C(C)CC)C(C)=O', 'CC(=O)OC(CC)C', 'C(CC)(C)OC(C)=O', 'CC(=O)OC(C)CC', 'O=C(C)OC(C)CC']",373.15,2.157
+0.15201508,"['C(C)C(OC(C)=O)C', 'CCC(OC(=O)C)C', 'CCC(C)OC(=O)C', 'CC(=O)OC(C)CC', 'CC(OC(CC)C)=O']",373.15,13.688
+0.14728749,"['C(C)(CC)C', 'C(C(C)C)C', 'CC(CC)C', 'CC(C)CC', 'C(C)C(C)C']",433.2,16.355
+0.14165734,"['C(C)(CC)C', 'C(CC)(C)C', 'CC(C)CC', 'CC(CC)C', 'C(C)C(C)C']",373.2,5.03
+0.13459738,"['CC(C)CC', 'C(C)(CC)C', 'C(C(C)C)C', 'C(C)(C)CC', 'CC(CC)C']",443.7,4.96
+0.13340035,"['C(C)C(C)C', 'CC(C)CC', 'CC(CC)C', 'C(CC)(C)C', 'C(C(C)C)C']",464.2,19.93
+0.1567598,"['C(C)C(C)C', 'C(C(C)C)C', 'CC(C)CC', 'CC(CC)C', 'C(CC)(C)C']",483.7,14.93
+0.1575017,"['CC(C)CC', 'C(C)(C)CC', 'CC(CC)C', 'C(C)(CC)C', 'C(CC)(C)C']",373.15,5.52
+0.1560191,"['C(C)C(C)C', 'C(C)(C)CC', 'CC(C)CC', 'CC(CC)C', 'C(C(C)C)C']",423.15,7.46
+0.14258054,"['C(C(C)C)C', 'CC(CC)C', 'C(CC)(C)C', 'C(C)C(C)C', 'C(C)(C)CC']",423.15,8.12
+0.025373407,"['C(C(C)C)C', 'CC(C)CC', 'CC(CC)C', 'C(CC)(C)C', 'C(C)C(C)C']",423.15,10.75
+0.01596962,"['CC(C)CC', 'C(C)(C)CC', 'CC(CC)C', 'C(CC)(C)C', 'C(C(C)C)C']",423.15,13.62
+0.026177578,,,
+0.026188407,,,
+0.029696481,,,
+0.5714958,,,
+0.5723742,,,
+0.5678505,,,
+0.5089557,,,
+0.590117,,,
+0.46792296,,,
+0.44534248,,,
+0.45222437,,,
+0.45555946,,,
+0.45087546,,,
+0.05290381,,,
+0.05330005,,,
+0.05250049,,,
+0.04973076,,,
+0.0530608,,,
+0.09089052,,,
+0.097094804,,,
+0.093721576,,,
+0.09748702,,,
+0.09629602,,,
+0.05733029,,,
+0.060657218,,,
+0.066571034,,,
+0.061467495,,,
+0.06207111,,,
+0.060601447,,,
+0.062272217,,,
+0.06754888,,,
+0.05625815,,,
+0.058221236,,,
+0.09178593,,,
+0.093940824,,,
+0.09063141,,,
+0.08866305,,,
+0.10119606,,,
+0.02650535,,,
+0.02289403,,,
+0.029835464,,,
+0.022059105,,,
+0.021579329,,,
+0.13079427,,,
+0.13094659,,,
+0.12859549,,,
+0.12916395,,,
+0.13205752,,,
+0.26252183,,,
+0.25542524,,,
+0.24881487,,,
+0.2433454,,,
+0.2646421,,,
+0.29936972,,,
+0.29980695,,,
+0.28124312,,,
+0.30052847,,,
+0.3035961,,,
+0.22967651,,,
+0.2237033,,,
+0.22893584,,,
+0.24145441,,,
+0.24983753,,,
+0.26469037,,,
+0.24783215,,,
+0.25600228,,,
+0.2672681,,,
+0.2597446,,,
+0.43119946,,,
+0.43521583,,,
+0.4255948,,,
+0.4273576,,,
+0.40512258,,,
+0.19139852,,,
+0.19026221,,,
+0.21525864,,,
+0.2068768,,,
+0.1783394,,,
+0.38755393,,,
+0.38751617,,,
+0.3686067,,,
+0.39223126,,,
+0.38781124,,,
+0.39604124,,,
+0.39128336,,,
+0.40055513,,,
+0.39344198,,,
+0.39500034,,,
+0.4857464,,,
+0.4532385,,,
+0.48125702,,,
+0.5137624,,,
+0.4877179,,,
+0.53386486,,,
+0.5406765,,,
+0.5459248,,,
+0.5167023,,,
+0.52242535,,,
+0.43684387,,,
+0.43767864,,,
+0.41353622,,,
+0.46077493,,,
+0.41446814,,,
+0.29825637,,,
+0.29280114,,,
+0.34941748,,,
+0.32466206,,,
+0.2855802,,,
+0.6193962,,,
+0.63180405,,,
+0.56326205,,,
+0.5873169,,,
+0.6034137,,,
+0.08896086,,,
+0.15312321,,,
+0.10766487,,,
+0.11982807,,,
+0.1238829,,,
+0.39863408,,,
+0.42755693,,,
+0.41747433,,,
+0.4014939,,,
+0.4173688,,,
+0.3733003,,,
+0.41235006,,,
+0.39039546,,,
+0.38272977,,,
+0.39812246,,,
+0.43146378,,,
+0.40897378,,,
+0.43277782,,,
+0.42585522,,,
+0.41345462,,,
+0.08197329,,,
+0.07019693,,,
+0.0788387,,,
+0.07354525,,,
+0.07483631,,,
+0.17751321,,,
+0.13681336,,,
+0.13108104,,,
+0.14803421,,,
+0.14187202,,,
+0.15807723,,,
+0.1535505,,,
+0.14375028,,,
+0.13763392,,,
+0.1387486,,,
+0.070049085,,,
+0.061239865,,,
+0.060248822,,,
+0.07673175,,,
+0.06794041,,,
+0.04652185,,,
+0.045640014,,,
+0.05110525,,,
+0.047343697,,,
+0.038117506,,,
+0.008042969,,,
+0.01008716,,,
+0.010383144,,,
+0.004041894,,,
+0.008571134,,,
+0.10097158,,,
+0.11056244,,,
+0.11162708,,,
+0.11036863,,,
+0.10919319,,,
+0.05975634,,,
+0.06164054,,,
+0.05847446,,,
+0.060383007,,,
+0.060348127,,,
+0.13360031,,,
+0.11889177,,,
+0.12249825,,,
+0.1250585,,,
+0.11470506,,,
+0.10709035,,,
+0.11305354,,,
+0.1340844,,,
+0.13577938,,,
+0.11578757,,,
+0.09082521,,,
+0.09154363,,,
+0.09282344,,,
+0.09814226,,,
+0.09370326,,,
+0.14524166,,,
+0.14382815,,,
+0.14077449,,,
+0.15623313,,,
+0.1408704,,,
+0.05543891,,,
+0.054517232,,,
+0.058193754,,,
+0.05407202,,,
+0.06024409,,,
+0.13604417,,,
+0.15060002,,,
+0.13743143,,,
+0.1481706,,,
+0.15279742,,,
+0.024659853,,,
+0.02410174,,,
+0.026167527,,,
+0.026387474,,,
+0.023784341,,,
+0.016101051,,,
+0.019080723,,,
+0.018147888,,,
+0.017048033,,,
+0.016691055,,,
+0.038242824,,,
+0.030193288,,,
+0.031035868,,,
+0.038513545,,,
+0.02395759,,,
+0.15696307,,,
+0.17596449,,,
+0.17868915,,,
+0.17184521,,,
+0.16515659,,,
+0.0279912,,,
+0.04271092,,,
+0.028540598,,,
+0.042458545,,,
+0.035629336,,,
+0.19488253,,,
+0.21112254,,,
+0.1989531,,,
+0.21317595,,,
+0.20246492,,,
+0.15205826,,,
+0.1519581,,,
+0.15145299,,,
+0.15350457,,,
+0.15181479,,,
+0.031875793,,,
+0.027173545,,,
+0.027235175,,,
+0.02914217,,,
+0.031508494,,,
+0.0384041,,,
+0.036593206,,,
+0.03506956,,,
+0.037882194,,,
+0.03570938,,,
+0.18481857,,,
+0.18420772,,,
+0.18181615,,,
+0.18532018,,,
+0.18513867,,,
+0.11715609,,,
+0.11629675,,,
+0.11591502,,,
+0.11398662,,,
+0.11356295,,,
+0.047786422,,,
+0.05001828,,,
+0.048138943,,,
+0.05160859,,,
+0.046222184,,,
+0.05778287,,,
+0.057672318,,,
+0.058086205,,,
+0.058437485,,,
+0.057009034,,,
+0.059909247,,,
+0.06204231,,,
+0.06070153,,,
+0.060799055,,,
+0.062167503,,,
+0.08229892,,,
+0.08506006,,,
+0.0835823,,,
+0.083238475,,,
+0.08297846,,,
+0.109484576,,,
+0.10677508,,,
+0.108308055,,,
+0.10783499,,,
+0.107382484,,,

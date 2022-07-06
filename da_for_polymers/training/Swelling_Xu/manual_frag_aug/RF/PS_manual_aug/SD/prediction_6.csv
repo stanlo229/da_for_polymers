@@ -1,0 +1,49 @@
+predicted_SD,PS_manual_aug
+2.3722049702380965,"[['CO', 'c1ccccc1', 'O=S=O', 'Cc1ccccc1', '.', 'CCCCCC'], ['Cc1ccccc1', 'CO', 'c1ccccc1', 'O=S=O', '.', 'CCCCCC'], ['O=S=O', 'Cc1ccccc1', 'CO', 'c1ccccc1', '.', 'CCCCCC'], ['c1ccccc1', 'O=S=O', 'Cc1ccccc1', 'CO', '.', 'CCCCCC']]"
+2.4647331325156365,"[['CO', 'c1ccccc1', 'O=S=O', 'c1ccccc1', 'O', 'c1ccccc1', 'CCC', 'Cc1ccccc1', '.', 'c1ccccc1C'], ['Cc1ccccc1', 'CO', 'c1ccccc1', 'O=S=O', 'c1ccccc1', 'O', 'c1ccccc1', 'CCC', '.', 'c1ccccc1C'], ['CCC', 'Cc1ccccc1', 'CO', 'c1ccccc1', 'O=S=O', 'c1ccccc1', 'O', 'c1ccccc1', '.', 'c1ccccc1C'], ['c1ccccc1', 'CCC', 'Cc1ccccc1', 'CO', 'c1ccccc1', 'O=S=O', 'c1ccccc1', 'O', '.', 'c1ccccc1C'], ['O', 'c1ccccc1', 'CCC', 'Cc1ccccc1', 'CO', 'c1ccccc1', 'O=S=O', 'c1ccccc1', '.', 'c1ccccc1C'], ['c1ccccc1', 'O', 'c1ccccc1', 'CCC', 'Cc1ccccc1', 'CO', 'c1ccccc1', 'O=S=O', '.', 'c1ccccc1C'], ['O=S=O', 'c1ccccc1', 'O', 'c1ccccc1', 'CCC', 'Cc1ccccc1', 'CO', 'c1ccccc1', '.', 'c1ccccc1C'], ['c1ccccc1', 'O=S=O', 'c1ccccc1', 'O', 'c1ccccc1', 'CCC', 'Cc1ccccc1', 'CO', '.', 'c1ccccc1C']]"
+7.818936716269859,"[['CC', 'CCC#N', '.', 'CCOC(=O)C'], ['CCC#N', 'CC', '.', 'CCOC(=O)C']]"
+7.613886760161149,"[['CNCCCCCCCCCCCC=O', 'CCCCCOCCCCOCCCCCO', '.', 'CCC(=O)C'], ['CCCCCOCCCCOCCCCCO', 'CNCCCCCCCCCCCC=O', '.', 'CCC(=O)C']]"
+4.5230222817460355,"[['CNCCCCCCCCCCCC=O', 'CCCCCOCCCCOCCCCCO', '.', 'CC(=O)C'], ['CCCCCOCCCCOCCCCCO', 'CNCCCCCCCCCCCC=O', '.', 'CC(=O)C']]"
+5.251780337301618,"[['CO', 'c1ccccc1', 'O=S=O', 'c1ccccc1', 'O', 'c1ccccc1', 'CCC', 'Cc1ccccc1', '.', 'CC(=O)C'], ['Cc1ccccc1', 'CO', 'c1ccccc1', 'O=S=O', 'c1ccccc1', 'O', 'c1ccccc1', 'CCC', '.', 'CC(=O)C'], ['CCC', 'Cc1ccccc1', 'CO', 'c1ccccc1', 'O=S=O', 'c1ccccc1', 'O', 'c1ccccc1', '.', 'CC(=O)C'], ['c1ccccc1', 'CCC', 'Cc1ccccc1', 'CO', 'c1ccccc1', 'O=S=O', 'c1ccccc1', 'O', '.', 'CC(=O)C'], ['O', 'c1ccccc1', 'CCC', 'Cc1ccccc1', 'CO', 'c1ccccc1', 'O=S=O', 'c1ccccc1', '.', 'CC(=O)C'], ['c1ccccc1', 'O', 'c1ccccc1', 'CCC', 'Cc1ccccc1', 'CO', 'c1ccccc1', 'O=S=O', '.', 'CC(=O)C'], ['O=S=O', 'c1ccccc1', 'O', 'c1ccccc1', 'CCC', 'Cc1ccccc1', 'CO', 'c1ccccc1', '.', 'CC(=O)C'], ['c1ccccc1', 'O=S=O', 'c1ccccc1', 'O', 'c1ccccc1', 'CCC', 'Cc1ccccc1', 'CO', '.', 'CC(=O)C']]"
+5.1642001421958,"[['CC', 'CCC#N', '.', 'CC(C)O'], ['CCC#N', 'CC', '.', 'CC(C)O']]"
+4.946319900793666,"[['O=C1NC(=O)c2ccccc21', 'C=O', 'CN1C(=O)c2ccccc2C1=O', 'Cc1ccccc1', 'c1ccccc1', 'C', 'Cc1ccccc1', '.', 'CCO'], ['Cc1ccccc1', 'O=C1NC(=O)c2ccccc21', 'C=O', 'CN1C(=O)c2ccccc2C1=O', 'Cc1ccccc1', 'c1ccccc1', 'C', '.', 'CCO'], ['C', 'Cc1ccccc1', 'O=C1NC(=O)c2ccccc21', 'C=O', 'CN1C(=O)c2ccccc2C1=O', 'Cc1ccccc1', 'c1ccccc1', '.', 'CCO'], ['c1ccccc1', 'C', 'Cc1ccccc1', 'O=C1NC(=O)c2ccccc21', 'C=O', 'CN1C(=O)c2ccccc2C1=O', 'Cc1ccccc1', '.', 'CCO'], ['Cc1ccccc1', 'c1ccccc1', 'C', 'Cc1ccccc1', 'O=C1NC(=O)c2ccccc21', 'C=O', 'CN1C(=O)c2ccccc2C1=O', '.', 'CCO'], ['CN1C(=O)c2ccccc2C1=O', 'Cc1ccccc1', 'c1ccccc1', 'C', 'Cc1ccccc1', 'O=C1NC(=O)c2ccccc21', 'C=O', '.', 'CCO'], ['C=O', 'CN1C(=O)c2ccccc2C1=O', 'Cc1ccccc1', 'c1ccccc1', 'C', 'Cc1ccccc1', 'O=C1NC(=O)c2ccccc21', '.', 'CCO']]"
+5.028170509259281,"[['C[Si](C)C', 'CO', '.', 'CO'], ['CO', 'C[Si](C)C', '.', 'CO']]"
+4.957512754629646,"[['CO', 'c1ccccc1', 'O=S=O', 'Cc1ccccc1', '.', 'O'], ['Cc1ccccc1', 'CO', 'c1ccccc1', 'O=S=O', '.', 'O'], ['O=S=O', 'Cc1ccccc1', 'CO', 'c1ccccc1', '.', 'O'], ['c1ccccc1', 'O=S=O', 'Cc1ccccc1', 'CO', '.', 'O']]"
+5.053998611111132,"[['O=C1NC(=O)c2ccccc21', 'C=O', 'CN1C(=O)c2ccccc2C1=O', 'Cc1ccccc1', 'c1ccccc1', 'C', 'Cc1ccccc1', '.', 'O'], ['Cc1ccccc1', 'O=C1NC(=O)c2ccccc21', 'C=O', 'CN1C(=O)c2ccccc2C1=O', 'Cc1ccccc1', 'c1ccccc1', 'C', '.', 'O'], ['C', 'Cc1ccccc1', 'O=C1NC(=O)c2ccccc21', 'C=O', 'CN1C(=O)c2ccccc2C1=O', 'Cc1ccccc1', 'c1ccccc1', '.', 'O'], ['c1ccccc1', 'C', 'Cc1ccccc1', 'O=C1NC(=O)c2ccccc21', 'C=O', 'CN1C(=O)c2ccccc2C1=O', 'Cc1ccccc1', '.', 'O'], ['Cc1ccccc1', 'c1ccccc1', 'C', 'Cc1ccccc1', 'O=C1NC(=O)c2ccccc21', 'C=O', 'CN1C(=O)c2ccccc2C1=O', '.', 'O'], ['CN1C(=O)c2ccccc2C1=O', 'Cc1ccccc1', 'c1ccccc1', 'C', 'Cc1ccccc1', 'O=C1NC(=O)c2ccccc21', 'C=O', '.', 'O'], ['C=O', 'CN1C(=O)c2ccccc2C1=O', 'Cc1ccccc1', 'c1ccccc1', 'C', 'Cc1ccccc1', 'O=C1NC(=O)c2ccccc21', '.', 'O']]"
+4.982137172619067,
+3.1734027579365054,
+3.1903194841269813,
+14.911823151455069,
+14.97026078042334,
+14.39875709325397,
+14.419377559523824,
+9.956893578042536,
+10.292783313492263,
+10.15760350529119,
+10.11076317460338,
+10.168928495370585,
+10.088984474206558,
+10.197831891534612,
+10.052308680555765,
+4.16771207010581,
+4.2141723578042205,
+2.1738625000000082,
+2.1704352380952487,
+2.1805572420634998,
+2.148164305555566,
+2.1851553769841354,
+2.178299117063503,
+2.193796263227521,
+22.939749031084595,
+22.86311916005287,
+0.613680811087051,
+0.6878596097883527,
+3.034177457010586,
+2.73009362764551,
+0.4482570039682533,
+0.43237630952380923,
+0.4442476388888882,
+0.43529774801587257,
+0.44777214285714234,
+0.4360316071428567,
+0.46871083333333274,
