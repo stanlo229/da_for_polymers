@@ -1,0 +1,12 @@
+predicted_SD,PS_SMILES
+6.9228366650136905,C[Si](C)(C)OC.CCCCCC
+5.879459380146579,COc4ccc(S(=O)(=O)c3ccc(Oc2ccc(C(C)(C)c1ccc(C)cc1)cc2)cc3)cc4.CCCCCC
+8.639091169133794,Cc7ccc(Cc6ccc(c5ccc(n4c(=O)c3ccc(C(=O)c2ccc1c(=O)n(C)c(=O)c1c2)cc3c4=O)c(C)c5)cc6)cc7.c1ccccc1C
+7.862951952931925,COc2ccc(S(=O)(=O)c1ccc(C)cc1)cc2.CCOC(=O)C
+8.284601692711977,Cc7ccc(Cc6ccc(c5ccc(n4c(=O)c3ccc(C(=O)c2ccc1c(=O)n(C)c(=O)c1c2)cc3c4=O)c(C)c5)cc6)cc7.CCC(=O)C
+11.210776896948968,C/C(C)=C(C)\[Si](C)(C)C.CC(=O)C
+10.06222641853778,C/C(C)=C(C)\[Si](C)(C)C.CC(C)O
+5.278807652081505,COc2ccc(S(=O)(=O)c1ccc(C)cc1)cc2.CC(C)O
+11.818800019524454,C/C(C)=C(C)\[Si](C)(C)C.CCO
+7.881356612945124,Cc7cccc(n6c(=O)c5ccc(Oc4ccc(C(C)(C)c3ccc(Oc2ccc1c(=O)n(C)c(=O)c1c2)cc3)cc4)cc5c6=O)c7.CO
+10.862190550636457,CNCCCCCCCCCCCC(=O)OCCCCCOCCCCOCCCCC.O

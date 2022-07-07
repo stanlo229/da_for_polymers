@@ -1,0 +1,12 @@
+predicted_SD,PS_SMILES
+4.9358194472857795,CCC(C)C#N.CCCCCC
+4.891943971086777,CCC(C)C#N.c1ccccc1C
+9.7097827489225,CNCCCCCCCCCCCC(=O)OCCCCCOCCCCOCCCCC.CCOC(=O)C
+6.485886801094081,Cc7cccc(n6c(=O)c5ccc(Oc4ccc(C(C)(C)c3ccc(Oc2ccc1c(=O)n(C)c(=O)c1c2)cc3)cc4)cc5c6=O)c7.CCOC(=O)C
+6.941997088847118,Cc1ccc7c(c1)C(C)(c6ccc(n5c(=O)c4ccc(C(=O)c3ccc2c(=O)n(C)c(=O)c2c3)cc4c5=O)cc6)CC7(C)C.CCC(=O)C
+7.194327216460825,Cc1ccc7c(c1)C(C)(c6ccc(n5c(=O)c4ccc(C(=O)c3ccc2c(=O)n(C)c(=O)c2c3)cc4c5=O)cc6)CC7(C)C.CC(=O)C
+5.139578001640644,COc4ccc(S(=O)(=O)c3ccc(Oc2ccc(C(C)(C)c1ccc(C)cc1)cc2)cc3)cc4.CC(C)O
+6.5160268549973965,Cc1ccc7c(c1)C(C)(c6ccc(n5c(=O)c4ccc(C(=O)c3ccc2c(=O)n(C)c(=O)c2c3)cc4c5=O)cc6)CC7(C)C.CC(C)O
+7.7647819549264305,COc2ccc(S(=O)(=O)c1ccc(C)cc1)cc2.CCO
+7.8936841471891865,COc2ccc(S(=O)(=O)c1ccc(C)cc1)cc2.CO
+7.339316379114245,Cc1ccc7c(c1)C(C)(c6ccc(n5c(=O)c4ccc(C(=O)c3ccc2c(=O)n(C)c(=O)c2c3)cc4c5=O)cc6)CC7(C)C.O

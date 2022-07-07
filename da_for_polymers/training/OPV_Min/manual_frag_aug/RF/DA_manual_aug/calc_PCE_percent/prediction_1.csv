@@ -1,399 +1,399 @@
-predicted_calc_PCE_percent,DA_manual_aug
-8.414117596814775,"[['CCCCC(CC)Cc1c(F)cc(-c2c3cc(C)sc3c(-c3cc(F)c(CC(CC)CCCC)c(F)c3)c3ccsc23)cc1F', 'c1ccsc1', 'CCCCCCCCCCCCOc1cc2nsnc2cc1OCCCCCCCCCCCC', 'Cc1cccs1', '.', 'C=C1C(=O)c2ccccc2C1=C(C#N)C#N', 'c1ccsc1', 'CCCCCCc1(CCCCCC)cccc1', 'c1ccccc1', 'CCCCCCc1(CCCCCC)cccc1', 'c1ccsc1', 'C=C1C(=O)c2ccccc2C1=C(C#N)C#N'], ['Cc1cccs1', 'CCCCC(CC)Cc1c(F)cc(-c2c3cc(C)sc3c(-c3cc(F)c(CC(CC)CCCC)c(F)c3)c3ccsc23)cc1F', 'c1ccsc1', 'CCCCCCCCCCCCOc1cc2nsnc2cc1OCCCCCCCCCCCC', '.', 'C=C1C(=O)c2ccccc2C1=C(C#N)C#N', 'c1ccsc1', 'CCCCCCc1(CCCCCC)cccc1', 'c1ccccc1', 'CCCCCCc1(CCCCCC)cccc1', 'c1ccsc1', 'C=C1C(=O)c2ccccc2C1=C(C#N)C#N'], ['CCCCCCCCCCCCOc1cc2nsnc2cc1OCCCCCCCCCCCC', 'Cc1cccs1', 'CCCCC(CC)Cc1c(F)cc(-c2c3cc(C)sc3c(-c3cc(F)c(CC(CC)CCCC)c(F)c3)c3ccsc23)cc1F', 'c1ccsc1', '.', 'C=C1C(=O)c2ccccc2C1=C(C#N)C#N', 'c1ccsc1', 'CCCCCCc1(CCCCCC)cccc1', 'c1ccccc1', 'CCCCCCc1(CCCCCC)cccc1', 'c1ccsc1', 'C=C1C(=O)c2ccccc2C1=C(C#N)C#N'], ['c1ccsc1', 'CCCCCCCCCCCCOc1cc2nsnc2cc1OCCCCCCCCCCCC', 'Cc1cccs1', 'CCCCC(CC)Cc1c(F)cc(-c2c3cc(C)sc3c(-c3cc(F)c(CC(CC)CCCC)c(F)c3)c3ccsc23)cc1F', '.', 'C=C1C(=O)c2ccccc2C1=C(C#N)C#N', 'c1ccsc1', 'CCCCCCc1(CCCCCC)cccc1', 'c1ccccc1', 'CCCCCCc1(CCCCCC)cccc1', 'c1ccsc1', 'C=C1C(=O)c2ccccc2C1=C(C#N)C#N']]"
-8.430026556458715,"[['CCCCC(CC)Cc1ccc(-c2c3cc(C)sc3c(-c3ccc(CC(CC)CCCC)s3)c3ccsc23)s1', 'c1ccsc1', 'CCCCC(CC)Cc1sc(CC(CC)CCCC)c2c1C(=O)c1cscc1C2=O', 'Cc1cccs1', '.', 'C=C1C(=O)c2cc(Cl)c(Cl)cc2C1=C(C#N)C#N', 'CCCCC(CC)COc1ccsc1', 'c1ccsc1', 'CCCCCCc1ccc(-c2(-c3ccc(CCCCCC)cc3)cccc2)cc1', 'c1ccccc1', 'CCCCCCc1ccc(-c2(-c3ccc(CCCCCC)cc3)cccc2)cc1', 'c1ccsc1', 'CCCCC(CC)COc1ccsc1', 'C=C1C(=O)c2cc(Cl)c(Cl)cc2C1=C(C#N)C#N'], ['Cc1cccs1', 'CCCCC(CC)Cc1ccc(-c2c3cc(C)sc3c(-c3ccc(CC(CC)CCCC)s3)c3ccsc23)s1', 'c1ccsc1', 'CCCCC(CC)Cc1sc(CC(CC)CCCC)c2c1C(=O)c1cscc1C2=O', '.', 'C=C1C(=O)c2cc(Cl)c(Cl)cc2C1=C(C#N)C#N', 'CCCCC(CC)COc1ccsc1', 'c1ccsc1', 'CCCCCCc1ccc(-c2(-c3ccc(CCCCCC)cc3)cccc2)cc1', 'c1ccccc1', 'CCCCCCc1ccc(-c2(-c3ccc(CCCCCC)cc3)cccc2)cc1', 'c1ccsc1', 'CCCCC(CC)COc1ccsc1', 'C=C1C(=O)c2cc(Cl)c(Cl)cc2C1=C(C#N)C#N'], ['CCCCC(CC)Cc1sc(CC(CC)CCCC)c2c1C(=O)c1cscc1C2=O', 'Cc1cccs1', 'CCCCC(CC)Cc1ccc(-c2c3cc(C)sc3c(-c3ccc(CC(CC)CCCC)s3)c3ccsc23)s1', 'c1ccsc1', '.', 'C=C1C(=O)c2cc(Cl)c(Cl)cc2C1=C(C#N)C#N', 'CCCCC(CC)COc1ccsc1', 'c1ccsc1', 'CCCCCCc1ccc(-c2(-c3ccc(CCCCCC)cc3)cccc2)cc1', 'c1ccccc1', 'CCCCCCc1ccc(-c2(-c3ccc(CCCCCC)cc3)cccc2)cc1', 'c1ccsc1', 'CCCCC(CC)COc1ccsc1', 'C=C1C(=O)c2cc(Cl)c(Cl)cc2C1=C(C#N)C#N'], ['c1ccsc1', 'CCCCC(CC)Cc1sc(CC(CC)CCCC)c2c1C(=O)c1cscc1C2=O', 'Cc1cccs1', 'CCCCC(CC)Cc1ccc(-c2c3cc(C)sc3c(-c3ccc(CC(CC)CCCC)s3)c3ccsc23)s1', '.', 'C=C1C(=O)c2cc(Cl)c(Cl)cc2C1=C(C#N)C#N', 'CCCCC(CC)COc1ccsc1', 'c1ccsc1', 'CCCCCCc1ccc(-c2(-c3ccc(CCCCCC)cc3)cccc2)cc1', 'c1ccccc1', 'CCCCCCc1ccc(-c2(-c3ccc(CCCCCC)cc3)cccc2)cc1', 'c1ccsc1', 'CCCCC(CC)COc1ccsc1', 'C=C1C(=O)c2cc(Cl)c(Cl)cc2C1=C(C#N)C#N']]"
-8.456654002745582,"[['CCCCC(CC)Cc1ccc(-c2c3ccsc3c(-c3ccc(CCCCC(C)CC)s3)c3cc(C)sc23)s1', 'c1ccsc1', 'CCCCCCCCC(CCCCCC)Cn1nc2cc(F)c(F)cc2n1', 'Cc1cccs1', '.', 'C=C1C(=O)c2cc(F)c(F)cc2C1=C(C#N)C#N', 'CCCCC(CC)COc1ccsc1', 'c1ccsc1', 'CCCCCCc1ccc(-c2(-c3ccc(CCCCCC)cc3)cccc2)cc1', 'c1ccccc1', 'CCCCCCc1ccc(-c2(-c3ccc(CCCCCC)cc3)cccc2)cc1', 'c1ccsc1', 'CCCCC(CC)COc1ccsc1', 'C=C1C(=O)c2cc(F)c(F)cc2C1=C(C#N)C#N'], ['Cc1cccs1', 'CCCCC(CC)Cc1ccc(-c2c3ccsc3c(-c3ccc(CCCCC(C)CC)s3)c3cc(C)sc23)s1', 'c1ccsc1', 'CCCCCCCCC(CCCCCC)Cn1nc2cc(F)c(F)cc2n1', '.', 'C=C1C(=O)c2cc(F)c(F)cc2C1=C(C#N)C#N', 'CCCCC(CC)COc1ccsc1', 'c1ccsc1', 'CCCCCCc1ccc(-c2(-c3ccc(CCCCCC)cc3)cccc2)cc1', 'c1ccccc1', 'CCCCCCc1ccc(-c2(-c3ccc(CCCCCC)cc3)cccc2)cc1', 'c1ccsc1', 'CCCCC(CC)COc1ccsc1', 'C=C1C(=O)c2cc(F)c(F)cc2C1=C(C#N)C#N'], ['CCCCCCCCC(CCCCCC)Cn1nc2cc(F)c(F)cc2n1', 'Cc1cccs1', 'CCCCC(CC)Cc1ccc(-c2c3ccsc3c(-c3ccc(CCCCC(C)CC)s3)c3cc(C)sc23)s1', 'c1ccsc1', '.', 'C=C1C(=O)c2cc(F)c(F)cc2C1=C(C#N)C#N', 'CCCCC(CC)COc1ccsc1', 'c1ccsc1', 'CCCCCCc1ccc(-c2(-c3ccc(CCCCCC)cc3)cccc2)cc1', 'c1ccccc1', 'CCCCCCc1ccc(-c2(-c3ccc(CCCCCC)cc3)cccc2)cc1', 'c1ccsc1', 'CCCCC(CC)COc1ccsc1', 'C=C1C(=O)c2cc(F)c(F)cc2C1=C(C#N)C#N'], ['c1ccsc1', 'CCCCCCCCC(CCCCCC)Cn1nc2cc(F)c(F)cc2n1', 'Cc1cccs1', 'CCCCC(CC)Cc1ccc(-c2c3ccsc3c(-c3ccc(CCCCC(C)CC)s3)c3cc(C)sc23)s1', '.', 'C=C1C(=O)c2cc(F)c(F)cc2C1=C(C#N)C#N', 'CCCCC(CC)COc1ccsc1', 'c1ccsc1', 'CCCCCCc1ccc(-c2(-c3ccc(CCCCCC)cc3)cccc2)cc1', 'c1ccccc1', 'CCCCCCc1ccc(-c2(-c3ccc(CCCCCC)cc3)cccc2)cc1', 'c1ccsc1', 'CCCCC(CC)COc1ccsc1', 'C=C1C(=O)c2cc(F)c(F)cc2C1=C(C#N)C#N']]"
-8.323302222234776,"[['CCCCCCCCCCC(CCCCCCCC)COc1c2cc(C)sc2c(OCC(CCCCCCCC)CCCCCCCCCC)c2ccsc12', 'c1ccsc1', 'CCCCC(CC)Cn1nc2cc(F)c(F)cc2n1', 'Cc1cccs1', '.', 'C=C1C(=O)c2ccccc2C1=C(C#N)C#N', 'c1cc2sccc2s1', 'CCCCCCc1ccc(-c2(-c3ccc(CCCCCC)cc3)cccc2)cc1', 'c1ccccc1', 'CCCCCCc1ccc(-c2(-c3ccc(CCCCCC)cc3)cccc2)cc1', 'c1cc2sccc2s1', 'C=C1C(=O)c2ccccc2C1=C(C#N)C#N'], ['Cc1cccs1', 'CCCCCCCCCCC(CCCCCCCC)COc1c2cc(C)sc2c(OCC(CCCCCCCC)CCCCCCCCCC)c2ccsc12', 'c1ccsc1', 'CCCCC(CC)Cn1nc2cc(F)c(F)cc2n1', '.', 'C=C1C(=O)c2ccccc2C1=C(C#N)C#N', 'c1cc2sccc2s1', 'CCCCCCc1ccc(-c2(-c3ccc(CCCCCC)cc3)cccc2)cc1', 'c1ccccc1', 'CCCCCCc1ccc(-c2(-c3ccc(CCCCCC)cc3)cccc2)cc1', 'c1cc2sccc2s1', 'C=C1C(=O)c2ccccc2C1=C(C#N)C#N'], ['CCCCC(CC)Cn1nc2cc(F)c(F)cc2n1', 'Cc1cccs1', 'CCCCCCCCCCC(CCCCCCCC)COc1c2cc(C)sc2c(OCC(CCCCCCCC)CCCCCCCCCC)c2ccsc12', 'c1ccsc1', '.', 'C=C1C(=O)c2ccccc2C1=C(C#N)C#N', 'c1cc2sccc2s1', 'CCCCCCc1ccc(-c2(-c3ccc(CCCCCC)cc3)cccc2)cc1', 'c1ccccc1', 'CCCCCCc1ccc(-c2(-c3ccc(CCCCCC)cc3)cccc2)cc1', 'c1cc2sccc2s1', 'C=C1C(=O)c2ccccc2C1=C(C#N)C#N'], ['c1ccsc1', 'CCCCC(CC)Cn1nc2cc(F)c(F)cc2n1', 'Cc1cccs1', 'CCCCCCCCCCC(CCCCCCCC)COc1c2cc(C)sc2c(OCC(CCCCCCCC)CCCCCCCCCC)c2ccsc12', '.', 'C=C1C(=O)c2ccccc2C1=C(C#N)C#N', 'c1cc2sccc2s1', 'CCCCCCc1ccc(-c2(-c3ccc(CCCCCC)cc3)cccc2)cc1', 'c1ccccc1', 'CCCCCCc1ccc(-c2(-c3ccc(CCCCCC)cc3)cccc2)cc1', 'c1cc2sccc2s1', 'C=C1C(=O)c2ccccc2C1=C(C#N)C#N']]"
-9.818007298158085,"[['CCCCC(CC)CSc1ccc(-c2c3cc(C)sc3c(-c3ccc(SCC(CC)CCCC)s3)c3ccsc23)s1', 'c1ccsc1', 'CCCCCCCCC(CCCCCC)Cn1nc2cc(F)c(F)cc2n1', 'Cc1cccs1', '.', 'C=C1C(=O)c2ccccc2C1=C(C#N)C#N', 'c1cc2sccc2s1', 'CCCCCCc1ccc(-c2(-c3ccc(CCCCCC)cc3)cccc2)cc1', 'c1ccccc1', 'CCCCCCc1ccc(-c2(-c3ccc(CCCCCC)cc3)cccc2)cc1', 'c1cc2sccc2s1', 'C=C1C(=O)c2ccccc2C1=C(C#N)C#N'], ['Cc1cccs1', 'CCCCC(CC)CSc1ccc(-c2c3cc(C)sc3c(-c3ccc(SCC(CC)CCCC)s3)c3ccsc23)s1', 'c1ccsc1', 'CCCCCCCCC(CCCCCC)Cn1nc2cc(F)c(F)cc2n1', '.', 'C=C1C(=O)c2ccccc2C1=C(C#N)C#N', 'c1cc2sccc2s1', 'CCCCCCc1ccc(-c2(-c3ccc(CCCCCC)cc3)cccc2)cc1', 'c1ccccc1', 'CCCCCCc1ccc(-c2(-c3ccc(CCCCCC)cc3)cccc2)cc1', 'c1cc2sccc2s1', 'C=C1C(=O)c2ccccc2C1=C(C#N)C#N'], ['CCCCCCCCC(CCCCCC)Cn1nc2cc(F)c(F)cc2n1', 'Cc1cccs1', 'CCCCC(CC)CSc1ccc(-c2c3cc(C)sc3c(-c3ccc(SCC(CC)CCCC)s3)c3ccsc23)s1', 'c1ccsc1', '.', 'C=C1C(=O)c2ccccc2C1=C(C#N)C#N', 'c1cc2sccc2s1', 'CCCCCCc1ccc(-c2(-c3ccc(CCCCCC)cc3)cccc2)cc1', 'c1ccccc1', 'CCCCCCc1ccc(-c2(-c3ccc(CCCCCC)cc3)cccc2)cc1', 'c1cc2sccc2s1', 'C=C1C(=O)c2ccccc2C1=C(C#N)C#N'], ['c1ccsc1', 'CCCCCCCCC(CCCCCC)Cn1nc2cc(F)c(F)cc2n1', 'Cc1cccs1', 'CCCCC(CC)CSc1ccc(-c2c3cc(C)sc3c(-c3ccc(SCC(CC)CCCC)s3)c3ccsc23)s1', '.', 'C=C1C(=O)c2ccccc2C1=C(C#N)C#N', 'c1cc2sccc2s1', 'CCCCCCc1ccc(-c2(-c3ccc(CCCCCC)cc3)cccc2)cc1', 'c1ccccc1', 'CCCCCCc1ccc(-c2(-c3ccc(CCCCCC)cc3)cccc2)cc1', 'c1cc2sccc2s1', 'C=C1C(=O)c2ccccc2C1=C(C#N)C#N']]"
-9.738898964376485,"[['C=CCCCCSSc1ccc(-c2c3cc(C)sc3c(-c3ccc(SSCCCCC=C)s3)c3ccsc23)s1', 'c1ccsc1', 'CCCCCCCCC(CCCCCC)Cn1nc2cc(F)c(F)cc2n1', 'Cc1cccs1', '.', 'C=C1C(=O)c2ccccc2C1=C(C#N)C#N', 'c1cc2sccc2s1', 'CCCCCCc1ccc(-c2(-c3ccc(CCCCCC)cc3)cccc2)cc1', 'c1ccccc1', 'CCCCCCc1ccc(-c2(-c3ccc(CCCCCC)cc3)cccc2)cc1', 'c1cc2sccc2s1', 'C=C1C(=O)c2ccccc2C1=C(C#N)C#N'], ['Cc1cccs1', 'C=CCCCCSSc1ccc(-c2c3cc(C)sc3c(-c3ccc(SSCCCCC=C)s3)c3ccsc23)s1', 'c1ccsc1', 'CCCCCCCCC(CCCCCC)Cn1nc2cc(F)c(F)cc2n1', '.', 'C=C1C(=O)c2ccccc2C1=C(C#N)C#N', 'c1cc2sccc2s1', 'CCCCCCc1ccc(-c2(-c3ccc(CCCCCC)cc3)cccc2)cc1', 'c1ccccc1', 'CCCCCCc1ccc(-c2(-c3ccc(CCCCCC)cc3)cccc2)cc1', 'c1cc2sccc2s1', 'C=C1C(=O)c2ccccc2C1=C(C#N)C#N'], ['CCCCCCCCC(CCCCCC)Cn1nc2cc(F)c(F)cc2n1', 'Cc1cccs1', 'C=CCCCCSSc1ccc(-c2c3cc(C)sc3c(-c3ccc(SSCCCCC=C)s3)c3ccsc23)s1', 'c1ccsc1', '.', 'C=C1C(=O)c2ccccc2C1=C(C#N)C#N', 'c1cc2sccc2s1', 'CCCCCCc1ccc(-c2(-c3ccc(CCCCCC)cc3)cccc2)cc1', 'c1ccccc1', 'CCCCCCc1ccc(-c2(-c3ccc(CCCCCC)cc3)cccc2)cc1', 'c1cc2sccc2s1', 'C=C1C(=O)c2ccccc2C1=C(C#N)C#N'], ['c1ccsc1', 'CCCCCCCCC(CCCCCC)Cn1nc2cc(F)c(F)cc2n1', 'Cc1cccs1', 'C=CCCCCSSc1ccc(-c2c3cc(C)sc3c(-c3ccc(SSCCCCC=C)s3)c3ccsc23)s1', '.', 'C=C1C(=O)c2ccccc2C1=C(C#N)C#N', 'c1cc2sccc2s1', 'CCCCCCc1ccc(-c2(-c3ccc(CCCCCC)cc3)cccc2)cc1', 'c1ccccc1', 'CCCCCCc1ccc(-c2(-c3ccc(CCCCCC)cc3)cccc2)cc1', 'c1cc2sccc2s1', 'C=C1C(=O)c2ccccc2C1=C(C#N)C#N']]"
-9.59108040660446,"[['CCC[Si](CCC)(CCC)c1ccc(-c2c3cc(C)oc3c(-c3ccc([Si](CCC)(CCC)CCC)s3)c3ccoc23)s1', 'c1ccsc1', 'CCCCCCCCC(CCCCCC)Cn1nc2cc(F)c(F)cc2n1', 'Cc1cccs1', '.', 'C=C1C(=O)c2ccccc2C1=C(C#N)C#N', 'c1cc2sccc2s1', 'CCCCCCc1cccc(-c2(-c3cccc(CCCCCC)c3)cccc2)c1', 'c1ccccc1', 'CCCCCCc1cccc(-c2(-c3cccc(CCCCCC)c3)cccc2)c1', 'c1cc2sccc2s1', 'C=C1C(=O)c2ccccc2C1=C(C#N)C#N'], ['Cc1cccs1', 'CCC[Si](CCC)(CCC)c1ccc(-c2c3cc(C)oc3c(-c3ccc([Si](CCC)(CCC)CCC)s3)c3ccoc23)s1', 'c1ccsc1', 'CCCCCCCCC(CCCCCC)Cn1nc2cc(F)c(F)cc2n1', '.', 'C=C1C(=O)c2ccccc2C1=C(C#N)C#N', 'c1cc2sccc2s1', 'CCCCCCc1cccc(-c2(-c3cccc(CCCCCC)c3)cccc2)c1', 'c1ccccc1', 'CCCCCCc1cccc(-c2(-c3cccc(CCCCCC)c3)cccc2)c1', 'c1cc2sccc2s1', 'C=C1C(=O)c2ccccc2C1=C(C#N)C#N'], ['CCCCCCCCC(CCCCCC)Cn1nc2cc(F)c(F)cc2n1', 'Cc1cccs1', 'CCC[Si](CCC)(CCC)c1ccc(-c2c3cc(C)oc3c(-c3ccc([Si](CCC)(CCC)CCC)s3)c3ccoc23)s1', 'c1ccsc1', '.', 'C=C1C(=O)c2ccccc2C1=C(C#N)C#N', 'c1cc2sccc2s1', 'CCCCCCc1cccc(-c2(-c3cccc(CCCCCC)c3)cccc2)c1', 'c1ccccc1', 'CCCCCCc1cccc(-c2(-c3cccc(CCCCCC)c3)cccc2)c1', 'c1cc2sccc2s1', 'C=C1C(=O)c2ccccc2C1=C(C#N)C#N'], ['c1ccsc1', 'CCCCCCCCC(CCCCCC)Cn1nc2cc(F)c(F)cc2n1', 'Cc1cccs1', 'CCC[Si](CCC)(CCC)c1ccc(-c2c3cc(C)oc3c(-c3ccc([Si](CCC)(CCC)CCC)s3)c3ccoc23)s1', '.', 'C=C1C(=O)c2ccccc2C1=C(C#N)C#N', 'c1cc2sccc2s1', 'CCCCCCc1cccc(-c2(-c3cccc(CCCCCC)c3)cccc2)c1', 'c1ccccc1', 'CCCCCCc1cccc(-c2(-c3cccc(CCCCCC)c3)cccc2)c1', 'c1cc2sccc2s1', 'C=C1C(=O)c2ccccc2C1=C(C#N)C#N']]"
-9.636898043054828,"[['CCCCC(CC)COc1c2cc(C)sc2c(OCC(CC)CCCC)c2ccsc12', 'Cc1cccs1', '.', 'C=C1C(=O)c2ccccc2C1=C(C#N)C#N', 'c1cc2sccc2s1', 'CCCCCCc1ccc(-c2(-c3ccc(CCCCCC)cc3)cccc2)cc1', 'c1ccccc1', 'CCCCCCc1ccc(-c2(-c3ccc(CCCCCC)cc3)cccc2)cc1', 'c1cc2sccc2s1', 'C=C1C(=O)c2ccccc2C1=C(C#N)C#N'], ['Cc1cccs1', 'CCCCC(CC)COc1c2cc(C)sc2c(OCC(CC)CCCC)c2ccsc12', '.', 'C=C1C(=O)c2ccccc2C1=C(C#N)C#N', 'c1cc2sccc2s1', 'CCCCCCc1ccc(-c2(-c3ccc(CCCCCC)cc3)cccc2)cc1', 'c1ccccc1', 'CCCCCCc1ccc(-c2(-c3ccc(CCCCCC)cc3)cccc2)cc1', 'c1cc2sccc2s1', 'C=C1C(=O)c2ccccc2C1=C(C#N)C#N']]"
-9.582840236374514,"[['CCCCCCC(CCCC)CSSc1ccc(-c2c3cc(C)sc3c(-c3ccc(SSCC(CCCC)CCCCCC)s3)c3ccsc23)s1', 'CCCCCCCCc1ccsc1', 'c1nncs1', 'CCCCCCCCc1ccsc1C', '.', 'C=C1C(=O)c2ccccc2C1=C(C#N)C#N', 'c1cc2sccc2s1', 'CCCCCCc1ccc(-c2(-c3ccc(CCCCCC)cc3)cccc2)cc1', 'c1ccccc1', 'CCCCCCc1ccc(-c2(-c3ccc(CCCCCC)cc3)cccc2)cc1', 'c1cc2sccc2s1', 'C=C1C(=O)c2ccccc2C1=C(C#N)C#N'], ['CCCCCCCCc1ccsc1C', 'CCCCCCC(CCCC)CSSc1ccc(-c2c3cc(C)sc3c(-c3ccc(SSCC(CCCC)CCCCCC)s3)c3ccsc23)s1', 'CCCCCCCCc1ccsc1', 'c1nncs1', '.', 'C=C1C(=O)c2ccccc2C1=C(C#N)C#N', 'c1cc2sccc2s1', 'CCCCCCc1ccc(-c2(-c3ccc(CCCCCC)cc3)cccc2)cc1', 'c1ccccc1', 'CCCCCCc1ccc(-c2(-c3ccc(CCCCCC)cc3)cccc2)cc1', 'c1cc2sccc2s1', 'C=C1C(=O)c2ccccc2C1=C(C#N)C#N'], ['c1nncs1', 'CCCCCCCCc1ccsc1C', 'CCCCCCC(CCCC)CSSc1ccc(-c2c3cc(C)sc3c(-c3ccc(SSCC(CCCC)CCCCCC)s3)c3ccsc23)s1', 'CCCCCCCCc1ccsc1', '.', 'C=C1C(=O)c2ccccc2C1=C(C#N)C#N', 'c1cc2sccc2s1', 'CCCCCCc1ccc(-c2(-c3ccc(CCCCCC)cc3)cccc2)cc1', 'c1ccccc1', 'CCCCCCc1ccc(-c2(-c3ccc(CCCCCC)cc3)cccc2)cc1', 'c1cc2sccc2s1', 'C=C1C(=O)c2ccccc2C1=C(C#N)C#N'], ['CCCCCCCCc1ccsc1', 'c1nncs1', 'CCCCCCCCc1ccsc1C', 'CCCCCCC(CCCC)CSSc1ccc(-c2c3cc(C)sc3c(-c3ccc(SSCC(CCCC)CCCCCC)s3)c3ccsc23)s1', '.', 'C=C1C(=O)c2ccccc2C1=C(C#N)C#N', 'c1cc2sccc2s1', 'CCCCCCc1ccc(-c2(-c3ccc(CCCCCC)cc3)cccc2)cc1', 'c1ccccc1', 'CCCCCCc1ccc(-c2(-c3ccc(CCCCCC)cc3)cccc2)cc1', 'c1cc2sccc2s1', 'C=C1C(=O)c2ccccc2C1=C(C#N)C#N']]"
-9.580518403678127,"[['CCCCCCC(CCCC)CSc1c2cc(C)sc2c(SCC(CCCC)CCCCCC)c2ccsc12', 'c1ccsc1', 'CCCCCCC(CCCC)CSn1nc2cc(F)c(F)cc2n1', 'Cc1cccs1', '.', 'C=C1C(=O)c2ccc(OC)cc2C1=C(C#N)C#N', 'c1cc2sccc2s1', 'CCCCCCc1ccc(-c2(-c3ccc(CCCCCC)s3)cccc2)s1', 'c1ccccc1', 'CCCCCCc1ccc(-c2(-c3ccc(CCCCCC)s3)cccc2)s1', 'c1cc2sccc2s1', 'C=C1C(=O)c2ccc(OC)cc2C1=C(C#N)C#N'], ['Cc1cccs1', 'CCCCCCC(CCCC)CSc1c2cc(C)sc2c(SCC(CCCC)CCCCCC)c2ccsc12', 'c1ccsc1', 'CCCCCCC(CCCC)CSn1nc2cc(F)c(F)cc2n1', '.', 'C=C1C(=O)c2ccc(OC)cc2C1=C(C#N)C#N', 'c1cc2sccc2s1', 'CCCCCCc1ccc(-c2(-c3ccc(CCCCCC)s3)cccc2)s1', 'c1ccccc1', 'CCCCCCc1ccc(-c2(-c3ccc(CCCCCC)s3)cccc2)s1', 'c1cc2sccc2s1', 'C=C1C(=O)c2ccc(OC)cc2C1=C(C#N)C#N'], ['CCCCCCC(CCCC)CSn1nc2cc(F)c(F)cc2n1', 'Cc1cccs1', 'CCCCCCC(CCCC)CSc1c2cc(C)sc2c(SCC(CCCC)CCCCCC)c2ccsc12', 'c1ccsc1', '.', 'C=C1C(=O)c2ccc(OC)cc2C1=C(C#N)C#N', 'c1cc2sccc2s1', 'CCCCCCc1ccc(-c2(-c3ccc(CCCCCC)s3)cccc2)s1', 'c1ccccc1', 'CCCCCCc1ccc(-c2(-c3ccc(CCCCCC)s3)cccc2)s1', 'c1cc2sccc2s1', 'C=C1C(=O)c2ccc(OC)cc2C1=C(C#N)C#N'], ['c1ccsc1', 'CCCCCCC(CCCC)CSn1nc2cc(F)c(F)cc2n1', 'Cc1cccs1', 'CCCCCCC(CCCC)CSc1c2cc(C)sc2c(SCC(CCCC)CCCCCC)c2ccsc12', '.', 'C=C1C(=O)c2ccc(OC)cc2C1=C(C#N)C#N', 'c1cc2sccc2s1', 'CCCCCCc1ccc(-c2(-c3ccc(CCCCCC)s3)cccc2)s1', 'c1ccccc1', 'CCCCCCc1ccc(-c2(-c3ccc(CCCCCC)s3)cccc2)s1', 'c1cc2sccc2s1', 'C=C1C(=O)c2ccc(OC)cc2C1=C(C#N)C#N']]"
-9.589469171670364,"[['CCCCC(CC)Cc1ccc(-c2c3ccsc3c(-c3ccc(CCCCC(C)CC)s3)c3cc(C)sc23)s1', 'c1ccsc1', 'CCCCCCCCC(CCCCCC)Cn1nc2cc(F)c(F)cc2n1', 'Cc1cccs1', '.', 'C=C1C(=O)c2ccc(C)cc2C1=C(C#N)C#N', 'c1cc2sccc2s1', 'CCCCCCc1ccc(-c2(-c3ccc(CCCCCC)cc3)cccc2)cc1', 'c1ccccc1', 'CCCCCCc1ccc(-c2(-c3ccc(CCCCCC)cc3)cccc2)cc1', 'c1cc2sccc2s1', 'C=C1C(=O)c2ccc(C)cc2C1=C(C#N)C#N'], ['Cc1cccs1', 'CCCCC(CC)Cc1ccc(-c2c3ccsc3c(-c3ccc(CCCCC(C)CC)s3)c3cc(C)sc23)s1', 'c1ccsc1', 'CCCCCCCCC(CCCCCC)Cn1nc2cc(F)c(F)cc2n1', '.', 'C=C1C(=O)c2ccc(C)cc2C1=C(C#N)C#N', 'c1cc2sccc2s1', 'CCCCCCc1ccc(-c2(-c3ccc(CCCCCC)cc3)cccc2)cc1', 'c1ccccc1', 'CCCCCCc1ccc(-c2(-c3ccc(CCCCCC)cc3)cccc2)cc1', 'c1cc2sccc2s1', 'C=C1C(=O)c2ccc(C)cc2C1=C(C#N)C#N'], ['CCCCCCCCC(CCCCCC)Cn1nc2cc(F)c(F)cc2n1', 'Cc1cccs1', 'CCCCC(CC)Cc1ccc(-c2c3ccsc3c(-c3ccc(CCCCC(C)CC)s3)c3cc(C)sc23)s1', 'c1ccsc1', '.', 'C=C1C(=O)c2ccc(C)cc2C1=C(C#N)C#N', 'c1cc2sccc2s1', 'CCCCCCc1ccc(-c2(-c3ccc(CCCCCC)cc3)cccc2)cc1', 'c1ccccc1', 'CCCCCCc1ccc(-c2(-c3ccc(CCCCCC)cc3)cccc2)cc1', 'c1cc2sccc2s1', 'C=C1C(=O)c2ccc(C)cc2C1=C(C#N)C#N'], ['c1ccsc1', 'CCCCCCCCC(CCCCCC)Cn1nc2cc(F)c(F)cc2n1', 'Cc1cccs1', 'CCCCC(CC)Cc1ccc(-c2c3ccsc3c(-c3ccc(CCCCC(C)CC)s3)c3cc(C)sc23)s1', '.', 'C=C1C(=O)c2ccc(C)cc2C1=C(C#N)C#N', 'c1cc2sccc2s1', 'CCCCCCc1ccc(-c2(-c3ccc(CCCCCC)cc3)cccc2)cc1', 'c1ccccc1', 'CCCCCCc1ccc(-c2(-c3ccc(CCCCCC)cc3)cccc2)cc1', 'c1cc2sccc2s1', 'C=C1C(=O)c2ccc(C)cc2C1=C(C#N)C#N']]"
-9.607534355323516,"[['CCC[Si](CCC)(CCC)c1ccc(-c2c3cc(C)sc3c(-c3ccc([Si](CCC)(CCC)CCC)s3)c3ccsc23)s1', 'c1ccsc1', 'CCCCCCCCC(CCCCCC)Cn1nc2cc(F)c(F)cc2n1', 'Cc1cccs1', '.', 'C=C1C(=O)c2cc(F)ccc2C1=C(C#N)C#N', 'c1cc2sccc2s1', 'CCCCCCc1ccc(-c2(-c3ccc(CCCCCC)cc3)cccc2)cc1', 'c1ccccc1', 'CCCCCCc1ccc(-c2(-c3ccc(CCCCCC)cc3)cccc2)cc1', 'c1cc2sccc2s1', 'C=C1C(=O)c2cc(F)ccc2C1=C(C#N)C#N'], ['Cc1cccs1', 'CCC[Si](CCC)(CCC)c1ccc(-c2c3cc(C)sc3c(-c3ccc([Si](CCC)(CCC)CCC)s3)c3ccsc23)s1', 'c1ccsc1', 'CCCCCCCCC(CCCCCC)Cn1nc2cc(F)c(F)cc2n1', '.', 'C=C1C(=O)c2cc(F)ccc2C1=C(C#N)C#N', 'c1cc2sccc2s1', 'CCCCCCc1ccc(-c2(-c3ccc(CCCCCC)cc3)cccc2)cc1', 'c1ccccc1', 'CCCCCCc1ccc(-c2(-c3ccc(CCCCCC)cc3)cccc2)cc1', 'c1cc2sccc2s1', 'C=C1C(=O)c2cc(F)ccc2C1=C(C#N)C#N'], ['CCCCCCCCC(CCCCCC)Cn1nc2cc(F)c(F)cc2n1', 'Cc1cccs1', 'CCC[Si](CCC)(CCC)c1ccc(-c2c3cc(C)sc3c(-c3ccc([Si](CCC)(CCC)CCC)s3)c3ccsc23)s1', 'c1ccsc1', '.', 'C=C1C(=O)c2cc(F)ccc2C1=C(C#N)C#N', 'c1cc2sccc2s1', 'CCCCCCc1ccc(-c2(-c3ccc(CCCCCC)cc3)cccc2)cc1', 'c1ccccc1', 'CCCCCCc1ccc(-c2(-c3ccc(CCCCCC)cc3)cccc2)cc1', 'c1cc2sccc2s1', 'C=C1C(=O)c2cc(F)ccc2C1=C(C#N)C#N'], ['c1ccsc1', 'CCCCCCCCC(CCCCCC)Cn1nc2cc(F)c(F)cc2n1', 'Cc1cccs1', 'CCC[Si](CCC)(CCC)c1ccc(-c2c3cc(C)sc3c(-c3ccc([Si](CCC)(CCC)CCC)s3)c3ccsc23)s1', '.', 'C=C1C(=O)c2cc(F)ccc2C1=C(C#N)C#N', 'c1cc2sccc2s1', 'CCCCCCc1ccc(-c2(-c3ccc(CCCCCC)cc3)cccc2)cc1', 'c1ccccc1', 'CCCCCCc1ccc(-c2(-c3ccc(CCCCCC)cc3)cccc2)cc1', 'c1cc2sccc2s1', 'C=C1C(=O)c2cc(F)ccc2C1=C(C#N)C#N']]"
-9.902755379466079,"[['CCC[Si](CCC)(CCC)c1ccc(-c2c3cc(C)sc3c(-c3ccc([Si](CCC)(CCC)CCC)s3)c3ccsc23)s1', 'c1ccsc1', 'CCCCCCCCC(CCCCCC)Cn1nc2cc(F)c(F)cc2n1', 'Cc1cccs1', '.', 'C=C1C(=O)c2c(csc2C)C1=C(C#N)C#N', 'c1ccsc1', 'CCCCCCc1ccc(-c2(-c3ccc(CCCCCC)cc3)cccc2)cc1', 'c1cc[sH]c1', 'c1ccccc1', 'c1cc[sH]c1', 'CCCCCCc1ccc(-c2(-c3ccc(CCCCCC)cc3)cccc2)cc1', 'c1ccsc1', 'C=C1C(=O)c2c(csc2C)C1=C(C#N)C#N'], ['Cc1cccs1', 'CCC[Si](CCC)(CCC)c1ccc(-c2c3cc(C)sc3c(-c3ccc([Si](CCC)(CCC)CCC)s3)c3ccsc23)s1', 'c1ccsc1', 'CCCCCCCCC(CCCCCC)Cn1nc2cc(F)c(F)cc2n1', '.', 'C=C1C(=O)c2c(csc2C)C1=C(C#N)C#N', 'c1ccsc1', 'CCCCCCc1ccc(-c2(-c3ccc(CCCCCC)cc3)cccc2)cc1', 'c1cc[sH]c1', 'c1ccccc1', 'c1cc[sH]c1', 'CCCCCCc1ccc(-c2(-c3ccc(CCCCCC)cc3)cccc2)cc1', 'c1ccsc1', 'C=C1C(=O)c2c(csc2C)C1=C(C#N)C#N'], ['CCCCCCCCC(CCCCCC)Cn1nc2cc(F)c(F)cc2n1', 'Cc1cccs1', 'CCC[Si](CCC)(CCC)c1ccc(-c2c3cc(C)sc3c(-c3ccc([Si](CCC)(CCC)CCC)s3)c3ccsc23)s1', 'c1ccsc1', '.', 'C=C1C(=O)c2c(csc2C)C1=C(C#N)C#N', 'c1ccsc1', 'CCCCCCc1ccc(-c2(-c3ccc(CCCCCC)cc3)cccc2)cc1', 'c1cc[sH]c1', 'c1ccccc1', 'c1cc[sH]c1', 'CCCCCCc1ccc(-c2(-c3ccc(CCCCCC)cc3)cccc2)cc1', 'c1ccsc1', 'C=C1C(=O)c2c(csc2C)C1=C(C#N)C#N'], ['c1ccsc1', 'CCCCCCCCC(CCCCCC)Cn1nc2cc(F)c(F)cc2n1', 'Cc1cccs1', 'CCC[Si](CCC)(CCC)c1ccc(-c2c3cc(C)sc3c(-c3ccc([Si](CCC)(CCC)CCC)s3)c3ccsc23)s1', '.', 'C=C1C(=O)c2c(csc2C)C1=C(C#N)C#N', 'c1ccsc1', 'CCCCCCc1ccc(-c2(-c3ccc(CCCCCC)cc3)cccc2)cc1', 'c1cc[sH]c1', 'c1ccccc1', 'c1cc[sH]c1', 'CCCCCCc1ccc(-c2(-c3ccc(CCCCCC)cc3)cccc2)cc1', 'c1ccsc1', 'C=C1C(=O)c2c(csc2C)C1=C(C#N)C#N']]"
-9.82129665208864,"[['CCCCC(CC)Cc1sc(-c2c3ccsc3c(-c3sc(CCCCC(C)CC)c(F)c3F)c3cc(C)sc23)c(F)c1F', 'c1ccsc1', 'CCCCCCCCC(CCCCCC)Cn1nc2cc(F)c(F)cc2n1', 'Cc1cccs1', '.', 'C=C1C(=O)c2ccccc2C1=C(C#N)C#N', 'c1cc2sccc2s1', 'CCCCCCc1cccc(-c2(-c3cccc(CCCCCC)c3)cccc2)c1', 'c1ccccc1', 'CCCCCCc1cccc(-c2(-c3cccc(CCCCCC)c3)cccc2)c1', 'c1cc2sccc2s1', 'C=C1C(=O)c2ccccc2C1=C(C#N)C#N'], ['Cc1cccs1', 'CCCCC(CC)Cc1sc(-c2c3ccsc3c(-c3sc(CCCCC(C)CC)c(F)c3F)c3cc(C)sc23)c(F)c1F', 'c1ccsc1', 'CCCCCCCCC(CCCCCC)Cn1nc2cc(F)c(F)cc2n1', '.', 'C=C1C(=O)c2ccccc2C1=C(C#N)C#N', 'c1cc2sccc2s1', 'CCCCCCc1cccc(-c2(-c3cccc(CCCCCC)c3)cccc2)c1', 'c1ccccc1', 'CCCCCCc1cccc(-c2(-c3cccc(CCCCCC)c3)cccc2)c1', 'c1cc2sccc2s1', 'C=C1C(=O)c2ccccc2C1=C(C#N)C#N'], ['CCCCCCCCC(CCCCCC)Cn1nc2cc(F)c(F)cc2n1', 'Cc1cccs1', 'CCCCC(CC)Cc1sc(-c2c3ccsc3c(-c3sc(CCCCC(C)CC)c(F)c3F)c3cc(C)sc23)c(F)c1F', 'c1ccsc1', '.', 'C=C1C(=O)c2ccccc2C1=C(C#N)C#N', 'c1cc2sccc2s1', 'CCCCCCc1cccc(-c2(-c3cccc(CCCCCC)c3)cccc2)c1', 'c1ccccc1', 'CCCCCCc1cccc(-c2(-c3cccc(CCCCCC)c3)cccc2)c1', 'c1cc2sccc2s1', 'C=C1C(=O)c2ccccc2C1=C(C#N)C#N'], ['c1ccsc1', 'CCCCCCCCC(CCCCCC)Cn1nc2cc(F)c(F)cc2n1', 'Cc1cccs1', 'CCCCC(CC)Cc1sc(-c2c3ccsc3c(-c3sc(CCCCC(C)CC)c(F)c3F)c3cc(C)sc23)c(F)c1F', '.', 'C=C1C(=O)c2ccccc2C1=C(C#N)C#N', 'c1cc2sccc2s1', 'CCCCCCc1cccc(-c2(-c3cccc(CCCCCC)c3)cccc2)c1', 'c1ccccc1', 'CCCCCCc1cccc(-c2(-c3cccc(CCCCCC)c3)cccc2)c1', 'c1cc2sccc2s1', 'C=C1C(=O)c2ccccc2C1=C(C#N)C#N']]"
-9.906924649114046,"[['CCCCCCC(CCCC)CSc1c2cc(C)sc2c(SCC(CCCC)CCCCCC)c2ccsc12', 'c1ccsc1', 'CCCCCCC(CCCC)CSn1nc2cc(F)c(F)cc2n1', 'Cc1cccs1', '.', 'C=C1C(=O)c2cc(F)c(F)cc2C1=C(C#N)C#N', 'c1ccsc1', 'CCCCCCc1ccc(-c2(-c3ccc(CCCCCC)cc3)cccc2)cc1', 'c1ccc2ccccc2c1', 'CCCCCCc1ccc(-c2(-c3ccc(CCCCCC)cc3)cccc2)cc1', 'c1ccsc1', 'C=C1C(=O)c2cc(F)c(F)cc2C1=C(C#N)C#N'], ['Cc1cccs1', 'CCCCCCC(CCCC)CSc1c2cc(C)sc2c(SCC(CCCC)CCCCCC)c2ccsc12', 'c1ccsc1', 'CCCCCCC(CCCC)CSn1nc2cc(F)c(F)cc2n1', '.', 'C=C1C(=O)c2cc(F)c(F)cc2C1=C(C#N)C#N', 'c1ccsc1', 'CCCCCCc1ccc(-c2(-c3ccc(CCCCCC)cc3)cccc2)cc1', 'c1ccc2ccccc2c1', 'CCCCCCc1ccc(-c2(-c3ccc(CCCCCC)cc3)cccc2)cc1', 'c1ccsc1', 'C=C1C(=O)c2cc(F)c(F)cc2C1=C(C#N)C#N'], ['CCCCCCC(CCCC)CSn1nc2cc(F)c(F)cc2n1', 'Cc1cccs1', 'CCCCCCC(CCCC)CSc1c2cc(C)sc2c(SCC(CCCC)CCCCCC)c2ccsc12', 'c1ccsc1', '.', 'C=C1C(=O)c2cc(F)c(F)cc2C1=C(C#N)C#N', 'c1ccsc1', 'CCCCCCc1ccc(-c2(-c3ccc(CCCCCC)cc3)cccc2)cc1', 'c1ccc2ccccc2c1', 'CCCCCCc1ccc(-c2(-c3ccc(CCCCCC)cc3)cccc2)cc1', 'c1ccsc1', 'C=C1C(=O)c2cc(F)c(F)cc2C1=C(C#N)C#N'], ['c1ccsc1', 'CCCCCCC(CCCC)CSn1nc2cc(F)c(F)cc2n1', 'Cc1cccs1', 'CCCCCCC(CCCC)CSc1c2cc(C)sc2c(SCC(CCCC)CCCCCC)c2ccsc12', '.', 'C=C1C(=O)c2cc(F)c(F)cc2C1=C(C#N)C#N', 'c1ccsc1', 'CCCCCCc1ccc(-c2(-c3ccc(CCCCCC)cc3)cccc2)cc1', 'c1ccc2ccccc2c1', 'CCCCCCc1ccc(-c2(-c3ccc(CCCCCC)cc3)cccc2)cc1', 'c1ccsc1', 'C=C1C(=O)c2cc(F)c(F)cc2C1=C(C#N)C#N']]"
-9.840088501699212,"[['CCCCCCC(CCCC)CSc1c2cc(C)sc2c(SCC(CCCC)CCCCCC)c2ccsc12', 'c1ccsc1', 'CCCCCCC(CCCC)CSn1nc2cc(F)c(F)cc2n1', 'Cc1cccs1', '.', 'C=C1C(=O)c2cc(F)c(F)cc2C1=C(C#N)C#N', 'c1cc[sH]c1', 'CCCCCCc1ccc(-c2(-c3ccc(CCCCCC)cc3)cccc2)cc1', 'c1ccsc1', 'CCCCCCc1ccc2cc(CCCCCC)ccc2c1', 'c1ccsc1', 'CCCCCCc1ccc(-c2(-c3ccc(CCCCCC)cc3)cccc2)cc1', 'c1cc[sH]c1', 'C=C1C(=O)c2cc(F)c(F)cc2C1=C(C#N)C#N'], ['Cc1cccs1', 'CCCCCCC(CCCC)CSc1c2cc(C)sc2c(SCC(CCCC)CCCCCC)c2ccsc12', 'c1ccsc1', 'CCCCCCC(CCCC)CSn1nc2cc(F)c(F)cc2n1', '.', 'C=C1C(=O)c2cc(F)c(F)cc2C1=C(C#N)C#N', 'c1cc[sH]c1', 'CCCCCCc1ccc(-c2(-c3ccc(CCCCCC)cc3)cccc2)cc1', 'c1ccsc1', 'CCCCCCc1ccc2cc(CCCCCC)ccc2c1', 'c1ccsc1', 'CCCCCCc1ccc(-c2(-c3ccc(CCCCCC)cc3)cccc2)cc1', 'c1cc[sH]c1', 'C=C1C(=O)c2cc(F)c(F)cc2C1=C(C#N)C#N'], ['CCCCCCC(CCCC)CSn1nc2cc(F)c(F)cc2n1', 'Cc1cccs1', 'CCCCCCC(CCCC)CSc1c2cc(C)sc2c(SCC(CCCC)CCCCCC)c2ccsc12', 'c1ccsc1', '.', 'C=C1C(=O)c2cc(F)c(F)cc2C1=C(C#N)C#N', 'c1cc[sH]c1', 'CCCCCCc1ccc(-c2(-c3ccc(CCCCCC)cc3)cccc2)cc1', 'c1ccsc1', 'CCCCCCc1ccc2cc(CCCCCC)ccc2c1', 'c1ccsc1', 'CCCCCCc1ccc(-c2(-c3ccc(CCCCCC)cc3)cccc2)cc1', 'c1cc[sH]c1', 'C=C1C(=O)c2cc(F)c(F)cc2C1=C(C#N)C#N'], ['c1ccsc1', 'CCCCCCC(CCCC)CSn1nc2cc(F)c(F)cc2n1', 'Cc1cccs1', 'CCCCCCC(CCCC)CSc1c2cc(C)sc2c(SCC(CCCC)CCCCCC)c2ccsc12', '.', 'C=C1C(=O)c2cc(F)c(F)cc2C1=C(C#N)C#N', 'c1cc[sH]c1', 'CCCCCCc1ccc(-c2(-c3ccc(CCCCCC)cc3)cccc2)cc1', 'c1ccsc1', 'CCCCCCc1ccc2cc(CCCCCC)ccc2c1', 'c1ccsc1', 'CCCCCCc1ccc(-c2(-c3ccc(CCCCCC)cc3)cccc2)cc1', 'c1cc[sH]c1', 'C=C1C(=O)c2cc(F)c(F)cc2C1=C(C#N)C#N']]"
-9.12117626058372,"[['CCCCCCC(CC)c1sc(-c2c3cc(C)sc3c(-c3cc(F)c(C(CC)CCCCCC)s3)c3ccsc23)cc1F', 'c1ccsc1', 'CCCCCCCCCC(CCCCCC)n1nc2cc(F)c(F)cc2n1', 'Cc1cccs1', '.', 'C=C1C(=O)c2sccc2C1=C(C#N)C#N', 'c1cc2sccc2s1', 'CCCCCCc1ccc(-c2(-c3ccc(CCCCCC)cc3)cccc2)cc1', 'c1ccccc1', 'CCCCCCc1ccc(-c2(-c3ccc(CCCCCC)cc3)cccc2)cc1', 'c1cc2sccc2s1', 'C=C1C(=O)c2sccc2C1=C(C#N)C#N'], ['Cc1cccs1', 'CCCCCCC(CC)c1sc(-c2c3cc(C)sc3c(-c3cc(F)c(C(CC)CCCCCC)s3)c3ccsc23)cc1F', 'c1ccsc1', 'CCCCCCCCCC(CCCCCC)n1nc2cc(F)c(F)cc2n1', '.', 'C=C1C(=O)c2sccc2C1=C(C#N)C#N', 'c1cc2sccc2s1', 'CCCCCCc1ccc(-c2(-c3ccc(CCCCCC)cc3)cccc2)cc1', 'c1ccccc1', 'CCCCCCc1ccc(-c2(-c3ccc(CCCCCC)cc3)cccc2)cc1', 'c1cc2sccc2s1', 'C=C1C(=O)c2sccc2C1=C(C#N)C#N'], ['CCCCCCCCCC(CCCCCC)n1nc2cc(F)c(F)cc2n1', 'Cc1cccs1', 'CCCCCCC(CC)c1sc(-c2c3cc(C)sc3c(-c3cc(F)c(C(CC)CCCCCC)s3)c3ccsc23)cc1F', 'c1ccsc1', '.', 'C=C1C(=O)c2sccc2C1=C(C#N)C#N', 'c1cc2sccc2s1', 'CCCCCCc1ccc(-c2(-c3ccc(CCCCCC)cc3)cccc2)cc1', 'c1ccccc1', 'CCCCCCc1ccc(-c2(-c3ccc(CCCCCC)cc3)cccc2)cc1', 'c1cc2sccc2s1', 'C=C1C(=O)c2sccc2C1=C(C#N)C#N'], ['c1ccsc1', 'CCCCCCCCCC(CCCCCC)n1nc2cc(F)c(F)cc2n1', 'Cc1cccs1', 'CCCCCCC(CC)c1sc(-c2c3cc(C)sc3c(-c3cc(F)c(C(CC)CCCCCC)s3)c3ccsc23)cc1F', '.', 'C=C1C(=O)c2sccc2C1=C(C#N)C#N', 'c1cc2sccc2s1', 'CCCCCCc1ccc(-c2(-c3ccc(CCCCCC)cc3)cccc2)cc1', 'c1ccccc1', 'CCCCCCc1ccc(-c2(-c3ccc(CCCCCC)cc3)cccc2)cc1', 'c1cc2sccc2s1', 'C=C1C(=O)c2sccc2C1=C(C#N)C#N']]"
-9.146413889121687,"[['CCCCCCC(CC)c1sc(-c2c3cc(C)sc3c(-c3cc(F)c(C(CC)CCCCCC)s3)c3ccsc23)cc1F', 'c1ccsc1', 'CCCCCCCCCC(CCCCCC)n1nc2cc(F)c(F)cc2n1', 'Cc1cccs1', '.', 'C=C1C(=O)c2ccc(C)cc2C1=C(C#N)C#N', 'c1cc2sccc2s1', 'CCCCCCc1ccc(-c2(-c3ccc(CCCCCC)cc3)cccc2)cc1', 'c1ccccc1', 'CCCCCCc1ccc(-c2(-c3ccc(CCCCCC)cc3)cccc2)cc1', 'c1cc2sccc2s1', 'C=C1C(=O)c2ccc(C)cc2C1=C(C#N)C#N'], ['Cc1cccs1', 'CCCCCCC(CC)c1sc(-c2c3cc(C)sc3c(-c3cc(F)c(C(CC)CCCCCC)s3)c3ccsc23)cc1F', 'c1ccsc1', 'CCCCCCCCCC(CCCCCC)n1nc2cc(F)c(F)cc2n1', '.', 'C=C1C(=O)c2ccc(C)cc2C1=C(C#N)C#N', 'c1cc2sccc2s1', 'CCCCCCc1ccc(-c2(-c3ccc(CCCCCC)cc3)cccc2)cc1', 'c1ccccc1', 'CCCCCCc1ccc(-c2(-c3ccc(CCCCCC)cc3)cccc2)cc1', 'c1cc2sccc2s1', 'C=C1C(=O)c2ccc(C)cc2C1=C(C#N)C#N'], ['CCCCCCCCCC(CCCCCC)n1nc2cc(F)c(F)cc2n1', 'Cc1cccs1', 'CCCCCCC(CC)c1sc(-c2c3cc(C)sc3c(-c3cc(F)c(C(CC)CCCCCC)s3)c3ccsc23)cc1F', 'c1ccsc1', '.', 'C=C1C(=O)c2ccc(C)cc2C1=C(C#N)C#N', 'c1cc2sccc2s1', 'CCCCCCc1ccc(-c2(-c3ccc(CCCCCC)cc3)cccc2)cc1', 'c1ccccc1', 'CCCCCCc1ccc(-c2(-c3ccc(CCCCCC)cc3)cccc2)cc1', 'c1cc2sccc2s1', 'C=C1C(=O)c2ccc(C)cc2C1=C(C#N)C#N'], ['c1ccsc1', 'CCCCCCCCCC(CCCCCC)n1nc2cc(F)c(F)cc2n1', 'Cc1cccs1', 'CCCCCCC(CC)c1sc(-c2c3cc(C)sc3c(-c3cc(F)c(C(CC)CCCCCC)s3)c3ccsc23)cc1F', '.', 'C=C1C(=O)c2ccc(C)cc2C1=C(C#N)C#N', 'c1cc2sccc2s1', 'CCCCCCc1ccc(-c2(-c3ccc(CCCCCC)cc3)cccc2)cc1', 'c1ccccc1', 'CCCCCCc1ccc(-c2(-c3ccc(CCCCCC)cc3)cccc2)cc1', 'c1cc2sccc2s1', 'C=C1C(=O)c2ccc(C)cc2C1=C(C#N)C#N']]"
-9.081672996756614,"[['CCCCC(CC)Cc1ccc(-c2c3cc(C)sc3c(-c3ccc(CC(CC)CCCC)s3)c3ccsc23)s1', 'c1ccsc1', 'CCCCC(CC)Cc1sc(CC(CC)CCCC)c2c1C(=O)c1cscc1C2=O', 'Cc1cccs1', '.', 'C=C1C(=O)c2ccccc2C1=C(C#N)C#N', 'c1cc2sccc2s1', 'CCCCCCc1ccc(-c2(-c3ccc(CCCCCC)cc3)cccc2)cc1', 'c1ccccc1', 'CCCCCCc1ccc(-c2(-c3ccc(CCCCCC)cc3)cccc2)cc1', 'c1cc2sccc2s1', 'C=C1C(=O)c2ccccc2C1=C(C#N)C#N'], ['Cc1cccs1', 'CCCCC(CC)Cc1ccc(-c2c3cc(C)sc3c(-c3ccc(CC(CC)CCCC)s3)c3ccsc23)s1', 'c1ccsc1', 'CCCCC(CC)Cc1sc(CC(CC)CCCC)c2c1C(=O)c1cscc1C2=O', '.', 'C=C1C(=O)c2ccccc2C1=C(C#N)C#N', 'c1cc2sccc2s1', 'CCCCCCc1ccc(-c2(-c3ccc(CCCCCC)cc3)cccc2)cc1', 'c1ccccc1', 'CCCCCCc1ccc(-c2(-c3ccc(CCCCCC)cc3)cccc2)cc1', 'c1cc2sccc2s1', 'C=C1C(=O)c2ccccc2C1=C(C#N)C#N'], ['CCCCC(CC)Cc1sc(CC(CC)CCCC)c2c1C(=O)c1cscc1C2=O', 'Cc1cccs1', 'CCCCC(CC)Cc1ccc(-c2c3cc(C)sc3c(-c3ccc(CC(CC)CCCC)s3)c3ccsc23)s1', 'c1ccsc1', '.', 'C=C1C(=O)c2ccccc2C1=C(C#N)C#N', 'c1cc2sccc2s1', 'CCCCCCc1ccc(-c2(-c3ccc(CCCCCC)cc3)cccc2)cc1', 'c1ccccc1', 'CCCCCCc1ccc(-c2(-c3ccc(CCCCCC)cc3)cccc2)cc1', 'c1cc2sccc2s1', 'C=C1C(=O)c2ccccc2C1=C(C#N)C#N'], ['c1ccsc1', 'CCCCC(CC)Cc1sc(CC(CC)CCCC)c2c1C(=O)c1cscc1C2=O', 'Cc1cccs1', 'CCCCC(CC)Cc1ccc(-c2c3cc(C)sc3c(-c3ccc(CC(CC)CCCC)s3)c3ccsc23)s1', '.', 'C=C1C(=O)c2ccccc2C1=C(C#N)C#N', 'c1cc2sccc2s1', 'CCCCCCc1ccc(-c2(-c3ccc(CCCCCC)cc3)cccc2)cc1', 'c1ccccc1', 'CCCCCCc1ccc(-c2(-c3ccc(CCCCCC)cc3)cccc2)cc1', 'c1cc2sccc2s1', 'C=C1C(=O)c2ccccc2C1=C(C#N)C#N']]"
-9.009994717825052,"[['CCCCC(CC)Cc1ccc(-c2c3cc(C)sc3c(-c3ccc(CC(CC)CCCC)s3)c3ccsc23)s1', 'CCCCC(CC)COC(=O)c1sc2csc(C)c2c1F', '.', 'C=C1C(=O)c2ccccc2C1=C(C#N)C#N', 'c1ccsc1', 'CCCCCCc1ccc(-c2(-c3ccc(CCCCCC)cc3)cccc2)cc1', 'c1cc2sccc2s1', 'CCCCCCc1ccc(-c2(-c3ccc(CCCCCC)cc3)cccc2)cc1', 'c1ccsc1', 'C=C1C(=O)c2ccccc2C1=C(C#N)C#N'], ['CCCCC(CC)COC(=O)c1sc2csc(C)c2c1F', 'CCCCC(CC)Cc1ccc(-c2c3cc(C)sc3c(-c3ccc(CC(CC)CCCC)s3)c3ccsc23)s1', '.', 'C=C1C(=O)c2ccccc2C1=C(C#N)C#N', 'c1ccsc1', 'CCCCCCc1ccc(-c2(-c3ccc(CCCCCC)cc3)cccc2)cc1', 'c1cc2sccc2s1', 'CCCCCCc1ccc(-c2(-c3ccc(CCCCCC)cc3)cccc2)cc1', 'c1ccsc1', 'C=C1C(=O)c2ccccc2C1=C(C#N)C#N']]"
-9.511056087458048,"[['CCCCC(CC)Cc1ccc(-c2c3cc(C)sc3c(-c3ccc(CC(CC)CCCC)s3)c3ccsc23)s1', 'c1ccsc1', 'CCCCC(CC)Cc1sc(CC(CC)CCCC)c2c1C(=O)c1cscc1C2=O', 'Cc1cccs1', '.', 'C=C1C(=O)c2ccccc2C1=C(C#N)C#N', 'c1ccsc1', 'c1ccccc1', 'CCCCCCCCc1(CCCCCCCC)cccc1', 'c1ccccc1', 'c1ccsc1', 'C=C1C(=O)c2ccccc2C1=C(C#N)C#N'], ['Cc1cccs1', 'CCCCC(CC)Cc1ccc(-c2c3cc(C)sc3c(-c3ccc(CC(CC)CCCC)s3)c3ccsc23)s1', 'c1ccsc1', 'CCCCC(CC)Cc1sc(CC(CC)CCCC)c2c1C(=O)c1cscc1C2=O', '.', 'C=C1C(=O)c2ccccc2C1=C(C#N)C#N', 'c1ccsc1', 'c1ccccc1', 'CCCCCCCCc1(CCCCCCCC)cccc1', 'c1ccccc1', 'c1ccsc1', 'C=C1C(=O)c2ccccc2C1=C(C#N)C#N'], ['CCCCC(CC)Cc1sc(CC(CC)CCCC)c2c1C(=O)c1cscc1C2=O', 'Cc1cccs1', 'CCCCC(CC)Cc1ccc(-c2c3cc(C)sc3c(-c3ccc(CC(CC)CCCC)s3)c3ccsc23)s1', 'c1ccsc1', '.', 'C=C1C(=O)c2ccccc2C1=C(C#N)C#N', 'c1ccsc1', 'c1ccccc1', 'CCCCCCCCc1(CCCCCCCC)cccc1', 'c1ccccc1', 'c1ccsc1', 'C=C1C(=O)c2ccccc2C1=C(C#N)C#N'], ['c1ccsc1', 'CCCCC(CC)Cc1sc(CC(CC)CCCC)c2c1C(=O)c1cscc1C2=O', 'Cc1cccs1', 'CCCCC(CC)Cc1ccc(-c2c3cc(C)sc3c(-c3ccc(CC(CC)CCCC)s3)c3ccsc23)s1', '.', 'C=C1C(=O)c2ccccc2C1=C(C#N)C#N', 'c1ccsc1', 'c1ccccc1', 'CCCCCCCCc1(CCCCCCCC)cccc1', 'c1ccccc1', 'c1ccsc1', 'C=C1C(=O)c2ccccc2C1=C(C#N)C#N']]"
-9.551998949393944,"[['CCCCC(CC)Cc1ccc(-c2c3cc(C)sc3c(-c3ccc(CC(CC)CCCC)s3)c3ccsc23)s1', 'c1ccsc1', 'CCCCC(CC)Cc1sc(CC(CC)CCCC)c2c1C(=O)c1cscc1C2=O', 'Cc1cccs1', '.', 'C=C1C(=O)c2ccccc2C1=C(C#N)C#N', 'CCCCCCOc1ccc(OCCCCCC)cc1', 'c1ccsc1', 'CCCCCCc1ccc(-c2(-c3ccc(CCCCCC)cc3)cccc2)cc1', 'c1ccccc1', 'CCCCCCc1ccc(-c2(-c3ccc(CCCCCC)cc3)cccc2)cc1', 'c1ccsc1', 'CCCCCCOc1ccc(OCCCCCC)cc1', 'C=C1C(=O)c2ccccc2C1=C(C#N)C#N'], ['Cc1cccs1', 'CCCCC(CC)Cc1ccc(-c2c3cc(C)sc3c(-c3ccc(CC(CC)CCCC)s3)c3ccsc23)s1', 'c1ccsc1', 'CCCCC(CC)Cc1sc(CC(CC)CCCC)c2c1C(=O)c1cscc1C2=O', '.', 'C=C1C(=O)c2ccccc2C1=C(C#N)C#N', 'CCCCCCOc1ccc(OCCCCCC)cc1', 'c1ccsc1', 'CCCCCCc1ccc(-c2(-c3ccc(CCCCCC)cc3)cccc2)cc1', 'c1ccccc1', 'CCCCCCc1ccc(-c2(-c3ccc(CCCCCC)cc3)cccc2)cc1', 'c1ccsc1', 'CCCCCCOc1ccc(OCCCCCC)cc1', 'C=C1C(=O)c2ccccc2C1=C(C#N)C#N'], ['CCCCC(CC)Cc1sc(CC(CC)CCCC)c2c1C(=O)c1cscc1C2=O', 'Cc1cccs1', 'CCCCC(CC)Cc1ccc(-c2c3cc(C)sc3c(-c3ccc(CC(CC)CCCC)s3)c3ccsc23)s1', 'c1ccsc1', '.', 'C=C1C(=O)c2ccccc2C1=C(C#N)C#N', 'CCCCCCOc1ccc(OCCCCCC)cc1', 'c1ccsc1', 'CCCCCCc1ccc(-c2(-c3ccc(CCCCCC)cc3)cccc2)cc1', 'c1ccccc1', 'CCCCCCc1ccc(-c2(-c3ccc(CCCCCC)cc3)cccc2)cc1', 'c1ccsc1', 'CCCCCCOc1ccc(OCCCCCC)cc1', 'C=C1C(=O)c2ccccc2C1=C(C#N)C#N'], ['c1ccsc1', 'CCCCC(CC)Cc1sc(CC(CC)CCCC)c2c1C(=O)c1cscc1C2=O', 'Cc1cccs1', 'CCCCC(CC)Cc1ccc(-c2c3cc(C)sc3c(-c3ccc(CC(CC)CCCC)s3)c3ccsc23)s1', '.', 'C=C1C(=O)c2ccccc2C1=C(C#N)C#N', 'CCCCCCOc1ccc(OCCCCCC)cc1', 'c1ccsc1', 'CCCCCCc1ccc(-c2(-c3ccc(CCCCCC)cc3)cccc2)cc1', 'c1ccccc1', 'CCCCCCc1ccc(-c2(-c3ccc(CCCCCC)cc3)cccc2)cc1', 'c1ccsc1', 'CCCCCCOc1ccc(OCCCCCC)cc1', 'C=C1C(=O)c2ccccc2C1=C(C#N)C#N']]"
-9.47819634410498,"[['CCCCC(CC)Cc1ccc(-c2c3cc(C)sc3c(-c3ccc(CC(CC)CCCC)s3)c3ccsc23)s1', 'c1ccsc1', 'CCCCC(CC)Cc1sc(CC(CC)CCCC)c2c1C(=O)c1cscc1C2=O', 'Cc1cccs1', '.', 'C=C1C(=O)c2cc(F)ccc2C1=C(C#N)C#N', 'c1ccsc1', 'CCCCCCc1ccc(-c2(-c3ccc(CCCCCC)cc3)cccc2)cc1', 'c1cc[sH]c1', 'CCCCCCCCc1ccc(CCCCCCCC)cc1', 'c1cc[sH]c1', 'CCCCCCc1ccc(-c2(-c3ccc(CCCCCC)cc3)cccc2)cc1', 'c1ccsc1', 'C=C1C(=O)c2cc(F)ccc2C1=C(C#N)C#N'], ['Cc1cccs1', 'CCCCC(CC)Cc1ccc(-c2c3cc(C)sc3c(-c3ccc(CC(CC)CCCC)s3)c3ccsc23)s1', 'c1ccsc1', 'CCCCC(CC)Cc1sc(CC(CC)CCCC)c2c1C(=O)c1cscc1C2=O', '.', 'C=C1C(=O)c2cc(F)ccc2C1=C(C#N)C#N', 'c1ccsc1', 'CCCCCCc1ccc(-c2(-c3ccc(CCCCCC)cc3)cccc2)cc1', 'c1cc[sH]c1', 'CCCCCCCCc1ccc(CCCCCCCC)cc1', 'c1cc[sH]c1', 'CCCCCCc1ccc(-c2(-c3ccc(CCCCCC)cc3)cccc2)cc1', 'c1ccsc1', 'C=C1C(=O)c2cc(F)ccc2C1=C(C#N)C#N'], ['CCCCC(CC)Cc1sc(CC(CC)CCCC)c2c1C(=O)c1cscc1C2=O', 'Cc1cccs1', 'CCCCC(CC)Cc1ccc(-c2c3cc(C)sc3c(-c3ccc(CC(CC)CCCC)s3)c3ccsc23)s1', 'c1ccsc1', '.', 'C=C1C(=O)c2cc(F)ccc2C1=C(C#N)C#N', 'c1ccsc1', 'CCCCCCc1ccc(-c2(-c3ccc(CCCCCC)cc3)cccc2)cc1', 'c1cc[sH]c1', 'CCCCCCCCc1ccc(CCCCCCCC)cc1', 'c1cc[sH]c1', 'CCCCCCc1ccc(-c2(-c3ccc(CCCCCC)cc3)cccc2)cc1', 'c1ccsc1', 'C=C1C(=O)c2cc(F)ccc2C1=C(C#N)C#N'], ['c1ccsc1', 'CCCCC(CC)Cc1sc(CC(CC)CCCC)c2c1C(=O)c1cscc1C2=O', 'Cc1cccs1', 'CCCCC(CC)Cc1ccc(-c2c3cc(C)sc3c(-c3ccc(CC(CC)CCCC)s3)c3ccsc23)s1', '.', 'C=C1C(=O)c2cc(F)ccc2C1=C(C#N)C#N', 'c1ccsc1', 'CCCCCCc1ccc(-c2(-c3ccc(CCCCCC)cc3)cccc2)cc1', 'c1cc[sH]c1', 'CCCCCCCCc1ccc(CCCCCCCC)cc1', 'c1cc[sH]c1', 'CCCCCCc1ccc(-c2(-c3ccc(CCCCCC)cc3)cccc2)cc1', 'c1ccsc1', 'C=C1C(=O)c2cc(F)ccc2C1=C(C#N)C#N']]"
-9.458578609040016,"[['CCCCCCc1ccsc1C', 'CCCCCCc1ccsc1', 'CCCCCCc1ccsc1', 'CCCCCCc1csc(C)c1', '.', 'C=C1SC(=S)N(CC)C1=O', 'c1ccc2nsnc2c1', 'c1ccsc1', 'CCCCC(CC)Cc1(CC(CC)CCCC)cccc1', 'c1ccccc1', 'CCCCC(CC)Cc1(CC(CC)CCCC)cccc1', 'c1ccsc1', 'c1ccc2nsnc2c1', 'C=C1SC(=S)N(CC)C1=O'], ['CCCCCCc1csc(C)c1', 'CCCCCCc1ccsc1C', 'CCCCCCc1ccsc1', 'CCCCCCc1ccsc1', '.', 'C=C1SC(=S)N(CC)C1=O', 'c1ccc2nsnc2c1', 'c1ccsc1', 'CCCCC(CC)Cc1(CC(CC)CCCC)cccc1', 'c1ccccc1', 'CCCCC(CC)Cc1(CC(CC)CCCC)cccc1', 'c1ccsc1', 'c1ccc2nsnc2c1', 'C=C1SC(=S)N(CC)C1=O'], ['CCCCCCc1ccsc1', 'CCCCCCc1csc(C)c1', 'CCCCCCc1ccsc1C', 'CCCCCCc1ccsc1', '.', 'C=C1SC(=S)N(CC)C1=O', 'c1ccc2nsnc2c1', 'c1ccsc1', 'CCCCC(CC)Cc1(CC(CC)CCCC)cccc1', 'c1ccccc1', 'CCCCC(CC)Cc1(CC(CC)CCCC)cccc1', 'c1ccsc1', 'c1ccc2nsnc2c1', 'C=C1SC(=S)N(CC)C1=O'], ['CCCCCCc1ccsc1', 'CCCCCCc1ccsc1', 'CCCCCCc1csc(C)c1', 'CCCCCCc1ccsc1C', '.', 'C=C1SC(=S)N(CC)C1=O', 'c1ccc2nsnc2c1', 'c1ccsc1', 'CCCCC(CC)Cc1(CC(CC)CCCC)cccc1', 'c1ccccc1', 'CCCCC(CC)Cc1(CC(CC)CCCC)cccc1', 'c1ccsc1', 'c1ccc2nsnc2c1', 'C=C1SC(=S)N(CC)C1=O']]"
-9.4209018272271,"[['CCCCC(CC)Cc1ccc(-c2c3cc(C)sc3c(-c3ccc(CC(CC)CCCC)s3)c3ccsc23)s1', 'c1ccsc1', 'CCCCCCCCN1C(=O)c2cc3nn(CCCCCCCC)nc3cc2C1=O', 'Cc1cccs1', '.', 'C=C1C(=O)c2ccccc2C1=C(C#N)C#N', 'c1cc2sccc2s1', 'CCCCCCc1ccc(-c2(-c3ccc(CCCCCC)cc3)cccc2)cc1', 'c1ccccc1', 'CCCCCCc1ccc(-c2(-c3ccc(CCCCCC)cc3)cccc2)cc1', 'c1cc2sccc2s1', 'C=C1C(=O)c2ccccc2C1=C(C#N)C#N'], ['Cc1cccs1', 'CCCCC(CC)Cc1ccc(-c2c3cc(C)sc3c(-c3ccc(CC(CC)CCCC)s3)c3ccsc23)s1', 'c1ccsc1', 'CCCCCCCCN1C(=O)c2cc3nn(CCCCCCCC)nc3cc2C1=O', '.', 'C=C1C(=O)c2ccccc2C1=C(C#N)C#N', 'c1cc2sccc2s1', 'CCCCCCc1ccc(-c2(-c3ccc(CCCCCC)cc3)cccc2)cc1', 'c1ccccc1', 'CCCCCCc1ccc(-c2(-c3ccc(CCCCCC)cc3)cccc2)cc1', 'c1cc2sccc2s1', 'C=C1C(=O)c2ccccc2C1=C(C#N)C#N'], ['CCCCCCCCN1C(=O)c2cc3nn(CCCCCCCC)nc3cc2C1=O', 'Cc1cccs1', 'CCCCC(CC)Cc1ccc(-c2c3cc(C)sc3c(-c3ccc(CC(CC)CCCC)s3)c3ccsc23)s1', 'c1ccsc1', '.', 'C=C1C(=O)c2ccccc2C1=C(C#N)C#N', 'c1cc2sccc2s1', 'CCCCCCc1ccc(-c2(-c3ccc(CCCCCC)cc3)cccc2)cc1', 'c1ccccc1', 'CCCCCCc1ccc(-c2(-c3ccc(CCCCCC)cc3)cccc2)cc1', 'c1cc2sccc2s1', 'C=C1C(=O)c2ccccc2C1=C(C#N)C#N'], ['c1ccsc1', 'CCCCCCCCN1C(=O)c2cc3nn(CCCCCCCC)nc3cc2C1=O', 'Cc1cccs1', 'CCCCC(CC)Cc1ccc(-c2c3cc(C)sc3c(-c3ccc(CC(CC)CCCC)s3)c3ccsc23)s1', '.', 'C=C1C(=O)c2ccccc2C1=C(C#N)C#N', 'c1cc2sccc2s1', 'CCCCCCc1ccc(-c2(-c3ccc(CCCCCC)cc3)cccc2)cc1', 'c1ccccc1', 'CCCCCCc1ccc(-c2(-c3ccc(CCCCCC)cc3)cccc2)cc1', 'c1cc2sccc2s1', 'C=C1C(=O)c2ccccc2C1=C(C#N)C#N']]"
-9.4407062098816,"[['CCCCCCC(CCCC)CSc1c2cc(C)sc2c(SCC(CCCC)CCCCCC)c2ccsc12', 'c1ccsc1', 'CCCCCCC(CCCC)CSn1nc2cc(F)c(F)cc2n1', 'Cc1cccs1', '.', 'C=C1C(=O)c2c(F)cccc2C1=C(C#N)C#N', 'c1cc2sc3ccsc3c2s1', 'CCCCCCc1ccc(-c2(-c3ccc(CCCCCC)cc3)cccc2)cc1', 'c1ccccc1', 'CCCCCCc1ccc(-c2(-c3ccc(CCCCCC)cc3)cccc2)cc1', 'c1cc2sc3ccsc3c2s1', 'C=C1C(=O)c2c(F)cccc2C1=C(C#N)C#N'], ['Cc1cccs1', 'CCCCCCC(CCCC)CSc1c2cc(C)sc2c(SCC(CCCC)CCCCCC)c2ccsc12', 'c1ccsc1', 'CCCCCCC(CCCC)CSn1nc2cc(F)c(F)cc2n1', '.', 'C=C1C(=O)c2c(F)cccc2C1=C(C#N)C#N', 'c1cc2sc3ccsc3c2s1', 'CCCCCCc1ccc(-c2(-c3ccc(CCCCCC)cc3)cccc2)cc1', 'c1ccccc1', 'CCCCCCc1ccc(-c2(-c3ccc(CCCCCC)cc3)cccc2)cc1', 'c1cc2sc3ccsc3c2s1', 'C=C1C(=O)c2c(F)cccc2C1=C(C#N)C#N'], ['CCCCCCC(CCCC)CSn1nc2cc(F)c(F)cc2n1', 'Cc1cccs1', 'CCCCCCC(CCCC)CSc1c2cc(C)sc2c(SCC(CCCC)CCCCCC)c2ccsc12', 'c1ccsc1', '.', 'C=C1C(=O)c2c(F)cccc2C1=C(C#N)C#N', 'c1cc2sc3ccsc3c2s1', 'CCCCCCc1ccc(-c2(-c3ccc(CCCCCC)cc3)cccc2)cc1', 'c1ccccc1', 'CCCCCCc1ccc(-c2(-c3ccc(CCCCCC)cc3)cccc2)cc1', 'c1cc2sc3ccsc3c2s1', 'C=C1C(=O)c2c(F)cccc2C1=C(C#N)C#N'], ['c1ccsc1', 'CCCCCCC(CCCC)CSn1nc2cc(F)c(F)cc2n1', 'Cc1cccs1', 'CCCCCCC(CCCC)CSc1c2cc(C)sc2c(SCC(CCCC)CCCCCC)c2ccsc12', '.', 'C=C1C(=O)c2c(F)cccc2C1=C(C#N)C#N', 'c1cc2sc3ccsc3c2s1', 'CCCCCCc1ccc(-c2(-c3ccc(CCCCCC)cc3)cccc2)cc1', 'c1ccccc1', 'CCCCCCc1ccc(-c2(-c3ccc(CCCCCC)cc3)cccc2)cc1', 'c1cc2sc3ccsc3c2s1', 'C=C1C(=O)c2c(F)cccc2C1=C(C#N)C#N']]"
-9.409707353524604,"[['CCCCC(CC)Cc1ccc(-c2c3cc(C)sc3c(-c3ccc(CC(CC)CCCC)s3)c3ccsc23)s1', 'CCCCC(CC)COC(=O)c1sc2csc(C)c2c1F', '.', 'C=C1C(=O)c2cc(F)c(F)cc2C1=C(C#N)C#N', 'c1ccsc1', 'CCCCCCc1ccc(-c2(-c3ccc(CCCCCC)cc3)cccc2)cc1', 'c1cc2sccc2s1', 'CCCCCCc1ccc(-c2(-c3ccc(CCCCCC)cc3)cccc2)cc1', 'c1ccsc1', 'C=C1C(=O)c2cc(F)c(F)cc2C1=C(C#N)C#N'], ['CCCCC(CC)COC(=O)c1sc2csc(C)c2c1F', 'CCCCC(CC)Cc1ccc(-c2c3cc(C)sc3c(-c3ccc(CC(CC)CCCC)s3)c3ccsc23)s1', '.', 'C=C1C(=O)c2cc(F)c(F)cc2C1=C(C#N)C#N', 'c1ccsc1', 'CCCCCCc1ccc(-c2(-c3ccc(CCCCCC)cc3)cccc2)cc1', 'c1cc2sccc2s1', 'CCCCCCc1ccc(-c2(-c3ccc(CCCCCC)cc3)cccc2)cc1', 'c1ccsc1', 'C=C1C(=O)c2cc(F)c(F)cc2C1=C(C#N)C#N']]"
-9.336754793808515,"[['CCCCC(CC)Cc1ccc(-c2c3cc(C)sc3c(-c3ccc(CC(CC)CCCC)s3)c3ccsc23)s1', 'CCCCC(CC)COC(=O)c1sc2csc(C)c2c1F', '.', 'C=C1C(=O)c2cc(F)c(F)cc2C1=C(C#N)C#N', 'c1cc2sc3ccsc3c2s1', 'CCCCCCc1ccc(-c2(-c3ccc(CCCCCC)cc3)cccc2)cc1', 'c1cc2sccc2s1', 'CCCCCCc1ccc(-c2(-c3ccc(CCCCCC)cc3)cccc2)cc1', 'c1cc2sc3ccsc3c2s1', 'C=C1C(=O)c2cc(F)c(F)cc2C1=C(C#N)C#N'], ['CCCCC(CC)COC(=O)c1sc2csc(C)c2c1F', 'CCCCC(CC)Cc1ccc(-c2c3cc(C)sc3c(-c3ccc(CC(CC)CCCC)s3)c3ccsc23)s1', '.', 'C=C1C(=O)c2cc(F)c(F)cc2C1=C(C#N)C#N', 'c1cc2sc3ccsc3c2s1', 'CCCCCCc1ccc(-c2(-c3ccc(CCCCCC)cc3)cccc2)cc1', 'c1cc2sccc2s1', 'CCCCCCc1ccc(-c2(-c3ccc(CCCCCC)cc3)cccc2)cc1', 'c1cc2sc3ccsc3c2s1', 'C=C1C(=O)c2cc(F)c(F)cc2C1=C(C#N)C#N']]"
-7.048847734563566,"[['CCCCC(CC)Cc1ccc(-c2c3cc(C)sc3c(-c3ccc(CC(CC)CCCC)s3)c3ccsc23)s1', 'CCCCC(CC)CC(=O)c1cc2c(C)scc2s1', '.', 'C=C1C(=O)c2ccccc2C1=C(C#N)C#N', 'c1ccsc1', 'c1ccsc1', 'CCCCCCc1ccc(-c2(-c3ccc(CCCCCC)cc3)cccc2)cc1', 'c1ccccc1', 'CCCCCCc1ccc(-c2(-c3ccc(CCCCCC)cc3)cccc2)cc1', 'c1ccsc1', 'c1ccsc1', 'C=C1C(=O)c2ccccc2C1=C(C#N)C#N'], ['CCCCC(CC)CC(=O)c1cc2c(C)scc2s1', 'CCCCC(CC)Cc1ccc(-c2c3cc(C)sc3c(-c3ccc(CC(CC)CCCC)s3)c3ccsc23)s1', '.', 'C=C1C(=O)c2ccccc2C1=C(C#N)C#N', 'c1ccsc1', 'c1ccsc1', 'CCCCCCc1ccc(-c2(-c3ccc(CCCCCC)cc3)cccc2)cc1', 'c1ccccc1', 'CCCCCCc1ccc(-c2(-c3ccc(CCCCCC)cc3)cccc2)cc1', 'c1ccsc1', 'c1ccsc1', 'C=C1C(=O)c2ccccc2C1=C(C#N)C#N']]"
-6.875708544454135,"[['CCCCCCCCCCCCC(CCCCCCCCCC)Cc1ccsc1C', 'Fc1cc2nsnc2cc1F', 'CCCCCCCCCCCCC(C)CCCCCCCCCCc1ccsc1', 'c1ccsc1', 'Cc1cccs1', '.', 'C=C1SC(=S)N(CC)C1=O', 'c1ccc2nsnc2c1', 'c1ccsc1', 'CCCCCCCCc1(CCCCCCCC)cccc1', 'c1ccccc1', 'CCCCCCCCc1(CCCCCCCC)cccc1', 'c1ccsc1', 'c1ccc2nsnc2c1', 'C=C1SC(=S)N(CC)C1=O'], ['Cc1cccs1', 'CCCCCCCCCCCCC(CCCCCCCCCC)Cc1ccsc1C', 'Fc1cc2nsnc2cc1F', 'CCCCCCCCCCCCC(C)CCCCCCCCCCc1ccsc1', 'c1ccsc1', '.', 'C=C1SC(=S)N(CC)C1=O', 'c1ccc2nsnc2c1', 'c1ccsc1', 'CCCCCCCCc1(CCCCCCCC)cccc1', 'c1ccccc1', 'CCCCCCCCc1(CCCCCCCC)cccc1', 'c1ccsc1', 'c1ccc2nsnc2c1', 'C=C1SC(=S)N(CC)C1=O'], ['c1ccsc1', 'Cc1cccs1', 'CCCCCCCCCCCCC(CCCCCCCCCC)Cc1ccsc1C', 'Fc1cc2nsnc2cc1F', 'CCCCCCCCCCCCC(C)CCCCCCCCCCc1ccsc1', '.', 'C=C1SC(=S)N(CC)C1=O', 'c1ccc2nsnc2c1', 'c1ccsc1', 'CCCCCCCCc1(CCCCCCCC)cccc1', 'c1ccccc1', 'CCCCCCCCc1(CCCCCCCC)cccc1', 'c1ccsc1', 'c1ccc2nsnc2c1', 'C=C1SC(=S)N(CC)C1=O'], ['CCCCCCCCCCCCC(C)CCCCCCCCCCc1ccsc1', 'c1ccsc1', 'Cc1cccs1', 'CCCCCCCCCCCCC(CCCCCCCCCC)Cc1ccsc1C', 'Fc1cc2nsnc2cc1F', '.', 'C=C1SC(=S)N(CC)C1=O', 'c1ccc2nsnc2c1', 'c1ccsc1', 'CCCCCCCCc1(CCCCCCCC)cccc1', 'c1ccccc1', 'CCCCCCCCc1(CCCCCCCC)cccc1', 'c1ccsc1', 'c1ccc2nsnc2c1', 'C=C1SC(=S)N(CC)C1=O'], ['Fc1cc2nsnc2cc1F', 'CCCCCCCCCCCCC(C)CCCCCCCCCCc1ccsc1', 'c1ccsc1', 'Cc1cccs1', 'CCCCCCCCCCCCC(CCCCCCCCCC)Cc1ccsc1C', '.', 'C=C1SC(=S)N(CC)C1=O', 'c1ccc2nsnc2c1', 'c1ccsc1', 'CCCCCCCCc1(CCCCCCCC)cccc1', 'c1ccccc1', 'CCCCCCCCc1(CCCCCCCC)cccc1', 'c1ccsc1', 'c1ccc2nsnc2c1', 'C=C1SC(=S)N(CC)C1=O']]"
-9.088928284205895,"[['CCCCC(CC)Cc1ccc(-c2c3cc(C)sc3c(-c3ccc(CC(CC)CCCC)s3)c3ccsc23)s1', 'c1ccsc1', 'CCCCC(CC)Cc1sc(CC(CC)CCCC)c2c1C(=O)c1cscc1C2=O', 'Cc1cccs1', '.', 'C=C1C(=O)c2ccccc2C1=C(C#N)C#N', 'c1ccsc1', 'CCCCCCc1(CCCCCC)cccc1', 'c1ccccc1', 'CCCCCCc1(CCCCCC)cccc1', 'c1ccccc1', 'CCCCCCc1(CCCCCC)cccc1', 'c1ccsc1', 'C=C1C(=O)c2ccccc2C1=C(C#N)C#N'], ['Cc1cccs1', 'CCCCC(CC)Cc1ccc(-c2c3cc(C)sc3c(-c3ccc(CC(CC)CCCC)s3)c3ccsc23)s1', 'c1ccsc1', 'CCCCC(CC)Cc1sc(CC(CC)CCCC)c2c1C(=O)c1cscc1C2=O', '.', 'C=C1C(=O)c2ccccc2C1=C(C#N)C#N', 'c1ccsc1', 'CCCCCCc1(CCCCCC)cccc1', 'c1ccccc1', 'CCCCCCc1(CCCCCC)cccc1', 'c1ccccc1', 'CCCCCCc1(CCCCCC)cccc1', 'c1ccsc1', 'C=C1C(=O)c2ccccc2C1=C(C#N)C#N'], ['CCCCC(CC)Cc1sc(CC(CC)CCCC)c2c1C(=O)c1cscc1C2=O', 'Cc1cccs1', 'CCCCC(CC)Cc1ccc(-c2c3cc(C)sc3c(-c3ccc(CC(CC)CCCC)s3)c3ccsc23)s1', 'c1ccsc1', '.', 'C=C1C(=O)c2ccccc2C1=C(C#N)C#N', 'c1ccsc1', 'CCCCCCc1(CCCCCC)cccc1', 'c1ccccc1', 'CCCCCCc1(CCCCCC)cccc1', 'c1ccccc1', 'CCCCCCc1(CCCCCC)cccc1', 'c1ccsc1', 'C=C1C(=O)c2ccccc2C1=C(C#N)C#N'], ['c1ccsc1', 'CCCCC(CC)Cc1sc(CC(CC)CCCC)c2c1C(=O)c1cscc1C2=O', 'Cc1cccs1', 'CCCCC(CC)Cc1ccc(-c2c3cc(C)sc3c(-c3ccc(CC(CC)CCCC)s3)c3ccsc23)s1', '.', 'C=C1C(=O)c2ccccc2C1=C(C#N)C#N', 'c1ccsc1', 'CCCCCCc1(CCCCCC)cccc1', 'c1ccccc1', 'CCCCCCc1(CCCCCC)cccc1', 'c1ccccc1', 'CCCCCCc1(CCCCCC)cccc1', 'c1ccsc1', 'C=C1C(=O)c2ccccc2C1=C(C#N)C#N']]"
-9.091333716210949,"[['CCCCC(CC)Cc1ccc(-c2c3cc(C)sc3c(-c3ccc(CC(CC)CCCC)s3)c3ccsc23)s1', 'c1ccsc1', 'CCCCC(CC)Cc1sc(CC(CC)CCCC)c2c1C(=O)c1cscc1C2=O', 'Cc1cccs1', '.', 'C=C1C(=O)c2ccccc2C1=C(C#N)C#N', 'c1ccsc1', 'CCCCCCCCc1(CCCCCCCC)cccc1', 'c1ccccc1', 'CCCCCCc1(CCCCCC)cccc1', 'c1ccccc1', 'CCCCCCCCc1(CCCCCCCC)cccc1', 'c1ccsc1', 'C=C1C(=O)c2ccccc2C1=C(C#N)C#N'], ['Cc1cccs1', 'CCCCC(CC)Cc1ccc(-c2c3cc(C)sc3c(-c3ccc(CC(CC)CCCC)s3)c3ccsc23)s1', 'c1ccsc1', 'CCCCC(CC)Cc1sc(CC(CC)CCCC)c2c1C(=O)c1cscc1C2=O', '.', 'C=C1C(=O)c2ccccc2C1=C(C#N)C#N', 'c1ccsc1', 'CCCCCCCCc1(CCCCCCCC)cccc1', 'c1ccccc1', 'CCCCCCc1(CCCCCC)cccc1', 'c1ccccc1', 'CCCCCCCCc1(CCCCCCCC)cccc1', 'c1ccsc1', 'C=C1C(=O)c2ccccc2C1=C(C#N)C#N'], ['CCCCC(CC)Cc1sc(CC(CC)CCCC)c2c1C(=O)c1cscc1C2=O', 'Cc1cccs1', 'CCCCC(CC)Cc1ccc(-c2c3cc(C)sc3c(-c3ccc(CC(CC)CCCC)s3)c3ccsc23)s1', 'c1ccsc1', '.', 'C=C1C(=O)c2ccccc2C1=C(C#N)C#N', 'c1ccsc1', 'CCCCCCCCc1(CCCCCCCC)cccc1', 'c1ccccc1', 'CCCCCCc1(CCCCCC)cccc1', 'c1ccccc1', 'CCCCCCCCc1(CCCCCCCC)cccc1', 'c1ccsc1', 'C=C1C(=O)c2ccccc2C1=C(C#N)C#N'], ['c1ccsc1', 'CCCCC(CC)Cc1sc(CC(CC)CCCC)c2c1C(=O)c1cscc1C2=O', 'Cc1cccs1', 'CCCCC(CC)Cc1ccc(-c2c3cc(C)sc3c(-c3ccc(CC(CC)CCCC)s3)c3ccsc23)s1', '.', 'C=C1C(=O)c2ccccc2C1=C(C#N)C#N', 'c1ccsc1', 'CCCCCCCCc1(CCCCCCCC)cccc1', 'c1ccccc1', 'CCCCCCc1(CCCCCC)cccc1', 'c1ccccc1', 'CCCCCCCCc1(CCCCCCCC)cccc1', 'c1ccsc1', 'C=C1C(=O)c2ccccc2C1=C(C#N)C#N']]"
-9.078419567595763,"[['CCCCC(CC)Cc1ccc(-c2c3cc(C)sc3c(-c3ccc(CC(CC)CCCC)s3)c3ccsc23)s1', 'c1ccsc1', 'CCCCC(CC)Cc1sc(CC(CC)CCCC)c2c1C(=O)c1cscc1C2=O', 'Cc1cccs1', '.', 'C=C1C(=O)c2ccccc2C1=C(C#N)C#N', 'c1cc2sccc2s1', 'CCCCCCc1ccc(-c2(-c3ccc(CCCCCC)cc3)cccc2)cc1', 'c1cc2sccc2s1', 'CCCCCCc1ccc(-c2(-c3ccc(CCCCCC)cc3)cccc2)cc1', 'c1cc2sccc2s1', 'C=C1C(=O)c2ccccc2C1=C(C#N)C#N'], ['Cc1cccs1', 'CCCCC(CC)Cc1ccc(-c2c3cc(C)sc3c(-c3ccc(CC(CC)CCCC)s3)c3ccsc23)s1', 'c1ccsc1', 'CCCCC(CC)Cc1sc(CC(CC)CCCC)c2c1C(=O)c1cscc1C2=O', '.', 'C=C1C(=O)c2ccccc2C1=C(C#N)C#N', 'c1cc2sccc2s1', 'CCCCCCc1ccc(-c2(-c3ccc(CCCCCC)cc3)cccc2)cc1', 'c1cc2sccc2s1', 'CCCCCCc1ccc(-c2(-c3ccc(CCCCCC)cc3)cccc2)cc1', 'c1cc2sccc2s1', 'C=C1C(=O)c2ccccc2C1=C(C#N)C#N'], ['CCCCC(CC)Cc1sc(CC(CC)CCCC)c2c1C(=O)c1cscc1C2=O', 'Cc1cccs1', 'CCCCC(CC)Cc1ccc(-c2c3cc(C)sc3c(-c3ccc(CC(CC)CCCC)s3)c3ccsc23)s1', 'c1ccsc1', '.', 'C=C1C(=O)c2ccccc2C1=C(C#N)C#N', 'c1cc2sccc2s1', 'CCCCCCc1ccc(-c2(-c3ccc(CCCCCC)cc3)cccc2)cc1', 'c1cc2sccc2s1', 'CCCCCCc1ccc(-c2(-c3ccc(CCCCCC)cc3)cccc2)cc1', 'c1cc2sccc2s1', 'C=C1C(=O)c2ccccc2C1=C(C#N)C#N'], ['c1ccsc1', 'CCCCC(CC)Cc1sc(CC(CC)CCCC)c2c1C(=O)c1cscc1C2=O', 'Cc1cccs1', 'CCCCC(CC)Cc1ccc(-c2c3cc(C)sc3c(-c3ccc(CC(CC)CCCC)s3)c3ccsc23)s1', '.', 'C=C1C(=O)c2ccccc2C1=C(C#N)C#N', 'c1cc2sccc2s1', 'CCCCCCc1ccc(-c2(-c3ccc(CCCCCC)cc3)cccc2)cc1', 'c1cc2sccc2s1', 'CCCCCCc1ccc(-c2(-c3ccc(CCCCCC)cc3)cccc2)cc1', 'c1cc2sccc2s1', 'C=C1C(=O)c2ccccc2C1=C(C#N)C#N']]"
-9.110058957673285,"[['CCCCC(CC)Cc1ccc(-c2c3cc(C)sc3c(-c3ccc(CC(CC)CCCC)s3)c3ccsc23)s1', 'c1ccsc1', 'CCCCC(CC)Cc1sc(CC(CC)CCCC)c2c1C(=O)c1cscc1C2=O', 'Cc1cccs1', '.', 'C=C1C(=O)c2ccccc2C1=C(C#N)C#N', 'c1cc2sccc2s1', 'CCCCCCc1ccc(-c2(-c3ccc(CCCCCC)cc3)cccc2)cc1', 'c1ccccc1', 'CCCCCCc1ccc(-c2(-c3ccc(CCCCCC)cc3)cccc2)cc1', 'c1cc2sccc2s1', 'C=C1C(=O)c2ccccc2C1=C(C#N)C#N'], ['Cc1cccs1', 'CCCCC(CC)Cc1ccc(-c2c3cc(C)sc3c(-c3ccc(CC(CC)CCCC)s3)c3ccsc23)s1', 'c1ccsc1', 'CCCCC(CC)Cc1sc(CC(CC)CCCC)c2c1C(=O)c1cscc1C2=O', '.', 'C=C1C(=O)c2ccccc2C1=C(C#N)C#N', 'c1cc2sccc2s1', 'CCCCCCc1ccc(-c2(-c3ccc(CCCCCC)cc3)cccc2)cc1', 'c1ccccc1', 'CCCCCCc1ccc(-c2(-c3ccc(CCCCCC)cc3)cccc2)cc1', 'c1cc2sccc2s1', 'C=C1C(=O)c2ccccc2C1=C(C#N)C#N'], ['CCCCC(CC)Cc1sc(CC(CC)CCCC)c2c1C(=O)c1cscc1C2=O', 'Cc1cccs1', 'CCCCC(CC)Cc1ccc(-c2c3cc(C)sc3c(-c3ccc(CC(CC)CCCC)s3)c3ccsc23)s1', 'c1ccsc1', '.', 'C=C1C(=O)c2ccccc2C1=C(C#N)C#N', 'c1cc2sccc2s1', 'CCCCCCc1ccc(-c2(-c3ccc(CCCCCC)cc3)cccc2)cc1', 'c1ccccc1', 'CCCCCCc1ccc(-c2(-c3ccc(CCCCCC)cc3)cccc2)cc1', 'c1cc2sccc2s1', 'C=C1C(=O)c2ccccc2C1=C(C#N)C#N'], ['c1ccsc1', 'CCCCC(CC)Cc1sc(CC(CC)CCCC)c2c1C(=O)c1cscc1C2=O', 'Cc1cccs1', 'CCCCC(CC)Cc1ccc(-c2c3cc(C)sc3c(-c3ccc(CC(CC)CCCC)s3)c3ccsc23)s1', '.', 'C=C1C(=O)c2ccccc2C1=C(C#N)C#N', 'c1cc2sccc2s1', 'CCCCCCc1ccc(-c2(-c3ccc(CCCCCC)cc3)cccc2)cc1', 'c1ccccc1', 'CCCCCCc1ccc(-c2(-c3ccc(CCCCCC)cc3)cccc2)cc1', 'c1cc2sccc2s1', 'C=C1C(=O)c2ccccc2C1=C(C#N)C#N']]"
-11.004874601624799,"[['CCCCC(CC)Cc1ccc(-c2c3cc(C)sc3c(-c3ccc(CC(CC)CCCC)s3)c3ccsc23)s1', 'c1ccsc1', 'CCCCC(CC)Cc1sc(CC(CC)CCCC)c2c1C(=O)c1cscc1C2=O', 'Cc1cccs1', '.', 'C=C1C(=O)c2cccc(OC)c2C1=C(C#N)C#N', 'c1cc2sccc2s1', 'CCCCCCc1ccc(-c2(-c3ccc(CCCCCC)cc3)cccc2)cc1', 'c1ccccc1', 'CCCCCCc1ccc(-c2(-c3ccc(CCCCCC)cc3)cccc2)cc1', 'c1cc2sccc2s1', 'C=C1C(=O)c2cccc(OC)c2C1=C(C#N)C#N'], ['Cc1cccs1', 'CCCCC(CC)Cc1ccc(-c2c3cc(C)sc3c(-c3ccc(CC(CC)CCCC)s3)c3ccsc23)s1', 'c1ccsc1', 'CCCCC(CC)Cc1sc(CC(CC)CCCC)c2c1C(=O)c1cscc1C2=O', '.', 'C=C1C(=O)c2cccc(OC)c2C1=C(C#N)C#N', 'c1cc2sccc2s1', 'CCCCCCc1ccc(-c2(-c3ccc(CCCCCC)cc3)cccc2)cc1', 'c1ccccc1', 'CCCCCCc1ccc(-c2(-c3ccc(CCCCCC)cc3)cccc2)cc1', 'c1cc2sccc2s1', 'C=C1C(=O)c2cccc(OC)c2C1=C(C#N)C#N'], ['CCCCC(CC)Cc1sc(CC(CC)CCCC)c2c1C(=O)c1cscc1C2=O', 'Cc1cccs1', 'CCCCC(CC)Cc1ccc(-c2c3cc(C)sc3c(-c3ccc(CC(CC)CCCC)s3)c3ccsc23)s1', 'c1ccsc1', '.', 'C=C1C(=O)c2cccc(OC)c2C1=C(C#N)C#N', 'c1cc2sccc2s1', 'CCCCCCc1ccc(-c2(-c3ccc(CCCCCC)cc3)cccc2)cc1', 'c1ccccc1', 'CCCCCCc1ccc(-c2(-c3ccc(CCCCCC)cc3)cccc2)cc1', 'c1cc2sccc2s1', 'C=C1C(=O)c2cccc(OC)c2C1=C(C#N)C#N'], ['c1ccsc1', 'CCCCC(CC)Cc1sc(CC(CC)CCCC)c2c1C(=O)c1cscc1C2=O', 'Cc1cccs1', 'CCCCC(CC)Cc1ccc(-c2c3cc(C)sc3c(-c3ccc(CC(CC)CCCC)s3)c3ccsc23)s1', '.', 'C=C1C(=O)c2cccc(OC)c2C1=C(C#N)C#N', 'c1cc2sccc2s1', 'CCCCCCc1ccc(-c2(-c3ccc(CCCCCC)cc3)cccc2)cc1', 'c1ccccc1', 'CCCCCCc1ccc(-c2(-c3ccc(CCCCCC)cc3)cccc2)cc1', 'c1cc2sccc2s1', 'C=C1C(=O)c2cccc(OC)c2C1=C(C#N)C#N']]"
-10.999406914577412,"[['CCCCC(CC)Cc1ccc(-c2c3cc(C)sc3c(-c3ccc(CC(CC)CCCC)s3)c3ccsc23)s1', 'CCCCC(CC)COC(=O)c1sc2csc(C)c2c1F', '.', 'C=C1C(=O)c2ccccc2C1=C(C#N)C#N', 'c1ccsc1', 'c1ccccc1', 'CCCCCCCCc1(CCCCCCCC)cccc1', 'c1ccccc1', 'CCCCCCCCc1(CCCCCCCC)cccc1', 'c1ccccc1', 'c1ccsc1', 'C=C1C(=O)c2ccccc2C1=C(C#N)C#N'], ['CCCCC(CC)COC(=O)c1sc2csc(C)c2c1F', 'CCCCC(CC)Cc1ccc(-c2c3cc(C)sc3c(-c3ccc(CC(CC)CCCC)s3)c3ccsc23)s1', '.', 'C=C1C(=O)c2ccccc2C1=C(C#N)C#N', 'c1ccsc1', 'c1ccccc1', 'CCCCCCCCc1(CCCCCCCC)cccc1', 'c1ccccc1', 'CCCCCCCCc1(CCCCCCCC)cccc1', 'c1ccccc1', 'c1ccsc1', 'C=C1C(=O)c2ccccc2C1=C(C#N)C#N']]"
-10.988814899089943,"[['CCCCC(CC)Cc1ccc(-c2c3cc(C)sc3c(-c3ccc(CC(CC)CCCC)s3)c3ccsc23)s1', 'c1ccsc1', 'CCCCC(CC)Cc1sc(CC(CC)CCCC)c2c1C(=O)c1cscc1C2=O', 'Cc1cccs1', '.', 'C=C1C(=O)c2ccccc2C1=C(C#N)C#N', 'c1cscn1', 'c1ccccc1', 'CCCCCCc1ccc(-c2(-c3ccc(CCCCCC)cc3)cccc2)cc1', 'c1ccccc1', 'CCCCCCc1ccc(-c2(-c3ccc(CCCCCC)cc3)cccc2)cc1', 'c1ccccc1', 'c1cscn1', 'C=C1C(=O)c2ccccc2C1=C(C#N)C#N'], ['Cc1cccs1', 'CCCCC(CC)Cc1ccc(-c2c3cc(C)sc3c(-c3ccc(CC(CC)CCCC)s3)c3ccsc23)s1', 'c1ccsc1', 'CCCCC(CC)Cc1sc(CC(CC)CCCC)c2c1C(=O)c1cscc1C2=O', '.', 'C=C1C(=O)c2ccccc2C1=C(C#N)C#N', 'c1cscn1', 'c1ccccc1', 'CCCCCCc1ccc(-c2(-c3ccc(CCCCCC)cc3)cccc2)cc1', 'c1ccccc1', 'CCCCCCc1ccc(-c2(-c3ccc(CCCCCC)cc3)cccc2)cc1', 'c1ccccc1', 'c1cscn1', 'C=C1C(=O)c2ccccc2C1=C(C#N)C#N'], ['CCCCC(CC)Cc1sc(CC(CC)CCCC)c2c1C(=O)c1cscc1C2=O', 'Cc1cccs1', 'CCCCC(CC)Cc1ccc(-c2c3cc(C)sc3c(-c3ccc(CC(CC)CCCC)s3)c3ccsc23)s1', 'c1ccsc1', '.', 'C=C1C(=O)c2ccccc2C1=C(C#N)C#N', 'c1cscn1', 'c1ccccc1', 'CCCCCCc1ccc(-c2(-c3ccc(CCCCCC)cc3)cccc2)cc1', 'c1ccccc1', 'CCCCCCc1ccc(-c2(-c3ccc(CCCCCC)cc3)cccc2)cc1', 'c1ccccc1', 'c1cscn1', 'C=C1C(=O)c2ccccc2C1=C(C#N)C#N'], ['c1ccsc1', 'CCCCC(CC)Cc1sc(CC(CC)CCCC)c2c1C(=O)c1cscc1C2=O', 'Cc1cccs1', 'CCCCC(CC)Cc1ccc(-c2c3cc(C)sc3c(-c3ccc(CC(CC)CCCC)s3)c3ccsc23)s1', '.', 'C=C1C(=O)c2ccccc2C1=C(C#N)C#N', 'c1cscn1', 'c1ccccc1', 'CCCCCCc1ccc(-c2(-c3ccc(CCCCCC)cc3)cccc2)cc1', 'c1ccccc1', 'CCCCCCc1ccc(-c2(-c3ccc(CCCCCC)cc3)cccc2)cc1', 'c1ccccc1', 'c1cscn1', 'C=C1C(=O)c2ccccc2C1=C(C#N)C#N']]"
-11.033586068695039,"[['CCCCC(CC)Cc1ccc(-c2c3cc(C)sc3c(-c3ccc(CC(CC)CCCC)s3)c3ccsc23)s1', 'CCCCC(CC)COC(=O)c1sc2csc(C)c2c1F', '.', 'C=C1C(=O)c2cc3ccccc3cc2C1=C(C#N)C#N', 'c1ccsc1', 'CCCCCCc1ccc(-c2(-c3ccc(CCCCCC)cc3)cccc2)cc1', 'c1ccccc1', 'CCCCCCc1ccc(-c2(-c3ccc(CCCCCC)cc3)cccc2)cc1', 'c1ccsc1', 'C=C1C(=O)c2cc3ccccc3cc2C1=C(C#N)C#N'], ['CCCCC(CC)COC(=O)c1sc2csc(C)c2c1F', 'CCCCC(CC)Cc1ccc(-c2c3cc(C)sc3c(-c3ccc(CC(CC)CCCC)s3)c3ccsc23)s1', '.', 'C=C1C(=O)c2cc3ccccc3cc2C1=C(C#N)C#N', 'c1ccsc1', 'CCCCCCc1ccc(-c2(-c3ccc(CCCCCC)cc3)cccc2)cc1', 'c1ccccc1', 'CCCCCCc1ccc(-c2(-c3ccc(CCCCCC)cc3)cccc2)cc1', 'c1ccsc1', 'C=C1C(=O)c2cc3ccccc3cc2C1=C(C#N)C#N']]"
-10.986866628425933,"[['CCCCC(CC)Cc1ccc(-c2c3cc(C)sc3c(-c3ccc(CC(CC)CCCC)s3)c3ccsc23)s1', 'c1ccsc1', 'CCCCC(CC)Cc1sc(CC(CC)CCCC)c2c1C(=O)c1cscc1C2=O', 'Cc1cccs1', '.', 'C=C1C(=O)c2cc3ccccc3cc2C1=C(C#N)C#N', 'CCCCC(CC)Cc1ccsc1', 'c1ccsc1', 'CCCCCCc1ccc(-c2(-c3ccc(CCCCCC)cc3)cccc2)cc1', 'c1ccccc1', 'CCCCCCc1ccc(-c2(-c3ccc(CCCCCC)cc3)cccc2)cc1', 'c1ccsc1', 'CCCCC(CC)Cc1ccsc1', 'C=C1C(=O)c2cc3ccccc3cc2C1=C(C#N)C#N'], ['Cc1cccs1', 'CCCCC(CC)Cc1ccc(-c2c3cc(C)sc3c(-c3ccc(CC(CC)CCCC)s3)c3ccsc23)s1', 'c1ccsc1', 'CCCCC(CC)Cc1sc(CC(CC)CCCC)c2c1C(=O)c1cscc1C2=O', '.', 'C=C1C(=O)c2cc3ccccc3cc2C1=C(C#N)C#N', 'CCCCC(CC)Cc1ccsc1', 'c1ccsc1', 'CCCCCCc1ccc(-c2(-c3ccc(CCCCCC)cc3)cccc2)cc1', 'c1ccccc1', 'CCCCCCc1ccc(-c2(-c3ccc(CCCCCC)cc3)cccc2)cc1', 'c1ccsc1', 'CCCCC(CC)Cc1ccsc1', 'C=C1C(=O)c2cc3ccccc3cc2C1=C(C#N)C#N'], ['CCCCC(CC)Cc1sc(CC(CC)CCCC)c2c1C(=O)c1cscc1C2=O', 'Cc1cccs1', 'CCCCC(CC)Cc1ccc(-c2c3cc(C)sc3c(-c3ccc(CC(CC)CCCC)s3)c3ccsc23)s1', 'c1ccsc1', '.', 'C=C1C(=O)c2cc3ccccc3cc2C1=C(C#N)C#N', 'CCCCC(CC)Cc1ccsc1', 'c1ccsc1', 'CCCCCCc1ccc(-c2(-c3ccc(CCCCCC)cc3)cccc2)cc1', 'c1ccccc1', 'CCCCCCc1ccc(-c2(-c3ccc(CCCCCC)cc3)cccc2)cc1', 'c1ccsc1', 'CCCCC(CC)Cc1ccsc1', 'C=C1C(=O)c2cc3ccccc3cc2C1=C(C#N)C#N'], ['c1ccsc1', 'CCCCC(CC)Cc1sc(CC(CC)CCCC)c2c1C(=O)c1cscc1C2=O', 'Cc1cccs1', 'CCCCC(CC)Cc1ccc(-c2c3cc(C)sc3c(-c3ccc(CC(CC)CCCC)s3)c3ccsc23)s1', '.', 'C=C1C(=O)c2cc3ccccc3cc2C1=C(C#N)C#N', 'CCCCC(CC)Cc1ccsc1', 'c1ccsc1', 'CCCCCCc1ccc(-c2(-c3ccc(CCCCCC)cc3)cccc2)cc1', 'c1ccccc1', 'CCCCCCc1ccc(-c2(-c3ccc(CCCCCC)cc3)cccc2)cc1', 'c1ccsc1', 'CCCCC(CC)Cc1ccsc1', 'C=C1C(=O)c2cc3ccccc3cc2C1=C(C#N)C#N']]"
-11.011141531744864,"[['CCCCC(CC)Cc1ccc(-c2c3cc(C)sc3c(-c3ccc(CC(CC)CCCC)s3)c3ccsc23)s1', 'CCCCC(CC)COC(=O)c1sc2csc(C)c2c1F', '.', 'C=C1C(=O)c2cc(F)c(F)cc2C1=C(C#N)C#N', 'CCCCC(CC)COc1ccsc1', 'c1ccsc1', 'CCCCC(CC)C[si]1(CC(CC)CCCC)cccc1', 'c1ccsc1', 'CCCCC(CC)COc1ccsc1', 'C=C1C(=O)c2cc(F)c(F)cc2C1=C(C#N)C#N'], ['CCCCC(CC)COC(=O)c1sc2csc(C)c2c1F', 'CCCCC(CC)Cc1ccc(-c2c3cc(C)sc3c(-c3ccc(CC(CC)CCCC)s3)c3ccsc23)s1', '.', 'C=C1C(=O)c2cc(F)c(F)cc2C1=C(C#N)C#N', 'CCCCC(CC)COc1ccsc1', 'c1ccsc1', 'CCCCC(CC)C[si]1(CC(CC)CCCC)cccc1', 'c1ccsc1', 'CCCCC(CC)COc1ccsc1', 'C=C1C(=O)c2cc(F)c(F)cc2C1=C(C#N)C#N']]"
-10.986853709329644,"[['CCCCCCc1ccsc1C', 'CCCCCCc1ccsc1', 'CCCCCCc1ccsc1', 'CCCCCCc1csc(C)c1', '.', 'C=c1sc(=C(C#N)C#N)n(CC)c1=O', 'CCCCCCCCn1nc2cc(OC)c(OC)cc2n1', 'c1ccsc1', 'CCCCCCc1ccc(-c2(-c3ccc(CCCCCC)cc3)cccc2)cc1', 'c1ccccc1', 'CCCCCCc1ccc(-c2(-c3ccc(CCCCCC)cc3)cccc2)cc1', 'c1ccsc1', 'CCCCCCCCn1nc2cc(OC)c(OC)cc2n1', 'C=c1sc(=C(C#N)C#N)n(CC)c1=O'], ['CCCCCCc1csc(C)c1', 'CCCCCCc1ccsc1C', 'CCCCCCc1ccsc1', 'CCCCCCc1ccsc1', '.', 'C=c1sc(=C(C#N)C#N)n(CC)c1=O', 'CCCCCCCCn1nc2cc(OC)c(OC)cc2n1', 'c1ccsc1', 'CCCCCCc1ccc(-c2(-c3ccc(CCCCCC)cc3)cccc2)cc1', 'c1ccccc1', 'CCCCCCc1ccc(-c2(-c3ccc(CCCCCC)cc3)cccc2)cc1', 'c1ccsc1', 'CCCCCCCCn1nc2cc(OC)c(OC)cc2n1', 'C=c1sc(=C(C#N)C#N)n(CC)c1=O'], ['CCCCCCc1ccsc1', 'CCCCCCc1csc(C)c1', 'CCCCCCc1ccsc1C', 'CCCCCCc1ccsc1', '.', 'C=c1sc(=C(C#N)C#N)n(CC)c1=O', 'CCCCCCCCn1nc2cc(OC)c(OC)cc2n1', 'c1ccsc1', 'CCCCCCc1ccc(-c2(-c3ccc(CCCCCC)cc3)cccc2)cc1', 'c1ccccc1', 'CCCCCCc1ccc(-c2(-c3ccc(CCCCCC)cc3)cccc2)cc1', 'c1ccsc1', 'CCCCCCCCn1nc2cc(OC)c(OC)cc2n1', 'C=c1sc(=C(C#N)C#N)n(CC)c1=O'], ['CCCCCCc1ccsc1', 'CCCCCCc1ccsc1', 'CCCCCCc1csc(C)c1', 'CCCCCCc1ccsc1C', '.', 'C=c1sc(=C(C#N)C#N)n(CC)c1=O', 'CCCCCCCCn1nc2cc(OC)c(OC)cc2n1', 'c1ccsc1', 'CCCCCCc1ccc(-c2(-c3ccc(CCCCCC)cc3)cccc2)cc1', 'c1ccccc1', 'CCCCCCc1ccc(-c2(-c3ccc(CCCCCC)cc3)cccc2)cc1', 'c1ccsc1', 'CCCCCCCCn1nc2cc(OC)c(OC)cc2n1', 'C=c1sc(=C(C#N)C#N)n(CC)c1=O']]"
-10.985243468123873,"[['CCCCC(CC)Cc1ccc(-c2c3cc(C)sc3c(-c3ccc(CC(CC)CCCC)s3)c3ccsc23)s1', 'CCCCC(CC)COC(=O)c1sc2csc(C)c2c1F', '.', 'C=C1SC(=S)N(CC)C1=O', 'c1ccc2nsnc2c1', 'c1ccsc1', 'CCCCCCc1ccc(-c2(-c3ccc(CCCCCC)cc3)cccc2)cc1', 'c1ccccc1', 'CCCCCCc1ccc(-c2(-c3ccc(CCCCCC)cc3)cccc2)cc1', 'c1ccsc1', 'c1ccc2nsnc2c1', 'C=C1SC(=S)N(CC)C1=O'], ['CCCCC(CC)COC(=O)c1sc2csc(C)c2c1F', 'CCCCC(CC)Cc1ccc(-c2c3cc(C)sc3c(-c3ccc(CC(CC)CCCC)s3)c3ccsc23)s1', '.', 'C=C1SC(=S)N(CC)C1=O', 'c1ccc2nsnc2c1', 'c1ccsc1', 'CCCCCCc1ccc(-c2(-c3ccc(CCCCCC)cc3)cccc2)cc1', 'c1ccccc1', 'CCCCCCc1ccc(-c2(-c3ccc(CCCCCC)cc3)cccc2)cc1', 'c1ccsc1', 'c1ccc2nsnc2c1', 'C=C1SC(=S)N(CC)C1=O']]"
-11.073068359413892,"[['CCCCC(CC)Cc1ccc(-c2c3cc(C)sc3c(-c3ccc(CC(CC)CCCC)s3)c3ccsc23)s1', 'CCCCC(CC)COC(=O)c1sc2csc(C)c2c1F', '.', 'C=c1sc(=C(C#N)C#N)n(CC)c1=O', 'CCCCCCCCOC(=O)c1cc2cscc2s1', 'c1ccsc1', 'CCCCCCc1ccc(-c2(-c3ccc(CCCCCC)cc3)cccc2)cc1', 'c1ccccc1', 'CCCCCCc1ccc(-c2(-c3ccc(CCCCCC)cc3)cccc2)cc1', 'c1ccsc1', 'CCCCCCCCOC(=O)c1cc2cscc2s1', 'C=c1sc(=C(C#N)C#N)n(CC)c1=O'], ['CCCCC(CC)COC(=O)c1sc2csc(C)c2c1F', 'CCCCC(CC)Cc1ccc(-c2c3cc(C)sc3c(-c3ccc(CC(CC)CCCC)s3)c3ccsc23)s1', '.', 'C=c1sc(=C(C#N)C#N)n(CC)c1=O', 'CCCCCCCCOC(=O)c1cc2cscc2s1', 'c1ccsc1', 'CCCCCCc1ccc(-c2(-c3ccc(CCCCCC)cc3)cccc2)cc1', 'c1ccccc1', 'CCCCCCc1ccc(-c2(-c3ccc(CCCCCC)cc3)cccc2)cc1', 'c1ccsc1', 'CCCCCCCCOC(=O)c1cc2cscc2s1', 'C=c1sc(=C(C#N)C#N)n(CC)c1=O']]"
-11.070964688231806,"[['CCCCCCc1ccsc1C', 'CCCCCCc1ccsc1', 'CCCCCCc1ccsc1', 'CCCCCCc1csc(C)c1', '.', 'C=C1SC(=S)N(CC)C1=O', 'CCCCCCCCn1nc2ccccc2n1', 'c1ccsc1', 'CCCCCCc1ccc(-c2(-c3ccc(CCCCCC)cc3)cccc2)cc1', 'c1ccccc1', 'CCCCCCc1ccc(-c2(-c3ccc(CCCCCC)cc3)cccc2)cc1', 'c1ccsc1', 'CCCCCCCCn1nc2ccccc2n1', 'C=C1SC(=S)N(CC)C1=O'], ['CCCCCCc1csc(C)c1', 'CCCCCCc1ccsc1C', 'CCCCCCc1ccsc1', 'CCCCCCc1ccsc1', '.', 'C=C1SC(=S)N(CC)C1=O', 'CCCCCCCCn1nc2ccccc2n1', 'c1ccsc1', 'CCCCCCc1ccc(-c2(-c3ccc(CCCCCC)cc3)cccc2)cc1', 'c1ccccc1', 'CCCCCCc1ccc(-c2(-c3ccc(CCCCCC)cc3)cccc2)cc1', 'c1ccsc1', 'CCCCCCCCn1nc2ccccc2n1', 'C=C1SC(=S)N(CC)C1=O'], ['CCCCCCc1ccsc1', 'CCCCCCc1csc(C)c1', 'CCCCCCc1ccsc1C', 'CCCCCCc1ccsc1', '.', 'C=C1SC(=S)N(CC)C1=O', 'CCCCCCCCn1nc2ccccc2n1', 'c1ccsc1', 'CCCCCCc1ccc(-c2(-c3ccc(CCCCCC)cc3)cccc2)cc1', 'c1ccccc1', 'CCCCCCc1ccc(-c2(-c3ccc(CCCCCC)cc3)cccc2)cc1', 'c1ccsc1', 'CCCCCCCCn1nc2ccccc2n1', 'C=C1SC(=S)N(CC)C1=O'], ['CCCCCCc1ccsc1', 'CCCCCCc1ccsc1', 'CCCCCCc1csc(C)c1', 'CCCCCCc1ccsc1C', '.', 'C=C1SC(=S)N(CC)C1=O', 'CCCCCCCCn1nc2ccccc2n1', 'c1ccsc1', 'CCCCCCc1ccc(-c2(-c3ccc(CCCCCC)cc3)cccc2)cc1', 'c1ccccc1', 'CCCCCCc1ccc(-c2(-c3ccc(CCCCCC)cc3)cccc2)cc1', 'c1ccsc1', 'CCCCCCCCn1nc2ccccc2n1', 'C=C1SC(=S)N(CC)C1=O']]"
-11.074604710604369,"[['CCCCC(CC)Cc1ccc(-c2c3ccsc3c(-c3ccc(CCCCC(C)CC)s3)c3cc(C)sc23)s1', 'c1ccsc1', 'CCCCCCCCC(CCCCCC)Cn1nc2cc(F)c(F)cc2n1', 'Cc1cccs1', '.', 'C=C1C(=O)c2cc(F)c(F)cc2C1=C(C#N)C#N', 'CCCCC(CC)COc1ccsc1', 'c1ccsc1', 'CCCCCCc1ccc(-c2(-c3ccc(CCCCCC)cc3)cccc2)cc1', 'c1ccccc1', 'CCCCCCc1ccc(-c2(-c3ccc(CCCCCC)cc3)cccc2)cc1', 'c1ccsc1', 'CCCCC(CC)COc1ccsc1', 'C=C1C(=O)c2cc(F)c(F)cc2C1=C(C#N)C#N'], ['Cc1cccs1', 'CCCCC(CC)Cc1ccc(-c2c3ccsc3c(-c3ccc(CCCCC(C)CC)s3)c3cc(C)sc23)s1', 'c1ccsc1', 'CCCCCCCCC(CCCCCC)Cn1nc2cc(F)c(F)cc2n1', '.', 'C=C1C(=O)c2cc(F)c(F)cc2C1=C(C#N)C#N', 'CCCCC(CC)COc1ccsc1', 'c1ccsc1', 'CCCCCCc1ccc(-c2(-c3ccc(CCCCCC)cc3)cccc2)cc1', 'c1ccccc1', 'CCCCCCc1ccc(-c2(-c3ccc(CCCCCC)cc3)cccc2)cc1', 'c1ccsc1', 'CCCCC(CC)COc1ccsc1', 'C=C1C(=O)c2cc(F)c(F)cc2C1=C(C#N)C#N'], ['CCCCCCCCC(CCCCCC)Cn1nc2cc(F)c(F)cc2n1', 'Cc1cccs1', 'CCCCC(CC)Cc1ccc(-c2c3ccsc3c(-c3ccc(CCCCC(C)CC)s3)c3cc(C)sc23)s1', 'c1ccsc1', '.', 'C=C1C(=O)c2cc(F)c(F)cc2C1=C(C#N)C#N', 'CCCCC(CC)COc1ccsc1', 'c1ccsc1', 'CCCCCCc1ccc(-c2(-c3ccc(CCCCCC)cc3)cccc2)cc1', 'c1ccccc1', 'CCCCCCc1ccc(-c2(-c3ccc(CCCCCC)cc3)cccc2)cc1', 'c1ccsc1', 'CCCCC(CC)COc1ccsc1', 'C=C1C(=O)c2cc(F)c(F)cc2C1=C(C#N)C#N'], ['c1ccsc1', 'CCCCCCCCC(CCCCCC)Cn1nc2cc(F)c(F)cc2n1', 'Cc1cccs1', 'CCCCC(CC)Cc1ccc(-c2c3ccsc3c(-c3ccc(CCCCC(C)CC)s3)c3cc(C)sc23)s1', '.', 'C=C1C(=O)c2cc(F)c(F)cc2C1=C(C#N)C#N', 'CCCCC(CC)COc1ccsc1', 'c1ccsc1', 'CCCCCCc1ccc(-c2(-c3ccc(CCCCCC)cc3)cccc2)cc1', 'c1ccccc1', 'CCCCCCc1ccc(-c2(-c3ccc(CCCCCC)cc3)cccc2)cc1', 'c1ccsc1', 'CCCCC(CC)COc1ccsc1', 'C=C1C(=O)c2cc(F)c(F)cc2C1=C(C#N)C#N']]"
-11.068636356514792,"[['CCCCC(CC)CSc1ccc(-c2c3cc(C)sc3c(-c3ccc(SCC(CC)CCCC)s3)c3ccsc23)s1', 'c1ccsc1', 'CCCCC(CC)Cc1sc(CC(CC)CCCC)c2c1C(=O)c1cscc1C2=O', 'Cc1cccs1', '.', 'C=C1C(=O)c2ccccc2C1=C(C#N)C#N', 'c1cc2sccc2s1', 'CCCCCCSc1ccc(-c2(-c3ccc(SCCCCCC)cc3)cccc2)cc1', 'c1ccccc1', 'CCCCCCSc1ccc(-c2(-c3ccc(SCCCCCC)cc3)cccc2)cc1', 'c1cc2sccc2s1', 'C=C1C(=O)c2ccccc2C1=C(C#N)C#N'], ['Cc1cccs1', 'CCCCC(CC)CSc1ccc(-c2c3cc(C)sc3c(-c3ccc(SCC(CC)CCCC)s3)c3ccsc23)s1', 'c1ccsc1', 'CCCCC(CC)Cc1sc(CC(CC)CCCC)c2c1C(=O)c1cscc1C2=O', '.', 'C=C1C(=O)c2ccccc2C1=C(C#N)C#N', 'c1cc2sccc2s1', 'CCCCCCSc1ccc(-c2(-c3ccc(SCCCCCC)cc3)cccc2)cc1', 'c1ccccc1', 'CCCCCCSc1ccc(-c2(-c3ccc(SCCCCCC)cc3)cccc2)cc1', 'c1cc2sccc2s1', 'C=C1C(=O)c2ccccc2C1=C(C#N)C#N'], ['CCCCC(CC)Cc1sc(CC(CC)CCCC)c2c1C(=O)c1cscc1C2=O', 'Cc1cccs1', 'CCCCC(CC)CSc1ccc(-c2c3cc(C)sc3c(-c3ccc(SCC(CC)CCCC)s3)c3ccsc23)s1', 'c1ccsc1', '.', 'C=C1C(=O)c2ccccc2C1=C(C#N)C#N', 'c1cc2sccc2s1', 'CCCCCCSc1ccc(-c2(-c3ccc(SCCCCCC)cc3)cccc2)cc1', 'c1ccccc1', 'CCCCCCSc1ccc(-c2(-c3ccc(SCCCCCC)cc3)cccc2)cc1', 'c1cc2sccc2s1', 'C=C1C(=O)c2ccccc2C1=C(C#N)C#N'], ['c1ccsc1', 'CCCCC(CC)Cc1sc(CC(CC)CCCC)c2c1C(=O)c1cscc1C2=O', 'Cc1cccs1', 'CCCCC(CC)CSc1ccc(-c2c3cc(C)sc3c(-c3ccc(SCC(CC)CCCC)s3)c3ccsc23)s1', '.', 'C=C1C(=O)c2ccccc2C1=C(C#N)C#N', 'c1cc2sccc2s1', 'CCCCCCSc1ccc(-c2(-c3ccc(SCCCCCC)cc3)cccc2)cc1', 'c1ccccc1', 'CCCCCCSc1ccc(-c2(-c3ccc(SCCCCCC)cc3)cccc2)cc1', 'c1cc2sccc2s1', 'C=C1C(=O)c2ccccc2C1=C(C#N)C#N']]"
-11.084233270558672,"[['CCCCC(CC)CSc1ccc(-c2c3cc(C)sc3c(-c3ccc(SCC(CC)CCCC)s3)c3ccsc23)s1', 'c1ccsc1', 'CCCCC(CC)Cc1sc(CC(CC)CCCC)c2c1C(=O)c1cscc1C2=O', 'Cc1cccs1', '.', 'C=C1C(=O)c2ccccc2C1=C(C#N)C#N', 'c1cc2sccc2s1', 'CCCCCCCCSc1ccc(-c2(-c3ccc(SCCCCCCCC)cc3)cccc2)cc1', 'c1ccccc1', 'CCCCCCCCSc1ccc(-c2(-c3ccc(SCCCCCCCC)cc3)cccc2)cc1', 'c1cc2sccc2s1', 'C=C1C(=O)c2ccccc2C1=C(C#N)C#N'], ['Cc1cccs1', 'CCCCC(CC)CSc1ccc(-c2c3cc(C)sc3c(-c3ccc(SCC(CC)CCCC)s3)c3ccsc23)s1', 'c1ccsc1', 'CCCCC(CC)Cc1sc(CC(CC)CCCC)c2c1C(=O)c1cscc1C2=O', '.', 'C=C1C(=O)c2ccccc2C1=C(C#N)C#N', 'c1cc2sccc2s1', 'CCCCCCCCSc1ccc(-c2(-c3ccc(SCCCCCCCC)cc3)cccc2)cc1', 'c1ccccc1', 'CCCCCCCCSc1ccc(-c2(-c3ccc(SCCCCCCCC)cc3)cccc2)cc1', 'c1cc2sccc2s1', 'C=C1C(=O)c2ccccc2C1=C(C#N)C#N'], ['CCCCC(CC)Cc1sc(CC(CC)CCCC)c2c1C(=O)c1cscc1C2=O', 'Cc1cccs1', 'CCCCC(CC)CSc1ccc(-c2c3cc(C)sc3c(-c3ccc(SCC(CC)CCCC)s3)c3ccsc23)s1', 'c1ccsc1', '.', 'C=C1C(=O)c2ccccc2C1=C(C#N)C#N', 'c1cc2sccc2s1', 'CCCCCCCCSc1ccc(-c2(-c3ccc(SCCCCCCCC)cc3)cccc2)cc1', 'c1ccccc1', 'CCCCCCCCSc1ccc(-c2(-c3ccc(SCCCCCCCC)cc3)cccc2)cc1', 'c1cc2sccc2s1', 'C=C1C(=O)c2ccccc2C1=C(C#N)C#N'], ['c1ccsc1', 'CCCCC(CC)Cc1sc(CC(CC)CCCC)c2c1C(=O)c1cscc1C2=O', 'Cc1cccs1', 'CCCCC(CC)CSc1ccc(-c2c3cc(C)sc3c(-c3ccc(SCC(CC)CCCC)s3)c3ccsc23)s1', '.', 'C=C1C(=O)c2ccccc2C1=C(C#N)C#N', 'c1cc2sccc2s1', 'CCCCCCCCSc1ccc(-c2(-c3ccc(SCCCCCCCC)cc3)cccc2)cc1', 'c1ccccc1', 'CCCCCCCCSc1ccc(-c2(-c3ccc(SCCCCCCCC)cc3)cccc2)cc1', 'c1cc2sccc2s1', 'C=C1C(=O)c2ccccc2C1=C(C#N)C#N']]"
-11.082113631302015,"[['CCCCC(CC)Cc1c(F)cc(-c2c3cc(C)sc3c(-c3cc(F)c(CC(CC)CCCC)c(F)c3)c3ccsc23)cc1F', 'c1ccsc1', 'CCCCCCCCN1C(=O)c2cc3nn(CCC(CC)CCCC)nc3cc2C1=O', 'Cc1cccs1', '.', 'C=C1C(=O)c2cc(F)ccc2C1=C(C#N)C#N', 'c1cc2sccc2s1', 'CCCCCCc1ccc(-c2(-c3ccc(CCCCCC)cc3)cccc2)cc1', 'c1ccccc1', 'CCCCCCc1ccc(-c2(-c3ccc(CCCCCC)cc3)cccc2)cc1', 'c1cc2sccc2s1', 'C=C1C(=O)c2cc(F)ccc2C1=C(C#N)C#N'], ['Cc1cccs1', 'CCCCC(CC)Cc1c(F)cc(-c2c3cc(C)sc3c(-c3cc(F)c(CC(CC)CCCC)c(F)c3)c3ccsc23)cc1F', 'c1ccsc1', 'CCCCCCCCN1C(=O)c2cc3nn(CCC(CC)CCCC)nc3cc2C1=O', '.', 'C=C1C(=O)c2cc(F)ccc2C1=C(C#N)C#N', 'c1cc2sccc2s1', 'CCCCCCc1ccc(-c2(-c3ccc(CCCCCC)cc3)cccc2)cc1', 'c1ccccc1', 'CCCCCCc1ccc(-c2(-c3ccc(CCCCCC)cc3)cccc2)cc1', 'c1cc2sccc2s1', 'C=C1C(=O)c2cc(F)ccc2C1=C(C#N)C#N'], ['CCCCCCCCN1C(=O)c2cc3nn(CCC(CC)CCCC)nc3cc2C1=O', 'Cc1cccs1', 'CCCCC(CC)Cc1c(F)cc(-c2c3cc(C)sc3c(-c3cc(F)c(CC(CC)CCCC)c(F)c3)c3ccsc23)cc1F', 'c1ccsc1', '.', 'C=C1C(=O)c2cc(F)ccc2C1=C(C#N)C#N', 'c1cc2sccc2s1', 'CCCCCCc1ccc(-c2(-c3ccc(CCCCCC)cc3)cccc2)cc1', 'c1ccccc1', 'CCCCCCc1ccc(-c2(-c3ccc(CCCCCC)cc3)cccc2)cc1', 'c1cc2sccc2s1', 'C=C1C(=O)c2cc(F)ccc2C1=C(C#N)C#N'], ['c1ccsc1', 'CCCCCCCCN1C(=O)c2cc3nn(CCC(CC)CCCC)nc3cc2C1=O', 'Cc1cccs1', 'CCCCC(CC)Cc1c(F)cc(-c2c3cc(C)sc3c(-c3cc(F)c(CC(CC)CCCC)c(F)c3)c3ccsc23)cc1F', '.', 'C=C1C(=O)c2cc(F)ccc2C1=C(C#N)C#N', 'c1cc2sccc2s1', 'CCCCCCc1ccc(-c2(-c3ccc(CCCCCC)cc3)cccc2)cc1', 'c1ccccc1', 'CCCCCCc1ccc(-c2(-c3ccc(CCCCCC)cc3)cccc2)cc1', 'c1cc2sccc2s1', 'C=C1C(=O)c2cc(F)ccc2C1=C(C#N)C#N']]"
-11.093406639197998,"[['CCCCC(CC)Cc1ccc(-c2c3cc(C)sc3c(-c3ccc(CC(CC)CCCC)s3)c3ccsc23)s1', 'c1ccsc1', 'CCCCC(CC)Cc1sc(CC(CC)CCCC)c2c1C(=O)c1cscc1C2=O', 'Cc1cccs1', '.', 'C=C1C(=O)c2ccc(C)cc2C1=C(C#N)C#N', 'c1cc2sccc2s1', 'CCCCCCc1ccc(-c2(-c3ccc(CCCCCC)cc3)cccc2)cc1', 'c1ccccc1', 'CCCCCCc1ccc(-c2(-c3ccc(CCCCCC)cc3)cccc2)cc1', 'c1cc2sccc2s1', 'C=C1C(=O)c2ccc(C)cc2C1=C(C#N)C#N'], ['Cc1cccs1', 'CCCCC(CC)Cc1ccc(-c2c3cc(C)sc3c(-c3ccc(CC(CC)CCCC)s3)c3ccsc23)s1', 'c1ccsc1', 'CCCCC(CC)Cc1sc(CC(CC)CCCC)c2c1C(=O)c1cscc1C2=O', '.', 'C=C1C(=O)c2ccc(C)cc2C1=C(C#N)C#N', 'c1cc2sccc2s1', 'CCCCCCc1ccc(-c2(-c3ccc(CCCCCC)cc3)cccc2)cc1', 'c1ccccc1', 'CCCCCCc1ccc(-c2(-c3ccc(CCCCCC)cc3)cccc2)cc1', 'c1cc2sccc2s1', 'C=C1C(=O)c2ccc(C)cc2C1=C(C#N)C#N'], ['CCCCC(CC)Cc1sc(CC(CC)CCCC)c2c1C(=O)c1cscc1C2=O', 'Cc1cccs1', 'CCCCC(CC)Cc1ccc(-c2c3cc(C)sc3c(-c3ccc(CC(CC)CCCC)s3)c3ccsc23)s1', 'c1ccsc1', '.', 'C=C1C(=O)c2ccc(C)cc2C1=C(C#N)C#N', 'c1cc2sccc2s1', 'CCCCCCc1ccc(-c2(-c3ccc(CCCCCC)cc3)cccc2)cc1', 'c1ccccc1', 'CCCCCCc1ccc(-c2(-c3ccc(CCCCCC)cc3)cccc2)cc1', 'c1cc2sccc2s1', 'C=C1C(=O)c2ccc(C)cc2C1=C(C#N)C#N'], ['c1ccsc1', 'CCCCC(CC)Cc1sc(CC(CC)CCCC)c2c1C(=O)c1cscc1C2=O', 'Cc1cccs1', 'CCCCC(CC)Cc1ccc(-c2c3cc(C)sc3c(-c3ccc(CC(CC)CCCC)s3)c3ccsc23)s1', '.', 'C=C1C(=O)c2ccc(C)cc2C1=C(C#N)C#N', 'c1cc2sccc2s1', 'CCCCCCc1ccc(-c2(-c3ccc(CCCCCC)cc3)cccc2)cc1', 'c1ccccc1', 'CCCCCCc1ccc(-c2(-c3ccc(CCCCCC)cc3)cccc2)cc1', 'c1cc2sccc2s1', 'C=C1C(=O)c2ccc(C)cc2C1=C(C#N)C#N']]"
-11.098589636286862,"[['CCCCC(CC)Cc1ccc(-c2c3cc(C)sc3c(-c3ccc(CC(CC)CCCC)s3)c3ccsc23)s1', 'c1ccsc1', 'CCCCC(CC)Cc1sc(CC(CC)CCCC)c2c1C(=O)c1cscc1C2=O', 'Cc1cccs1', '.', 'C=C1C(=O)c2ccc(C)cc2C1=C(C#N)C#N', 'c1cc2sccc2s1', 'CCCCCCc1ccc(-c2(-c3ccc(CCCCCC)cc3)cccc2)cc1', 'c1ccccc1', 'CCCCCCc1ccc(-c2(-c3ccc(CCCCCC)cc3)cccc2)cc1', 'c1cc2sccc2s1', 'C=C1C(=O)c2ccc(C)cc2C1=C(C#N)C#N'], ['Cc1cccs1', 'CCCCC(CC)Cc1ccc(-c2c3cc(C)sc3c(-c3ccc(CC(CC)CCCC)s3)c3ccsc23)s1', 'c1ccsc1', 'CCCCC(CC)Cc1sc(CC(CC)CCCC)c2c1C(=O)c1cscc1C2=O', '.', 'C=C1C(=O)c2ccc(C)cc2C1=C(C#N)C#N', 'c1cc2sccc2s1', 'CCCCCCc1ccc(-c2(-c3ccc(CCCCCC)cc3)cccc2)cc1', 'c1ccccc1', 'CCCCCCc1ccc(-c2(-c3ccc(CCCCCC)cc3)cccc2)cc1', 'c1cc2sccc2s1', 'C=C1C(=O)c2ccc(C)cc2C1=C(C#N)C#N'], ['CCCCC(CC)Cc1sc(CC(CC)CCCC)c2c1C(=O)c1cscc1C2=O', 'Cc1cccs1', 'CCCCC(CC)Cc1ccc(-c2c3cc(C)sc3c(-c3ccc(CC(CC)CCCC)s3)c3ccsc23)s1', 'c1ccsc1', '.', 'C=C1C(=O)c2ccc(C)cc2C1=C(C#N)C#N', 'c1cc2sccc2s1', 'CCCCCCc1ccc(-c2(-c3ccc(CCCCCC)cc3)cccc2)cc1', 'c1ccccc1', 'CCCCCCc1ccc(-c2(-c3ccc(CCCCCC)cc3)cccc2)cc1', 'c1cc2sccc2s1', 'C=C1C(=O)c2ccc(C)cc2C1=C(C#N)C#N'], ['c1ccsc1', 'CCCCC(CC)Cc1sc(CC(CC)CCCC)c2c1C(=O)c1cscc1C2=O', 'Cc1cccs1', 'CCCCC(CC)Cc1ccc(-c2c3cc(C)sc3c(-c3ccc(CC(CC)CCCC)s3)c3ccsc23)s1', '.', 'C=C1C(=O)c2ccc(C)cc2C1=C(C#N)C#N', 'c1cc2sccc2s1', 'CCCCCCc1ccc(-c2(-c3ccc(CCCCCC)cc3)cccc2)cc1', 'c1ccccc1', 'CCCCCCc1ccc(-c2(-c3ccc(CCCCCC)cc3)cccc2)cc1', 'c1cc2sccc2s1', 'C=C1C(=O)c2ccc(C)cc2C1=C(C#N)C#N']]"
-9.596169622620273,"[['CCCCC(CC)Cc1ccc(-c2c3cc(C)sc3c(-c3ccc(CC(CC)CCCC)s3)c3ccsc23)s1', 'CCCCC(CC)COC(=O)c1sc2csc(C)c2c1F', '.', 'C=C1C(=O)c2ccccc2C1=C(C#N)C#N', 'c1ccsc1', 'CCCCCCc1ccc(-c2(-c3ccc(CCCCCC)cc3)cccc2)cc1', 'c1cc[sH]c1', 'CCCCC(CC)COc1ccc(OCC(CC)CCCC)cc1', 'c1cc[sH]c1', 'CCCCCCc1ccc(-c2(-c3ccc(CCCCCC)cc3)cccc2)cc1', 'c1ccsc1', 'C=C1C(=O)c2ccccc2C1=C(C#N)C#N'], ['CCCCC(CC)COC(=O)c1sc2csc(C)c2c1F', 'CCCCC(CC)Cc1ccc(-c2c3cc(C)sc3c(-c3ccc(CC(CC)CCCC)s3)c3ccsc23)s1', '.', 'C=C1C(=O)c2ccccc2C1=C(C#N)C#N', 'c1ccsc1', 'CCCCCCc1ccc(-c2(-c3ccc(CCCCCC)cc3)cccc2)cc1', 'c1cc[sH]c1', 'CCCCC(CC)COc1ccc(OCC(CC)CCCC)cc1', 'c1cc[sH]c1', 'CCCCCCc1ccc(-c2(-c3ccc(CCCCCC)cc3)cccc2)cc1', 'c1ccsc1', 'C=C1C(=O)c2ccccc2C1=C(C#N)C#N']]"
-9.678871517061584,"[['CCCCCCCCCCC(CCCCCCCC)Cc1ccsc1C', 'Fc1cc2nsnc2cc1F', 'CCCCCCCCC(C)CCCCCCCCCCc1ccsc1', 'c1ccsc1', 'Cc1cccs1', '.', 'C=C1SC(=S)N(CC)C1=O', 'c1ccc2nsnc2c1', 'c1ccccc1', 'CCCCCCCCc1(CCCCCCCC)cccc1', 'c1ccccc1', 'c1ccc2nsnc2c1', 'C=C1SC(=S)N(CC)C1=O'], ['Cc1cccs1', 'CCCCCCCCCCC(CCCCCCCC)Cc1ccsc1C', 'Fc1cc2nsnc2cc1F', 'CCCCCCCCC(C)CCCCCCCCCCc1ccsc1', 'c1ccsc1', '.', 'C=C1SC(=S)N(CC)C1=O', 'c1ccc2nsnc2c1', 'c1ccccc1', 'CCCCCCCCc1(CCCCCCCC)cccc1', 'c1ccccc1', 'c1ccc2nsnc2c1', 'C=C1SC(=S)N(CC)C1=O'], ['c1ccsc1', 'Cc1cccs1', 'CCCCCCCCCCC(CCCCCCCC)Cc1ccsc1C', 'Fc1cc2nsnc2cc1F', 'CCCCCCCCC(C)CCCCCCCCCCc1ccsc1', '.', 'C=C1SC(=S)N(CC)C1=O', 'c1ccc2nsnc2c1', 'c1ccccc1', 'CCCCCCCCc1(CCCCCCCC)cccc1', 'c1ccccc1', 'c1ccc2nsnc2c1', 'C=C1SC(=S)N(CC)C1=O'], ['CCCCCCCCC(C)CCCCCCCCCCc1ccsc1', 'c1ccsc1', 'Cc1cccs1', 'CCCCCCCCCCC(CCCCCCCC)Cc1ccsc1C', 'Fc1cc2nsnc2cc1F', '.', 'C=C1SC(=S)N(CC)C1=O', 'c1ccc2nsnc2c1', 'c1ccccc1', 'CCCCCCCCc1(CCCCCCCC)cccc1', 'c1ccccc1', 'c1ccc2nsnc2c1', 'C=C1SC(=S)N(CC)C1=O'], ['Fc1cc2nsnc2cc1F', 'CCCCCCCCC(C)CCCCCCCCCCc1ccsc1', 'c1ccsc1', 'Cc1cccs1', 'CCCCCCCCCCC(CCCCCCCC)Cc1ccsc1C', '.', 'C=C1SC(=S)N(CC)C1=O', 'c1ccc2nsnc2c1', 'c1ccccc1', 'CCCCCCCCc1(CCCCCCCC)cccc1', 'c1ccccc1', 'c1ccc2nsnc2c1', 'C=C1SC(=S)N(CC)C1=O']]"
-9.633014596937484,"[['CCC[Si](CCC)(CCC)c1ccc(-c2c3cc(C)sc3c(-c3ccc([Si](CCC)(CCC)CCC)s3)c3ccsc23)s1', 'c1ccsc1', 'CCCCCCCCC(CCCCCC)Cn1nc2cc(F)c(F)cc2n1', 'Cc1cccs1', '.', 'C=C1C(=O)c2ccccc2C1=C(C#N)C#N', 'c1cc2sccc2s1', 'CCCCCCc1ccc(-c2(-c3ccc(CCCCCC)cc3)cccc2)cc1', 'c1ccccc1', 'CCCCCCc1ccc(-c2(-c3ccc(CCCCCC)cc3)cccc2)cc1', 'c1cc2sccc2s1', 'C=C1C(=O)c2ccccc2C1=C(C#N)C#N'], ['Cc1cccs1', 'CCC[Si](CCC)(CCC)c1ccc(-c2c3cc(C)sc3c(-c3ccc([Si](CCC)(CCC)CCC)s3)c3ccsc23)s1', 'c1ccsc1', 'CCCCCCCCC(CCCCCC)Cn1nc2cc(F)c(F)cc2n1', '.', 'C=C1C(=O)c2ccccc2C1=C(C#N)C#N', 'c1cc2sccc2s1', 'CCCCCCc1ccc(-c2(-c3ccc(CCCCCC)cc3)cccc2)cc1', 'c1ccccc1', 'CCCCCCc1ccc(-c2(-c3ccc(CCCCCC)cc3)cccc2)cc1', 'c1cc2sccc2s1', 'C=C1C(=O)c2ccccc2C1=C(C#N)C#N'], ['CCCCCCCCC(CCCCCC)Cn1nc2cc(F)c(F)cc2n1', 'Cc1cccs1', 'CCC[Si](CCC)(CCC)c1ccc(-c2c3cc(C)sc3c(-c3ccc([Si](CCC)(CCC)CCC)s3)c3ccsc23)s1', 'c1ccsc1', '.', 'C=C1C(=O)c2ccccc2C1=C(C#N)C#N', 'c1cc2sccc2s1', 'CCCCCCc1ccc(-c2(-c3ccc(CCCCCC)cc3)cccc2)cc1', 'c1ccccc1', 'CCCCCCc1ccc(-c2(-c3ccc(CCCCCC)cc3)cccc2)cc1', 'c1cc2sccc2s1', 'C=C1C(=O)c2ccccc2C1=C(C#N)C#N'], ['c1ccsc1', 'CCCCCCCCC(CCCCCC)Cn1nc2cc(F)c(F)cc2n1', 'Cc1cccs1', 'CCC[Si](CCC)(CCC)c1ccc(-c2c3cc(C)sc3c(-c3ccc([Si](CCC)(CCC)CCC)s3)c3ccsc23)s1', '.', 'C=C1C(=O)c2ccccc2C1=C(C#N)C#N', 'c1cc2sccc2s1', 'CCCCCCc1ccc(-c2(-c3ccc(CCCCCC)cc3)cccc2)cc1', 'c1ccccc1', 'CCCCCCc1ccc(-c2(-c3ccc(CCCCCC)cc3)cccc2)cc1', 'c1cc2sccc2s1', 'C=C1C(=O)c2ccccc2C1=C(C#N)C#N']]"
-9.576042098965445,"[['Cc1cccs1', 'CCCCCCCCC(CCCCCC)COc1cnc2c(C)c(F)c(F)cc2n1', '.', 'C=C1C(=O)c2ccccc2C1=C(C#N)C#N', 'c1ccsc1', 'CCCCCCc1(CCCCCC)cccc1', 'c1ccccc1', 'CCCCCCc1(CCCCCC)cccc1', 'c1ccsc1', 'C=C1C(=O)c2ccccc2C1=C(C#N)C#N'], ['CCCCCCCCC(CCCCCC)COc1cnc2c(C)c(F)c(F)cc2n1', 'Cc1cccs1', '.', 'C=C1C(=O)c2ccccc2C1=C(C#N)C#N', 'c1ccsc1', 'CCCCCCc1(CCCCCC)cccc1', 'c1ccccc1', 'CCCCCCc1(CCCCCC)cccc1', 'c1ccsc1', 'C=C1C(=O)c2ccccc2C1=C(C#N)C#N']]"
-7.509570263120793,"[['CCC[Si](CCC)(CCC)c1ccc(-c2c3cc(C)sc3c(-c3ccc([Si](CCC)(CCC)CCC)s3)c3ccsc23)s1', 'c1ccsc1', 'CCCCCCCCC(CCCCCC)Cn1nc2cc(F)c(F)cc2n1', 'Cc1cccs1', '.', 'C=C1C(=O)c2cscc2C1=C(C#N)C#N', 'c1cc2sccc2s1', 'CCCCCCc1ccc(-c2(-c3ccc(CCCCCC)cc3)cccc2)cc1', 'c1ccccc1', 'CCCCCCc1ccc(-c2(-c3ccc(CCCCCC)cc3)cccc2)cc1', 'c1cc2sccc2s1', 'C=C1C(=O)c2cscc2C1=C(C#N)C#N'], ['Cc1cccs1', 'CCC[Si](CCC)(CCC)c1ccc(-c2c3cc(C)sc3c(-c3ccc([Si](CCC)(CCC)CCC)s3)c3ccsc23)s1', 'c1ccsc1', 'CCCCCCCCC(CCCCCC)Cn1nc2cc(F)c(F)cc2n1', '.', 'C=C1C(=O)c2cscc2C1=C(C#N)C#N', 'c1cc2sccc2s1', 'CCCCCCc1ccc(-c2(-c3ccc(CCCCCC)cc3)cccc2)cc1', 'c1ccccc1', 'CCCCCCc1ccc(-c2(-c3ccc(CCCCCC)cc3)cccc2)cc1', 'c1cc2sccc2s1', 'C=C1C(=O)c2cscc2C1=C(C#N)C#N'], ['CCCCCCCCC(CCCCCC)Cn1nc2cc(F)c(F)cc2n1', 'Cc1cccs1', 'CCC[Si](CCC)(CCC)c1ccc(-c2c3cc(C)sc3c(-c3ccc([Si](CCC)(CCC)CCC)s3)c3ccsc23)s1', 'c1ccsc1', '.', 'C=C1C(=O)c2cscc2C1=C(C#N)C#N', 'c1cc2sccc2s1', 'CCCCCCc1ccc(-c2(-c3ccc(CCCCCC)cc3)cccc2)cc1', 'c1ccccc1', 'CCCCCCc1ccc(-c2(-c3ccc(CCCCCC)cc3)cccc2)cc1', 'c1cc2sccc2s1', 'C=C1C(=O)c2cscc2C1=C(C#N)C#N'], ['c1ccsc1', 'CCCCCCCCC(CCCCCC)Cn1nc2cc(F)c(F)cc2n1', 'Cc1cccs1', 'CCC[Si](CCC)(CCC)c1ccc(-c2c3cc(C)sc3c(-c3ccc([Si](CCC)(CCC)CCC)s3)c3ccsc23)s1', '.', 'C=C1C(=O)c2cscc2C1=C(C#N)C#N', 'c1cc2sccc2s1', 'CCCCCCc1ccc(-c2(-c3ccc(CCCCCC)cc3)cccc2)cc1', 'c1ccccc1', 'CCCCCCc1ccc(-c2(-c3ccc(CCCCCC)cc3)cccc2)cc1', 'c1cc2sccc2s1', 'C=C1C(=O)c2cscc2C1=C(C#N)C#N']]"
-7.563002888613244,"[['CCCCC(CC)CSc1cccc(-c2c3cc(C)sc3c(-c3cccc(SCC(CC)CCCC)c3)c3ccsc23)c1', 'c1ccsc1', 'CCCCC(CC)Cc1sc(CC(CC)CCCC)c2c1C(=O)c1cscc1C2=O', 'Cc1cccs1', '.', 'C=C1C(=O)c2cscc2C1=C(C#N)C#N', 'c1cc2sccc2s1', 'CCCCCCc1ccc(-c2(-c3ccc(CCCCCC)cc3)cccc2)cc1', 'c1ccccc1', 'CCCCCCc1ccc(-c2(-c3ccc(CCCCCC)cc3)cccc2)cc1', 'c1cc2sccc2s1', 'C=C1C(=O)c2cscc2C1=C(C#N)C#N'], ['Cc1cccs1', 'CCCCC(CC)CSc1cccc(-c2c3cc(C)sc3c(-c3cccc(SCC(CC)CCCC)c3)c3ccsc23)c1', 'c1ccsc1', 'CCCCC(CC)Cc1sc(CC(CC)CCCC)c2c1C(=O)c1cscc1C2=O', '.', 'C=C1C(=O)c2cscc2C1=C(C#N)C#N', 'c1cc2sccc2s1', 'CCCCCCc1ccc(-c2(-c3ccc(CCCCCC)cc3)cccc2)cc1', 'c1ccccc1', 'CCCCCCc1ccc(-c2(-c3ccc(CCCCCC)cc3)cccc2)cc1', 'c1cc2sccc2s1', 'C=C1C(=O)c2cscc2C1=C(C#N)C#N'], ['CCCCC(CC)Cc1sc(CC(CC)CCCC)c2c1C(=O)c1cscc1C2=O', 'Cc1cccs1', 'CCCCC(CC)CSc1cccc(-c2c3cc(C)sc3c(-c3cccc(SCC(CC)CCCC)c3)c3ccsc23)c1', 'c1ccsc1', '.', 'C=C1C(=O)c2cscc2C1=C(C#N)C#N', 'c1cc2sccc2s1', 'CCCCCCc1ccc(-c2(-c3ccc(CCCCCC)cc3)cccc2)cc1', 'c1ccccc1', 'CCCCCCc1ccc(-c2(-c3ccc(CCCCCC)cc3)cccc2)cc1', 'c1cc2sccc2s1', 'C=C1C(=O)c2cscc2C1=C(C#N)C#N'], ['c1ccsc1', 'CCCCC(CC)Cc1sc(CC(CC)CCCC)c2c1C(=O)c1cscc1C2=O', 'Cc1cccs1', 'CCCCC(CC)CSc1cccc(-c2c3cc(C)sc3c(-c3cccc(SCC(CC)CCCC)c3)c3ccsc23)c1', '.', 'C=C1C(=O)c2cscc2C1=C(C#N)C#N', 'c1cc2sccc2s1', 'CCCCCCc1ccc(-c2(-c3ccc(CCCCCC)cc3)cccc2)cc1', 'c1ccccc1', 'CCCCCCc1ccc(-c2(-c3ccc(CCCCCC)cc3)cccc2)cc1', 'c1cc2sccc2s1', 'C=C1C(=O)c2cscc2C1=C(C#N)C#N']]"
-7.5200602535900005,"[['CCCCC(CC)Cc1ccc(-c2c3cc(C)sc3c(-c3ccc(CC(CC)CCCC)s3)c3ccsc23)s1', 'CCCCC(CC)COC(=O)c1sc2csc(C)c2c1F', '.', 'C=C1C(=O)c2cc(F)c(F)cc2C1=C(C#N)C#N', 'c1ccsc1', 'CCCCCCc1ccc(-c2(-c3ccc(CCCCCC)cc3)cccc2)cc1', 'c1cc2ccc3cccc4ccc(c1)c2c34', 'CCCCCCc1ccc(-c2(-c3ccc(CCCCCC)cc3)cccc2)cc1', 'c1ccsc1', 'C=C1C(=O)c2cc(F)c(F)cc2C1=C(C#N)C#N'], ['CCCCC(CC)COC(=O)c1sc2csc(C)c2c1F', 'CCCCC(CC)Cc1ccc(-c2c3cc(C)sc3c(-c3ccc(CC(CC)CCCC)s3)c3ccsc23)s1', '.', 'C=C1C(=O)c2cc(F)c(F)cc2C1=C(C#N)C#N', 'c1ccsc1', 'CCCCCCc1ccc(-c2(-c3ccc(CCCCCC)cc3)cccc2)cc1', 'c1cc2ccc3cccc4ccc(c1)c2c34', 'CCCCCCc1ccc(-c2(-c3ccc(CCCCCC)cc3)cccc2)cc1', 'c1ccsc1', 'C=C1C(=O)c2cc(F)c(F)cc2C1=C(C#N)C#N']]"
-7.520228919620979,"[['CCC[Si](CCC)(CCC)c1sc(-c2c3cc(C)sc3c(-c3cc(Cl)c([Si](CCC)(CCC)CCC)s3)c3ccsc23)cc1Cl', 'c1ccsc1', 'CCCCCCCCC(CCCCCC)Cn1nc2cc(F)c(F)cc2n1', 'Cc1cccs1', '.', 'C=C1C(=O)c2cc(F)c(F)cc2C1=C(C#N)C#N', 'c1cc2sccc2s1', 'CCCCCCc1ccc(-c2(-c3ccc(CCCCCC)cc3)cccc2)cc1', 'c1ccccc1', 'CCCCCCc1ccc(-c2(-c3ccc(CCCCCC)cc3)cccc2)cc1', 'c1cc2sccc2s1', 'C=C1C(=O)c2cc(F)c(F)cc2C1=C(C#N)C#N'], ['Cc1cccs1', 'CCC[Si](CCC)(CCC)c1sc(-c2c3cc(C)sc3c(-c3cc(Cl)c([Si](CCC)(CCC)CCC)s3)c3ccsc23)cc1Cl', 'c1ccsc1', 'CCCCCCCCC(CCCCCC)Cn1nc2cc(F)c(F)cc2n1', '.', 'C=C1C(=O)c2cc(F)c(F)cc2C1=C(C#N)C#N', 'c1cc2sccc2s1', 'CCCCCCc1ccc(-c2(-c3ccc(CCCCCC)cc3)cccc2)cc1', 'c1ccccc1', 'CCCCCCc1ccc(-c2(-c3ccc(CCCCCC)cc3)cccc2)cc1', 'c1cc2sccc2s1', 'C=C1C(=O)c2cc(F)c(F)cc2C1=C(C#N)C#N'], ['CCCCCCCCC(CCCCCC)Cn1nc2cc(F)c(F)cc2n1', 'Cc1cccs1', 'CCC[Si](CCC)(CCC)c1sc(-c2c3cc(C)sc3c(-c3cc(Cl)c([Si](CCC)(CCC)CCC)s3)c3ccsc23)cc1Cl', 'c1ccsc1', '.', 'C=C1C(=O)c2cc(F)c(F)cc2C1=C(C#N)C#N', 'c1cc2sccc2s1', 'CCCCCCc1ccc(-c2(-c3ccc(CCCCCC)cc3)cccc2)cc1', 'c1ccccc1', 'CCCCCCc1ccc(-c2(-c3ccc(CCCCCC)cc3)cccc2)cc1', 'c1cc2sccc2s1', 'C=C1C(=O)c2cc(F)c(F)cc2C1=C(C#N)C#N'], ['c1ccsc1', 'CCCCCCCCC(CCCCCC)Cn1nc2cc(F)c(F)cc2n1', 'Cc1cccs1', 'CCC[Si](CCC)(CCC)c1sc(-c2c3cc(C)sc3c(-c3cc(Cl)c([Si](CCC)(CCC)CCC)s3)c3ccsc23)cc1Cl', '.', 'C=C1C(=O)c2cc(F)c(F)cc2C1=C(C#N)C#N', 'c1cc2sccc2s1', 'CCCCCCc1ccc(-c2(-c3ccc(CCCCCC)cc3)cccc2)cc1', 'c1ccccc1', 'CCCCCCc1ccc(-c2(-c3ccc(CCCCCC)cc3)cccc2)cc1', 'c1cc2sccc2s1', 'C=C1C(=O)c2cc(F)c(F)cc2C1=C(C#N)C#N']]"
-8.345259697819728,"[['CCCCC(CC)Cc1ccc(-c2c3cc(C)sc3c(-c3ccc(CC(CC)CCCC)s3)c3ccsc23)s1', 'c1ccsc1', 'CCCCCCCCc1sc(CCCCCCCC)c2c1C(=O)c1cscc1C2=O', 'Cc1cccs1', '.', 'C=C1C(=O)c2ccccc2C1=C(C#N)C#N', 'c1cc2sccc2s1', 'CCCCCCc1ccc(-c2(-c3ccc(CCCCCC)cc3)cccc2)cc1', 'c1ccccc1', 'CCCCCCc1ccc(-c2(-c3ccc(CCCCCC)cc3)cccc2)cc1', 'c1cc2sccc2s1', 'C=C1C(=O)c2ccccc2C1=C(C#N)C#N'], ['Cc1cccs1', 'CCCCC(CC)Cc1ccc(-c2c3cc(C)sc3c(-c3ccc(CC(CC)CCCC)s3)c3ccsc23)s1', 'c1ccsc1', 'CCCCCCCCc1sc(CCCCCCCC)c2c1C(=O)c1cscc1C2=O', '.', 'C=C1C(=O)c2ccccc2C1=C(C#N)C#N', 'c1cc2sccc2s1', 'CCCCCCc1ccc(-c2(-c3ccc(CCCCCC)cc3)cccc2)cc1', 'c1ccccc1', 'CCCCCCc1ccc(-c2(-c3ccc(CCCCCC)cc3)cccc2)cc1', 'c1cc2sccc2s1', 'C=C1C(=O)c2ccccc2C1=C(C#N)C#N'], ['CCCCCCCCc1sc(CCCCCCCC)c2c1C(=O)c1cscc1C2=O', 'Cc1cccs1', 'CCCCC(CC)Cc1ccc(-c2c3cc(C)sc3c(-c3ccc(CC(CC)CCCC)s3)c3ccsc23)s1', 'c1ccsc1', '.', 'C=C1C(=O)c2ccccc2C1=C(C#N)C#N', 'c1cc2sccc2s1', 'CCCCCCc1ccc(-c2(-c3ccc(CCCCCC)cc3)cccc2)cc1', 'c1ccccc1', 'CCCCCCc1ccc(-c2(-c3ccc(CCCCCC)cc3)cccc2)cc1', 'c1cc2sccc2s1', 'C=C1C(=O)c2ccccc2C1=C(C#N)C#N'], ['c1ccsc1', 'CCCCCCCCc1sc(CCCCCCCC)c2c1C(=O)c1cscc1C2=O', 'Cc1cccs1', 'CCCCC(CC)Cc1ccc(-c2c3cc(C)sc3c(-c3ccc(CC(CC)CCCC)s3)c3ccsc23)s1', '.', 'C=C1C(=O)c2ccccc2C1=C(C#N)C#N', 'c1cc2sccc2s1', 'CCCCCCc1ccc(-c2(-c3ccc(CCCCCC)cc3)cccc2)cc1', 'c1ccccc1', 'CCCCCCc1ccc(-c2(-c3ccc(CCCCCC)cc3)cccc2)cc1', 'c1cc2sccc2s1', 'C=C1C(=O)c2ccccc2C1=C(C#N)C#N']]"
-8.547233395759232,"[['CCCCC(CC)Cc1ccc(-c2c3cc(C)sc3c(-c3ccc(CC(CC)CCCC)s3)c3ccsc23)s1', 'CCCCCCc1csc2ccsc12', 'CCCCCCCCc1sc(CCCCCCCC)c2c1C(=O)c1cscc1C2=O', 'CCCCCCc1c(C)sc2ccsc12', '.', 'C=C1C(=O)c2ccccc2C1=C(C#N)C#N', 'c1cc2sccc2s1', 'CCCCCCc1ccc(-c2(-c3ccc(CCCCCC)cc3)cccc2)cc1', 'c1ccccc1', 'CCCCCCc1ccc(-c2(-c3ccc(CCCCCC)cc3)cccc2)cc1', 'c1cc2sccc2s1', 'C=C1C(=O)c2ccccc2C1=C(C#N)C#N'], ['CCCCCCc1c(C)sc2ccsc12', 'CCCCC(CC)Cc1ccc(-c2c3cc(C)sc3c(-c3ccc(CC(CC)CCCC)s3)c3ccsc23)s1', 'CCCCCCc1csc2ccsc12', 'CCCCCCCCc1sc(CCCCCCCC)c2c1C(=O)c1cscc1C2=O', '.', 'C=C1C(=O)c2ccccc2C1=C(C#N)C#N', 'c1cc2sccc2s1', 'CCCCCCc1ccc(-c2(-c3ccc(CCCCCC)cc3)cccc2)cc1', 'c1ccccc1', 'CCCCCCc1ccc(-c2(-c3ccc(CCCCCC)cc3)cccc2)cc1', 'c1cc2sccc2s1', 'C=C1C(=O)c2ccccc2C1=C(C#N)C#N'], ['CCCCCCCCc1sc(CCCCCCCC)c2c1C(=O)c1cscc1C2=O', 'CCCCCCc1c(C)sc2ccsc12', 'CCCCC(CC)Cc1ccc(-c2c3cc(C)sc3c(-c3ccc(CC(CC)CCCC)s3)c3ccsc23)s1', 'CCCCCCc1csc2ccsc12', '.', 'C=C1C(=O)c2ccccc2C1=C(C#N)C#N', 'c1cc2sccc2s1', 'CCCCCCc1ccc(-c2(-c3ccc(CCCCCC)cc3)cccc2)cc1', 'c1ccccc1', 'CCCCCCc1ccc(-c2(-c3ccc(CCCCCC)cc3)cccc2)cc1', 'c1cc2sccc2s1', 'C=C1C(=O)c2ccccc2C1=C(C#N)C#N'], ['CCCCCCc1csc2ccsc12', 'CCCCCCCCc1sc(CCCCCCCC)c2c1C(=O)c1cscc1C2=O', 'CCCCCCc1c(C)sc2ccsc12', 'CCCCC(CC)Cc1ccc(-c2c3cc(C)sc3c(-c3ccc(CC(CC)CCCC)s3)c3ccsc23)s1', '.', 'C=C1C(=O)c2ccccc2C1=C(C#N)C#N', 'c1cc2sccc2s1', 'CCCCCCc1ccc(-c2(-c3ccc(CCCCCC)cc3)cccc2)cc1', 'c1ccccc1', 'CCCCCCc1ccc(-c2(-c3ccc(CCCCCC)cc3)cccc2)cc1', 'c1cc2sccc2s1', 'C=C1C(=O)c2ccccc2C1=C(C#N)C#N']]"
-8.349442567910646,"[['CCCCC(CC)CSc1sc(-c2c3cc(C)sc3c(-c3sc(SCC(CC)CCCC)c4c3OCCO4)c3ccsc23)c2c1OCCO2', 'CCCCC(CC)COC(=O)c1sc2csc(C)c2c1F', '.', 'C=C1C(=O)c2ccccc2C1=C(C#N)C#N', 'c1cc2sccc2s1', 'CCCCCCc1ccc(-c2(-c3ccc(CCCCCC)s3)cccc2)s1', 'c1ccccc1', 'CCCCCCc1ccc(-c2(-c3ccc(CCCCCC)s3)cccc2)s1', 'c1cc2sccc2s1', 'C=C1C(=O)c2ccccc2C1=C(C#N)C#N'], ['CCCCC(CC)COC(=O)c1sc2csc(C)c2c1F', 'CCCCC(CC)CSc1sc(-c2c3cc(C)sc3c(-c3sc(SCC(CC)CCCC)c4c3OCCO4)c3ccsc23)c2c1OCCO2', '.', 'C=C1C(=O)c2ccccc2C1=C(C#N)C#N', 'c1cc2sccc2s1', 'CCCCCCc1ccc(-c2(-c3ccc(CCCCCC)s3)cccc2)s1', 'c1ccccc1', 'CCCCCCc1ccc(-c2(-c3ccc(CCCCCC)s3)cccc2)s1', 'c1cc2sccc2s1', 'C=C1C(=O)c2ccccc2C1=C(C#N)C#N']]"
-8.539926290811483,"[['CCCCCCCCC(CCCCCC)COc1ccc(-c2c3cc(C)sc3c(-c3ccc(OCC(CCCCCC)CCCCCCCC)cc3)c3ccsc23)cc1', 'c1ccsc1', 'CCCCC(CC)Cc1sc(CC(CC)CCCC)c2c1C(=O)c1cscc1C2=O', 'Cc1cccs1', '.', 'C=C1C(=O)c2cc(F)c(F)cc2C1=C(C#N)C#N', 'c1cc2sccc2s1', 'CCCCCCc1ccc(-c2(-c3ccc(CCCCCC)cc3)cccc2)cc1', 'c1ccccc1', 'CCCCCCc1ccc(-c2(-c3ccc(CCCCCC)cc3)cccc2)cc1', 'c1cc2sccc2s1', 'C=C1C(=O)c2cc(F)c(F)cc2C1=C(C#N)C#N'], ['Cc1cccs1', 'CCCCCCCCC(CCCCCC)COc1ccc(-c2c3cc(C)sc3c(-c3ccc(OCC(CCCCCC)CCCCCCCC)cc3)c3ccsc23)cc1', 'c1ccsc1', 'CCCCC(CC)Cc1sc(CC(CC)CCCC)c2c1C(=O)c1cscc1C2=O', '.', 'C=C1C(=O)c2cc(F)c(F)cc2C1=C(C#N)C#N', 'c1cc2sccc2s1', 'CCCCCCc1ccc(-c2(-c3ccc(CCCCCC)cc3)cccc2)cc1', 'c1ccccc1', 'CCCCCCc1ccc(-c2(-c3ccc(CCCCCC)cc3)cccc2)cc1', 'c1cc2sccc2s1', 'C=C1C(=O)c2cc(F)c(F)cc2C1=C(C#N)C#N'], ['CCCCC(CC)Cc1sc(CC(CC)CCCC)c2c1C(=O)c1cscc1C2=O', 'Cc1cccs1', 'CCCCCCCCC(CCCCCC)COc1ccc(-c2c3cc(C)sc3c(-c3ccc(OCC(CCCCCC)CCCCCCCC)cc3)c3ccsc23)cc1', 'c1ccsc1', '.', 'C=C1C(=O)c2cc(F)c(F)cc2C1=C(C#N)C#N', 'c1cc2sccc2s1', 'CCCCCCc1ccc(-c2(-c3ccc(CCCCCC)cc3)cccc2)cc1', 'c1ccccc1', 'CCCCCCc1ccc(-c2(-c3ccc(CCCCCC)cc3)cccc2)cc1', 'c1cc2sccc2s1', 'C=C1C(=O)c2cc(F)c(F)cc2C1=C(C#N)C#N'], ['c1ccsc1', 'CCCCC(CC)Cc1sc(CC(CC)CCCC)c2c1C(=O)c1cscc1C2=O', 'Cc1cccs1', 'CCCCCCCCC(CCCCCC)COc1ccc(-c2c3cc(C)sc3c(-c3ccc(OCC(CCCCCC)CCCCCCCC)cc3)c3ccsc23)cc1', '.', 'C=C1C(=O)c2cc(F)c(F)cc2C1=C(C#N)C#N', 'c1cc2sccc2s1', 'CCCCCCc1ccc(-c2(-c3ccc(CCCCCC)cc3)cccc2)cc1', 'c1ccccc1', 'CCCCCCc1ccc(-c2(-c3ccc(CCCCCC)cc3)cccc2)cc1', 'c1cc2sccc2s1', 'C=C1C(=O)c2cc(F)c(F)cc2C1=C(C#N)C#N']]"
-10.353857861134392,"[['CCCCCCCCC(CCCCCC)COc1c(F)cc(-c2c3cc(C)sc3c(-c3cc(F)c(OCC(CCCCCC)CCCCCCCC)c(F)c3)c3ccsc23)cc1F', 'c1ccsc1', 'CCCCC(CC)Cc1sc(CC(CC)CCCC)c2c1C(=O)c1cscc1C2=O', 'Cc1cccs1', '.', 'C=C1C(=O)c2cc(F)c(F)cc2C1=C(C#N)C#N', 'c1cc2sccc2s1', 'CCCCCCc1ccc(-c2(-c3ccc(CCCCCC)cc3)cccc2)cc1', 'c1ccccc1', 'CCCCCCc1ccc(-c2(-c3ccc(CCCCCC)cc3)cccc2)cc1', 'c1cc2sccc2s1', 'C=C1C(=O)c2cc(F)c(F)cc2C1=C(C#N)C#N'], ['Cc1cccs1', 'CCCCCCCCC(CCCCCC)COc1c(F)cc(-c2c3cc(C)sc3c(-c3cc(F)c(OCC(CCCCCC)CCCCCCCC)c(F)c3)c3ccsc23)cc1F', 'c1ccsc1', 'CCCCC(CC)Cc1sc(CC(CC)CCCC)c2c1C(=O)c1cscc1C2=O', '.', 'C=C1C(=O)c2cc(F)c(F)cc2C1=C(C#N)C#N', 'c1cc2sccc2s1', 'CCCCCCc1ccc(-c2(-c3ccc(CCCCCC)cc3)cccc2)cc1', 'c1ccccc1', 'CCCCCCc1ccc(-c2(-c3ccc(CCCCCC)cc3)cccc2)cc1', 'c1cc2sccc2s1', 'C=C1C(=O)c2cc(F)c(F)cc2C1=C(C#N)C#N'], ['CCCCC(CC)Cc1sc(CC(CC)CCCC)c2c1C(=O)c1cscc1C2=O', 'Cc1cccs1', 'CCCCCCCCC(CCCCCC)COc1c(F)cc(-c2c3cc(C)sc3c(-c3cc(F)c(OCC(CCCCCC)CCCCCCCC)c(F)c3)c3ccsc23)cc1F', 'c1ccsc1', '.', 'C=C1C(=O)c2cc(F)c(F)cc2C1=C(C#N)C#N', 'c1cc2sccc2s1', 'CCCCCCc1ccc(-c2(-c3ccc(CCCCCC)cc3)cccc2)cc1', 'c1ccccc1', 'CCCCCCc1ccc(-c2(-c3ccc(CCCCCC)cc3)cccc2)cc1', 'c1cc2sccc2s1', 'C=C1C(=O)c2cc(F)c(F)cc2C1=C(C#N)C#N'], ['c1ccsc1', 'CCCCC(CC)Cc1sc(CC(CC)CCCC)c2c1C(=O)c1cscc1C2=O', 'Cc1cccs1', 'CCCCCCCCC(CCCCCC)COc1c(F)cc(-c2c3cc(C)sc3c(-c3cc(F)c(OCC(CCCCCC)CCCCCCCC)c(F)c3)c3ccsc23)cc1F', '.', 'C=C1C(=O)c2cc(F)c(F)cc2C1=C(C#N)C#N', 'c1cc2sccc2s1', 'CCCCCCc1ccc(-c2(-c3ccc(CCCCCC)cc3)cccc2)cc1', 'c1ccccc1', 'CCCCCCc1ccc(-c2(-c3ccc(CCCCCC)cc3)cccc2)cc1', 'c1cc2sccc2s1', 'C=C1C(=O)c2cc(F)c(F)cc2C1=C(C#N)C#N']]"
-10.695416865345758,"[['CCC[Si](CCC)(CCC)c1ccc(-c2c3cc(C)sc3c(-c3ccc([Si](CCC)(CCC)CCC)s3)c3ccsc23)s1', 'C1CCSC1', 'CCCCC(CC)CC1SC(CC(CC)CCCC)C2C(=O)c3cscc3C(=O)C12', 'Cc1cccs1', '.', 'C=C1C(=O)c2cc(F)ccc2C1=C(C#N)C#N', 'c1cc2sccc2s1', 'CCCCCCc1ccc(-c2(-c3ccc(CCCCCC)s3)cccc2)s1', 'c1ccccc1', 'CCCCCCc1ccc(-c2(-c3ccc(CCCCCC)s3)cccc2)s1', 'c1cc2sccc2s1', 'C=C1C(=O)c2cc(F)ccc2C1=C(C#N)C#N'], ['Cc1cccs1', 'CCC[Si](CCC)(CCC)c1ccc(-c2c3cc(C)sc3c(-c3ccc([Si](CCC)(CCC)CCC)s3)c3ccsc23)s1', 'C1CCSC1', 'CCCCC(CC)CC1SC(CC(CC)CCCC)C2C(=O)c3cscc3C(=O)C12', '.', 'C=C1C(=O)c2cc(F)ccc2C1=C(C#N)C#N', 'c1cc2sccc2s1', 'CCCCCCc1ccc(-c2(-c3ccc(CCCCCC)s3)cccc2)s1', 'c1ccccc1', 'CCCCCCc1ccc(-c2(-c3ccc(CCCCCC)s3)cccc2)s1', 'c1cc2sccc2s1', 'C=C1C(=O)c2cc(F)ccc2C1=C(C#N)C#N'], ['CCCCC(CC)CC1SC(CC(CC)CCCC)C2C(=O)c3cscc3C(=O)C12', 'Cc1cccs1', 'CCC[Si](CCC)(CCC)c1ccc(-c2c3cc(C)sc3c(-c3ccc([Si](CCC)(CCC)CCC)s3)c3ccsc23)s1', 'C1CCSC1', '.', 'C=C1C(=O)c2cc(F)ccc2C1=C(C#N)C#N', 'c1cc2sccc2s1', 'CCCCCCc1ccc(-c2(-c3ccc(CCCCCC)s3)cccc2)s1', 'c1ccccc1', 'CCCCCCc1ccc(-c2(-c3ccc(CCCCCC)s3)cccc2)s1', 'c1cc2sccc2s1', 'C=C1C(=O)c2cc(F)ccc2C1=C(C#N)C#N'], ['C1CCSC1', 'CCCCC(CC)CC1SC(CC(CC)CCCC)C2C(=O)c3cscc3C(=O)C12', 'Cc1cccs1', 'CCC[Si](CCC)(CCC)c1ccc(-c2c3cc(C)sc3c(-c3ccc([Si](CCC)(CCC)CCC)s3)c3ccsc23)s1', '.', 'C=C1C(=O)c2cc(F)ccc2C1=C(C#N)C#N', 'c1cc2sccc2s1', 'CCCCCCc1ccc(-c2(-c3ccc(CCCCCC)s3)cccc2)s1', 'c1ccccc1', 'CCCCCCc1ccc(-c2(-c3ccc(CCCCCC)s3)cccc2)s1', 'c1cc2sccc2s1', 'C=C1C(=O)c2cc(F)ccc2C1=C(C#N)C#N']]"
-10.379910867086771,"[['CCC[Si](CCC)(CCC)c1ccc(-c2c3cc(C)sc3c(-c3ccc([Si](CCC)(CCC)CCC)s3)c3ccsc23)s1', 'c1ccsc1', 'CCCCCCCCC(CCCCCC)Cn1nc2cc(F)c(F)cc2n1', 'Cc1cccs1', '.', 'C=C1C(=O)c2cc(C)c(C)cc2C1=C(C#N)C#N', 'c1cc2sccc2s1', 'CCCCCCc1ccc(-c2(-c3ccc(CCCCCC)cc3)cccc2)cc1', 'c1ccccc1', 'CCCCCCc1ccc(-c2(-c3ccc(CCCCCC)cc3)cccc2)cc1', 'c1cc2sccc2s1', 'C=C1C(=O)c2cc(C)c(C)cc2C1=C(C#N)C#N'], ['Cc1cccs1', 'CCC[Si](CCC)(CCC)c1ccc(-c2c3cc(C)sc3c(-c3ccc([Si](CCC)(CCC)CCC)s3)c3ccsc23)s1', 'c1ccsc1', 'CCCCCCCCC(CCCCCC)Cn1nc2cc(F)c(F)cc2n1', '.', 'C=C1C(=O)c2cc(C)c(C)cc2C1=C(C#N)C#N', 'c1cc2sccc2s1', 'CCCCCCc1ccc(-c2(-c3ccc(CCCCCC)cc3)cccc2)cc1', 'c1ccccc1', 'CCCCCCc1ccc(-c2(-c3ccc(CCCCCC)cc3)cccc2)cc1', 'c1cc2sccc2s1', 'C=C1C(=O)c2cc(C)c(C)cc2C1=C(C#N)C#N'], ['CCCCCCCCC(CCCCCC)Cn1nc2cc(F)c(F)cc2n1', 'Cc1cccs1', 'CCC[Si](CCC)(CCC)c1ccc(-c2c3cc(C)sc3c(-c3ccc([Si](CCC)(CCC)CCC)s3)c3ccsc23)s1', 'c1ccsc1', '.', 'C=C1C(=O)c2cc(C)c(C)cc2C1=C(C#N)C#N', 'c1cc2sccc2s1', 'CCCCCCc1ccc(-c2(-c3ccc(CCCCCC)cc3)cccc2)cc1', 'c1ccccc1', 'CCCCCCc1ccc(-c2(-c3ccc(CCCCCC)cc3)cccc2)cc1', 'c1cc2sccc2s1', 'C=C1C(=O)c2cc(C)c(C)cc2C1=C(C#N)C#N'], ['c1ccsc1', 'CCCCCCCCC(CCCCCC)Cn1nc2cc(F)c(F)cc2n1', 'Cc1cccs1', 'CCC[Si](CCC)(CCC)c1ccc(-c2c3cc(C)sc3c(-c3ccc([Si](CCC)(CCC)CCC)s3)c3ccsc23)s1', '.', 'C=C1C(=O)c2cc(C)c(C)cc2C1=C(C#N)C#N', 'c1cc2sccc2s1', 'CCCCCCc1ccc(-c2(-c3ccc(CCCCCC)cc3)cccc2)cc1', 'c1ccccc1', 'CCCCCCc1ccc(-c2(-c3ccc(CCCCCC)cc3)cccc2)cc1', 'c1cc2sccc2s1', 'C=C1C(=O)c2cc(C)c(C)cc2C1=C(C#N)C#N']]"
-10.694495162152007,"[['CCCCC(CC)Cc1sc(-c2c3cc(C)sc3c(-c3cc(F)c(CC(CC)CCCC)s3)c3ccsc23)cc1F', 'CCCCCCC(CCCC)COC(=O)c1ccsc1', 'c1cc2sccc2s1', 'CCCCCCC(CCCC)COC(=O)c1csc(C)c1', '.', 'C=C1C(=O)c2ccccc2C1=C(C#N)C#N', 'c1cc2sccc2s1', 'CCCCCCc1cccc(-c2(-c3cccc(CCCCCC)c3)cccc2)c1', 'c1ccccc1', 'CCCCCCc1cccc(-c2(-c3cccc(CCCCCC)c3)cccc2)c1', 'c1cc2sccc2s1', 'C=C1C(=O)c2ccccc2C1=C(C#N)C#N'], ['CCCCCCC(CCCC)COC(=O)c1csc(C)c1', 'CCCCC(CC)Cc1sc(-c2c3cc(C)sc3c(-c3cc(F)c(CC(CC)CCCC)s3)c3ccsc23)cc1F', 'CCCCCCC(CCCC)COC(=O)c1ccsc1', 'c1cc2sccc2s1', '.', 'C=C1C(=O)c2ccccc2C1=C(C#N)C#N', 'c1cc2sccc2s1', 'CCCCCCc1cccc(-c2(-c3cccc(CCCCCC)c3)cccc2)c1', 'c1ccccc1', 'CCCCCCc1cccc(-c2(-c3cccc(CCCCCC)c3)cccc2)c1', 'c1cc2sccc2s1', 'C=C1C(=O)c2ccccc2C1=C(C#N)C#N'], ['c1cc2sccc2s1', 'CCCCCCC(CCCC)COC(=O)c1csc(C)c1', 'CCCCC(CC)Cc1sc(-c2c3cc(C)sc3c(-c3cc(F)c(CC(CC)CCCC)s3)c3ccsc23)cc1F', 'CCCCCCC(CCCC)COC(=O)c1ccsc1', '.', 'C=C1C(=O)c2ccccc2C1=C(C#N)C#N', 'c1cc2sccc2s1', 'CCCCCCc1cccc(-c2(-c3cccc(CCCCCC)c3)cccc2)c1', 'c1ccccc1', 'CCCCCCc1cccc(-c2(-c3cccc(CCCCCC)c3)cccc2)c1', 'c1cc2sccc2s1', 'C=C1C(=O)c2ccccc2C1=C(C#N)C#N'], ['CCCCCCC(CCCC)COC(=O)c1ccsc1', 'c1cc2sccc2s1', 'CCCCCCC(CCCC)COC(=O)c1csc(C)c1', 'CCCCC(CC)Cc1sc(-c2c3cc(C)sc3c(-c3cc(F)c(CC(CC)CCCC)s3)c3ccsc23)cc1F', '.', 'C=C1C(=O)c2ccccc2C1=C(C#N)C#N', 'c1cc2sccc2s1', 'CCCCCCc1cccc(-c2(-c3cccc(CCCCCC)c3)cccc2)c1', 'c1ccccc1', 'CCCCCCc1cccc(-c2(-c3cccc(CCCCCC)c3)cccc2)c1', 'c1cc2sccc2s1', 'C=C1C(=O)c2ccccc2C1=C(C#N)C#N']]"
-11.343375553597955,"[['CCCCC(CC)Cc1ccc(-c2c3cc(C)sc3c(-c3ccc(CC(CC)CCCC)s3)c3ccsc23)s1', 'CCCCC(CC)COC(=O)c1sc2csc(C)c2c1F', '.', 'C=C1C(=O)c2cc(F)c(F)cc2C1=C(C#N)C#N', 'CCCCC(CC)CSc1ccsc1', 'c1ccsc1', 'CCCCCCc1ccc(-c2(-c3ccc(CCCCCC)cc3)cccc2)cc1', 'c1ccccc1', 'CCCCCCc1ccc(-c2(-c3ccc(CCCCCC)cc3)cccc2)cc1', 'c1ccsc1', 'CCCCC(CC)CSc1ccsc1', 'C=C1C(=O)c2cc(F)c(F)cc2C1=C(C#N)C#N'], ['CCCCC(CC)COC(=O)c1sc2csc(C)c2c1F', 'CCCCC(CC)Cc1ccc(-c2c3cc(C)sc3c(-c3ccc(CC(CC)CCCC)s3)c3ccsc23)s1', '.', 'C=C1C(=O)c2cc(F)c(F)cc2C1=C(C#N)C#N', 'CCCCC(CC)CSc1ccsc1', 'c1ccsc1', 'CCCCCCc1ccc(-c2(-c3ccc(CCCCCC)cc3)cccc2)cc1', 'c1ccccc1', 'CCCCCCc1ccc(-c2(-c3ccc(CCCCCC)cc3)cccc2)cc1', 'c1ccsc1', 'CCCCC(CC)CSc1ccsc1', 'C=C1C(=O)c2cc(F)c(F)cc2C1=C(C#N)C#N']]"
-11.473649769628237,"[['Cc1cccs1', 'CCC(C)CCCCn1nc2cc(F)c(F)cc2n1', 'c1ccsc1', 'CCCCCCCCC(CCCCCC)COC(=O)c1ccsc1', 'c1ccsc1', 'CCCCCCCCC(CCCCCC)COC(=O)c1csc(C)c1', '.', 'C=C1C(=O)c2ccccc2C1=C(C#N)C#N', 'c1cc2sccc2s1', 'CCCCCCc1ccc(-c2(-c3ccc(CCCCCC)s3)cccc2)s1', 'c1ccccc1', 'CCCCCCc1ccc(-c2(-c3ccc(CCCCCC)s3)cccc2)s1', 'c1cc2sccc2s1', 'C=C1C(=O)c2ccccc2C1=C(C#N)C#N'], ['CCCCCCCCC(CCCCCC)COC(=O)c1csc(C)c1', 'Cc1cccs1', 'CCC(C)CCCCn1nc2cc(F)c(F)cc2n1', 'c1ccsc1', 'CCCCCCCCC(CCCCCC)COC(=O)c1ccsc1', 'c1ccsc1', '.', 'C=C1C(=O)c2ccccc2C1=C(C#N)C#N', 'c1cc2sccc2s1', 'CCCCCCc1ccc(-c2(-c3ccc(CCCCCC)s3)cccc2)s1', 'c1ccccc1', 'CCCCCCc1ccc(-c2(-c3ccc(CCCCCC)s3)cccc2)s1', 'c1cc2sccc2s1', 'C=C1C(=O)c2ccccc2C1=C(C#N)C#N'], ['c1ccsc1', 'CCCCCCCCC(CCCCCC)COC(=O)c1csc(C)c1', 'Cc1cccs1', 'CCC(C)CCCCn1nc2cc(F)c(F)cc2n1', 'c1ccsc1', 'CCCCCCCCC(CCCCCC)COC(=O)c1ccsc1', '.', 'C=C1C(=O)c2ccccc2C1=C(C#N)C#N', 'c1cc2sccc2s1', 'CCCCCCc1ccc(-c2(-c3ccc(CCCCCC)s3)cccc2)s1', 'c1ccccc1', 'CCCCCCc1ccc(-c2(-c3ccc(CCCCCC)s3)cccc2)s1', 'c1cc2sccc2s1', 'C=C1C(=O)c2ccccc2C1=C(C#N)C#N'], ['CCCCCCCCC(CCCCCC)COC(=O)c1ccsc1', 'c1ccsc1', 'CCCCCCCCC(CCCCCC)COC(=O)c1csc(C)c1', 'Cc1cccs1', 'CCC(C)CCCCn1nc2cc(F)c(F)cc2n1', 'c1ccsc1', '.', 'C=C1C(=O)c2ccccc2C1=C(C#N)C#N', 'c1cc2sccc2s1', 'CCCCCCc1ccc(-c2(-c3ccc(CCCCCC)s3)cccc2)s1', 'c1ccccc1', 'CCCCCCc1ccc(-c2(-c3ccc(CCCCCC)s3)cccc2)s1', 'c1cc2sccc2s1', 'C=C1C(=O)c2ccccc2C1=C(C#N)C#N'], ['c1ccsc1', 'CCCCCCCCC(CCCCCC)COC(=O)c1ccsc1', 'c1ccsc1', 'CCCCCCCCC(CCCCCC)COC(=O)c1csc(C)c1', 'Cc1cccs1', 'CCC(C)CCCCn1nc2cc(F)c(F)cc2n1', '.', 'C=C1C(=O)c2ccccc2C1=C(C#N)C#N', 'c1cc2sccc2s1', 'CCCCCCc1ccc(-c2(-c3ccc(CCCCCC)s3)cccc2)s1', 'c1ccccc1', 'CCCCCCc1ccc(-c2(-c3ccc(CCCCCC)s3)cccc2)s1', 'c1cc2sccc2s1', 'C=C1C(=O)c2ccccc2C1=C(C#N)C#N'], ['CCC(C)CCCCn1nc2cc(F)c(F)cc2n1', 'c1ccsc1', 'CCCCCCCCC(CCCCCC)COC(=O)c1ccsc1', 'c1ccsc1', 'CCCCCCCCC(CCCCCC)COC(=O)c1csc(C)c1', 'Cc1cccs1', '.', 'C=C1C(=O)c2ccccc2C1=C(C#N)C#N', 'c1cc2sccc2s1', 'CCCCCCc1ccc(-c2(-c3ccc(CCCCCC)s3)cccc2)s1', 'c1ccccc1', 'CCCCCCc1ccc(-c2(-c3ccc(CCCCCC)s3)cccc2)s1', 'c1cc2sccc2s1', 'C=C1C(=O)c2ccccc2C1=C(C#N)C#N']]"
-11.364572071738028,"[['CCCCC(CC)Cc1ccc(-c2c3cc(C)sc3c(-c3ccc(CC(CC)CCCC)s3)c3ccsc23)s1', 'CCCCC(CC)COC(=O)c1sc2csc(C)c2c1F', '.', 'C=C1C(=O)c2cc(F)c(F)cc2C1=C(C#N)C#N', 'c1ccsc1', 'CCCCCCCC[si]1(CCCCCCCC)cccc1', 'c1cc2sccc2s1', 'CCCCCCCC[si]1(CCCCCCCC)cccc1', 'c1ccsc1', 'C=C1C(=O)c2cc(F)c(F)cc2C1=C(C#N)C#N'], ['CCCCC(CC)COC(=O)c1sc2csc(C)c2c1F', 'CCCCC(CC)Cc1ccc(-c2c3cc(C)sc3c(-c3ccc(CC(CC)CCCC)s3)c3ccsc23)s1', '.', 'C=C1C(=O)c2cc(F)c(F)cc2C1=C(C#N)C#N', 'c1ccsc1', 'CCCCCCCC[si]1(CCCCCCCC)cccc1', 'c1cc2sccc2s1', 'CCCCCCCC[si]1(CCCCCCCC)cccc1', 'c1ccsc1', 'C=C1C(=O)c2cc(F)c(F)cc2C1=C(C#N)C#N']]"
-11.457411241254228,"[['CCCCCCC(CCCC)Cc1ccc(Cc2c3cc(C)sc3c(Cc3ccc(CC(CCCC)CCCCCC)cc3)c3ccsc23)cc1', 'c1ccsc1', 'CCCCC(CC)Cc1sc(CC(CC)CCCC)c2c1C(=O)c1cscc1C2=O', 'Cc1cccs1', '.', 'C=C1C(=O)c2cscc2C1=C(C#N)C#N', 'c1cc2sccc2s1', 'CCCCCCc1ccc(-c2(-c3ccc(CCCCCC)cc3)cccc2)cc1', 'c1ccccc1', 'CCCCCCc1ccc(-c2(-c3ccc(CCCCCC)cc3)cccc2)cc1', 'c1cc2sccc2s1', 'C=C1C(=O)c2cscc2C1=C(C#N)C#N'], ['Cc1cccs1', 'CCCCCCC(CCCC)Cc1ccc(Cc2c3cc(C)sc3c(Cc3ccc(CC(CCCC)CCCCCC)cc3)c3ccsc23)cc1', 'c1ccsc1', 'CCCCC(CC)Cc1sc(CC(CC)CCCC)c2c1C(=O)c1cscc1C2=O', '.', 'C=C1C(=O)c2cscc2C1=C(C#N)C#N', 'c1cc2sccc2s1', 'CCCCCCc1ccc(-c2(-c3ccc(CCCCCC)cc3)cccc2)cc1', 'c1ccccc1', 'CCCCCCc1ccc(-c2(-c3ccc(CCCCCC)cc3)cccc2)cc1', 'c1cc2sccc2s1', 'C=C1C(=O)c2cscc2C1=C(C#N)C#N'], ['CCCCC(CC)Cc1sc(CC(CC)CCCC)c2c1C(=O)c1cscc1C2=O', 'Cc1cccs1', 'CCCCCCC(CCCC)Cc1ccc(Cc2c3cc(C)sc3c(Cc3ccc(CC(CCCC)CCCCCC)cc3)c3ccsc23)cc1', 'c1ccsc1', '.', 'C=C1C(=O)c2cscc2C1=C(C#N)C#N', 'c1cc2sccc2s1', 'CCCCCCc1ccc(-c2(-c3ccc(CCCCCC)cc3)cccc2)cc1', 'c1ccccc1', 'CCCCCCc1ccc(-c2(-c3ccc(CCCCCC)cc3)cccc2)cc1', 'c1cc2sccc2s1', 'C=C1C(=O)c2cscc2C1=C(C#N)C#N'], ['c1ccsc1', 'CCCCC(CC)Cc1sc(CC(CC)CCCC)c2c1C(=O)c1cscc1C2=O', 'Cc1cccs1', 'CCCCCCC(CCCC)Cc1ccc(Cc2c3cc(C)sc3c(Cc3ccc(CC(CCCC)CCCCCC)cc3)c3ccsc23)cc1', '.', 'C=C1C(=O)c2cscc2C1=C(C#N)C#N', 'c1cc2sccc2s1', 'CCCCCCc1ccc(-c2(-c3ccc(CCCCCC)cc3)cccc2)cc1', 'c1ccccc1', 'CCCCCCc1ccc(-c2(-c3ccc(CCCCCC)cc3)cccc2)cc1', 'c1cc2sccc2s1', 'C=C1C(=O)c2cscc2C1=C(C#N)C#N']]"
-9.097366716419788,"[['CCCCCCc1ccsc1C', 'CCCCCCc1ccsc1', 'CCCCCCc1ccsc1', 'CCCCCCc1csc(C)c1', '.', 'C=c1sc(=C(C#N)C#N)n(CC)c1=O', 'c1ccc2nsnc2c1', 'c1ccsc1', 'CCCCCCc1ccc(-c2(-c3ccc(CCCCCC)cc3)cccc2)cc1', 'c1ccccc1', 'CCCCCCc1ccc(-c2(-c3ccc(CCCCCC)cc3)cccc2)cc1', 'c1ccsc1', 'c1ccc2nsnc2c1', 'C=c1sc(=C(C#N)C#N)n(CC)c1=O'], ['CCCCCCc1csc(C)c1', 'CCCCCCc1ccsc1C', 'CCCCCCc1ccsc1', 'CCCCCCc1ccsc1', '.', 'C=c1sc(=C(C#N)C#N)n(CC)c1=O', 'c1ccc2nsnc2c1', 'c1ccsc1', 'CCCCCCc1ccc(-c2(-c3ccc(CCCCCC)cc3)cccc2)cc1', 'c1ccccc1', 'CCCCCCc1ccc(-c2(-c3ccc(CCCCCC)cc3)cccc2)cc1', 'c1ccsc1', 'c1ccc2nsnc2c1', 'C=c1sc(=C(C#N)C#N)n(CC)c1=O'], ['CCCCCCc1ccsc1', 'CCCCCCc1csc(C)c1', 'CCCCCCc1ccsc1C', 'CCCCCCc1ccsc1', '.', 'C=c1sc(=C(C#N)C#N)n(CC)c1=O', 'c1ccc2nsnc2c1', 'c1ccsc1', 'CCCCCCc1ccc(-c2(-c3ccc(CCCCCC)cc3)cccc2)cc1', 'c1ccccc1', 'CCCCCCc1ccc(-c2(-c3ccc(CCCCCC)cc3)cccc2)cc1', 'c1ccsc1', 'c1ccc2nsnc2c1', 'C=c1sc(=C(C#N)C#N)n(CC)c1=O'], ['CCCCCCc1ccsc1', 'CCCCCCc1ccsc1', 'CCCCCCc1csc(C)c1', 'CCCCCCc1ccsc1C', '.', 'C=c1sc(=C(C#N)C#N)n(CC)c1=O', 'c1ccc2nsnc2c1', 'c1ccsc1', 'CCCCCCc1ccc(-c2(-c3ccc(CCCCCC)cc3)cccc2)cc1', 'c1ccccc1', 'CCCCCCc1ccc(-c2(-c3ccc(CCCCCC)cc3)cccc2)cc1', 'c1ccsc1', 'c1ccc2nsnc2c1', 'C=c1sc(=C(C#N)C#N)n(CC)c1=O']]"
-9.06494296563309,"[['CCCCCCc1ccsc1C', 'CCCCCCc1ccsc1', 'CCCCCCc1ccsc1', 'CCCCCCc1csc(C)c1', '.', 'C=C1SC(=S)N(CC)C1=O', 'CCCCCCn1nc2ccccc2n1', 'c1ccccc1', 'c1ccc2c(c1)-c1ccccc1-c-21cccc1', 'c1ccccc1', 'CCCCCCn1nc2ccccc2n1', 'C=C1SC(=S)N(CC)C1=O'], ['CCCCCCc1csc(C)c1', 'CCCCCCc1ccsc1C', 'CCCCCCc1ccsc1', 'CCCCCCc1ccsc1', '.', 'C=C1SC(=S)N(CC)C1=O', 'CCCCCCn1nc2ccccc2n1', 'c1ccccc1', 'c1ccc2c(c1)-c1ccccc1-c-21cccc1', 'c1ccccc1', 'CCCCCCn1nc2ccccc2n1', 'C=C1SC(=S)N(CC)C1=O'], ['CCCCCCc1ccsc1', 'CCCCCCc1csc(C)c1', 'CCCCCCc1ccsc1C', 'CCCCCCc1ccsc1', '.', 'C=C1SC(=S)N(CC)C1=O', 'CCCCCCn1nc2ccccc2n1', 'c1ccccc1', 'c1ccc2c(c1)-c1ccccc1-c-21cccc1', 'c1ccccc1', 'CCCCCCn1nc2ccccc2n1', 'C=C1SC(=S)N(CC)C1=O'], ['CCCCCCc1ccsc1', 'CCCCCCc1ccsc1', 'CCCCCCc1csc(C)c1', 'CCCCCCc1ccsc1C', '.', 'C=C1SC(=S)N(CC)C1=O', 'CCCCCCn1nc2ccccc2n1', 'c1ccccc1', 'c1ccc2c(c1)-c1ccccc1-c-21cccc1', 'c1ccccc1', 'CCCCCCn1nc2ccccc2n1', 'C=C1SC(=S)N(CC)C1=O']]"
-9.163605518523786,"[['CCCCC(CC)Cc1ccc(-c2c3cc(C)sc3c(-c3ccc(CC(CC)CCCC)s3)c3ccsc23)s1', 'c1ccsc1', 'CCCCC(CC)Cc1sc(CC(CC)CCCC)c2c1C(=O)c1cscc1C2=O', 'Cc1cccs1', '.', 'C=C1C(=O)c2cc(F)ccc2C1=C(C#N)C#N', 'c1ccsc1', 'CCCCCCCCc1(CCCCCCCC)cccc1', 'c1ccccc1', 'CCCCCCCCc1(CCCCCCCC)cccc1', 'c1ccccc1', 'CCCCCCCCc1(CCCCCCCC)cccc1', 'c1ccsc1', 'C=C1C(=O)c2cc(F)ccc2C1=C(C#N)C#N'], ['Cc1cccs1', 'CCCCC(CC)Cc1ccc(-c2c3cc(C)sc3c(-c3ccc(CC(CC)CCCC)s3)c3ccsc23)s1', 'c1ccsc1', 'CCCCC(CC)Cc1sc(CC(CC)CCCC)c2c1C(=O)c1cscc1C2=O', '.', 'C=C1C(=O)c2cc(F)ccc2C1=C(C#N)C#N', 'c1ccsc1', 'CCCCCCCCc1(CCCCCCCC)cccc1', 'c1ccccc1', 'CCCCCCCCc1(CCCCCCCC)cccc1', 'c1ccccc1', 'CCCCCCCCc1(CCCCCCCC)cccc1', 'c1ccsc1', 'C=C1C(=O)c2cc(F)ccc2C1=C(C#N)C#N'], ['CCCCC(CC)Cc1sc(CC(CC)CCCC)c2c1C(=O)c1cscc1C2=O', 'Cc1cccs1', 'CCCCC(CC)Cc1ccc(-c2c3cc(C)sc3c(-c3ccc(CC(CC)CCCC)s3)c3ccsc23)s1', 'c1ccsc1', '.', 'C=C1C(=O)c2cc(F)ccc2C1=C(C#N)C#N', 'c1ccsc1', 'CCCCCCCCc1(CCCCCCCC)cccc1', 'c1ccccc1', 'CCCCCCCCc1(CCCCCCCC)cccc1', 'c1ccccc1', 'CCCCCCCCc1(CCCCCCCC)cccc1', 'c1ccsc1', 'C=C1C(=O)c2cc(F)ccc2C1=C(C#N)C#N'], ['c1ccsc1', 'CCCCC(CC)Cc1sc(CC(CC)CCCC)c2c1C(=O)c1cscc1C2=O', 'Cc1cccs1', 'CCCCC(CC)Cc1ccc(-c2c3cc(C)sc3c(-c3ccc(CC(CC)CCCC)s3)c3ccsc23)s1', '.', 'C=C1C(=O)c2cc(F)ccc2C1=C(C#N)C#N', 'c1ccsc1', 'CCCCCCCCc1(CCCCCCCC)cccc1', 'c1ccccc1', 'CCCCCCCCc1(CCCCCCCC)cccc1', 'c1ccccc1', 'CCCCCCCCc1(CCCCCCCC)cccc1', 'c1ccsc1', 'C=C1C(=O)c2cc(F)ccc2C1=C(C#N)C#N']]"
-9.16651365288143,"[['CCCCC(CC)Cc1ccc(-c2c3cc(C)sc3c(-c3ccc(CC(CC)CCCC)s3)c3ccsc23)s1', 'c1ccsc1', 'CCCCC(CC)Cc1sc(CC(CC)CCCC)c2c1C(=O)c1cscc1C2=O', 'Cc1cccs1', '.', 'C=C1C(=O)c2ccccc2C1=C(C#N)C#N', 'c1ccsc1', 'CCCCC(CC)Cc1(CC(CC)CCCC)cccc1', 'c1ccsc1', 'Fc1ccc(F)cc1', 'c1ccsc1', 'CCCCC(CC)Cc1(CCCCC(C)CC)cccc1', 'c1ccsc1', 'C=C1C(=O)c2ccccc2C1=C(C#N)C#N'], ['Cc1cccs1', 'CCCCC(CC)Cc1ccc(-c2c3cc(C)sc3c(-c3ccc(CC(CC)CCCC)s3)c3ccsc23)s1', 'c1ccsc1', 'CCCCC(CC)Cc1sc(CC(CC)CCCC)c2c1C(=O)c1cscc1C2=O', '.', 'C=C1C(=O)c2ccccc2C1=C(C#N)C#N', 'c1ccsc1', 'CCCCC(CC)Cc1(CC(CC)CCCC)cccc1', 'c1ccsc1', 'Fc1ccc(F)cc1', 'c1ccsc1', 'CCCCC(CC)Cc1(CCCCC(C)CC)cccc1', 'c1ccsc1', 'C=C1C(=O)c2ccccc2C1=C(C#N)C#N'], ['CCCCC(CC)Cc1sc(CC(CC)CCCC)c2c1C(=O)c1cscc1C2=O', 'Cc1cccs1', 'CCCCC(CC)Cc1ccc(-c2c3cc(C)sc3c(-c3ccc(CC(CC)CCCC)s3)c3ccsc23)s1', 'c1ccsc1', '.', 'C=C1C(=O)c2ccccc2C1=C(C#N)C#N', 'c1ccsc1', 'CCCCC(CC)Cc1(CC(CC)CCCC)cccc1', 'c1ccsc1', 'Fc1ccc(F)cc1', 'c1ccsc1', 'CCCCC(CC)Cc1(CCCCC(C)CC)cccc1', 'c1ccsc1', 'C=C1C(=O)c2ccccc2C1=C(C#N)C#N'], ['c1ccsc1', 'CCCCC(CC)Cc1sc(CC(CC)CCCC)c2c1C(=O)c1cscc1C2=O', 'Cc1cccs1', 'CCCCC(CC)Cc1ccc(-c2c3cc(C)sc3c(-c3ccc(CC(CC)CCCC)s3)c3ccsc23)s1', '.', 'C=C1C(=O)c2ccccc2C1=C(C#N)C#N', 'c1ccsc1', 'CCCCC(CC)Cc1(CC(CC)CCCC)cccc1', 'c1ccsc1', 'Fc1ccc(F)cc1', 'c1ccsc1', 'CCCCC(CC)Cc1(CCCCC(C)CC)cccc1', 'c1ccsc1', 'C=C1C(=O)c2ccccc2C1=C(C#N)C#N']]"
-10.26645297823269,"[['Cc1cccs1', 'CCCCCCCCC(CCCCCC)COc1cnc2c(C)c(F)c(F)cc2n1', '.', 'C=C1C(=O)c2ccccc2C1=C(C#N)C#N', 'c1ccsc1', 'CCCCCCc1(CCCCCC)cccc1', 'c1ccccc1', 'CCCCCCc1(CCCCCC)cccc1', 'c1ccsc1', 'C=C1C(=O)c2ccccc2C1=C(C#N)C#N'], ['CCCCCCCCC(CCCCCC)COc1cnc2c(C)c(F)c(F)cc2n1', 'Cc1cccs1', '.', 'C=C1C(=O)c2ccccc2C1=C(C#N)C#N', 'c1ccsc1', 'CCCCCCc1(CCCCCC)cccc1', 'c1ccccc1', 'CCCCCCc1(CCCCCC)cccc1', 'c1ccsc1', 'C=C1C(=O)c2ccccc2C1=C(C#N)C#N']]"
-10.274109496702986,"[['CCCCCCc1ccsc1C', 'CCCCCCc1ccsc1', 'CCCCCCc1ccsc1', 'CCCCCCc1csc(C)c1', '.', 'C=C1SC(=S)N(CC)C1=O', 'CCCCCCn1nc2ccccc2n1', 'c1ccsc1', 'CCCCCCc1ccc(-c2(-c3ccc(CCCCCC)cc3)cccc2)cc1', 'c1ccccc1', 'CCCCCCc1(CCCCCC)cccc1', 'c1ccccc1', 'CCCCCCc1ccc(-c2(-c3ccc(CCCCCC)cc3)cccc2)cc1', 'c1ccsc1', 'CCCCCCn1nc2ccccc2n1', 'C=C1SC(=S)N(CC)C1=O'], ['CCCCCCc1csc(C)c1', 'CCCCCCc1ccsc1C', 'CCCCCCc1ccsc1', 'CCCCCCc1ccsc1', '.', 'C=C1SC(=S)N(CC)C1=O', 'CCCCCCn1nc2ccccc2n1', 'c1ccsc1', 'CCCCCCc1ccc(-c2(-c3ccc(CCCCCC)cc3)cccc2)cc1', 'c1ccccc1', 'CCCCCCc1(CCCCCC)cccc1', 'c1ccccc1', 'CCCCCCc1ccc(-c2(-c3ccc(CCCCCC)cc3)cccc2)cc1', 'c1ccsc1', 'CCCCCCn1nc2ccccc2n1', 'C=C1SC(=S)N(CC)C1=O'], ['CCCCCCc1ccsc1', 'CCCCCCc1csc(C)c1', 'CCCCCCc1ccsc1C', 'CCCCCCc1ccsc1', '.', 'C=C1SC(=S)N(CC)C1=O', 'CCCCCCn1nc2ccccc2n1', 'c1ccsc1', 'CCCCCCc1ccc(-c2(-c3ccc(CCCCCC)cc3)cccc2)cc1', 'c1ccccc1', 'CCCCCCc1(CCCCCC)cccc1', 'c1ccccc1', 'CCCCCCc1ccc(-c2(-c3ccc(CCCCCC)cc3)cccc2)cc1', 'c1ccsc1', 'CCCCCCn1nc2ccccc2n1', 'C=C1SC(=S)N(CC)C1=O'], ['CCCCCCc1ccsc1', 'CCCCCCc1ccsc1', 'CCCCCCc1csc(C)c1', 'CCCCCCc1ccsc1C', '.', 'C=C1SC(=S)N(CC)C1=O', 'CCCCCCn1nc2ccccc2n1', 'c1ccsc1', 'CCCCCCc1ccc(-c2(-c3ccc(CCCCCC)cc3)cccc2)cc1', 'c1ccccc1', 'CCCCCCc1(CCCCCC)cccc1', 'c1ccccc1', 'CCCCCCc1ccc(-c2(-c3ccc(CCCCCC)cc3)cccc2)cc1', 'c1ccsc1', 'CCCCCCn1nc2ccccc2n1', 'C=C1SC(=S)N(CC)C1=O']]"
-6.535032248898206,"[['CCCCCCCCCCC(CCCCCCCC)Cc1ccc(-c2c3cc(C)sc3c(-c3ccc(SCC(CCCC)CCCCCC)cc3)c3ccsc23)cc1', 'c1ccsc1', 'CCCCC(CC)Cc1sc(CC(CC)CCCC)c2c1C(=O)c1cscc1C2=O', 'Cc1cccs1', '.', 'C=C1C(=O)c2cc(F)ccc2C1=C(C#N)C#N', 'c1ccsc1', 'CCCCCCc1ccc(-c2(-c3ccc(CCCCCC)cc3)cccc2)cc1', 'c1ccccc1', 'CCCCCCc1ccc(-c2(-c3ccc(CCCCCC)cc3)cccc2)cc1', 'c1ccsc1', 'C=C1C(=O)c2cc(F)ccc2C1=C(C#N)C#N'], ['Cc1cccs1', 'CCCCCCCCCCC(CCCCCCCC)Cc1ccc(-c2c3cc(C)sc3c(-c3ccc(SCC(CCCC)CCCCCC)cc3)c3ccsc23)cc1', 'c1ccsc1', 'CCCCC(CC)Cc1sc(CC(CC)CCCC)c2c1C(=O)c1cscc1C2=O', '.', 'C=C1C(=O)c2cc(F)ccc2C1=C(C#N)C#N', 'c1ccsc1', 'CCCCCCc1ccc(-c2(-c3ccc(CCCCCC)cc3)cccc2)cc1', 'c1ccccc1', 'CCCCCCc1ccc(-c2(-c3ccc(CCCCCC)cc3)cccc2)cc1', 'c1ccsc1', 'C=C1C(=O)c2cc(F)ccc2C1=C(C#N)C#N'], ['CCCCC(CC)Cc1sc(CC(CC)CCCC)c2c1C(=O)c1cscc1C2=O', 'Cc1cccs1', 'CCCCCCCCCCC(CCCCCCCC)Cc1ccc(-c2c3cc(C)sc3c(-c3ccc(SCC(CCCC)CCCCCC)cc3)c3ccsc23)cc1', 'c1ccsc1', '.', 'C=C1C(=O)c2cc(F)ccc2C1=C(C#N)C#N', 'c1ccsc1', 'CCCCCCc1ccc(-c2(-c3ccc(CCCCCC)cc3)cccc2)cc1', 'c1ccccc1', 'CCCCCCc1ccc(-c2(-c3ccc(CCCCCC)cc3)cccc2)cc1', 'c1ccsc1', 'C=C1C(=O)c2cc(F)ccc2C1=C(C#N)C#N'], ['c1ccsc1', 'CCCCC(CC)Cc1sc(CC(CC)CCCC)c2c1C(=O)c1cscc1C2=O', 'Cc1cccs1', 'CCCCCCCCCCC(CCCCCCCC)Cc1ccc(-c2c3cc(C)sc3c(-c3ccc(SCC(CCCC)CCCCCC)cc3)c3ccsc23)cc1', '.', 'C=C1C(=O)c2cc(F)ccc2C1=C(C#N)C#N', 'c1ccsc1', 'CCCCCCc1ccc(-c2(-c3ccc(CCCCCC)cc3)cccc2)cc1', 'c1ccccc1', 'CCCCCCc1ccc(-c2(-c3ccc(CCCCCC)cc3)cccc2)cc1', 'c1ccsc1', 'C=C1C(=O)c2cc(F)ccc2C1=C(C#N)C#N']]"
-6.5105439479706835,"[['CCCCC(CC)Cc1ccc(-c2c3cc(C)sc3c(-c3ccc(CC(CC)CCCC)s3)c3ccsc23)s1', 'c1ccsc1', 'CCCCC(CC)Cc1sc(CC(CC)CCCC)c2c1C(=O)c1cscc1C2=O', 'Cc1cccs1', '.', 'C=c1sc(=C(C#N)C#N)n(CC)c1=O', 'c1ccc2nsnc2c1', 'c1cc2sccc2s1', 'CCCCCCc1ccc(-c2(-c3ccc(CCCCCC)cc3)cccc2)cc1', 'c1ccccc1', 'CCCCCCc1ccc(-c2(-c3ccc(CCCCCC)cc3)cccc2)cc1', 'c1cc2sccc2s1', 'c1ccc2nsnc2c1', 'C=c1sc(=C(C#N)C#N)n(CC)c1=O'], ['Cc1cccs1', 'CCCCC(CC)Cc1ccc(-c2c3cc(C)sc3c(-c3ccc(CC(CC)CCCC)s3)c3ccsc23)s1', 'c1ccsc1', 'CCCCC(CC)Cc1sc(CC(CC)CCCC)c2c1C(=O)c1cscc1C2=O', '.', 'C=c1sc(=C(C#N)C#N)n(CC)c1=O', 'c1ccc2nsnc2c1', 'c1cc2sccc2s1', 'CCCCCCc1ccc(-c2(-c3ccc(CCCCCC)cc3)cccc2)cc1', 'c1ccccc1', 'CCCCCCc1ccc(-c2(-c3ccc(CCCCCC)cc3)cccc2)cc1', 'c1cc2sccc2s1', 'c1ccc2nsnc2c1', 'C=c1sc(=C(C#N)C#N)n(CC)c1=O'], ['CCCCC(CC)Cc1sc(CC(CC)CCCC)c2c1C(=O)c1cscc1C2=O', 'Cc1cccs1', 'CCCCC(CC)Cc1ccc(-c2c3cc(C)sc3c(-c3ccc(CC(CC)CCCC)s3)c3ccsc23)s1', 'c1ccsc1', '.', 'C=c1sc(=C(C#N)C#N)n(CC)c1=O', 'c1ccc2nsnc2c1', 'c1cc2sccc2s1', 'CCCCCCc1ccc(-c2(-c3ccc(CCCCCC)cc3)cccc2)cc1', 'c1ccccc1', 'CCCCCCc1ccc(-c2(-c3ccc(CCCCCC)cc3)cccc2)cc1', 'c1cc2sccc2s1', 'c1ccc2nsnc2c1', 'C=c1sc(=C(C#N)C#N)n(CC)c1=O'], ['c1ccsc1', 'CCCCC(CC)Cc1sc(CC(CC)CCCC)c2c1C(=O)c1cscc1C2=O', 'Cc1cccs1', 'CCCCC(CC)Cc1ccc(-c2c3cc(C)sc3c(-c3ccc(CC(CC)CCCC)s3)c3ccsc23)s1', '.', 'C=c1sc(=C(C#N)C#N)n(CC)c1=O', 'c1ccc2nsnc2c1', 'c1cc2sccc2s1', 'CCCCCCc1ccc(-c2(-c3ccc(CCCCCC)cc3)cccc2)cc1', 'c1ccccc1', 'CCCCCCc1ccc(-c2(-c3ccc(CCCCCC)cc3)cccc2)cc1', 'c1cc2sccc2s1', 'c1ccc2nsnc2c1', 'C=c1sc(=C(C#N)C#N)n(CC)c1=O']]"
-6.585846099129279,"[['CCCCC(CC)Cc1ccc(-c2c3cc(C)sc3c(-c3ccc(CC(CC)CCCC)s3)c3ccsc23)s1', 'c1ccsc1', 'CCCCC(CC)Cc1sc(CC(CC)CCCC)c2c1C(=O)c1cscc1C2=O', 'Cc1cccs1', '.', 'C=c1sc(=C(C#N)C#N)n(CCCCCC)c1=O', 'c1ccc2nsnc2c1', 'c1cc2sccc2s1', 'CCCCCCc1ccc(-c2(-c3ccc(CCCCCC)cc3)cccc2)cc1', 'c1ccccc1', 'CCCCCCc1ccc(-c2(-c3ccc(CCCCCC)cc3)cccc2)cc1', 'c1cc2sccc2s1', 'c1ccc2nsnc2c1', 'C=c1sc(=C(C#N)C#N)n(CCCCCC)c1=O'], ['Cc1cccs1', 'CCCCC(CC)Cc1ccc(-c2c3cc(C)sc3c(-c3ccc(CC(CC)CCCC)s3)c3ccsc23)s1', 'c1ccsc1', 'CCCCC(CC)Cc1sc(CC(CC)CCCC)c2c1C(=O)c1cscc1C2=O', '.', 'C=c1sc(=C(C#N)C#N)n(CCCCCC)c1=O', 'c1ccc2nsnc2c1', 'c1cc2sccc2s1', 'CCCCCCc1ccc(-c2(-c3ccc(CCCCCC)cc3)cccc2)cc1', 'c1ccccc1', 'CCCCCCc1ccc(-c2(-c3ccc(CCCCCC)cc3)cccc2)cc1', 'c1cc2sccc2s1', 'c1ccc2nsnc2c1', 'C=c1sc(=C(C#N)C#N)n(CCCCCC)c1=O'], ['CCCCC(CC)Cc1sc(CC(CC)CCCC)c2c1C(=O)c1cscc1C2=O', 'Cc1cccs1', 'CCCCC(CC)Cc1ccc(-c2c3cc(C)sc3c(-c3ccc(CC(CC)CCCC)s3)c3ccsc23)s1', 'c1ccsc1', '.', 'C=c1sc(=C(C#N)C#N)n(CCCCCC)c1=O', 'c1ccc2nsnc2c1', 'c1cc2sccc2s1', 'CCCCCCc1ccc(-c2(-c3ccc(CCCCCC)cc3)cccc2)cc1', 'c1ccccc1', 'CCCCCCc1ccc(-c2(-c3ccc(CCCCCC)cc3)cccc2)cc1', 'c1cc2sccc2s1', 'c1ccc2nsnc2c1', 'C=c1sc(=C(C#N)C#N)n(CCCCCC)c1=O'], ['c1ccsc1', 'CCCCC(CC)Cc1sc(CC(CC)CCCC)c2c1C(=O)c1cscc1C2=O', 'Cc1cccs1', 'CCCCC(CC)Cc1ccc(-c2c3cc(C)sc3c(-c3ccc(CC(CC)CCCC)s3)c3ccsc23)s1', '.', 'C=c1sc(=C(C#N)C#N)n(CCCCCC)c1=O', 'c1ccc2nsnc2c1', 'c1cc2sccc2s1', 'CCCCCCc1ccc(-c2(-c3ccc(CCCCCC)cc3)cccc2)cc1', 'c1ccccc1', 'CCCCCCc1ccc(-c2(-c3ccc(CCCCCC)cc3)cccc2)cc1', 'c1cc2sccc2s1', 'c1ccc2nsnc2c1', 'C=c1sc(=C(C#N)C#N)n(CCCCCC)c1=O']]"
-6.570277348134965,"[['CCCCCCCCC(CCCCCC)Cc1ccc(-c2c3cc(C)sc3c(-c3ccc(CC(CCCCCC)CCCCCCCC)s3)c3ccsc23)s1', 'c1ccsc1', 'CCCCC(CC)Cc1sc(CC(CC)CCCC)c2c1C(=O)c1cscc1C2=O', 'Cc1cccs1', '.', 'C=C1C(=O)c2ccc(C)cc2C1=C(C#N)C#N', 'c1cc2sccc2s1', 'CCCCCCc1ccc(-c2(-c3ccc(CCCCCC)cc3)cccc2)cc1', 'c1ccccc1', 'CCCCCCc1ccc(-c2(-c3ccc(CCCCCC)cc3)cccc2)cc1', 'c1cc2sccc2s1', 'C=C1C(=O)c2ccc(C)cc2C1=C(C#N)C#N'], ['Cc1cccs1', 'CCCCCCCCC(CCCCCC)Cc1ccc(-c2c3cc(C)sc3c(-c3ccc(CC(CCCCCC)CCCCCCCC)s3)c3ccsc23)s1', 'c1ccsc1', 'CCCCC(CC)Cc1sc(CC(CC)CCCC)c2c1C(=O)c1cscc1C2=O', '.', 'C=C1C(=O)c2ccc(C)cc2C1=C(C#N)C#N', 'c1cc2sccc2s1', 'CCCCCCc1ccc(-c2(-c3ccc(CCCCCC)cc3)cccc2)cc1', 'c1ccccc1', 'CCCCCCc1ccc(-c2(-c3ccc(CCCCCC)cc3)cccc2)cc1', 'c1cc2sccc2s1', 'C=C1C(=O)c2ccc(C)cc2C1=C(C#N)C#N'], ['CCCCC(CC)Cc1sc(CC(CC)CCCC)c2c1C(=O)c1cscc1C2=O', 'Cc1cccs1', 'CCCCCCCCC(CCCCCC)Cc1ccc(-c2c3cc(C)sc3c(-c3ccc(CC(CCCCCC)CCCCCCCC)s3)c3ccsc23)s1', 'c1ccsc1', '.', 'C=C1C(=O)c2ccc(C)cc2C1=C(C#N)C#N', 'c1cc2sccc2s1', 'CCCCCCc1ccc(-c2(-c3ccc(CCCCCC)cc3)cccc2)cc1', 'c1ccccc1', 'CCCCCCc1ccc(-c2(-c3ccc(CCCCCC)cc3)cccc2)cc1', 'c1cc2sccc2s1', 'C=C1C(=O)c2ccc(C)cc2C1=C(C#N)C#N'], ['c1ccsc1', 'CCCCC(CC)Cc1sc(CC(CC)CCCC)c2c1C(=O)c1cscc1C2=O', 'Cc1cccs1', 'CCCCCCCCC(CCCCCC)Cc1ccc(-c2c3cc(C)sc3c(-c3ccc(CC(CCCCCC)CCCCCCCC)s3)c3ccsc23)s1', '.', 'C=C1C(=O)c2ccc(C)cc2C1=C(C#N)C#N', 'c1cc2sccc2s1', 'CCCCCCc1ccc(-c2(-c3ccc(CCCCCC)cc3)cccc2)cc1', 'c1ccccc1', 'CCCCCCc1ccc(-c2(-c3ccc(CCCCCC)cc3)cccc2)cc1', 'c1cc2sccc2s1', 'C=C1C(=O)c2ccc(C)cc2C1=C(C#N)C#N']]"
-8.66687766554449,"[['CCCCC(CC)Cc1ccc(-c2c3cc(C)sc3c(-c3ccc(CC(CC)CCCC)s3)c3ccsc23)s1', 'CCCCC(CC)COC(=O)c1sc2csc(C)c2c1F', '.', 'C=C1SC(=S)N(CC)C1=O', 'c1ccc2nsnc2c1', 'c1ccsc1', 'CCCCCCc1ccc(-c2(-c3ccc(CCCCCC)cc3)cccc2)cc1', 'c1ccccc1', 'CCCCCCc1ccc(-c2(-c3ccc(CCCCCC)cc3)cccc2)cc1', 'c1ccsc1', 'c1ccc2nsnc2c1', 'C=C1SC(=S)N(CC)C1=O'], ['CCCCC(CC)COC(=O)c1sc2csc(C)c2c1F', 'CCCCC(CC)Cc1ccc(-c2c3cc(C)sc3c(-c3ccc(CC(CC)CCCC)s3)c3ccsc23)s1', '.', 'C=C1SC(=S)N(CC)C1=O', 'c1ccc2nsnc2c1', 'c1ccsc1', 'CCCCCCc1ccc(-c2(-c3ccc(CCCCCC)cc3)cccc2)cc1', 'c1ccccc1', 'CCCCCCc1ccc(-c2(-c3ccc(CCCCCC)cc3)cccc2)cc1', 'c1ccsc1', 'c1ccc2nsnc2c1', 'C=C1SC(=S)N(CC)C1=O']]"
-8.676763631807574,"[['CCCCC(CC)Cc1ccc(-c2c3cc(C)sc3c(-c3ccc(CC(CC)CCCC)s3)c3ccsc23)s1', 'CCCCC(CC)COC(=O)c1sc2csc(C)c2c1F', '.', 'C=C1SC(=S)N(CC(F)(F)F)C1=O', 'c1ccc2nsnc2c1', 'c1ccsc1', 'CCCCCCc1ccc(-c2(-c3ccc(CCCCCC)cc3)cccc2)cc1', 'c1ccccc1', 'CCCCCCc1ccc(-c2(-c3ccc(CCCCCC)cc3)cccc2)cc1', 'c1ccsc1', 'c1ccc2nsnc2c1', 'C=C1SC(=S)N(CC(F)(F)F)C1=O'], ['CCCCC(CC)COC(=O)c1sc2csc(C)c2c1F', 'CCCCC(CC)Cc1ccc(-c2c3cc(C)sc3c(-c3ccc(CC(CC)CCCC)s3)c3ccsc23)s1', '.', 'C=C1SC(=S)N(CC(F)(F)F)C1=O', 'c1ccc2nsnc2c1', 'c1ccsc1', 'CCCCCCc1ccc(-c2(-c3ccc(CCCCCC)cc3)cccc2)cc1', 'c1ccccc1', 'CCCCCCc1ccc(-c2(-c3ccc(CCCCCC)cc3)cccc2)cc1', 'c1ccsc1', 'c1ccc2nsnc2c1', 'C=C1SC(=S)N(CC(F)(F)F)C1=O']]"
-8.742576687897085,"[['CCCCC(CC)Cc1ccc(-c2c3cc(C)sc3c(-c3ccc(CC(CC)CCCC)s3)c3ccsc23)s1', 'CCCCC(CC)COC(=O)c1sc2csc(C)c2c1F', '.', 'C=C1SC(=S)N(COC)C1=O', 'c1ccc2nsnc2c1', 'c1ccsc1', 'CCCCCCc1ccc(-c2(-c3ccc(CCCCCC)cc3)cccc2)cc1', 'c1ccccc1', 'CCCCCCc1ccc(-c2(-c3ccc(CCCCCC)cc3)cccc2)cc1', 'c1ccsc1', 'c1ccc2nsnc2c1', 'C=C1SC(=S)N(COC)C1=O'], ['CCCCC(CC)COC(=O)c1sc2csc(C)c2c1F', 'CCCCC(CC)Cc1ccc(-c2c3cc(C)sc3c(-c3ccc(CC(CC)CCCC)s3)c3ccsc23)s1', '.', 'C=C1SC(=S)N(COC)C1=O', 'c1ccc2nsnc2c1', 'c1ccsc1', 'CCCCCCc1ccc(-c2(-c3ccc(CCCCCC)cc3)cccc2)cc1', 'c1ccccc1', 'CCCCCCc1ccc(-c2(-c3ccc(CCCCCC)cc3)cccc2)cc1', 'c1ccsc1', 'c1ccc2nsnc2c1', 'C=C1SC(=S)N(COC)C1=O']]"
-8.678503207765802,"[['CCCCC(CC)Cc1ccc(-c2c3cc(C)sc3c(-c3ccc(CC(CC)CCCC)s3)c3ccsc23)s1', 'CCCCC(CC)COC(=O)c1sc2csc(C)c2c1F', '.', 'C=C1SC(=S)N(N2CCCCC2)C1=O', 'c1ccc2nsnc2c1', 'c1ccsc1', 'CCCCCCc1ccc(-c2(-c3ccc(CCCCCC)cc3)cccc2)cc1', 'c1ccccc1', 'CCCCCCc1ccc(-c2(-c3ccc(CCCCCC)cc3)cccc2)cc1', 'c1ccsc1', 'c1ccc2nsnc2c1', 'C=C1SC(=S)N(N2CCCCC2)C1=O'], ['CCCCC(CC)COC(=O)c1sc2csc(C)c2c1F', 'CCCCC(CC)Cc1ccc(-c2c3cc(C)sc3c(-c3ccc(CC(CC)CCCC)s3)c3ccsc23)s1', '.', 'C=C1SC(=S)N(N2CCCCC2)C1=O', 'c1ccc2nsnc2c1', 'c1ccsc1', 'CCCCCCc1ccc(-c2(-c3ccc(CCCCCC)cc3)cccc2)cc1', 'c1ccccc1', 'CCCCCCc1ccc(-c2(-c3ccc(CCCCCC)cc3)cccc2)cc1', 'c1ccsc1', 'c1ccc2nsnc2c1', 'C=C1SC(=S)N(N2CCCCC2)C1=O']]"
-11.190708516389279,"[['CCCCC(CC)Cc1ccc(-c2c3cc(C)sc3c(-c3ccc(CC(CC)CCCC)s3)c3ccsc23)s1', 'c1ccsc1', 'CCCCC(CC)Cc1sc(CC(CC)CCCC)c2c1C(=O)c1cscc1C2=O', 'Cc1cccs1', '.', 'C=C1C(=O)c2ccccc2C1=C(C#N)C#N', 'c1ccsc1', 'CCCCCCOc1ccc(-c2(-c3ccc(OCCCCCC)cc3)cccc2)cc1', 'c1ccccc1', 'CCCCCCOc1ccc(-c2(-c3ccc(OCCCCCC)cc3)cccc2)cc1', 'c1ccsc1', 'C=C1C(=O)c2ccccc2C1=C(C#N)C#N'], ['Cc1cccs1', 'CCCCC(CC)Cc1ccc(-c2c3cc(C)sc3c(-c3ccc(CC(CC)CCCC)s3)c3ccsc23)s1', 'c1ccsc1', 'CCCCC(CC)Cc1sc(CC(CC)CCCC)c2c1C(=O)c1cscc1C2=O', '.', 'C=C1C(=O)c2ccccc2C1=C(C#N)C#N', 'c1ccsc1', 'CCCCCCOc1ccc(-c2(-c3ccc(OCCCCCC)cc3)cccc2)cc1', 'c1ccccc1', 'CCCCCCOc1ccc(-c2(-c3ccc(OCCCCCC)cc3)cccc2)cc1', 'c1ccsc1', 'C=C1C(=O)c2ccccc2C1=C(C#N)C#N'], ['CCCCC(CC)Cc1sc(CC(CC)CCCC)c2c1C(=O)c1cscc1C2=O', 'Cc1cccs1', 'CCCCC(CC)Cc1ccc(-c2c3cc(C)sc3c(-c3ccc(CC(CC)CCCC)s3)c3ccsc23)s1', 'c1ccsc1', '.', 'C=C1C(=O)c2ccccc2C1=C(C#N)C#N', 'c1ccsc1', 'CCCCCCOc1ccc(-c2(-c3ccc(OCCCCCC)cc3)cccc2)cc1', 'c1ccccc1', 'CCCCCCOc1ccc(-c2(-c3ccc(OCCCCCC)cc3)cccc2)cc1', 'c1ccsc1', 'C=C1C(=O)c2ccccc2C1=C(C#N)C#N'], ['c1ccsc1', 'CCCCC(CC)Cc1sc(CC(CC)CCCC)c2c1C(=O)c1cscc1C2=O', 'Cc1cccs1', 'CCCCC(CC)Cc1ccc(-c2c3cc(C)sc3c(-c3ccc(CC(CC)CCCC)s3)c3ccsc23)s1', '.', 'C=C1C(=O)c2ccccc2C1=C(C#N)C#N', 'c1ccsc1', 'CCCCCCOc1ccc(-c2(-c3ccc(OCCCCCC)cc3)cccc2)cc1', 'c1ccccc1', 'CCCCCCOc1ccc(-c2(-c3ccc(OCCCCCC)cc3)cccc2)cc1', 'c1ccsc1', 'C=C1C(=O)c2ccccc2C1=C(C#N)C#N']]"
-11.148469419497847,"[['CCCCC(CC)Cc1ccc(-c2c3cc(C)sc3c(-c3ccc(CC(CC)CCCC)s3)c3ccsc23)s1', 'CCCCC(CC)COC(=O)c1sc2csc(C)c2c1F', '.', 'C=C1C(=O)c2cc(F)ccc2C1=C(C#N)C#N', 'c1ccsc1', 'CCCCCCc1ccc(-c2(-c3ccc(CCCCCC)cc3)cccc2)cc1', 'CCCCC(CC)COc1c2ccsc2c(OCC(CC)CCCC)c2ccsc12', 'CCCCCCc1ccc(-c2(-c3ccc(CCCCCC)cc3)cccc2)cc1', 'c1ccsc1', 'C=C1C(=O)c2cc(F)ccc2C1=C(C#N)C#N'], ['CCCCC(CC)COC(=O)c1sc2csc(C)c2c1F', 'CCCCC(CC)Cc1ccc(-c2c3cc(C)sc3c(-c3ccc(CC(CC)CCCC)s3)c3ccsc23)s1', '.', 'C=C1C(=O)c2cc(F)ccc2C1=C(C#N)C#N', 'c1ccsc1', 'CCCCCCc1ccc(-c2(-c3ccc(CCCCCC)cc3)cccc2)cc1', 'CCCCC(CC)COc1c2ccsc2c(OCC(CC)CCCC)c2ccsc12', 'CCCCCCc1ccc(-c2(-c3ccc(CCCCCC)cc3)cccc2)cc1', 'c1ccsc1', 'C=C1C(=O)c2cc(F)ccc2C1=C(C#N)C#N']]"
-11.278183254399114,"[['CCCCC(CC)CSc1ccc(-c2c3cc(C)sc3c(-c3ccc(SCC(CC)CCCC)s3)c3ccsc23)s1', 'c1ccsc1', 'CCCCCCC(CCCC)CSc1sc(SCC(CCCC)CCCCCC)c2c1C(=O)c1cscc1C2=O', 'Cc1cccs1', '.', 'C=C1C(=O)c2cscc2C1=C(C#N)C#N', 'c1ccsc1', 'CCCCCCc1ccc(-c2(-c3ccc(CCCCCC)cc3)cccc2)cc1', 'c1ccccc1', 'CCCCCCc1ccc(-c2(-c3ccc(CCCCCC)cc3)cccc2)cc1', 'c1ccsc1', 'C=C1C(=O)c2cscc2C1=C(C#N)C#N'], ['Cc1cccs1', 'CCCCC(CC)CSc1ccc(-c2c3cc(C)sc3c(-c3ccc(SCC(CC)CCCC)s3)c3ccsc23)s1', 'c1ccsc1', 'CCCCCCC(CCCC)CSc1sc(SCC(CCCC)CCCCCC)c2c1C(=O)c1cscc1C2=O', '.', 'C=C1C(=O)c2cscc2C1=C(C#N)C#N', 'c1ccsc1', 'CCCCCCc1ccc(-c2(-c3ccc(CCCCCC)cc3)cccc2)cc1', 'c1ccccc1', 'CCCCCCc1ccc(-c2(-c3ccc(CCCCCC)cc3)cccc2)cc1', 'c1ccsc1', 'C=C1C(=O)c2cscc2C1=C(C#N)C#N'], ['CCCCCCC(CCCC)CSc1sc(SCC(CCCC)CCCCCC)c2c1C(=O)c1cscc1C2=O', 'Cc1cccs1', 'CCCCC(CC)CSc1ccc(-c2c3cc(C)sc3c(-c3ccc(SCC(CC)CCCC)s3)c3ccsc23)s1', 'c1ccsc1', '.', 'C=C1C(=O)c2cscc2C1=C(C#N)C#N', 'c1ccsc1', 'CCCCCCc1ccc(-c2(-c3ccc(CCCCCC)cc3)cccc2)cc1', 'c1ccccc1', 'CCCCCCc1ccc(-c2(-c3ccc(CCCCCC)cc3)cccc2)cc1', 'c1ccsc1', 'C=C1C(=O)c2cscc2C1=C(C#N)C#N'], ['c1ccsc1', 'CCCCCCC(CCCC)CSc1sc(SCC(CCCC)CCCCCC)c2c1C(=O)c1cscc1C2=O', 'Cc1cccs1', 'CCCCC(CC)CSc1ccc(-c2c3cc(C)sc3c(-c3ccc(SCC(CC)CCCC)s3)c3ccsc23)s1', '.', 'C=C1C(=O)c2cscc2C1=C(C#N)C#N', 'c1ccsc1', 'CCCCCCc1ccc(-c2(-c3ccc(CCCCCC)cc3)cccc2)cc1', 'c1ccccc1', 'CCCCCCc1ccc(-c2(-c3ccc(CCCCCC)cc3)cccc2)cc1', 'c1ccsc1', 'C=C1C(=O)c2cscc2C1=C(C#N)C#N']]"
-11.282765870344157,"[['CCCCC(CC)Cc1ccc(-c2c3cc(C)sc3c(-c3ccc(CC(CC)CCCC)s3)c3ccsc23)s1', 'c1ccsc1', 'CCCCC(CC)Cc1sc(CC(CC)CCCC)c2c1C(=O)c1cscc1C2=O', 'Cc1cccs1', '.', 'C=C1C(=O)c2ccccc2C1=C(C#N)C#N', 'c1ccsc1', 'c1ccsc1', 'CCCCCCc1ccc(-c2(-c3ccc(CCCCCC)cc3)cccc2)cc1', 'c1ccccc1', 'CCCCCCc1ccc(-c2(-c3ccc(CCCCCC)cc3)cccc2)cc1', 'c1ccsc1', 'c1ccsc1', 'C=C1C(=O)c2ccccc2C1=C(C#N)C#N'], ['Cc1cccs1', 'CCCCC(CC)Cc1ccc(-c2c3cc(C)sc3c(-c3ccc(CC(CC)CCCC)s3)c3ccsc23)s1', 'c1ccsc1', 'CCCCC(CC)Cc1sc(CC(CC)CCCC)c2c1C(=O)c1cscc1C2=O', '.', 'C=C1C(=O)c2ccccc2C1=C(C#N)C#N', 'c1ccsc1', 'c1ccsc1', 'CCCCCCc1ccc(-c2(-c3ccc(CCCCCC)cc3)cccc2)cc1', 'c1ccccc1', 'CCCCCCc1ccc(-c2(-c3ccc(CCCCCC)cc3)cccc2)cc1', 'c1ccsc1', 'c1ccsc1', 'C=C1C(=O)c2ccccc2C1=C(C#N)C#N'], ['CCCCC(CC)Cc1sc(CC(CC)CCCC)c2c1C(=O)c1cscc1C2=O', 'Cc1cccs1', 'CCCCC(CC)Cc1ccc(-c2c3cc(C)sc3c(-c3ccc(CC(CC)CCCC)s3)c3ccsc23)s1', 'c1ccsc1', '.', 'C=C1C(=O)c2ccccc2C1=C(C#N)C#N', 'c1ccsc1', 'c1ccsc1', 'CCCCCCc1ccc(-c2(-c3ccc(CCCCCC)cc3)cccc2)cc1', 'c1ccccc1', 'CCCCCCc1ccc(-c2(-c3ccc(CCCCCC)cc3)cccc2)cc1', 'c1ccsc1', 'c1ccsc1', 'C=C1C(=O)c2ccccc2C1=C(C#N)C#N'], ['c1ccsc1', 'CCCCC(CC)Cc1sc(CC(CC)CCCC)c2c1C(=O)c1cscc1C2=O', 'Cc1cccs1', 'CCCCC(CC)Cc1ccc(-c2c3cc(C)sc3c(-c3ccc(CC(CC)CCCC)s3)c3ccsc23)s1', '.', 'C=C1C(=O)c2ccccc2C1=C(C#N)C#N', 'c1ccsc1', 'c1ccsc1', 'CCCCCCc1ccc(-c2(-c3ccc(CCCCCC)cc3)cccc2)cc1', 'c1ccccc1', 'CCCCCCc1ccc(-c2(-c3ccc(CCCCCC)cc3)cccc2)cc1', 'c1ccsc1', 'c1ccsc1', 'C=C1C(=O)c2ccccc2C1=C(C#N)C#N']]"
-5.616560270458204,"[['CCCCC(CC)Cc1ccc(-c2c3ccsc3c(-c3ccc(CCCCC(C)CC)s3)c3cc(C)sc23)s1', 'c1ccsc1', 'CCCCCCCCC(CCCCCC)Cn1nc2cc(F)c(F)cc2n1', 'Cc1cccs1', '.', 'C=C1C(=O)c2ccccc2C1=C(C#N)C#N', 'c1cc2sccc2s1', 'CCCCCCc1ccc(-c2(-c3ccc(CCCCCC)cc3)cccc2)cc1', 'c1ccccc1', 'CCCCCCc1ccc(-c2(-c3ccc(CCCCCC)cc3)cccc2)cc1', 'c1cc2sccc2s1', 'C=C1C(=O)c2ccccc2C1=C(C#N)C#N'], ['Cc1cccs1', 'CCCCC(CC)Cc1ccc(-c2c3ccsc3c(-c3ccc(CCCCC(C)CC)s3)c3cc(C)sc23)s1', 'c1ccsc1', 'CCCCCCCCC(CCCCCC)Cn1nc2cc(F)c(F)cc2n1', '.', 'C=C1C(=O)c2ccccc2C1=C(C#N)C#N', 'c1cc2sccc2s1', 'CCCCCCc1ccc(-c2(-c3ccc(CCCCCC)cc3)cccc2)cc1', 'c1ccccc1', 'CCCCCCc1ccc(-c2(-c3ccc(CCCCCC)cc3)cccc2)cc1', 'c1cc2sccc2s1', 'C=C1C(=O)c2ccccc2C1=C(C#N)C#N'], ['CCCCCCCCC(CCCCCC)Cn1nc2cc(F)c(F)cc2n1', 'Cc1cccs1', 'CCCCC(CC)Cc1ccc(-c2c3ccsc3c(-c3ccc(CCCCC(C)CC)s3)c3cc(C)sc23)s1', 'c1ccsc1', '.', 'C=C1C(=O)c2ccccc2C1=C(C#N)C#N', 'c1cc2sccc2s1', 'CCCCCCc1ccc(-c2(-c3ccc(CCCCCC)cc3)cccc2)cc1', 'c1ccccc1', 'CCCCCCc1ccc(-c2(-c3ccc(CCCCCC)cc3)cccc2)cc1', 'c1cc2sccc2s1', 'C=C1C(=O)c2ccccc2C1=C(C#N)C#N'], ['c1ccsc1', 'CCCCCCCCC(CCCCCC)Cn1nc2cc(F)c(F)cc2n1', 'Cc1cccs1', 'CCCCC(CC)Cc1ccc(-c2c3ccsc3c(-c3ccc(CCCCC(C)CC)s3)c3cc(C)sc23)s1', '.', 'C=C1C(=O)c2ccccc2C1=C(C#N)C#N', 'c1cc2sccc2s1', 'CCCCCCc1ccc(-c2(-c3ccc(CCCCCC)cc3)cccc2)cc1', 'c1ccccc1', 'CCCCCCc1ccc(-c2(-c3ccc(CCCCCC)cc3)cccc2)cc1', 'c1cc2sccc2s1', 'C=C1C(=O)c2ccccc2C1=C(C#N)C#N']]"
-5.621210805450989,"[['CCCCC(CC)Cc1ccc(-c2c3cc(C)sc3c(-c3ccc(CC(CC)CCCC)s3)c3ccsc23)s1', 'c1ccsc1', 'CCCCC(CC)Cc1sc(CC(CC)CCCC)c2c1C(=O)c1cscc1C2=O', 'Cc1cccs1', '.', 'C=C1C(=O)c2cc(F)c(F)cc2C1=C(C#N)C#N', 'c1ccsc1', 'CCCCCCOc1ccsc1', 'CCCCCCc1ccc(-c2(-c3ccc(CCCCCC)cc3)cccc2)cc1', 'c1ccccc1', 'CCCCCCc1ccc(-c2(-c3ccc(CCCCCC)cc3)cccc2)cc1', 'CCCCCCOc1ccsc1', 'c1ccsc1', 'C=C1C(=O)c2cc(F)c(F)cc2C1=C(C#N)C#N'], ['Cc1cccs1', 'CCCCC(CC)Cc1ccc(-c2c3cc(C)sc3c(-c3ccc(CC(CC)CCCC)s3)c3ccsc23)s1', 'c1ccsc1', 'CCCCC(CC)Cc1sc(CC(CC)CCCC)c2c1C(=O)c1cscc1C2=O', '.', 'C=C1C(=O)c2cc(F)c(F)cc2C1=C(C#N)C#N', 'c1ccsc1', 'CCCCCCOc1ccsc1', 'CCCCCCc1ccc(-c2(-c3ccc(CCCCCC)cc3)cccc2)cc1', 'c1ccccc1', 'CCCCCCc1ccc(-c2(-c3ccc(CCCCCC)cc3)cccc2)cc1', 'CCCCCCOc1ccsc1', 'c1ccsc1', 'C=C1C(=O)c2cc(F)c(F)cc2C1=C(C#N)C#N'], ['CCCCC(CC)Cc1sc(CC(CC)CCCC)c2c1C(=O)c1cscc1C2=O', 'Cc1cccs1', 'CCCCC(CC)Cc1ccc(-c2c3cc(C)sc3c(-c3ccc(CC(CC)CCCC)s3)c3ccsc23)s1', 'c1ccsc1', '.', 'C=C1C(=O)c2cc(F)c(F)cc2C1=C(C#N)C#N', 'c1ccsc1', 'CCCCCCOc1ccsc1', 'CCCCCCc1ccc(-c2(-c3ccc(CCCCCC)cc3)cccc2)cc1', 'c1ccccc1', 'CCCCCCc1ccc(-c2(-c3ccc(CCCCCC)cc3)cccc2)cc1', 'CCCCCCOc1ccsc1', 'c1ccsc1', 'C=C1C(=O)c2cc(F)c(F)cc2C1=C(C#N)C#N'], ['c1ccsc1', 'CCCCC(CC)Cc1sc(CC(CC)CCCC)c2c1C(=O)c1cscc1C2=O', 'Cc1cccs1', 'CCCCC(CC)Cc1ccc(-c2c3cc(C)sc3c(-c3ccc(CC(CC)CCCC)s3)c3ccsc23)s1', '.', 'C=C1C(=O)c2cc(F)c(F)cc2C1=C(C#N)C#N', 'c1ccsc1', 'CCCCCCOc1ccsc1', 'CCCCCCc1ccc(-c2(-c3ccc(CCCCCC)cc3)cccc2)cc1', 'c1ccccc1', 'CCCCCCc1ccc(-c2(-c3ccc(CCCCCC)cc3)cccc2)cc1', 'CCCCCCOc1ccsc1', 'c1ccsc1', 'C=C1C(=O)c2cc(F)c(F)cc2C1=C(C#N)C#N']]"
-5.617269289397598,"[['CCCCC(CC)Cc1ccc(-c2c3cc(C)sc3c(-c3ccc(CC(CC)CCCC)s3)c3ccsc23)s1', 'c1ccsc1', 'CCCCC(CC)Cc1sc(CC(CC)CCCC)c2c1C(=O)c1cscc1C2=O', 'Cc1cccs1', '.', 'C=C1C(=O)c2ccccc2C1=C(C#N)C#N', 'c1cc2sccc2s1', 'CCCCCCc1ccc(-c2(-c3ccc(CCCCCC)cc3)cccc2)cc1', 'c1ccccc1', 'CCCCCCc1ccc(-c2(-c3ccc(CCCCCC)cc3)cccc2)cc1', 'c1cc2sccc2s1', 'C=C1C(=O)c2ccccc2C1=C(C#N)C#N'], ['Cc1cccs1', 'CCCCC(CC)Cc1ccc(-c2c3cc(C)sc3c(-c3ccc(CC(CC)CCCC)s3)c3ccsc23)s1', 'c1ccsc1', 'CCCCC(CC)Cc1sc(CC(CC)CCCC)c2c1C(=O)c1cscc1C2=O', '.', 'C=C1C(=O)c2ccccc2C1=C(C#N)C#N', 'c1cc2sccc2s1', 'CCCCCCc1ccc(-c2(-c3ccc(CCCCCC)cc3)cccc2)cc1', 'c1ccccc1', 'CCCCCCc1ccc(-c2(-c3ccc(CCCCCC)cc3)cccc2)cc1', 'c1cc2sccc2s1', 'C=C1C(=O)c2ccccc2C1=C(C#N)C#N'], ['CCCCC(CC)Cc1sc(CC(CC)CCCC)c2c1C(=O)c1cscc1C2=O', 'Cc1cccs1', 'CCCCC(CC)Cc1ccc(-c2c3cc(C)sc3c(-c3ccc(CC(CC)CCCC)s3)c3ccsc23)s1', 'c1ccsc1', '.', 'C=C1C(=O)c2ccccc2C1=C(C#N)C#N', 'c1cc2sccc2s1', 'CCCCCCc1ccc(-c2(-c3ccc(CCCCCC)cc3)cccc2)cc1', 'c1ccccc1', 'CCCCCCc1ccc(-c2(-c3ccc(CCCCCC)cc3)cccc2)cc1', 'c1cc2sccc2s1', 'C=C1C(=O)c2ccccc2C1=C(C#N)C#N'], ['c1ccsc1', 'CCCCC(CC)Cc1sc(CC(CC)CCCC)c2c1C(=O)c1cscc1C2=O', 'Cc1cccs1', 'CCCCC(CC)Cc1ccc(-c2c3cc(C)sc3c(-c3ccc(CC(CC)CCCC)s3)c3ccsc23)s1', '.', 'C=C1C(=O)c2ccccc2C1=C(C#N)C#N', 'c1cc2sccc2s1', 'CCCCCCc1ccc(-c2(-c3ccc(CCCCCC)cc3)cccc2)cc1', 'c1ccccc1', 'CCCCCCc1ccc(-c2(-c3ccc(CCCCCC)cc3)cccc2)cc1', 'c1cc2sccc2s1', 'C=C1C(=O)c2ccccc2C1=C(C#N)C#N']]"
-5.60856498772011,"[['CCCCC(CC)Cc1sc(-c2c3cc(C)sc3c(-c3cc(F)c(CC(CC)CCCC)s3)c3ccsc23)cc1F', 'c1ccsc1', 'CCCCC(CC)Cc1sc(CC(CC)CCCC)c2c1C(=O)c1cscc1C2=O', 'Cc1cccs1', '.', 'C=C1C(=O)c2ccc(C)cc2C1=C(C#N)C#N', 'c1cc2sccc2s1', 'CCCCCCc1ccc(-c2(-c3ccc(CCCCCC)cc3)cccc2)cc1', 'c1ccccc1', 'CCCCCCc1ccc(-c2(-c3ccc(CCCCCC)cc3)cccc2)cc1', 'c1cc2sccc2s1', 'C=C1C(=O)c2ccc(C)cc2C1=C(C#N)C#N'], ['Cc1cccs1', 'CCCCC(CC)Cc1sc(-c2c3cc(C)sc3c(-c3cc(F)c(CC(CC)CCCC)s3)c3ccsc23)cc1F', 'c1ccsc1', 'CCCCC(CC)Cc1sc(CC(CC)CCCC)c2c1C(=O)c1cscc1C2=O', '.', 'C=C1C(=O)c2ccc(C)cc2C1=C(C#N)C#N', 'c1cc2sccc2s1', 'CCCCCCc1ccc(-c2(-c3ccc(CCCCCC)cc3)cccc2)cc1', 'c1ccccc1', 'CCCCCCc1ccc(-c2(-c3ccc(CCCCCC)cc3)cccc2)cc1', 'c1cc2sccc2s1', 'C=C1C(=O)c2ccc(C)cc2C1=C(C#N)C#N'], ['CCCCC(CC)Cc1sc(CC(CC)CCCC)c2c1C(=O)c1cscc1C2=O', 'Cc1cccs1', 'CCCCC(CC)Cc1sc(-c2c3cc(C)sc3c(-c3cc(F)c(CC(CC)CCCC)s3)c3ccsc23)cc1F', 'c1ccsc1', '.', 'C=C1C(=O)c2ccc(C)cc2C1=C(C#N)C#N', 'c1cc2sccc2s1', 'CCCCCCc1ccc(-c2(-c3ccc(CCCCCC)cc3)cccc2)cc1', 'c1ccccc1', 'CCCCCCc1ccc(-c2(-c3ccc(CCCCCC)cc3)cccc2)cc1', 'c1cc2sccc2s1', 'C=C1C(=O)c2ccc(C)cc2C1=C(C#N)C#N'], ['c1ccsc1', 'CCCCC(CC)Cc1sc(CC(CC)CCCC)c2c1C(=O)c1cscc1C2=O', 'Cc1cccs1', 'CCCCC(CC)Cc1sc(-c2c3cc(C)sc3c(-c3cc(F)c(CC(CC)CCCC)s3)c3ccsc23)cc1F', '.', 'C=C1C(=O)c2ccc(C)cc2C1=C(C#N)C#N', 'c1cc2sccc2s1', 'CCCCCCc1ccc(-c2(-c3ccc(CCCCCC)cc3)cccc2)cc1', 'c1ccccc1', 'CCCCCCc1ccc(-c2(-c3ccc(CCCCCC)cc3)cccc2)cc1', 'c1cc2sccc2s1', 'C=C1C(=O)c2ccc(C)cc2C1=C(C#N)C#N']]"
-9.217048635495244,"[['CCCCC(CC)Cc1sc(-c2c3cc(C)sc3c(-c3cc(F)c(CC(CC)CCCC)s3)c3ccsc23)cc1F', 'c1ccsc1', 'CCCCC(CC)Cc1sc(CC(CC)CCCC)c2c1C(=O)c1cscc1C2=O', 'Cc1cccs1', '.', 'C=C1C(=O)c2cc(F)c(F)cc2C1=C(C#N)C#N', 'c1ccsc1', 'CCCCC(CC)Cc1(CCCCC(C)CC)cccc1', 'c1ccsc1', 'Fc1ccc(F)cc1', 'c1ccsc1', 'CCCCC(CC)Cc1(CC(CC)CCCC)cccc1', 'c1ccsc1', 'C=C1C(=O)c2cc(F)c(F)cc2C1=C(C#N)C#N'], ['Cc1cccs1', 'CCCCC(CC)Cc1sc(-c2c3cc(C)sc3c(-c3cc(F)c(CC(CC)CCCC)s3)c3ccsc23)cc1F', 'c1ccsc1', 'CCCCC(CC)Cc1sc(CC(CC)CCCC)c2c1C(=O)c1cscc1C2=O', '.', 'C=C1C(=O)c2cc(F)c(F)cc2C1=C(C#N)C#N', 'c1ccsc1', 'CCCCC(CC)Cc1(CCCCC(C)CC)cccc1', 'c1ccsc1', 'Fc1ccc(F)cc1', 'c1ccsc1', 'CCCCC(CC)Cc1(CC(CC)CCCC)cccc1', 'c1ccsc1', 'C=C1C(=O)c2cc(F)c(F)cc2C1=C(C#N)C#N'], ['CCCCC(CC)Cc1sc(CC(CC)CCCC)c2c1C(=O)c1cscc1C2=O', 'Cc1cccs1', 'CCCCC(CC)Cc1sc(-c2c3cc(C)sc3c(-c3cc(F)c(CC(CC)CCCC)s3)c3ccsc23)cc1F', 'c1ccsc1', '.', 'C=C1C(=O)c2cc(F)c(F)cc2C1=C(C#N)C#N', 'c1ccsc1', 'CCCCC(CC)Cc1(CCCCC(C)CC)cccc1', 'c1ccsc1', 'Fc1ccc(F)cc1', 'c1ccsc1', 'CCCCC(CC)Cc1(CC(CC)CCCC)cccc1', 'c1ccsc1', 'C=C1C(=O)c2cc(F)c(F)cc2C1=C(C#N)C#N'], ['c1ccsc1', 'CCCCC(CC)Cc1sc(CC(CC)CCCC)c2c1C(=O)c1cscc1C2=O', 'Cc1cccs1', 'CCCCC(CC)Cc1sc(-c2c3cc(C)sc3c(-c3cc(F)c(CC(CC)CCCC)s3)c3ccsc23)cc1F', '.', 'C=C1C(=O)c2cc(F)c(F)cc2C1=C(C#N)C#N', 'c1ccsc1', 'CCCCC(CC)Cc1(CCCCC(C)CC)cccc1', 'c1ccsc1', 'Fc1ccc(F)cc1', 'c1ccsc1', 'CCCCC(CC)Cc1(CC(CC)CCCC)cccc1', 'c1ccsc1', 'C=C1C(=O)c2cc(F)c(F)cc2C1=C(C#N)C#N']]"
-8.69664841631634,"[['CCCCC(CC)Cc1sc(-c2c3cc(C)sc3c(-c3cc(F)c(CC(CC)CCCC)s3)c3ccsc23)cc1F', 'c1ccsc1', 'CCCCC(CC)Cc1sc(CC(CC)CCCC)c2c1C(=O)c1cscc1C2=O', 'Cc1cccs1', '.', 'C=C1C(=O)c2cc(F)c(F)cc2C1=C(C#N)C#N', 'c1ccsc1', 'CCCCC(CC)Cc1(CCCCC(C)CC)cccc1', 'c1ccsc1', 'COc1cc(F)c(OC)cc1F', 'c1ccsc1', 'CCCCC(CC)Cc1(CC(CC)CCCC)cccc1', 'c1ccsc1', 'C=C1C(=O)c2cc(F)c(F)cc2C1=C(C#N)C#N'], ['Cc1cccs1', 'CCCCC(CC)Cc1sc(-c2c3cc(C)sc3c(-c3cc(F)c(CC(CC)CCCC)s3)c3ccsc23)cc1F', 'c1ccsc1', 'CCCCC(CC)Cc1sc(CC(CC)CCCC)c2c1C(=O)c1cscc1C2=O', '.', 'C=C1C(=O)c2cc(F)c(F)cc2C1=C(C#N)C#N', 'c1ccsc1', 'CCCCC(CC)Cc1(CCCCC(C)CC)cccc1', 'c1ccsc1', 'COc1cc(F)c(OC)cc1F', 'c1ccsc1', 'CCCCC(CC)Cc1(CC(CC)CCCC)cccc1', 'c1ccsc1', 'C=C1C(=O)c2cc(F)c(F)cc2C1=C(C#N)C#N'], ['CCCCC(CC)Cc1sc(CC(CC)CCCC)c2c1C(=O)c1cscc1C2=O', 'Cc1cccs1', 'CCCCC(CC)Cc1sc(-c2c3cc(C)sc3c(-c3cc(F)c(CC(CC)CCCC)s3)c3ccsc23)cc1F', 'c1ccsc1', '.', 'C=C1C(=O)c2cc(F)c(F)cc2C1=C(C#N)C#N', 'c1ccsc1', 'CCCCC(CC)Cc1(CCCCC(C)CC)cccc1', 'c1ccsc1', 'COc1cc(F)c(OC)cc1F', 'c1ccsc1', 'CCCCC(CC)Cc1(CC(CC)CCCC)cccc1', 'c1ccsc1', 'C=C1C(=O)c2cc(F)c(F)cc2C1=C(C#N)C#N'], ['c1ccsc1', 'CCCCC(CC)Cc1sc(CC(CC)CCCC)c2c1C(=O)c1cscc1C2=O', 'Cc1cccs1', 'CCCCC(CC)Cc1sc(-c2c3cc(C)sc3c(-c3cc(F)c(CC(CC)CCCC)s3)c3ccsc23)cc1F', '.', 'C=C1C(=O)c2cc(F)c(F)cc2C1=C(C#N)C#N', 'c1ccsc1', 'CCCCC(CC)Cc1(CCCCC(C)CC)cccc1', 'c1ccsc1', 'COc1cc(F)c(OC)cc1F', 'c1ccsc1', 'CCCCC(CC)Cc1(CC(CC)CCCC)cccc1', 'c1ccsc1', 'C=C1C(=O)c2cc(F)c(F)cc2C1=C(C#N)C#N']]"
-9.493956893291807,"[['CCCCC(CC)Cc1ccc(-c2c3cc(C)sc3c(-c3ccc(CC(CC)CCCC)s3)c3ccsc23)s1', 'c1ccsc1', 'CCCCC(CC)Cc1sc(CC(CC)CCCC)c2c1C(=O)c1cscc1C2=O', 'Cc1cccs1', '.', 'C=C1C(=O)c2cc3ccccc3cc2C1=C(C#N)C#N', 'CCCCC(CC)Cc1ccsc1', 'c1ccsc1', 'CCCCCCc1(CCCCCC)cccc1', 'c1ccccc1', 'CCCCCCc1(CCCCCC)cccc1', 'c1ccsc1', 'CCCCC(CC)Cc1ccsc1', 'C=C1C(=O)c2cc3ccccc3cc2C1=C(C#N)C#N'], ['Cc1cccs1', 'CCCCC(CC)Cc1ccc(-c2c3cc(C)sc3c(-c3ccc(CC(CC)CCCC)s3)c3ccsc23)s1', 'c1ccsc1', 'CCCCC(CC)Cc1sc(CC(CC)CCCC)c2c1C(=O)c1cscc1C2=O', '.', 'C=C1C(=O)c2cc3ccccc3cc2C1=C(C#N)C#N', 'CCCCC(CC)Cc1ccsc1', 'c1ccsc1', 'CCCCCCc1(CCCCCC)cccc1', 'c1ccccc1', 'CCCCCCc1(CCCCCC)cccc1', 'c1ccsc1', 'CCCCC(CC)Cc1ccsc1', 'C=C1C(=O)c2cc3ccccc3cc2C1=C(C#N)C#N'], ['CCCCC(CC)Cc1sc(CC(CC)CCCC)c2c1C(=O)c1cscc1C2=O', 'Cc1cccs1', 'CCCCC(CC)Cc1ccc(-c2c3cc(C)sc3c(-c3ccc(CC(CC)CCCC)s3)c3ccsc23)s1', 'c1ccsc1', '.', 'C=C1C(=O)c2cc3ccccc3cc2C1=C(C#N)C#N', 'CCCCC(CC)Cc1ccsc1', 'c1ccsc1', 'CCCCCCc1(CCCCCC)cccc1', 'c1ccccc1', 'CCCCCCc1(CCCCCC)cccc1', 'c1ccsc1', 'CCCCC(CC)Cc1ccsc1', 'C=C1C(=O)c2cc3ccccc3cc2C1=C(C#N)C#N'], ['c1ccsc1', 'CCCCC(CC)Cc1sc(CC(CC)CCCC)c2c1C(=O)c1cscc1C2=O', 'Cc1cccs1', 'CCCCC(CC)Cc1ccc(-c2c3cc(C)sc3c(-c3ccc(CC(CC)CCCC)s3)c3ccsc23)s1', '.', 'C=C1C(=O)c2cc3ccccc3cc2C1=C(C#N)C#N', 'CCCCC(CC)Cc1ccsc1', 'c1ccsc1', 'CCCCCCc1(CCCCCC)cccc1', 'c1ccccc1', 'CCCCCCc1(CCCCCC)cccc1', 'c1ccsc1', 'CCCCC(CC)Cc1ccsc1', 'C=C1C(=O)c2cc3ccccc3cc2C1=C(C#N)C#N']]"
-9.548649111397825,"[['CCCCC(CC)CSc1ccc(-c2c3cc(C)sc3c(-c3ccc(SCC(CC)CCCC)s3)c3ccsc23)s1', 'c1ccsc1', 'CCCCCCCCCN1C(=O)c2cc3nn(CCCCCCCC)nc3cc2C1=O', 'Cc1cccs1', '.', 'C=C1C(=O)c2ccccc2C1=C(C#N)C#N', 'c1cc2sccc2s1', 'CCCCCCc1ccc(-c2(-c3ccc(CCCCCC)cc3)cccc2)cc1', 'c1ccccc1', 'CCCCCCc1ccc(-c2(-c3ccc(CCCCCC)cc3)cccc2)cc1', 'c1cc2sccc2s1', 'C=C1C(=O)c2ccccc2C1=C(C#N)C#N'], ['Cc1cccs1', 'CCCCC(CC)CSc1ccc(-c2c3cc(C)sc3c(-c3ccc(SCC(CC)CCCC)s3)c3ccsc23)s1', 'c1ccsc1', 'CCCCCCCCCN1C(=O)c2cc3nn(CCCCCCCC)nc3cc2C1=O', '.', 'C=C1C(=O)c2ccccc2C1=C(C#N)C#N', 'c1cc2sccc2s1', 'CCCCCCc1ccc(-c2(-c3ccc(CCCCCC)cc3)cccc2)cc1', 'c1ccccc1', 'CCCCCCc1ccc(-c2(-c3ccc(CCCCCC)cc3)cccc2)cc1', 'c1cc2sccc2s1', 'C=C1C(=O)c2ccccc2C1=C(C#N)C#N'], ['CCCCCCCCCN1C(=O)c2cc3nn(CCCCCCCC)nc3cc2C1=O', 'Cc1cccs1', 'CCCCC(CC)CSc1ccc(-c2c3cc(C)sc3c(-c3ccc(SCC(CC)CCCC)s3)c3ccsc23)s1', 'c1ccsc1', '.', 'C=C1C(=O)c2ccccc2C1=C(C#N)C#N', 'c1cc2sccc2s1', 'CCCCCCc1ccc(-c2(-c3ccc(CCCCCC)cc3)cccc2)cc1', 'c1ccccc1', 'CCCCCCc1ccc(-c2(-c3ccc(CCCCCC)cc3)cccc2)cc1', 'c1cc2sccc2s1', 'C=C1C(=O)c2ccccc2C1=C(C#N)C#N'], ['c1ccsc1', 'CCCCCCCCCN1C(=O)c2cc3nn(CCCCCCCC)nc3cc2C1=O', 'Cc1cccs1', 'CCCCC(CC)CSc1ccc(-c2c3cc(C)sc3c(-c3ccc(SCC(CC)CCCC)s3)c3ccsc23)s1', '.', 'C=C1C(=O)c2ccccc2C1=C(C#N)C#N', 'c1cc2sccc2s1', 'CCCCCCc1ccc(-c2(-c3ccc(CCCCCC)cc3)cccc2)cc1', 'c1ccccc1', 'CCCCCCc1ccc(-c2(-c3ccc(CCCCCC)cc3)cccc2)cc1', 'c1cc2sccc2s1', 'C=C1C(=O)c2ccccc2C1=C(C#N)C#N']]"
-12.02729494105033,"[['CCCCC(CC)Cc1ccc(-c2c3cc(C)sc3c(-c3ccc(CC(CC)CCCC)s3)c3ccsc23)s1', 'c1ccsc1', 'CCCCC(CC)Cc1sc(CC(CC)CCCC)c2c1C(=O)c1cscc1C2=O', 'Cc1cccs1', '.', 'C=C1C(=O)c2ccccc2C1=C(C#N)C#N', 'c1ccsc1', 'CCCCCCC(CCCCCC)[nH2]1cccc1', 'c1cc2sccc2s1', 'CCCCCCC(CCCCCC)[nH2]1cccc1', 'c1ccsc1', 'C=C1C(=O)c2ccccc2C1=C(C#N)C#N'], ['Cc1cccs1', 'CCCCC(CC)Cc1ccc(-c2c3cc(C)sc3c(-c3ccc(CC(CC)CCCC)s3)c3ccsc23)s1', 'c1ccsc1', 'CCCCC(CC)Cc1sc(CC(CC)CCCC)c2c1C(=O)c1cscc1C2=O', '.', 'C=C1C(=O)c2ccccc2C1=C(C#N)C#N', 'c1ccsc1', 'CCCCCCC(CCCCCC)[nH2]1cccc1', 'c1cc2sccc2s1', 'CCCCCCC(CCCCCC)[nH2]1cccc1', 'c1ccsc1', 'C=C1C(=O)c2ccccc2C1=C(C#N)C#N'], ['CCCCC(CC)Cc1sc(CC(CC)CCCC)c2c1C(=O)c1cscc1C2=O', 'Cc1cccs1', 'CCCCC(CC)Cc1ccc(-c2c3cc(C)sc3c(-c3ccc(CC(CC)CCCC)s3)c3ccsc23)s1', 'c1ccsc1', '.', 'C=C1C(=O)c2ccccc2C1=C(C#N)C#N', 'c1ccsc1', 'CCCCCCC(CCCCCC)[nH2]1cccc1', 'c1cc2sccc2s1', 'CCCCCCC(CCCCCC)[nH2]1cccc1', 'c1ccsc1', 'C=C1C(=O)c2ccccc2C1=C(C#N)C#N'], ['c1ccsc1', 'CCCCC(CC)Cc1sc(CC(CC)CCCC)c2c1C(=O)c1cscc1C2=O', 'Cc1cccs1', 'CCCCC(CC)Cc1ccc(-c2c3cc(C)sc3c(-c3ccc(CC(CC)CCCC)s3)c3ccsc23)s1', '.', 'C=C1C(=O)c2ccccc2C1=C(C#N)C#N', 'c1ccsc1', 'CCCCCCC(CCCCCC)[nH2]1cccc1', 'c1cc2sccc2s1', 'CCCCCCC(CCCCCC)[nH2]1cccc1', 'c1ccsc1', 'C=C1C(=O)c2ccccc2C1=C(C#N)C#N']]"
-12.04027579294615,"[['CCCCC(CC)Cc1ccc(-c2c3cc(C)sc3c(-c3ccc(CC(CC)CCCC)s3)c3ccsc23)s1', 'c1ccsc1', 'CCCCC(CC)Cc1sc(CC(CC)CCCC)c2c1C(=O)c1cscc1C2=O', 'Cc1cccs1', '.', 'C=C1C(=O)c2cc(F)c(F)cc2C1=C(C#N)C#N', 'c1ccsc1', 'CCCCCCC(CCCCCC)[nH2]1cccc1', 'c1cc2sccc2s1', 'CCCCCCC(CCCCCC)[nH2]1cccc1', 'c1ccsc1', 'C=C1C(=O)c2cc(F)c(F)cc2C1=C(C#N)C#N'], ['Cc1cccs1', 'CCCCC(CC)Cc1ccc(-c2c3cc(C)sc3c(-c3ccc(CC(CC)CCCC)s3)c3ccsc23)s1', 'c1ccsc1', 'CCCCC(CC)Cc1sc(CC(CC)CCCC)c2c1C(=O)c1cscc1C2=O', '.', 'C=C1C(=O)c2cc(F)c(F)cc2C1=C(C#N)C#N', 'c1ccsc1', 'CCCCCCC(CCCCCC)[nH2]1cccc1', 'c1cc2sccc2s1', 'CCCCCCC(CCCCCC)[nH2]1cccc1', 'c1ccsc1', 'C=C1C(=O)c2cc(F)c(F)cc2C1=C(C#N)C#N'], ['CCCCC(CC)Cc1sc(CC(CC)CCCC)c2c1C(=O)c1cscc1C2=O', 'Cc1cccs1', 'CCCCC(CC)Cc1ccc(-c2c3cc(C)sc3c(-c3ccc(CC(CC)CCCC)s3)c3ccsc23)s1', 'c1ccsc1', '.', 'C=C1C(=O)c2cc(F)c(F)cc2C1=C(C#N)C#N', 'c1ccsc1', 'CCCCCCC(CCCCCC)[nH2]1cccc1', 'c1cc2sccc2s1', 'CCCCCCC(CCCCCC)[nH2]1cccc1', 'c1ccsc1', 'C=C1C(=O)c2cc(F)c(F)cc2C1=C(C#N)C#N'], ['c1ccsc1', 'CCCCC(CC)Cc1sc(CC(CC)CCCC)c2c1C(=O)c1cscc1C2=O', 'Cc1cccs1', 'CCCCC(CC)Cc1ccc(-c2c3cc(C)sc3c(-c3ccc(CC(CC)CCCC)s3)c3ccsc23)s1', '.', 'C=C1C(=O)c2cc(F)c(F)cc2C1=C(C#N)C#N', 'c1ccsc1', 'CCCCCCC(CCCCCC)[nH2]1cccc1', 'c1cc2sccc2s1', 'CCCCCCC(CCCCCC)[nH2]1cccc1', 'c1ccsc1', 'C=C1C(=O)c2cc(F)c(F)cc2C1=C(C#N)C#N']]"
-12.031971571341336,"[['CCCCC(CC)Cc1sc(-c2c3cc(C)sc3c(-c3cc(F)c(CC(CC)CCCC)s3)c3ccsc23)cc1F', 'c1ccsc1', 'CCCCC(CC)Cc1sc(CC(CC)CCCC)c2c1C(=O)c1cscc1C2=O', 'Cc1cccs1', '.', 'C=C1C(=O)c2cc(F)c(F)cc2C1=C(C#N)C#N', 'c1cc2sccc2s1', 'CCCCCCc1ccc(-c2(-c3ccc(CCCCCC)cc3)cccc2)cc1', 'c1ccccc1', 'CCCCCCc1ccc(-c2(-c3ccc(CCCCCC)cc3)cccc2)cc1', 'c1cc2sccc2s1', 'C=C1C(=O)c2cc(F)c(F)cc2C1=C(C#N)C#N'], ['Cc1cccs1', 'CCCCC(CC)Cc1sc(-c2c3cc(C)sc3c(-c3cc(F)c(CC(CC)CCCC)s3)c3ccsc23)cc1F', 'c1ccsc1', 'CCCCC(CC)Cc1sc(CC(CC)CCCC)c2c1C(=O)c1cscc1C2=O', '.', 'C=C1C(=O)c2cc(F)c(F)cc2C1=C(C#N)C#N', 'c1cc2sccc2s1', 'CCCCCCc1ccc(-c2(-c3ccc(CCCCCC)cc3)cccc2)cc1', 'c1ccccc1', 'CCCCCCc1ccc(-c2(-c3ccc(CCCCCC)cc3)cccc2)cc1', 'c1cc2sccc2s1', 'C=C1C(=O)c2cc(F)c(F)cc2C1=C(C#N)C#N'], ['CCCCC(CC)Cc1sc(CC(CC)CCCC)c2c1C(=O)c1cscc1C2=O', 'Cc1cccs1', 'CCCCC(CC)Cc1sc(-c2c3cc(C)sc3c(-c3cc(F)c(CC(CC)CCCC)s3)c3ccsc23)cc1F', 'c1ccsc1', '.', 'C=C1C(=O)c2cc(F)c(F)cc2C1=C(C#N)C#N', 'c1cc2sccc2s1', 'CCCCCCc1ccc(-c2(-c3ccc(CCCCCC)cc3)cccc2)cc1', 'c1ccccc1', 'CCCCCCc1ccc(-c2(-c3ccc(CCCCCC)cc3)cccc2)cc1', 'c1cc2sccc2s1', 'C=C1C(=O)c2cc(F)c(F)cc2C1=C(C#N)C#N'], ['c1ccsc1', 'CCCCC(CC)Cc1sc(CC(CC)CCCC)c2c1C(=O)c1cscc1C2=O', 'Cc1cccs1', 'CCCCC(CC)Cc1sc(-c2c3cc(C)sc3c(-c3cc(F)c(CC(CC)CCCC)s3)c3ccsc23)cc1F', '.', 'C=C1C(=O)c2cc(F)c(F)cc2C1=C(C#N)C#N', 'c1cc2sccc2s1', 'CCCCCCc1ccc(-c2(-c3ccc(CCCCCC)cc3)cccc2)cc1', 'c1ccccc1', 'CCCCCCc1ccc(-c2(-c3ccc(CCCCCC)cc3)cccc2)cc1', 'c1cc2sccc2s1', 'C=C1C(=O)c2cc(F)c(F)cc2C1=C(C#N)C#N']]"
-12.070462268029386,"[['CCCCCCC(CCCC)CSc1c2cc(C)sc2c(SCC(CCCC)CCCCCC)c2ccsc12', 'c1ccsc1', 'CCCCCCC(CCCC)CSn1nc2cc(F)c(F)cc2n1', 'Cc1cccs1', '.', 'C=C1C(=O)c2cc(F)c(F)cc2C1=C(C#N)C#N', 'c1cc2sccc2s1', 'CCCCCCc1ccc(-c2(-c3ccc(CCCCCC)cc3)cccc2)cc1', 'c1ccccc1', 'CCCCCCc1ccc(-c2(-c3ccc(CCCCCC)cc3)cccc2)cc1', 'c1cc2sccc2s1', 'C=C1C(=O)c2cc(F)c(F)cc2C1=C(C#N)C#N'], ['Cc1cccs1', 'CCCCCCC(CCCC)CSc1c2cc(C)sc2c(SCC(CCCC)CCCCCC)c2ccsc12', 'c1ccsc1', 'CCCCCCC(CCCC)CSn1nc2cc(F)c(F)cc2n1', '.', 'C=C1C(=O)c2cc(F)c(F)cc2C1=C(C#N)C#N', 'c1cc2sccc2s1', 'CCCCCCc1ccc(-c2(-c3ccc(CCCCCC)cc3)cccc2)cc1', 'c1ccccc1', 'CCCCCCc1ccc(-c2(-c3ccc(CCCCCC)cc3)cccc2)cc1', 'c1cc2sccc2s1', 'C=C1C(=O)c2cc(F)c(F)cc2C1=C(C#N)C#N'], ['CCCCCCC(CCCC)CSn1nc2cc(F)c(F)cc2n1', 'Cc1cccs1', 'CCCCCCC(CCCC)CSc1c2cc(C)sc2c(SCC(CCCC)CCCCCC)c2ccsc12', 'c1ccsc1', '.', 'C=C1C(=O)c2cc(F)c(F)cc2C1=C(C#N)C#N', 'c1cc2sccc2s1', 'CCCCCCc1ccc(-c2(-c3ccc(CCCCCC)cc3)cccc2)cc1', 'c1ccccc1', 'CCCCCCc1ccc(-c2(-c3ccc(CCCCCC)cc3)cccc2)cc1', 'c1cc2sccc2s1', 'C=C1C(=O)c2cc(F)c(F)cc2C1=C(C#N)C#N'], ['c1ccsc1', 'CCCCCCC(CCCC)CSn1nc2cc(F)c(F)cc2n1', 'Cc1cccs1', 'CCCCCCC(CCCC)CSc1c2cc(C)sc2c(SCC(CCCC)CCCCCC)c2ccsc12', '.', 'C=C1C(=O)c2cc(F)c(F)cc2C1=C(C#N)C#N', 'c1cc2sccc2s1', 'CCCCCCc1ccc(-c2(-c3ccc(CCCCCC)cc3)cccc2)cc1', 'c1ccccc1', 'CCCCCCc1ccc(-c2(-c3ccc(CCCCCC)cc3)cccc2)cc1', 'c1cc2sccc2s1', 'C=C1C(=O)c2cc(F)c(F)cc2C1=C(C#N)C#N']]"
-7.942839017752595,"[['CCC[Si](CCC)(CCC)c1ccc(-c2c3cc(C)sc3c(-c3ccc([Si](CCC)(CCC)CCC)s3)c3ccsc23)s1', 'CCCCCCCCCCCCSc1ccsc1', 'CCCCCCCCC(CCCCCC)CN1C(=O)c2cscc2C1=O', 'CCCCCCCCCCCCSc1csc(C)c1', '.', 'C=C1C(=O)c2ccccc2C1=C(C#N)C#N', 'c1cc2sccc2s1', 'CCCCCCc1cccc(-c2(-c3cccc(CCCCCC)c3)cccc2)c1', 'c1ccccc1', 'CCCCCCc1cccc(-c2(-c3cccc(CCCCCC)c3)cccc2)c1', 'c1cc2sccc2s1', 'C=C1C(=O)c2ccccc2C1=C(C#N)C#N'], ['CCCCCCCCCCCCSc1csc(C)c1', 'CCC[Si](CCC)(CCC)c1ccc(-c2c3cc(C)sc3c(-c3ccc([Si](CCC)(CCC)CCC)s3)c3ccsc23)s1', 'CCCCCCCCCCCCSc1ccsc1', 'CCCCCCCCC(CCCCCC)CN1C(=O)c2cscc2C1=O', '.', 'C=C1C(=O)c2ccccc2C1=C(C#N)C#N', 'c1cc2sccc2s1', 'CCCCCCc1cccc(-c2(-c3cccc(CCCCCC)c3)cccc2)c1', 'c1ccccc1', 'CCCCCCc1cccc(-c2(-c3cccc(CCCCCC)c3)cccc2)c1', 'c1cc2sccc2s1', 'C=C1C(=O)c2ccccc2C1=C(C#N)C#N'], ['CCCCCCCCC(CCCCCC)CN1C(=O)c2cscc2C1=O', 'CCCCCCCCCCCCSc1csc(C)c1', 'CCC[Si](CCC)(CCC)c1ccc(-c2c3cc(C)sc3c(-c3ccc([Si](CCC)(CCC)CCC)s3)c3ccsc23)s1', 'CCCCCCCCCCCCSc1ccsc1', '.', 'C=C1C(=O)c2ccccc2C1=C(C#N)C#N', 'c1cc2sccc2s1', 'CCCCCCc1cccc(-c2(-c3cccc(CCCCCC)c3)cccc2)c1', 'c1ccccc1', 'CCCCCCc1cccc(-c2(-c3cccc(CCCCCC)c3)cccc2)c1', 'c1cc2sccc2s1', 'C=C1C(=O)c2ccccc2C1=C(C#N)C#N'], ['CCCCCCCCCCCCSc1ccsc1', 'CCCCCCCCC(CCCCCC)CN1C(=O)c2cscc2C1=O', 'CCCCCCCCCCCCSc1csc(C)c1', 'CCC[Si](CCC)(CCC)c1ccc(-c2c3cc(C)sc3c(-c3ccc([Si](CCC)(CCC)CCC)s3)c3ccsc23)s1', '.', 'C=C1C(=O)c2ccccc2C1=C(C#N)C#N', 'c1cc2sccc2s1', 'CCCCCCc1cccc(-c2(-c3cccc(CCCCCC)c3)cccc2)c1', 'c1ccccc1', 'CCCCCCc1cccc(-c2(-c3cccc(CCCCCC)c3)cccc2)c1', 'c1cc2sccc2s1', 'C=C1C(=O)c2ccccc2C1=C(C#N)C#N']]"
-7.94846370717837,"[['CCC[Si](CCC)(CCC)c1ccc(-c2c3cc(C)sc3c(-c3ccc([Si](CCC)(CCC)CCC)s3)c3ccsc23)s1', 'c1ccsc1', 'CCCCC(CC)Cc1sc(CC(CC)CCCC)c2c1C(=O)c1cscc1C2=O', 'Cc1cccs1', '.', 'C=C1C(=O)c2ccccc2C1=C(C#N)C#N', 'c1ccsc1', 'CCCCCCc1(CCCCCC)cccc1', 'c1ccccc1', 'CCCCCCc1(CCCCCC)cccc1', 'c1ccsc1', 'C=C1C(=O)c2ccccc2C1=C(C#N)C#N'], ['Cc1cccs1', 'CCC[Si](CCC)(CCC)c1ccc(-c2c3cc(C)sc3c(-c3ccc([Si](CCC)(CCC)CCC)s3)c3ccsc23)s1', 'c1ccsc1', 'CCCCC(CC)Cc1sc(CC(CC)CCCC)c2c1C(=O)c1cscc1C2=O', '.', 'C=C1C(=O)c2ccccc2C1=C(C#N)C#N', 'c1ccsc1', 'CCCCCCc1(CCCCCC)cccc1', 'c1ccccc1', 'CCCCCCc1(CCCCCC)cccc1', 'c1ccsc1', 'C=C1C(=O)c2ccccc2C1=C(C#N)C#N'], ['CCCCC(CC)Cc1sc(CC(CC)CCCC)c2c1C(=O)c1cscc1C2=O', 'Cc1cccs1', 'CCC[Si](CCC)(CCC)c1ccc(-c2c3cc(C)sc3c(-c3ccc([Si](CCC)(CCC)CCC)s3)c3ccsc23)s1', 'c1ccsc1', '.', 'C=C1C(=O)c2ccccc2C1=C(C#N)C#N', 'c1ccsc1', 'CCCCCCc1(CCCCCC)cccc1', 'c1ccccc1', 'CCCCCCc1(CCCCCC)cccc1', 'c1ccsc1', 'C=C1C(=O)c2ccccc2C1=C(C#N)C#N'], ['c1ccsc1', 'CCCCC(CC)Cc1sc(CC(CC)CCCC)c2c1C(=O)c1cscc1C2=O', 'Cc1cccs1', 'CCC[Si](CCC)(CCC)c1ccc(-c2c3cc(C)sc3c(-c3ccc([Si](CCC)(CCC)CCC)s3)c3ccsc23)s1', '.', 'C=C1C(=O)c2ccccc2C1=C(C#N)C#N', 'c1ccsc1', 'CCCCCCc1(CCCCCC)cccc1', 'c1ccccc1', 'CCCCCCc1(CCCCCC)cccc1', 'c1ccsc1', 'C=C1C(=O)c2ccccc2C1=C(C#N)C#N']]"
-11.024859868929289,"[['CCCCC(CC)Cc1ccc(-c2c3cc(C)sc3c(-c3ccc(CC(CC)CCCC)s3)c3ccsc23)s1', 'CCCCC(CC)COC(=O)c1sc2csc(C)c2c1F', '.', 'C=C1C(=O)c2ccccc2C1=C(C#N)C#N', 'c1cc2sccc2s1', 'CCCCCCc1ccc(-c2(-c3ccc(CCCCCC)cc3)cccc2)cc1', 'c1ccccc1', 'CCCCCCc1ccc(-c2(-c3ccc(CCCCCC)cc3)cccc2)cc1', 'c1cc2sccc2s1', 'C=C1C(=O)c2ccccc2C1=C(C#N)C#N'], ['CCCCC(CC)COC(=O)c1sc2csc(C)c2c1F', 'CCCCC(CC)Cc1ccc(-c2c3cc(C)sc3c(-c3ccc(CC(CC)CCCC)s3)c3ccsc23)s1', '.', 'C=C1C(=O)c2ccccc2C1=C(C#N)C#N', 'c1cc2sccc2s1', 'CCCCCCc1ccc(-c2(-c3ccc(CCCCCC)cc3)cccc2)cc1', 'c1ccccc1', 'CCCCCCc1ccc(-c2(-c3ccc(CCCCCC)cc3)cccc2)cc1', 'c1cc2sccc2s1', 'C=C1C(=O)c2ccccc2C1=C(C#N)C#N']]"
-11.029964456257375,"[['CCCCC(CC)Cc1ccc(-c2c3cc(C)sc3c(-c3ccc(CC(CC)CCCC)s3)c3ccsc23)s1', 'c1ccsc1', 'CCCCC(CC)Cc1sc(CC(CC)CCCC)c2c1C(=O)c1cscc1C2=O', 'Cc1cccs1', '.', 'C=C1C(=O)c2cc(F)c(F)cc2C1=C(C#N)C#N', 'c1ccsc1', 'CCCCCCc1ccc(-c2(-c3ccc(CCCCCC)cc3)cccc2)cc1', 'c1cc[sH]c1', 'c1ccccc1', 'c1cc[sH]c1', 'CCCCCCc1ccc(-c2(-c3ccc(CCCCCC)cc3)cccc2)cc1', 'c1ccsc1', 'C=C1C(=O)c2cc(F)c(F)cc2C1=C(C#N)C#N'], ['Cc1cccs1', 'CCCCC(CC)Cc1ccc(-c2c3cc(C)sc3c(-c3ccc(CC(CC)CCCC)s3)c3ccsc23)s1', 'c1ccsc1', 'CCCCC(CC)Cc1sc(CC(CC)CCCC)c2c1C(=O)c1cscc1C2=O', '.', 'C=C1C(=O)c2cc(F)c(F)cc2C1=C(C#N)C#N', 'c1ccsc1', 'CCCCCCc1ccc(-c2(-c3ccc(CCCCCC)cc3)cccc2)cc1', 'c1cc[sH]c1', 'c1ccccc1', 'c1cc[sH]c1', 'CCCCCCc1ccc(-c2(-c3ccc(CCCCCC)cc3)cccc2)cc1', 'c1ccsc1', 'C=C1C(=O)c2cc(F)c(F)cc2C1=C(C#N)C#N'], ['CCCCC(CC)Cc1sc(CC(CC)CCCC)c2c1C(=O)c1cscc1C2=O', 'Cc1cccs1', 'CCCCC(CC)Cc1ccc(-c2c3cc(C)sc3c(-c3ccc(CC(CC)CCCC)s3)c3ccsc23)s1', 'c1ccsc1', '.', 'C=C1C(=O)c2cc(F)c(F)cc2C1=C(C#N)C#N', 'c1ccsc1', 'CCCCCCc1ccc(-c2(-c3ccc(CCCCCC)cc3)cccc2)cc1', 'c1cc[sH]c1', 'c1ccccc1', 'c1cc[sH]c1', 'CCCCCCc1ccc(-c2(-c3ccc(CCCCCC)cc3)cccc2)cc1', 'c1ccsc1', 'C=C1C(=O)c2cc(F)c(F)cc2C1=C(C#N)C#N'], ['c1ccsc1', 'CCCCC(CC)Cc1sc(CC(CC)CCCC)c2c1C(=O)c1cscc1C2=O', 'Cc1cccs1', 'CCCCC(CC)Cc1ccc(-c2c3cc(C)sc3c(-c3ccc(CC(CC)CCCC)s3)c3ccsc23)s1', '.', 'C=C1C(=O)c2cc(F)c(F)cc2C1=C(C#N)C#N', 'c1ccsc1', 'CCCCCCc1ccc(-c2(-c3ccc(CCCCCC)cc3)cccc2)cc1', 'c1cc[sH]c1', 'c1ccccc1', 'c1cc[sH]c1', 'CCCCCCc1ccc(-c2(-c3ccc(CCCCCC)cc3)cccc2)cc1', 'c1ccsc1', 'C=C1C(=O)c2cc(F)c(F)cc2C1=C(C#N)C#N']]"
-5.3859342404789405,"[['CCCCC(CC)Cc1ccc(-c2c3cc(C)sc3c(-c3ccc(CC(CC)CCCC)s3)c3ccsc23)s1', 'c1ccsc1', 'CCCCC(CC)Cc1sc(CC(CC)CCCC)c2c1C(=O)c1cscc1C2=O', 'Cc1cccs1', '.', 'C=C1C(=O)c2ccc(C)cc2C1=C(C#N)C#N', 'c1ccsc1', 'CCCCCCc1ccc(-c2(-c3ccc(CCCCCC)cc3)cccc2)cc1', 'c1cc[sH]c1', 'CCCCC(CC)Cc1ccc(-c2ccc(-c3ccc(CC(CC)CCCC)s3)cc2)s1', 'c1cc[sH]c1', 'CCCCCCc1ccc(-c2(-c3ccc(CCCCCC)cc3)cccc2)cc1', 'c1ccsc1', 'C=C1C(=O)c2ccc(C)cc2C1=C(C#N)C#N'], ['Cc1cccs1', 'CCCCC(CC)Cc1ccc(-c2c3cc(C)sc3c(-c3ccc(CC(CC)CCCC)s3)c3ccsc23)s1', 'c1ccsc1', 'CCCCC(CC)Cc1sc(CC(CC)CCCC)c2c1C(=O)c1cscc1C2=O', '.', 'C=C1C(=O)c2ccc(C)cc2C1=C(C#N)C#N', 'c1ccsc1', 'CCCCCCc1ccc(-c2(-c3ccc(CCCCCC)cc3)cccc2)cc1', 'c1cc[sH]c1', 'CCCCC(CC)Cc1ccc(-c2ccc(-c3ccc(CC(CC)CCCC)s3)cc2)s1', 'c1cc[sH]c1', 'CCCCCCc1ccc(-c2(-c3ccc(CCCCCC)cc3)cccc2)cc1', 'c1ccsc1', 'C=C1C(=O)c2ccc(C)cc2C1=C(C#N)C#N'], ['CCCCC(CC)Cc1sc(CC(CC)CCCC)c2c1C(=O)c1cscc1C2=O', 'Cc1cccs1', 'CCCCC(CC)Cc1ccc(-c2c3cc(C)sc3c(-c3ccc(CC(CC)CCCC)s3)c3ccsc23)s1', 'c1ccsc1', '.', 'C=C1C(=O)c2ccc(C)cc2C1=C(C#N)C#N', 'c1ccsc1', 'CCCCCCc1ccc(-c2(-c3ccc(CCCCCC)cc3)cccc2)cc1', 'c1cc[sH]c1', 'CCCCC(CC)Cc1ccc(-c2ccc(-c3ccc(CC(CC)CCCC)s3)cc2)s1', 'c1cc[sH]c1', 'CCCCCCc1ccc(-c2(-c3ccc(CCCCCC)cc3)cccc2)cc1', 'c1ccsc1', 'C=C1C(=O)c2ccc(C)cc2C1=C(C#N)C#N'], ['c1ccsc1', 'CCCCC(CC)Cc1sc(CC(CC)CCCC)c2c1C(=O)c1cscc1C2=O', 'Cc1cccs1', 'CCCCC(CC)Cc1ccc(-c2c3cc(C)sc3c(-c3ccc(CC(CC)CCCC)s3)c3ccsc23)s1', '.', 'C=C1C(=O)c2ccc(C)cc2C1=C(C#N)C#N', 'c1ccsc1', 'CCCCCCc1ccc(-c2(-c3ccc(CCCCCC)cc3)cccc2)cc1', 'c1cc[sH]c1', 'CCCCC(CC)Cc1ccc(-c2ccc(-c3ccc(CC(CC)CCCC)s3)cc2)s1', 'c1cc[sH]c1', 'CCCCCCc1ccc(-c2(-c3ccc(CCCCCC)cc3)cccc2)cc1', 'c1ccsc1', 'C=C1C(=O)c2ccc(C)cc2C1=C(C#N)C#N']]"
-5.123158333051367,"[['CCCCCCC(CCCC)CSc1c2cc(C)sc2c(SCC(CCCC)CCCCCC)c2ccsc12', 'c1ccsc1', 'CCCCCCC(CCCC)CSn1nc2cc(F)c(F)cc2n1', 'Cc1cccs1', '.', 'C=C1C(=O)c2ccccc2C1=C(C#N)C#N', 'c1cc2sccc2s1', 'CCCCCCc1ccc(-c2(-c3ccc(CCCCCC)cc3)cccc2)cc1', 'c1ccccc1', 'CCCCCCc1ccc(-c2(-c3ccc(CCCCCC)cc3)cccc2)cc1', 'c1cc2sccc2s1', 'C=C1C(=O)c2ccccc2C1=C(C#N)C#N'], ['Cc1cccs1', 'CCCCCCC(CCCC)CSc1c2cc(C)sc2c(SCC(CCCC)CCCCCC)c2ccsc12', 'c1ccsc1', 'CCCCCCC(CCCC)CSn1nc2cc(F)c(F)cc2n1', '.', 'C=C1C(=O)c2ccccc2C1=C(C#N)C#N', 'c1cc2sccc2s1', 'CCCCCCc1ccc(-c2(-c3ccc(CCCCCC)cc3)cccc2)cc1', 'c1ccccc1', 'CCCCCCc1ccc(-c2(-c3ccc(CCCCCC)cc3)cccc2)cc1', 'c1cc2sccc2s1', 'C=C1C(=O)c2ccccc2C1=C(C#N)C#N'], ['CCCCCCC(CCCC)CSn1nc2cc(F)c(F)cc2n1', 'Cc1cccs1', 'CCCCCCC(CCCC)CSc1c2cc(C)sc2c(SCC(CCCC)CCCCCC)c2ccsc12', 'c1ccsc1', '.', 'C=C1C(=O)c2ccccc2C1=C(C#N)C#N', 'c1cc2sccc2s1', 'CCCCCCc1ccc(-c2(-c3ccc(CCCCCC)cc3)cccc2)cc1', 'c1ccccc1', 'CCCCCCc1ccc(-c2(-c3ccc(CCCCCC)cc3)cccc2)cc1', 'c1cc2sccc2s1', 'C=C1C(=O)c2ccccc2C1=C(C#N)C#N'], ['c1ccsc1', 'CCCCCCC(CCCC)CSn1nc2cc(F)c(F)cc2n1', 'Cc1cccs1', 'CCCCCCC(CCCC)CSc1c2cc(C)sc2c(SCC(CCCC)CCCCCC)c2ccsc12', '.', 'C=C1C(=O)c2ccccc2C1=C(C#N)C#N', 'c1cc2sccc2s1', 'CCCCCCc1ccc(-c2(-c3ccc(CCCCCC)cc3)cccc2)cc1', 'c1ccccc1', 'CCCCCCc1ccc(-c2(-c3ccc(CCCCCC)cc3)cccc2)cc1', 'c1cc2sccc2s1', 'C=C1C(=O)c2ccccc2C1=C(C#N)C#N']]"
-8.207027396362319,"[['CCCCCCC(CS)CCCCc1c2cc(C)sc2c(SCC(CCCC)CCCCCC)c2ccsc12', 'c1ccsc1', 'CCCCCCC(CCCC)CSn1nc2ccccc2n1', 'Cc1cccs1', '.', 'C=C1C(=O)c2ccccc2C1=C(C#N)C#N', 'c1cc2sccc2s1', 'CCCCCCc1ccc(-c2(-c3ccc(CCCCCC)cc3)cccc2)cc1', 'c1ccccc1', 'CCCCCCc1ccc(-c2(-c3ccc(CCCCCC)cc3)cccc2)cc1', 'c1cc2sccc2s1', 'C=C1C(=O)c2ccccc2C1=C(C#N)C#N'], ['Cc1cccs1', 'CCCCCCC(CS)CCCCc1c2cc(C)sc2c(SCC(CCCC)CCCCCC)c2ccsc12', 'c1ccsc1', 'CCCCCCC(CCCC)CSn1nc2ccccc2n1', '.', 'C=C1C(=O)c2ccccc2C1=C(C#N)C#N', 'c1cc2sccc2s1', 'CCCCCCc1ccc(-c2(-c3ccc(CCCCCC)cc3)cccc2)cc1', 'c1ccccc1', 'CCCCCCc1ccc(-c2(-c3ccc(CCCCCC)cc3)cccc2)cc1', 'c1cc2sccc2s1', 'C=C1C(=O)c2ccccc2C1=C(C#N)C#N'], ['CCCCCCC(CCCC)CSn1nc2ccccc2n1', 'Cc1cccs1', 'CCCCCCC(CS)CCCCc1c2cc(C)sc2c(SCC(CCCC)CCCCCC)c2ccsc12', 'c1ccsc1', '.', 'C=C1C(=O)c2ccccc2C1=C(C#N)C#N', 'c1cc2sccc2s1', 'CCCCCCc1ccc(-c2(-c3ccc(CCCCCC)cc3)cccc2)cc1', 'c1ccccc1', 'CCCCCCc1ccc(-c2(-c3ccc(CCCCCC)cc3)cccc2)cc1', 'c1cc2sccc2s1', 'C=C1C(=O)c2ccccc2C1=C(C#N)C#N'], ['c1ccsc1', 'CCCCCCC(CCCC)CSn1nc2ccccc2n1', 'Cc1cccs1', 'CCCCCCC(CS)CCCCc1c2cc(C)sc2c(SCC(CCCC)CCCCCC)c2ccsc12', '.', 'C=C1C(=O)c2ccccc2C1=C(C#N)C#N', 'c1cc2sccc2s1', 'CCCCCCc1ccc(-c2(-c3ccc(CCCCCC)cc3)cccc2)cc1', 'c1ccccc1', 'CCCCCCc1ccc(-c2(-c3ccc(CCCCCC)cc3)cccc2)cc1', 'c1cc2sccc2s1', 'C=C1C(=O)c2ccccc2C1=C(C#N)C#N']]"
-7.034898031432842,"[['CCCCC(CC)Cc1ccc(-c2c3cc(C)sc3c(-c3ccc(CC(CC)CCCC)s3)c3ccsc23)s1', 'CCCCC(CC)COC(=O)c1sc2csc(C)c2c1F', '.', 'C=C1SC(=S)N(CC)C1=O', 'CCCCCCCCn1nc2ccccc2n1', 'c1ccsc1', 'CCCCCCc1ccc(-c2(-c3ccc(CCCCCC)cc3)cccc2)cc1', 'c1ccccc1', 'CCCCCCc1ccc(-c2(-c3ccc(CCCCCC)cc3)cccc2)cc1', 'c1ccsc1', 'CCCCCCCCn1nc2ccccc2n1', 'C=C1SC(=S)N(CC)C1=O'], ['CCCCC(CC)COC(=O)c1sc2csc(C)c2c1F', 'CCCCC(CC)Cc1ccc(-c2c3cc(C)sc3c(-c3ccc(CC(CC)CCCC)s3)c3ccsc23)s1', '.', 'C=C1SC(=S)N(CC)C1=O', 'CCCCCCCCn1nc2ccccc2n1', 'c1ccsc1', 'CCCCCCc1ccc(-c2(-c3ccc(CCCCCC)cc3)cccc2)cc1', 'c1ccccc1', 'CCCCCCc1ccc(-c2(-c3ccc(CCCCCC)cc3)cccc2)cc1', 'c1ccsc1', 'CCCCCCCCn1nc2ccccc2n1', 'C=C1SC(=S)N(CC)C1=O']]"
-7.141082725810321,"[['CCCCC(CC)Cc1ccc(-c2c3cc(C)sc3c(-c3ccc(CC(CC)CCCC)s3)c3ccsc23)s1', 'c1ccsc1', 'CCCCC(CC)Cc1sc(CC(CC)CCCC)c2c1C(=O)c1cscc1C2=O', 'Cc1cccs1', '.', 'C=C1C(=O)c2ccccc2C1=C(C#N)C#N', 'c1cc2sccc2s1', 'CCCCCCc1ccc(-c2(-c3ccc(CCCCCC)cc3)cccc2)cc1', 'c1ccccc1', 'CCCCCCc1ccc(-c2(-c3ccc(CCCCCC)cc3)cccc2)cc1', 'c1cc2sccc2s1', 'C=C1C(=O)c2ccccc2C1=C(C#N)C#N'], ['Cc1cccs1', 'CCCCC(CC)Cc1ccc(-c2c3cc(C)sc3c(-c3ccc(CC(CC)CCCC)s3)c3ccsc23)s1', 'c1ccsc1', 'CCCCC(CC)Cc1sc(CC(CC)CCCC)c2c1C(=O)c1cscc1C2=O', '.', 'C=C1C(=O)c2ccccc2C1=C(C#N)C#N', 'c1cc2sccc2s1', 'CCCCCCc1ccc(-c2(-c3ccc(CCCCCC)cc3)cccc2)cc1', 'c1ccccc1', 'CCCCCCc1ccc(-c2(-c3ccc(CCCCCC)cc3)cccc2)cc1', 'c1cc2sccc2s1', 'C=C1C(=O)c2ccccc2C1=C(C#N)C#N'], ['CCCCC(CC)Cc1sc(CC(CC)CCCC)c2c1C(=O)c1cscc1C2=O', 'Cc1cccs1', 'CCCCC(CC)Cc1ccc(-c2c3cc(C)sc3c(-c3ccc(CC(CC)CCCC)s3)c3ccsc23)s1', 'c1ccsc1', '.', 'C=C1C(=O)c2ccccc2C1=C(C#N)C#N', 'c1cc2sccc2s1', 'CCCCCCc1ccc(-c2(-c3ccc(CCCCCC)cc3)cccc2)cc1', 'c1ccccc1', 'CCCCCCc1ccc(-c2(-c3ccc(CCCCCC)cc3)cccc2)cc1', 'c1cc2sccc2s1', 'C=C1C(=O)c2ccccc2C1=C(C#N)C#N'], ['c1ccsc1', 'CCCCC(CC)Cc1sc(CC(CC)CCCC)c2c1C(=O)c1cscc1C2=O', 'Cc1cccs1', 'CCCCC(CC)Cc1ccc(-c2c3cc(C)sc3c(-c3ccc(CC(CC)CCCC)s3)c3ccsc23)s1', '.', 'C=C1C(=O)c2ccccc2C1=C(C#N)C#N', 'c1cc2sccc2s1', 'CCCCCCc1ccc(-c2(-c3ccc(CCCCCC)cc3)cccc2)cc1', 'c1ccccc1', 'CCCCCCc1ccc(-c2(-c3ccc(CCCCCC)cc3)cccc2)cc1', 'c1cc2sccc2s1', 'C=C1C(=O)c2ccccc2C1=C(C#N)C#N']]"
-7.181376721777666,"[['CCCCC(CC)Cc1ccc(-c2c3cc(C)sc3c(-c3ccc(CC(CC)CCCC)s3)c3ccsc23)s1', 'c1ccsc1', 'CCCCC(CC)COc1ccc(-c2nc3cc(F)c(F)cc3nc2-c2ccc(OCC(CC)CCCC)c(F)c2)cc1F', 'Cc1cccs1', '.', 'C=C1C(=O)c2ccccc2C1=C(C#N)C#N', 'c1cc2sccc2s1', 'CCCCCCc1ccc(-c2(-c3ccc(CCCCCC)cc3)cccc2)cc1', 'c1ccccc1', 'CCCCCCc1ccc(-c2(-c3ccc(CCCCCC)cc3)cccc2)cc1', 'c1cc2sccc2s1', 'C=C1C(=O)c2ccccc2C1=C(C#N)C#N'], ['Cc1cccs1', 'CCCCC(CC)Cc1ccc(-c2c3cc(C)sc3c(-c3ccc(CC(CC)CCCC)s3)c3ccsc23)s1', 'c1ccsc1', 'CCCCC(CC)COc1ccc(-c2nc3cc(F)c(F)cc3nc2-c2ccc(OCC(CC)CCCC)c(F)c2)cc1F', '.', 'C=C1C(=O)c2ccccc2C1=C(C#N)C#N', 'c1cc2sccc2s1', 'CCCCCCc1ccc(-c2(-c3ccc(CCCCCC)cc3)cccc2)cc1', 'c1ccccc1', 'CCCCCCc1ccc(-c2(-c3ccc(CCCCCC)cc3)cccc2)cc1', 'c1cc2sccc2s1', 'C=C1C(=O)c2ccccc2C1=C(C#N)C#N'], ['CCCCC(CC)COc1ccc(-c2nc3cc(F)c(F)cc3nc2-c2ccc(OCC(CC)CCCC)c(F)c2)cc1F', 'Cc1cccs1', 'CCCCC(CC)Cc1ccc(-c2c3cc(C)sc3c(-c3ccc(CC(CC)CCCC)s3)c3ccsc23)s1', 'c1ccsc1', '.', 'C=C1C(=O)c2ccccc2C1=C(C#N)C#N', 'c1cc2sccc2s1', 'CCCCCCc1ccc(-c2(-c3ccc(CCCCCC)cc3)cccc2)cc1', 'c1ccccc1', 'CCCCCCc1ccc(-c2(-c3ccc(CCCCCC)cc3)cccc2)cc1', 'c1cc2sccc2s1', 'C=C1C(=O)c2ccccc2C1=C(C#N)C#N'], ['c1ccsc1', 'CCCCC(CC)COc1ccc(-c2nc3cc(F)c(F)cc3nc2-c2ccc(OCC(CC)CCCC)c(F)c2)cc1F', 'Cc1cccs1', 'CCCCC(CC)Cc1ccc(-c2c3cc(C)sc3c(-c3ccc(CC(CC)CCCC)s3)c3ccsc23)s1', '.', 'C=C1C(=O)c2ccccc2C1=C(C#N)C#N', 'c1cc2sccc2s1', 'CCCCCCc1ccc(-c2(-c3ccc(CCCCCC)cc3)cccc2)cc1', 'c1ccccc1', 'CCCCCCc1ccc(-c2(-c3ccc(CCCCCC)cc3)cccc2)cc1', 'c1cc2sccc2s1', 'C=C1C(=O)c2ccccc2C1=C(C#N)C#N']]"
-7.179828090339712,"[['CCCCC(CC)Cc1ccc(-c2c3cc(C)sc3c(-c3ccc(CC(CC)CCCC)s3)c3ccsc23)s1', 'CCCCC(CC)COC(=O)c1sc2csc(C)c2c1F', '.', 'C=C1C(=O)c2ccccc2C1=C(C#N)C#N', 'c1ccsc1', 'CCCCCCCCCCC1(CCCCCCCCCC)c2ccccc2-c2ccccc21', 'c1ccsc1', 'C=C1C(=O)c2ccccc2C1=C(C#N)C#N'], ['CCCCC(CC)COC(=O)c1sc2csc(C)c2c1F', 'CCCCC(CC)Cc1ccc(-c2c3cc(C)sc3c(-c3ccc(CC(CC)CCCC)s3)c3ccsc23)s1', '.', 'C=C1C(=O)c2ccccc2C1=C(C#N)C#N', 'c1ccsc1', 'CCCCCCCCCCC1(CCCCCCCCCC)c2ccccc2-c2ccccc21', 'c1ccsc1', 'C=C1C(=O)c2ccccc2C1=C(C#N)C#N']]"
-10.064643263078983,
-10.075032858704143,
-10.031804500110887,
-10.046805585293276,
-10.024696016981599,
-10.027216162355522,
-10.002872624879757,
-9.995884836351737,
-9.217482920896352,
-9.325964641200194,
-9.202184398238968,
-9.212507405252278,
-9.097366716419788,
-9.06494296563309,
-9.163605518523786,
-9.16651365288143,
-12.142896794494574,
-12.09125370338041,
-12.124793875925432,
-12.150315881631366,
-5.896089040312145,
-5.910398069790491,
-7.056816251136896,
-7.012353682050549,
-7.069825790593969,
-7.0860023644407555,
-7.84310307922329,
-7.804085130920045,
-6.618306646949324,
-6.625975170994089,
-6.36658287660427,
-6.405701172940034,
-6.124120844424306,
-6.163559366703057,
-5.401326240939007,
-5.418167940939006,
-5.421361155711734,
-5.402118740939007,
-8.393690226584,
-8.45021469405997,
-8.35022620846356,
-8.309916260312976,
-5.319479296356791,
-5.324453581349576,
-5.315404565296185,
-5.30929022790441,
-9.582840236374514,
-9.580518403678127,
-9.589469171670364,
-9.607534355323516,
-9.986817627322331,
-9.987521819482524,
-9.93741007447849,
-9.935120836893688,
-9.986817627322331,
-9.987521819482524,
-9.93741007447849,
-9.935120836893688,
-9.946660455621899,
-10.276114369718147,
-9.972943979431422,
-10.344373722716025,
-10.966948762062266,
-10.975399915446921,
-11.020735735190682,
-11.001237617016022,
-10.966948762062266,
-10.975399915446921,
-11.020735735190682,
-11.001237617016022,
-9.490292099983716,
-9.458288151264304,
-7.530503153955442,
-7.257872797676426,
-6.18357576059274,
-7.602222611994668,
-6.337913145746596,
-9.14228745533453,
-9.149984017342227,
-9.164402219594725,
-9.161102070418947,
-6.149598106822694,
-6.150859178119912,
-10.846839177224936,
-10.846285422846707,
-10.850454306457653,
-10.841395793408621,
-8.832865237835058,
-9.083467242014134,
-8.988957924587105,
-8.855567177803882,
-4.819055157605875,
-4.8673206833390985,
-10.01380234654816,
-10.37250453829121,
-10.421711262347735,
-10.117827917380248,
-9.217048635495244,
-8.69664841631634,
-9.493956893291807,
-9.548649111397825,
-9.174308295501678,
-8.567482584171762,
-9.295816630214569,
-9.304005230557847,
-8.123546787272229,
-8.097765031638415,
-9.917192627459752,
-10.36996459944983,
-10.35533008206228,
-10.099986291914831,
-9.917192627459752,
-10.36996459944983,
-10.35533008206228,
-10.099986291914831,
-10.272716039000619,
-10.417458443212805,
-10.645392564640135,
-10.542536728408484,
-10.663134235800024,
-10.637313883682586,
-10.66882670008574,
-10.65502765059276,
-9.796744825003099,
-9.866663439697035,
-9.723220276461722,
-9.839807255953412,
-9.487612375961405,
-9.459290640259516,
-8.91402080489258,
-9.29967527721151,
-9.220554306946068,
-9.322368520395353,
-9.236293139764735,
-8.947964333839561,
-7.304164461237794,
-7.348212551630496,
-8.832865237835058,
-9.083467242014134,
-8.988957924587105,
-8.855567177803882,
-4.327177798343824,
-4.33690040833661,
-4.333185213116551,
-4.306402110843824,
-3.6777012100696234,
-3.669329424355337,
-3.6757962100696226,
-3.6757962100696226,
-11.731527672546436,
-11.776044350364954,
-11.811789351447898,
-11.799169855913524,
-8.842364237865732,
-8.773789994780648,
-8.72698076169675,
-8.695466954155306,
-6.149598106822694,
-6.150859178119912,
-6.621305163865649,
-6.621305163865649,
-6.615022663865649,
-6.621305163865649,
-7.402229389771221,
-7.494795627562268,
-7.4490570727609144,
-7.26200261751779,
-5.627757138007561,
-5.54406505081149,
-5.321837828179131,
-5.313164728350642,
-5.827159027884956,
-5.887910864844018,
-5.921485350629799,
-5.93720138125034,
-10.324837370737026,
-10.584714185779594,
-10.686931422867122,
-10.518786751207706,
-8.393690226584,
-8.45021469405997,
-5.549028138563251,
-5.447360842788187,
-5.549028138563251,
-5.447360842788187,
-5.549028138563251,
-5.447360842788187,
-7.049398997523152,
-7.105114542577602,
-7.431982896073277,
-7.450568503682012,
-6.899694283180946,
-6.943850074033857,
-6.771954536613492,
-6.862118508423427,
-6.774394368082949,
-6.923178898529634,
-5.699003368109192,
-5.677368157705479,
-5.5743983555023116,
-5.5688768975260965,
-9.09197455764858,
-9.126949675155178,
-8.999539767898703,
-9.00894092230668,
-11.246967070459865,
-11.206540552670992,
-11.284409739170428,
-11.304774268831537,
-9.097366716419788,
-9.06494296563309,
-9.163605518523786,
-9.16651365288143,
-11.201871026596553,
-11.229362600801167,
-11.1930529862513,
-11.25923027485517,
-9.979875904083158,
-9.996749577589599,
-10.005497477861352,
-9.969042021219586,
-9.369531029633539,
-9.382154274568551,
-9.393356924840305,
-9.354900253912826,
-6.647163435295333,
-6.6138272358850525,
-6.352329332716702,
-6.428959018481028,
-9.085015315461845,
-9.067255962104813,
-9.062249348842933,
-9.04680341805043,
-10.238877229380083,
-10.197946219638208,
-10.176125223985535,
-10.168518753285532,
-8.725135262392522,
-8.856517457181731,
-8.763382718296098,
-8.711173537991186,
-11.301049610333388,
-11.279119544841942,
-11.289810856217938,
-11.369240520113044,
-11.294651737796467,
-11.288270063095009,
-11.29556423005389,
-11.2892677163719,
-9.110830629173208,
-9.058223593159681,
-9.12873218700285,
-9.143165158928259,
-8.088422634797181,
-8.13828463143677,
-8.088030729266084,
-8.116293681041219,
-8.24658518740977,
-8.147693540594059,
-10.679048073844035,
-10.649848710912407,
-10.587114613566452,
-10.64584783896783,
-10.549382883430946,
-10.525661914199464,
-10.634798265536114,
-10.653518238265269,
-9.107502731903152,
-9.113404636304544,
-9.10397790401834,
-9.116339272385309,
-9.902755379466079,
-9.82129665208864,
-9.906924649114046,
-9.840088501699212,
-7.192814532537869,
-7.231307813650826,
-9.097366716419788,
-9.06494296563309,
-9.163605518523786,
-9.16651365288143,
-9.084329366895068,
-8.566351931377387,
-9.329999930003444,
-9.33495386928454,
-11.094856335002955,
-10.675998817877971,
+predicted_calc_PCE_percent,calc_PCE_percent
+8.317800597310297,11.085
+8.247356886090923,11.085
+8.359766734064562,11.085
+8.18869198748768,11.085
+9.621553657095928,9.672
+9.602555252103913,9.672
+9.45660229768688,9.672
+9.530675628468558,9.672
+9.54186023864229,13.178
+9.523948424628028,13.178
+9.532657411199772,13.178
+9.547725391501706,13.178
+9.542927050923907,6.518
+9.508894363883847,6.518
+9.541103630915543,6.518
+9.522908298483452,6.518
+9.1304684279023,8.973
+9.131571147553887,8.973
+9.090954233607178,8.973
+9.065514277237362,8.973
+9.387864579296872,7.364
+9.32083605159797,7.364
+9.343492984615699,7.364
+9.36579994095218,7.364
+9.373038042862484,11.041
+9.372993835205854,11.041
+9.344900977901826,11.041
+9.307105054903593,11.041
+7.557171445029187,5.241
+7.415399596867888,5.241
+9.082419745109428,12.791
+9.081313867901821,12.791
+9.080444996170248,12.791
+9.087690443792017,12.791
+10.962150561718959,10.741
+11.074818553258222,10.741
+10.964370205917518,10.741
+11.098446057250243,10.741
+10.956177481770881,9.384
+10.973181009416109,9.384
+10.960469663029178,9.384
+10.954870808800015,9.384
+10.962430557867876,9.723
+10.962064088751339,9.723
+10.962996557867873,9.723
+10.960692912774855,9.723
+10.917458701669007,10.38
+10.906619875938576,10.38
+10.927570198359358,10.38
+10.919920604765933,10.38
+9.512852742058293,11.628
+9.460794310065248,11.628
+9.512276794797394,11.628
+9.509588273291854,11.628
+7.687196296937682,7.447
+7.822968373166967,7.447
+7.679916296937683,7.447
+7.7510089308434855,7.447
+8.585432823547968,12.287
+8.738655312182935,12.287
+8.588444113842979,12.287
+8.702712835043148,12.287
+10.448460482917405,10.412
+10.83244130140537,10.412
+10.4626567329174,10.412
+10.802333135266142,10.412
+11.16238493562256,13.088
+11.327526662258194,13.088
+11.188335984620068,13.088
+11.300822967982125,13.088
+9.052507478533927,0.111
+8.979227786066563,0.111
+9.14599370150634,0.111
+9.142800805470632,0.111
+10.218866045041356,7.748
+10.240577550555047,7.748
+6.571871680794939,5.652
+6.566205564057478,5.652
+6.7321881362537805,5.652
+6.711088473093909,5.652
+8.562933492992535,9.555
+8.510271001918694,9.555
+8.567802963341352,9.555
+8.535540546589742,9.555
+11.181364595294482,11.565
+11.140383149992608,11.565
+11.250420088019489,11.565
+11.243477882219185,11.565
+5.676888769998093,5.702
+5.68599790067991,5.702
+5.680292052826376,5.702
+5.679859283032851,5.702
+9.131136541541483,10.238
+8.703066337902717,10.238
+9.381257571369215,10.238
+9.338435966716364,10.238
+11.543843394407936,9.934
+11.546563000855949,9.934
+11.552313819175476,9.934
+11.56547815385163,9.934
+7.968169597554882,7.066
+7.975499546649904,7.066
+11.009209322141755,10.158
+11.001265071408582,10.158
+5.739189384478398,3.921
+5.524416207138064,3.921
+8.136693120807054,9.951
+7.088448038294,9.951
+7.155568599008015,9.951
+7.053479039431505,9.951
+7.363296428783938,9.951
+10.027679592779853,9.215
+10.019655138417807,9.215
+9.996056676860752,9.215
+9.986113280868187,9.215
+9.979760756915656,11.045
+9.959015237984813,11.045
+9.948418192931623,11.045
+9.929677779278318,11.045
+9.17974783565591,11.208
+9.242439992413717,11.208
+9.191609304639545,11.208
+9.196866110488763,11.208
+9.052507478533927,10.426
+8.979227786066563,10.426
+9.14599370150634,10.426
+9.142800805470632,10.426
+11.7078741517002,6.341
+11.670670341345273,6.341
+11.715353665815543,6.341
+11.703479136534616,6.341
+5.955742301041192,5.706
+5.970448587876597,5.706
+7.215010264505816,8.517
+7.25215535860705,8.517
+7.272044753216796,8.517
+7.242594312601698,8.517
+7.837104968504569,5.484
+7.7891835531969,5.484
+6.765215492350044,7.4
+6.720412050757244,7.4
+6.578262408324298,7.4
+6.611805248232126,7.4
+5.995186394777368,8.621
+6.018658067287352,8.621
+5.599115628329782,5.311
+5.6126098110220894,5.311
+5.599428058885337,5.311
+5.597757503329783,5.311
+8.330368954974157,8.316
+8.303629253036188,8.316
+8.244475217516124,10.036
+8.246474957418107,10.036
+5.33182765070161,5.241
+5.3367920882016096,5.241
+5.3248632403480745,5.241
+5.32258297055455,5.241
+9.54186023864229,9.404
+9.523948424628028,9.404
+9.532657411199772,9.404
+9.547725391501706,9.404
+9.828333203227384,7.24
+9.833595731778486,7.24
+9.79787597803475,7.24
+9.78116714169534,7.24
+9.828333203227384,7.792
+9.833595731778486,7.792
+9.79787597803475,7.792
+9.78116714169534,7.792
+10.162359870782522,10.045
+10.418801238501883,10.045
+10.17681962078252,10.045
+10.458221959109137,10.045
+10.917361921191405,12.096
+10.946658587969107,12.096
+10.954317913462681,12.096
+10.945106614030928,12.096
+10.917361921191405,11.517
+10.946658587969107,11.517
+10.954317913462681,11.517
+10.945106614030928,11.517
+9.45114336192929,8.448
+9.362270912761616,8.448
+7.502393883605263,7.004
+7.093639614011591,7.004
+6.198546323851593,7.004
+7.510233256592337,7.004
+6.330501962363043,7.004
+9.139405988989154,9.036
+9.136787314079069,9.036
+9.14685212215966,9.036
+9.141381481640222,9.036
+6.365797141483298,12.317
+6.348669692760456,12.317
+10.784170836246625,10.454
+10.787330784037826,10.454
+10.785521213455006,10.454
+10.782800895263723,10.454
+9.300417579098486,7.061
+9.498748893422393,7.061
+9.579571666726288,7.061
+9.47801917844474,7.061
+5.380080474173885,5.815
+5.319393591963744,5.815
+10.292083751377819,12.767
+10.431564305909692,12.767
+10.565780249302597,12.767
+10.430320936019562,12.767
+9.131136541541483,8.779
+8.703066337902717,8.779
+9.381257571369215,8.779
+9.338435966716364,8.779
+9.042902994652325,9.287
+8.587390250504903,9.287
+9.251349510737123,9.287
+9.182934931282597,9.287
+8.148003266795794,10.182
+8.0613000713752,10.182
+10.205024178400588,6.193
+10.434606235514556,6.193
+10.50896583203168,6.193
+10.390725377300413,6.193
+10.205024178400588,11.711
+10.434606235514556,11.711
+10.50896583203168,11.711
+10.390725377300413,11.711
+10.33653956892333,12.043
+10.546835536121726,12.043
+10.845270023647862,12.043
+10.608769359464423,12.043
+10.59800730711867,12.047
+10.570221853949139,12.047
+10.60988836961867,12.047
+10.584530129658347,12.047
+9.57606175419287,9.587
+9.599299334575878,9.587
+9.531597562955733,9.587
+9.577335574921365,9.587
+9.10940657116628,9.923
+9.132051353067707,9.923
+9.060455677761054,10.304
+9.256654862231265,10.304
+9.219910030364977,10.304
+9.281866550963617,10.304
+9.28449486819781,10.304
+9.068312126232755,10.304
+7.440194394856793,6.15
+7.43296831747829,6.15
+9.300417579098486,12.773
+9.498748893422393,12.773
+9.579571666726288,12.773
+9.47801917844474,12.773
+4.774700230277036,2.552
+4.778048537969344,2.552
+4.764774785832591,2.552
+4.759000425129977,2.552
+3.8429522437970096,2.462
+3.8373422437970097,2.462
+3.8373422437970097,2.462
+3.8373422437970097,2.462
+11.686638221841324,10.847
+11.721431280554278,10.847
+11.76749894759756,10.847
+11.753286074127413,10.847
+8.887700958950607,11.342
+8.861251029391868,11.342
+8.811592962425914,11.342
+8.792990222434751,11.342
+6.365797141483298,12.702
+6.348669692760456,12.702
+6.6133649331337585,3.588
+6.6133649331337585,3.588
+6.607082433133758,3.588
+6.6133649331337585,3.588
+7.38653972676121,9.281
+7.563937725942851,9.281
+7.370313189695297,9.281
+7.234604135751655,9.281
+5.868382192314074,1.757
+5.849031960480368,1.757
+5.623590615467685,1.757
+5.698055865651047,1.757
+5.880691440876075,8.091
+5.899323619583177,8.091
+5.95508088722272,8.091
+5.961641935744465,8.091
+10.446315604428454,10.861
+10.590232167265583,10.861
+10.714708425332914,10.861
+10.650391991814532,10.861
+8.330368954974157,8.84
+8.303629253036188,8.84
+5.443861755943619,8.379
+5.415490225317306,8.379
+5.443861755943619,7.583
+5.415490225317306,7.583
+5.443861755943619,6.672
+5.415490225317306,6.672
+7.019805335967901,6.223
+7.0629769847118276,6.223
+7.4907702588026766,6.223
+7.484765109821424,6.223
+7.126380434517512,9.524
+7.1868400692724475,9.524
+7.0171511372078745,8.539
+7.064979834074767,8.539
+6.961714055457377,8.539
+7.160538200004278,8.539
+6.01817678792288,6.363
+5.986806572483133,6.363
+5.8484812434402045,6.363
+5.801522740969485,6.363
+9.122119180776206,3.771
+9.131571147553887,3.771
+9.031166482911908,3.771
+9.0434066883662,3.771
+11.076585994886392,12.772
+11.046122503764492,12.772
+11.134637570695592,12.772
+11.16103141500644,12.772
+9.052507478533927,9.941
+8.979227786066563,9.941
+9.14599370150634,9.941
+9.142800805470632,9.941
+11.054527024767502,10.469
+11.096364702490538,10.469
+11.061788614320667,10.469
+11.128760279786077,10.469
+9.805662939609062,10.667
+9.822019972501007,10.667
+9.817818013346058,10.667
+9.798392697762345,10.667
+9.400989285053704,8.332
+9.41824631794565,8.332
+9.4140443587907,8.332
+9.394619043206987,8.332
+6.747393185102001,5.774
+6.706073743514,5.774
+6.565573315239207,5.774
+6.6255326053620935,5.774
+9.09031248973409,8.875
+9.087860551273602,8.875
+9.08488456374944,8.875
+9.072665114947219,8.875
+10.136122251476612,9.583
+10.102623753303465,9.583
+10.10599797527725,9.583
+10.101156282944324,9.583
+8.805179481331095,13.21
+8.911744778267693,13.21
+8.83004368515705,13.21
+8.837495012796426,13.21
+11.138432423224714,13.52
+11.135188697719636,13.52
+11.143951408343565,13.52
+11.206917200485476,13.52
+11.129616119795278,8.164
+11.142540749493705,8.164
+11.136925561850934,8.164
+11.14297908207918,8.164
+9.159335287053329,6.409
+9.142829667035327,6.409
+9.171823113953765,6.409
+9.187105796623458,6.409
+8.009154882322024,12.02
+7.997637988305334,12.02
+8.026815198453816,12.02
+8.006033109678263,12.02
+8.31874221411762,6.91
+8.182501097675843,6.91
+10.569856776339114,8.12
+10.560004773261989,8.12
+10.523448111316851,8.12
+10.552830865787296,8.12
+10.4175458315172,11.306
+10.401612605802061,11.306
+10.46386973196319,11.306
+10.468330051088971,11.306
+9.099507399373566,8.829
+9.108869757600226,8.829
+9.102143869071085,8.829
+9.109916855692534,8.829
+9.542927050923907,4.524
+9.508894363883847,4.524
+9.541103630915543,4.524
+9.522908298483452,4.524
+7.002597462531623,0.054
+7.050212046804351,0.054
+9.052507478533927,7.262
+8.979227786066563,7.262
+9.14599370150634,7.262
+9.142800805470632,7.262
+9.03727864408704,8.467
+8.6156180831888,8.467
+9.287357341411116,8.467
+9.228241305506051,8.467
+11.021114607557283,8.328
+10.580588928094492,8.328

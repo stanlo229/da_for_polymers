@@ -99,6 +99,8 @@ def main(config: dict):
             train_df[target_df_columns],
             val_df[target_df_columns],
         )
+        # print("target_train", len(target_train_array))
+        # print("target_val", len(target_val_array))
 
         # choose model
         # TODO: factory pattern
@@ -136,7 +138,7 @@ def main(config: dict):
             ), "LR cannot be paired with HPO"
             model = LinearRegression()
         elif config["model_type"] == "SVM":
-            model = SVR(kernel="rbf", degree="3")
+            model = SVR(kernel="rbf", degree="3", cache_size=12000, max_iter=10000)
         else:
             raise NameError("Model not found. Please use RF, BRT, LR, KRR")
 
@@ -188,7 +190,7 @@ def main(config: dict):
         except:
             print("Folder already exists.")
         # save model
-        model_path: Path = target_dir_path / "model_{}.sav".format(fold)
+        model_path: Path = target_dir_path / "model_{}.pkl".format(fold)
         pickle.dump(model, open(model_path, "wb"))  # difficult to maintain
         # save best hyperparams for the best model from each fold
         if config["hyperparameter_optimization"]:
@@ -206,8 +208,7 @@ def main(config: dict):
         yhat_df: pd.DataFrame = pd.DataFrame(
             yhat, columns=["predicted_{}".format(config["target_name"])]
         )
-        for feature in list(config["feature_names"].split(",")):
-            yhat_df[feature] = val_df[feature]
+        yhat_df[config["target_name"]] = y_test
         yhat_df.to_csv(prediction_path, index=False)
         fold += 1
 

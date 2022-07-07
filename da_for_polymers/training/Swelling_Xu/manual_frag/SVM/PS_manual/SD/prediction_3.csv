@@ -1,0 +1,12 @@
+predicted_SD,PS_manual
+7.16678622977571,"['CN1C(=O)c2ccccc2C1=O', 'C=O', 'O=C1NC(=O)c2ccccc21', 'c1ccccc1', 'Cc1ccc2c(c1)C(C)CC2(C)C', '.', 'CCCCCC']"
+3.9177034538384827,"['CN1C(=O)c2ccccc2C1=O', 'O', 'c1ccccc1', 'CCC', 'c1ccccc1', 'O', 'O=C1NC(=O)c2ccccc21', 'Cc1ccccc1', '.', 'c1ccccc1C']"
+6.79423028760402,"['CO', 'c1ccccc1', 'O=S=O', 'c1ccccc1', 'O', 'c1ccccc1', 'CCC', 'Cc1ccccc1', '.', 'CCOC(=O)C']"
+10.15816399687944,"['CCC', 'CC[Si](C)(C)C', '.', 'CCC(=O)C']"
+5.975419105468576,"['CO', 'c1ccccc1', 'O=S=O', 'Cc1ccccc1', '.', 'CCC(=O)C']"
+6.19735334578066,"['CO', 'c1ccccc1', 'O=S=O', 'Cc1ccccc1', '.', 'CC(=O)C']"
+9.059224297206399,"['CNCCCCCCCCCCCC=O', 'CCCCCOCCCCOCCCCCO', '.', 'CC(C)O']"
+7.681967248852622,"['CO', 'c1ccccc1', 'O=S=O', 'c1ccccc1', 'O', 'c1ccccc1', 'CCC', 'Cc1ccccc1', '.', 'CCO']"
+5.471243136023677,"['CN1C(=O)c2ccccc2C1=O', 'O', 'c1ccccc1', 'CCC', 'c1ccccc1', 'O', 'O=C1NC(=O)c2ccccc21', 'Cc1ccccc1', '.', 'CCO']"
+1.4408644707809883,"['O=C1NC(=O)c2ccccc21', 'C=O', 'CN1C(=O)c2ccccc2C1=O', 'Cc1ccccc1', 'c1ccccc1', 'C', 'Cc1ccccc1', '.', 'CO']"
+6.98364098555796,"['C[Si](C)C', 'CO', '.', 'O']"
