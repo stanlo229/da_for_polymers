@@ -114,10 +114,9 @@ def main(config: dict):
                 model.parameters(),
                 lr=model_config["init_lr"],
             )
-
         # SummaryWriter
         log_dir: pathlib.Path = pathlib.Path(config["results_path"])
-        log_dir: pathlib.Path = log_dir / "log"
+        log_dir: pathlib.Path = log_dir / config["model_type"] / "log"
         train_log: pathlib.Path = log_dir / "train"
         valid_log: pathlib.Path = log_dir / "valid"
         train_writer: SummaryWriter = SummaryWriter(log_dir=train_log)
@@ -126,29 +125,32 @@ def main(config: dict):
         # Scheduler
         scheduler1 = LinearLR(
             optimizer,
+            start_factor=0.5,
+            end_factor=1.0,
             total_iters=config["warmup_epochs"],
         )
-        gamma = log(config["final_lr"] / config["max_lr"]) / (
-            config["warmup_epochs"] - config["num_of_epochs"]
-        )
-        scheduler2 = ExponentialLR(optimizer, gamma)
+        scheduler2 = ExponentialLR(optimizer, gamma=0.9)
         scheduler: SequentialLR = SequentialLR(
-            optimizer, schedulers=[scheduler1, scheduler2], milestones=[2]
+            optimizer,
+            schedulers=[scheduler1, scheduler2],
+            milestones=[config["warmup_epochs"]],
         )
         # TODO: log activations, lr, loss,
 
         # LOOP by EPOCHS
         device: torch.device = torch.device("cuda:0")
         model.to(device)
+        running_loss = 0
+        n_examples = 0
+        n_iter = 0
+        running_valid_loss = 0
+        n_valid_examples = 0
+        n_valid_iter = 0
         for epoch in range(config["num_of_epochs"]):
-            print("EPOCH :{}".format(epoch))
             ## TRAINING LOOP
             ## Make sure gradient tracking is on
             model.train(True)
             ## LOOP for 1 EPOCH
-            running_loss = 0
-            n_examples = 0
-            n_iter = 0
             for i, data in enumerate(train_dataloader):
                 inputs, targets = data  # [batch_size, input_size]
                 # convert to cuda
@@ -171,29 +173,26 @@ def main(config: dict):
                 n_examples += len(inputs)
                 # Gather number of iterations (batches) trained
                 n_iter += 1
-                # TODO: Gather data and report based on epoch, and report number of examples trained on.
-                # TODO: report avg loss and loss of current batch
                 # Stop training after max iterations
-                if n_iter % config["report_iter_frequency"] == 0:
+                if (n_iter * config["train_batch_size"]) % config[
+                    "report_iter_frequency"
+                ] == 0:
                     train_writer.add_scalar("loss_batch", loss, n_examples)
                     train_writer.add_scalar(
                         "loss_avg", running_loss / n_iter, n_examples
                     )
-                    # handle complex lr?
-                    if isinstance(scheduler.get_last_lr()[0], complex):
-                        train_writer.add_scalar(
-                            "lr", scheduler.get_last_lr()[0].real, n_examples
-                        )
-                    else:
-                        train_writer.add_scalar(
-                            "lr", scheduler.get_last_lr()[0], n_examples
-                        )
+            # Log LR per-epoch
+            lr = optimizer.param_groups[0]["lr"]
+            train_writer.add_scalar("lr", lr, n_examples)
+            # print progress report
+            print(
+                "EPOCH: {}, N_EXAMPLES: {}, LOSS: {}, LR: {}".format(
+                    epoch, n_examples, loss, lr
+                )
+            )
 
             ## VALIDATION LOOP
             model.train(False)
-            running_valid_loss = 0
-            n_valid_examples = 0
-            n_valid_iter = 0
             for i, valid_data in enumerate(valid_dataloader):
                 valid_inputs, valid_targets = valid_data
                 valid_inputs, valid_targets = valid_inputs.to(
@@ -211,17 +210,22 @@ def main(config: dict):
                 # Gather data and report
                 running_valid_loss += valid_loss
                 # Gather number of examples trained
-                n_valid_examples += len(valid_inputs)
+                n_examples += len(valid_inputs)
                 # Gather number of iterations (batches) trained
                 n_valid_iter += 1
-                if n_iter % config["report_iter_frequency"] == 0:
-                    valid_writer.add_scalar("loss_batch", valid_loss, n_valid_examples)
-                    valid_writer.add_scalar(
-                        "loss_avg", running_valid_loss / n_iter, n_valid_examples
-                    )
+            valid_writer.add_scalar("loss_batch", valid_loss, n_examples)
+            valid_writer.add_scalar(
+                "loss_avg", running_valid_loss / n_valid_iter, n_examples
+            )
 
             # Adjust learning rate
             scheduler.step()
+
+        # Inference
+
+        # close SummaryWriter
+        train_writer.close()
+        valid_writer.close()
 
 
 if __name__ == "__main__":
@@ -269,8 +273,8 @@ if __name__ == "__main__":
     parser.add_argument(
         "--report_iter_frequency",
         type=int,
-        default=1,
-        help="After N iterations (batches), log the results.",
+        default=16,
+        help="After N Examples, log the results.",
     )
     args = parser.parse_args()
     config = vars(args)

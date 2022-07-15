@@ -1,6 +1,6 @@
 {
     "train_batch_size": 16,
-    "valid_batch_size": 8,
+    "valid_batch_size": 16,
     "embedding_size": 128,
     "hidden_size": 128,
     "n_layers": 2,
@@ -9,6 +9,6 @@
     "final_lr": 0.0001,
     "loss": "MSE",
     "optimizer": "Adam",
-    "warmup_epochs": 2,
-    "num_of_epochs": 10
+    "warmup_epochs": 5,
+    "num_of_epochs": 45
 }
