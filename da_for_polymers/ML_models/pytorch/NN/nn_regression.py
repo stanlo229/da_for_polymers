@@ -27,41 +27,34 @@ class NNModel(nn.Module):
         Args:
             config (args): Model Configuration parameters.
         """
-        super().__init__()
+        super(NNModel, self).__init__()
         self.embeds: nn.Sequential = nn.Sequential(
-            nn.Embedding(config["vocab_length"], config.embedding_size),
+            nn.Linear(config["input_size"], config["embedding_size"]),
             nn.ReLU(),
-            OrthoLinear(config.embedding_size, config.hidden_size),
+            OrthoLinear(config["embedding_size"], config["hidden_size"]),
             nn.ReLU(),
         )
-        self.linearlayers: nn.Sequential = nn.Sequential(
-            OrderedDict(
-                [
-                    (
-                        (
-                            "ortholinear",
-                            OrthoLinear(config.hidden_size, config.hidden_size),
-                        ),
-                        (
-                            "relu",
-                            nn.ReLU(),
-                        ),
-                    )
-                    for _ in range(config["n_layers"])
-                ]
-            )
+        self.linearlayers: nn.ModuleList = nn.ModuleList(
+            [
+                nn.Sequential(
+                    OrthoLinear(config["hidden_size"], config["hidden_size"]), nn.ReLU()
+                )
+                for _ in range(config["n_layers"])
+            ]
         )
-        self.output: nn.Linear = nn.Linear(config.hidden_size, config.output_size)
+
+        self.output: nn.Linear = nn.Linear(config["hidden_size"], config["output_size"])
 
     def forward(self, x: torch.tensor):
         """
         Args:
-            x (torch.tensor): _description_
+            x (torch.tensor): Shape[batch_size, input_size]
 
         Returns:
             _type_: _description_
         """
         embeds: torch.tensor = self.embeds(x)
-        linear: torch.tensor = self.linearlayers(embeds)
+        for i, layer in enumerate(self.linearlayers):
+            linear: torch.tensor = layer(embeds)
         output: torch.tensor = self.output(linear)
         return output

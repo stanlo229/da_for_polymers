@@ -13,6 +13,7 @@ from pyparsing import Opt
 from torch.utils.tensorboard import SummaryWriter
 from datetime import datetime
 
+import torch
 from torch import nn
 import pandas as pd
 from torch.utils.data import DataLoader
@@ -58,10 +59,13 @@ def main(config: dict):
         (
             input_train_array,
             input_val_array,
+            max_input_length,
         ) = process_features(  # additional features are added at the end of array
             train_df[config["feature_names"].split(",")],
             val_df[config["feature_names"].split(",")],
         )
+        config["input_size"] = max_input_length
+        print(config["input_size"])
         # TODO: update vocabulary length for nn.Model
         # config["vocab_length"] = 0
         # process target values
@@ -76,6 +80,7 @@ def main(config: dict):
             train_df[target_df_columns],
             val_df[target_df_columns],
         )
+        config["output_size"] = len(config["target_name"].split(","))
 
         # Create PyTorch Dataset and DataLoader
         train_set = PolymerDataset(
@@ -84,8 +89,12 @@ def main(config: dict):
         valid_set = PolymerDataset(
             input_val_array, target_val_array, config["random_state"]
         )
-        train_dataloader = DataLoader(train_set, batch_size=config["train_batch_size"])
-        valid_dataloader = DataLoader(valid_set, batch_size=config["valid_batch_size"])
+        train_dataloader = DataLoader(
+            train_set, batch_size=config["train_batch_size"], shuffle=True
+        )
+        valid_dataloader = DataLoader(
+            valid_set, batch_size=config["valid_batch_size"], shuffle=False
+        )
 
         # Choose PyTorch Model
         if config["model_type"] == "NN":
@@ -103,8 +112,7 @@ def main(config: dict):
         if config["optimizer"] == "Adam":
             optimizer = optim.Adam(
                 model.parameters(),
-                lr=model_config["lr"],
-                momentum=model_config["momentum"],
+                lr=model_config["init_lr"],
             )
 
         # SummaryWriter
@@ -118,7 +126,6 @@ def main(config: dict):
         # Scheduler
         scheduler1 = LinearLR(
             optimizer,
-            end_factor=(config["max_lr"] / config["init_lr"]),
             total_iters=config["warmup_epochs"],
         )
         gamma = log(config["final_lr"] / config["max_lr"]) / (
@@ -126,23 +133,28 @@ def main(config: dict):
         )
         scheduler2 = ExponentialLR(optimizer, gamma)
         scheduler: SequentialLR = SequentialLR(
-            optimizer, schedulers=[scheduler1, scheduler2]
+            optimizer, schedulers=[scheduler1, scheduler2], milestones=[2]
         )
         # TODO: log activations, lr, loss,
 
         # LOOP by EPOCHS
+        device: torch.device = torch.device("cuda:0")
+        model.to(device)
         for epoch in range(config["num_of_epochs"]):
-            print("EPOCH {}:".format(epoch))
+            print("EPOCH :{}".format(epoch))
             ## TRAINING LOOP
             ## Make sure gradient tracking is on
-            model.train()
+            model.train(True)
             ## LOOP for 1 EPOCH
             running_loss = 0
             n_examples = 0
             n_iter = 0
             for i, data in enumerate(train_dataloader):
-                inputs, targets = data
-                inputs, targets = inputs.cuda(), targets.cuda()
+                inputs, targets = data  # [batch_size, input_size]
+                # convert to cuda
+                inputs, targets = inputs.to(device="cuda"), targets.to(device="cuda")
+                # convert to float
+                inputs, targets = inputs.float(), targets.float()
                 # Zero your gradients for every batch!
                 optimizer.zero_grad()
                 # Make predictions for this batch
@@ -167,16 +179,31 @@ def main(config: dict):
                     train_writer.add_scalar(
                         "loss_avg", running_loss / n_iter, n_examples
                     )
-                    train_writer.add_scalar("lr", scheduler.get_last_lr(), n_examples)
-                    pass
+                    # handle complex lr?
+                    if isinstance(scheduler.get_last_lr()[0], complex):
+                        train_writer.add_scalar(
+                            "lr", scheduler.get_last_lr()[0].real, n_examples
+                        )
+                    else:
+                        train_writer.add_scalar(
+                            "lr", scheduler.get_last_lr()[0], n_examples
+                        )
 
             ## VALIDATION LOOP
+            model.train(False)
             running_valid_loss = 0
             n_valid_examples = 0
             n_valid_iter = 0
             for i, valid_data in enumerate(valid_dataloader):
                 valid_inputs, valid_targets = valid_data
-                valid_inputs, valid_targets = valid_inputs.cuda(), valid_targets.cuda()
+                valid_inputs, valid_targets = valid_inputs.to(
+                    device="cuda"
+                ), valid_targets.to(device="cuda")
+                # convert to float
+                valid_inputs, valid_targets = (
+                    valid_inputs.float(),
+                    valid_targets.float(),
+                )
                 # Make predictions for this batch
                 valid_outputs = model(valid_inputs)
                 # Compute the loss

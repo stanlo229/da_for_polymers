@@ -29,7 +29,7 @@ def tokenize_from_dict(token2idx: dict, input_value: Union[list, str]) -> list:
     return tokenized_list
 
 
-def pad_input(input_list_of_list, max_input_length) -> list:
+def pad_input(input_list_of_list: list, max_input_length: int) -> list:
     """Pad the input_value (pre-padding) with 0's until max_length is met.
 
     Args:
@@ -46,7 +46,7 @@ def pad_input(input_list_of_list, max_input_length) -> list:
     return input_list_of_list
 
 
-def feature_scale(feature_series: pd.Series) -> np.array:
+def feature_scale(feature_series: pd.Series) -> Union[float, float]:
     """
     Min-max scaling of a feature.
     Args:
@@ -55,23 +55,13 @@ def feature_scale(feature_series: pd.Series) -> np.array:
         scaled_feature: a np.array (same index) of feature that is min-max scaled
         max_value: maximum value from the entire feature array
     """
-    feature_array = feature_series.to_numpy().astype("float64")
-    max_value = np.nanmax(feature_array)
-    min_value = np.nanmin(feature_array)
+    feature_array: np.ndarray = feature_series.to_numpy().astype("float64")
+    max_value: float = np.nanmax(feature_array)
+    min_value: float = np.nanmin(feature_array)
     return max_value, min_value
 
 
-def filter_nan(df_to_filter):
-    """
-    Args:
-        df_to_filter (_type_): _description_
-
-    Returns:
-        filtered_df (df.Dataframe):
-    """
-    pass
-
-
+# TODO: return max length for fragments and fingerprints! not only SMILES, etc.
 def process_features(train_feature_df, val_feature_df) -> Tuple[np.ndarray, np.ndarray]:
     """Processes various types of features (str, float, list) and returns "training ready" arrays.
 
@@ -86,14 +76,16 @@ def process_features(train_feature_df, val_feature_df) -> Tuple[np.ndarray, np.n
     assert len(train_feature_df) > 1, train_feature_df
     assert len(val_feature_df) > 1, val_feature_df
     # Cannot have more than 1 input_value representation, so the only str type value will be the input_value representation.
-    column_headers = train_feature_df.columns
+    column_headers: list = train_feature_df.columns
     for column in column_headers:
         if type(train_feature_df[column][1]) == str:
-            input_representation = column
+            input_representation: str = column
 
     # calculate feature dict
-    feature_scale_dict = {}
-    concat_df = pd.concat([train_feature_df, val_feature_df], ignore_index=True)
+    feature_scale_dict: dict = {}
+    concat_df: pd.DataFrame = pd.concat(
+        [train_feature_df, val_feature_df], ignore_index=True
+    )
     for column in column_headers:
         if any(
             [
@@ -170,7 +162,7 @@ def process_features(train_feature_df, val_feature_df) -> Tuple[np.ndarray, np.n
                 token2idx,
             ) = Tokenizer().tokenize_data(concat_df[input_representation])
         elif "SELFIES" in input_representation:
-            token2idx, max_length = Tokenizer().tokenize_selfies(
+            token2idx, vocab_length = Tokenizer().tokenize_selfies(
                 concat_df[input_representation]
             )
     else:

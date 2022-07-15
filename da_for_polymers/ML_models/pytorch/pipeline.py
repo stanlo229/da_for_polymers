@@ -176,7 +176,7 @@ def process_features(train_feature_df, val_feature_df) -> Tuple[np.ndarray, np.n
     else:
         raise TypeError("input_value is neither str or list. Fix it!")
 
-    max_input_length = 0  # for padding
+    max_input_length = 0  # for padding and dimension for first layer of NN
     # processing training data
     input_train_list = []
     for index, row in train_feature_df.iterrows():
@@ -379,7 +379,7 @@ def process_features(train_feature_df, val_feature_df) -> Tuple[np.ndarray, np.n
     assert type(input_train_array[0]) == np.ndarray, input_train_array
     assert type(input_val_array[0]) == np.ndarray, input_val_array
 
-    return input_train_array, input_val_array
+    return input_train_array, input_val_array, max_input_length
 
 
 def process_target(
@@ -450,6 +450,8 @@ def process_target(
 
     target_train_array = (target_train_array - target_min) / (target_max - target_min)
     target_val_array = (target_val_array - target_min) / (target_max - target_min)
+    target_train_array = np.expand_dims(target_train_array, axis=1)
+    target_val_array = np.expand_dims(target_val_array, axis=1)
 
     return target_train_array, target_val_array, target_max, target_min
 
