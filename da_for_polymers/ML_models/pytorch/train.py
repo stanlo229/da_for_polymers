@@ -1,10 +1,20 @@
+"""Output needs to:
+1. Create model file that saves model (usable for inference), arguments, and config files.
+2. Output of prediction files must have consistent column names. (Ex. predicted_value, ground_truth_value)
+3. Summary file that contains R, R2, RMSE, MAE of all folds.
+"""
 import argparse
+import os
+import re
 from cmath import log
 import copy
 import enum
 import json
-import pathlib
+from pathlib import Path
 from sched import scheduler
+import numpy as np
+from numpy import mean, std
+from sklearn.metrics import mean_absolute_error, mean_squared_error
 
 # from logging import Logger
 from pyparsing import Opt
@@ -28,6 +38,21 @@ from da_for_polymers.ML_models.pytorch.NN.nn_regression import NNModel
 from da_for_polymers.ML_models.pytorch.data.data_utils import PolymerDataset
 
 
+def dataset_find(result_path: str):
+    """Finds the dataset name for the given path from the known datasets we have.
+
+    Args:
+        result_path (str): filepath to results
+    Returns:
+        dataset_name (str): dataset name
+    """
+    result_path_list: list = result_path.split("/")
+    datasets: list = ["CO2_Soleimani", "PV_Wang", "OPV_Min", "Swelling_Xu"]
+    for dataset_name in datasets:
+        if dataset_name in result_path_list:
+            return dataset_name
+
+
 def main(config: dict):
     """
     Starting from user-specified inputs, a PyTorch model is trained and evaluated.
@@ -46,13 +71,15 @@ def main(config: dict):
     validation_paths: str = config["validation_paths"]
 
     # if multiple train and validation paths, X-Fold Cross-Validation occurs here.
-    fold: int = 0
     outer_r: list = []
     outer_r2: list = []
     outer_rmse: list = []
     outer_mae: list = []
+    num_of_folds: int = 0
     progress_dict: dict = {"fold": [], "r": [], "r2": [], "rmse": [], "mae": []}
     for train_path, validation_path in zip(train_paths, validation_paths):
+        # get fold
+        fold: int = int(re.findall(r"\d", train_path.split("/")[-1])[0])
         train_df: pd.DataFrame = pd.read_csv(train_path)
         val_df: pd.DataFrame = pd.read_csv(validation_path)
         # process SMILES vs. Fragments vs. Fingerprints. How to handle that? handle this and tokenization in pipeline
@@ -65,7 +92,6 @@ def main(config: dict):
             val_df[config["feature_names"].split(",")],
         )
         config["input_size"] = max_input_length
-        print(config["input_size"])
         # TODO: update vocabulary length for nn.Model
         # config["vocab_length"] = 0
         # process target values
@@ -115,10 +141,15 @@ def main(config: dict):
                 lr=model_config["init_lr"],
             )
         # SummaryWriter
-        log_dir: pathlib.Path = pathlib.Path(config["results_path"])
-        log_dir: pathlib.Path = log_dir / config["model_type"] / "log"
-        train_log: pathlib.Path = log_dir / "train"
-        valid_log: pathlib.Path = log_dir / "valid"
+        log_dir: Path = Path(config["results_path"])
+        log_dir: Path = log_dir / config["model_type"] / "log" / "fold_{}".format(fold)
+        log_count: int = 0
+        log_dir: Path = log_dir / str(log_count)
+        while log_dir.exists():
+            log_count += 1
+            log_dir: Path = log_dir.parent / str(log_count)
+        train_log: Path = log_dir / "train"
+        valid_log: Path = log_dir / "valid"
         train_writer: SummaryWriter = SummaryWriter(log_dir=train_log)
         valid_writer: SummaryWriter = SummaryWriter(log_dir=valid_log)
 
@@ -129,7 +160,7 @@ def main(config: dict):
             end_factor=1.0,
             total_iters=config["warmup_epochs"],
         )
-        scheduler2 = ExponentialLR(optimizer, gamma=0.9)
+        scheduler2 = ExponentialLR(optimizer, gamma=0.95)
         scheduler: SequentialLR = SequentialLR(
             optimizer,
             schedulers=[scheduler1, scheduler2],
@@ -144,8 +175,15 @@ def main(config: dict):
         n_examples = 0
         n_iter = 0
         running_valid_loss = 0
-        n_valid_examples = 0
         n_valid_iter = 0
+        # print training configs
+        print(config)
+        # print model summary
+        print(model)
+        pytorch_total_params = sum(
+            p.numel() for p in model.parameters() if p.requires_grad
+        )
+        print("MODEL_PARAMETERS: {}".format(pytorch_total_params))
         for epoch in range(config["num_of_epochs"]):
             ## TRAINING LOOP
             ## Make sure gradient tracking is on
@@ -222,10 +260,106 @@ def main(config: dict):
             scheduler.step()
 
         # Inference
+        predictions = []
+        ground_truth = []
+        n_valid_examples = 0
+        for i, valid_data in enumerate(valid_dataloader):
+            valid_inputs, valid_targets = valid_data
+            valid_inputs, valid_targets = valid_inputs.to(
+                device="cuda"
+            ), valid_targets.to(device="cuda")
+            # convert to float
+            valid_inputs, valid_targets = (
+                valid_inputs.float(),
+                valid_targets.float(),
+            )
+            # Make predictions for this batch
+            valid_outputs = model(valid_inputs)
+            # gather number of examples in validation set
+            n_valid_examples += len(valid_inputs)
+            # gather predictions and ground truth for result summary
+            predictions.extend(valid_outputs.tolist())
+            ground_truth.extend(valid_targets.tolist())
+
+        predictions: np.ndarray = np.array(predictions).flatten()
+        ground_truth: np.ndarray = np.array(ground_truth).flatten()
+        # reverse min-max scaling
+        predictions: np.ndarray = (predictions * (target_max - target_min)) + target_min
+        ground_truth: np.ndarray = (
+            ground_truth * (target_max - target_min)
+        ) + target_min
+
+        # make new files
+        # save model, outputs, generates new directory based on training/dataset/model/features/target
+        results_path: Path = Path(os.path.abspath(config["results_path"]))
+        model_dir_path: Path = results_path / "{}".format(config["model_type"])
+        feature_dir_path: Path = model_dir_path / "{}".format(config["feature_names"])
+        target_dir_path: Path = feature_dir_path / "{}".format(config["target_name"])
+        # create folders if not present
+        try:
+            target_dir_path.mkdir(parents=True, exist_ok=True)
+        except:
+            print("Folder already exists.")
+        # save model
+        model_path: Path = target_dir_path / "model_{}.pt".format(fold)
+        torch.save(model, model_path)
+        # save outputs
+        prediction_path: Path = target_dir_path / "prediction_{}.csv".format(fold)
+        # export predictions
+        prediction_df: pd.DataFrame = pd.DataFrame(
+            predictions, columns=["predicted_{}".format(config["target_name"])]
+        )
+        prediction_df[config["target_name"]] = ground_truth
+        prediction_df.to_csv(prediction_path, index=False)
+
+        # evaluate the model
+        r: float = np.corrcoef(ground_truth, predictions)[0, 1]
+        r2: float = (r) ** 2
+        rmse: float = np.sqrt(mean_squared_error(ground_truth, predictions))
+        mae: float = mean_absolute_error(ground_truth, predictions)
+        # report progress (best training score)
+        print(">r=%.3f, r2=%.3f, rmse=%.3f, mae=%.3f" % (r, r2, rmse, mae))
+        progress_dict["fold"].append(fold)
+        progress_dict["r"].append(r)
+        progress_dict["r2"].append(r2)
+        progress_dict["rmse"].append(rmse)
+        progress_dict["mae"].append(mae)
+        # append to outer list
+        outer_r.append(r)
+        outer_r2.append(r2)
+        outer_rmse.append(rmse)
+        outer_mae.append(mae)
+        num_of_folds += 1
 
         # close SummaryWriter
         train_writer.close()
         valid_writer.close()
+    # make new file
+    # summarize results
+    progress_path: Path = target_dir_path / "progress_report.csv"
+    progress_df: pd.DataFrame = pd.DataFrame.from_dict(progress_dict, orient="index")
+    progress_df = progress_df.transpose()
+    progress_df.to_csv(progress_path, index=False)
+    summary_path: Path = target_dir_path / "summary.csv"
+    summary_dict: dict = {
+        "Dataset": dataset_find(config["results_path"]),
+        "num_of_folds": num_of_folds,
+        "Features": config["feature_names"],
+        "Targets": config["target_name"],
+        "Model": config["model_type"],
+        "r_mean": mean(outer_r),
+        "r_std": std(outer_r),
+        "r2_mean": mean(outer_r2),
+        "r2_std": std(outer_r2),
+        "rmse_mean": mean(outer_rmse),
+        "rmse_std": std(outer_rmse),
+        "mae_mean": mean(outer_mae),
+        "mae_std": std(outer_mae),
+        "num_of_data": len(input_train_array) + len(input_val_array),
+    }
+    summary_df: pd.DataFrame = pd.DataFrame.from_dict(summary_dict, orient="index")
+    summary_df = summary_df.transpose()
+    summary_df.to_csv(summary_path, index=False)
 
 
 if __name__ == "__main__":
@@ -281,4 +415,4 @@ if __name__ == "__main__":
 
     main(config)
 
-# python ./train.py --train_path ~/Research/Repos/da_for_polymers/da_for_polymers/data/input_representation/CO2_Soleimani/BRICS/StratifiedKFold/input_train_0.csv --validation_path ~/Research/Repos/da_for_polymers/da_for_polymers/data/input_representation/CO2_Soleimani/BRICS/StratifiedKFold/input_valid_0.csv --feature_names Polymer_BRICS,T_K,P_Mpa --target_name exp_CO2_sol_g_g --model_type NN --model_config ./NN/model_config.json --results_path ~/Research/Repos/da_for_polymers/da_for_polymers/training/CO2_Soleimani/BRICS
+# python ../train.py --train_path ~/Research/Repos/da_for_polymers/da_for_polymers/data/input_representation/CO2_Soleimani/BRICS/StratifiedKFold/input_train_0.csv --validation_path ~/Research/Repos/da_for_polymers/da_for_polymers/data/input_representation/CO2_Soleimani/BRICS/StratifiedKFold/input_valid_0.csv --feature_names Polymer_BRICS,T_K,P_Mpa --target_name exp_CO2_sol_g_g --model_type NN --model_config ../NN/model_config.json --results_path ~/Research/Repos/da_for_polymers/da_for_polymers/training/CO2_Soleimani/BRICS

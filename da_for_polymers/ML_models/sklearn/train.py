@@ -5,6 +5,7 @@
 """
 from ctypes import Union
 import os
+import re
 from typing import Tuple
 import pandas as pd
 import pickle  # for saving scikit-learn models
@@ -70,13 +71,15 @@ def main(config: dict):
     validation_paths: str = config["validation_paths"]
 
     # if multiple train and validation paths, X-Fold Cross-Validation occurs here.
-    fold: int = 0
     outer_r: list = []
     outer_r2: list = []
     outer_rmse: list = []
     outer_mae: list = []
     progress_dict: dict = {"fold": [], "r": [], "r2": [], "rmse": [], "mae": []}
+    num_of_folds: int = 0
     for train_path, validation_path in zip(train_paths, validation_paths):
+        # get fold
+        fold: int = int(re.findall(r"\d", train_path.split("/")[-1])[0])
         train_df: pd.DataFrame = pd.read_csv(train_path)
         val_df: pd.DataFrame = pd.read_csv(validation_path)
         # process SMILES vs. Fragments vs. Fingerprints. How to handle that? handle this and tokenization in pipeline
@@ -210,7 +213,6 @@ def main(config: dict):
         )
         yhat_df[config["target_name"]] = y_test
         yhat_df.to_csv(prediction_path, index=False)
-        fold += 1
 
         # evaluate the model
         r: float = np.corrcoef(y_test, yhat)[0, 1]
@@ -229,6 +231,7 @@ def main(config: dict):
         outer_r2.append(r2)
         outer_rmse.append(rmse)
         outer_mae.append(mae)
+        num_of_folds += 1
 
     # make new file
     # summarize results
@@ -239,7 +242,7 @@ def main(config: dict):
     summary_path: Path = target_dir_path / "summary.csv"
     summary_dict: dict = {
         "Dataset": dataset_find(config["results_path"]),
-        "num_of_folds": fold,
+        "num_of_folds": num_of_folds,
         "Features": config["feature_names"],
         "Targets": config["target_name"],
         "Model": config["model_type"],

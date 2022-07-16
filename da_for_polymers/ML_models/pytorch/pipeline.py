@@ -124,7 +124,6 @@ def process_features(train_feature_df, val_feature_df) -> Tuple[np.ndarray, np.n
         input_instance = "str"
         input_value = concat_df[input_representation][1]
         # print("input_value is a string")
-    print(input_instance)
     if (
         input_instance == "list"
     ):  # could be list of fragments or list of (augmented) SMILES.
@@ -311,20 +310,21 @@ def process_features(train_feature_df, val_feature_df) -> Tuple[np.ndarray, np.n
                     feature_list.append(input_value)
             # process augmented input representations
             input_value = ast.literal_eval(row[input_representation])
-            for aug_value in input_value:
-                tokenized_list = []
-                if "Augmented_SMILES" == input_representation:
-                    tokenized_list.extend(
-                        Tokenizer().tokenize_from_dict(token2idx, aug_value)
-                    )  # SMILES
-                else:
-                    tokenized_list.extend(
-                        tokenize_from_dict(token2idx, aug_value)
-                    )  # fragments
-                tokenized_list.extend(feature_list)
-                input_val_list.append(tokenized_list)
-                if len(tokenized_list) > max_input_length:  # for padding
-                    max_input_length = len(tokenized_list)
+            # NOTE: In the validation set, only the first augmented value is taken. We do not want to perform predictions on augmented data.
+            aug_value = input_value[0]
+            tokenized_list = []
+            if "Augmented_SMILES" == input_representation:
+                tokenized_list.extend(
+                    Tokenizer().tokenize_from_dict(token2idx, aug_value)
+                )  # SMILES
+            else:
+                tokenized_list.extend(
+                    tokenize_from_dict(token2idx, aug_value)
+                )  # fragments
+            tokenized_list.extend(feature_list)
+            input_val_list.append(tokenized_list)
+            if len(tokenized_list) > max_input_length:  # for padding
+                max_input_length = len(tokenized_list)
 
         else:
             tokenized_list = []
@@ -437,8 +437,8 @@ def process_target(
         target_val_list = []
         for index, row in val_target_df.iterrows():
             input_value = ast.literal_eval(row[input_representation])
-            for i in range(len(input_value)):
-                target_val_list.append(row[val_target_df.columns[0]])
+            # NOTE: In the validation set, only the first augmented value is taken. We do not want to perform predictions on augmented data.
+            target_val_list.append(row[val_target_df.columns[0]])
 
         target_train_array = np.array(target_train_list)
         target_val_array = np.array(target_val_list)

@@ -1,2 +1,0 @@
-Dataset,num_of_folds,Features,Targets,Model,r_mean,r_std,r2_mean,r2_std,rmse_mean,rmse_std,mae_mean,mae_std,num_of_data
-PV_Wang,6,"Augmented_SMILES,Contact_angle,Thickness_um,Solvent_solubility_parameter_Mpa_sqrt,xw_wt_percent,Temp_C,Permeate_pressure_mbar",J_Total_flux_kg_m_2h_1,BRT,0.8878551702654699,0.038432627110819656,0.7897638701937658,0.06836586803709085,0.49595621644225907,0.08708331020652275,0.24948239430047905,0.04327338956484519,3154

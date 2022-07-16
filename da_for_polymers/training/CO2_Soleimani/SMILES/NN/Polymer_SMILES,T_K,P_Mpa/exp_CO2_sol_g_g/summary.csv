@@ -1,0 +1,2 @@
+Dataset,num_of_folds,Features,Targets,Model,r_mean,r_std,r2_mean,r2_std,rmse_mean,rmse_std,mae_mean,mae_std,num_of_data
+CO2_Soleimani,7,"Polymer_SMILES,T_K,P_Mpa",exp_CO2_sol_g_g,NN,0.982272345468526,0.005432574308616037,0.964888473535858,0.010681812772883959,0.025384788519273418,0.004409560202341004,0.016170581487313464,0.002673546484056458,515
